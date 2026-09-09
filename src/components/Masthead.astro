@@ -1,0 +1,28 @@
+---
+const isHomepage = Astro.url.pathname === '/';
+const query = Astro.url.searchParams.get('q') ?? '';
+---
+<div class="masthead">
+  <a class="masthead-brand" href="/" aria-label="Muse Skills home">Muse Skills</a>
+  <p class="masthead-tagline">One paste installs the whole thing.</p>
+  <div class="masthead-tools">
+    <nav class="masthead-nav" aria-label="Primary navigation">
+      <a href="/">Bank</a>
+      <a href="/about">About</a>
+      <a href="/submit">Submit a skill</a>
+    </nav>
+    <form class="search-form" action="/" method="get" role="search">
+      <label class="sr-only" for="search">Search patches</label>
+      <input class="search-input" id="search" name="q" type="search" placeholder="Search patches" value={query} autocomplete="off" />
+    </form>
+  </div>
+</div>
+{!isHomepage && <script is:inline>
+  const searchForm = document.querySelector('.search-form');
+  searchForm?.addEventListener('submit', (event) => {
+    const input = searchForm.querySelector('input[name="q"]');
+    if (!input) return;
+    event.preventDefault();
+    window.location.href = `/?q=${encodeURIComponent(input.value)}`;
+  });
+</script>}

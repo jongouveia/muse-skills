@@ -1,16 +1,6 @@
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
-
-export const CATEGORIES = {
-  'deal-hunting': 'Deal hunting',
-  'chief-of-staff': 'Chief of staff & productivity',
-  money: 'Money & finance',
-  shopping: 'Shopping',
-  creative: 'Creative',
-  dev: 'Dev & automation',
-} as const;
-
-export const TYPES = ['skill', 'prompt', 'workflow', 'config'] as const;
+import { CATEGORIES, TYPES } from './lib/categories';
 
 const entries = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/entries' }),

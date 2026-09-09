@@ -1,0 +1,34 @@
+---
+interface Props {
+  text: string;
+  label: string;
+}
+
+const { text, label } = Astro.props;
+---
+<button type="button" class="load-key" data-copy={text} aria-label={label}>{label}</button>
+<textarea class="fallback-text" data-fallback readonly aria-label="Install prompt fallback">{text}</textarea>
+<script>
+  const loadedMessage = 'Loaded. Paste it into your Muse chat.';
+  document.addEventListener('click', async (event) => {
+    const target = event.target;
+    if (!(target instanceof HTMLElement) || !target.matches('.load-key')) return;
+    const button = target;
+    const text = button.dataset.copy ?? '';
+    try {
+      await navigator.clipboard.writeText(text);
+      button.dataset.state = 'loaded';
+      const status = button.closest('.load-action')?.querySelector('[data-status]');
+      if (status) status.textContent = loadedMessage;
+      window.setTimeout(() => {
+        delete button.dataset.state;
+      }, 2000);
+    } catch {
+      const fallback = button.closest('.load-action')?.querySelector('[data-fallback]');
+      if (fallback instanceof HTMLTextAreaElement) {
+        fallback.focus();
+        fallback.select();
+      }
+    }
+  });
+</script>
