@@ -1,0 +1,154 @@
+{
+  "title": "Choose the visual world for Muse Skills",
+  "question": "The roll assigned Skill Facts Panel. Keep it, take an alternate, or re-roll.",
+  "options": [
+    {
+      "id": "assigned",
+      "label": "Skill Facts Panel",
+      "kicker": "THE ROLL",
+      "lineage": "OTC pharmacy packaging and the regulated Facts panel",
+      "thesis": "Every skill is a boxed product with a Facts panel: Uses, Warnings, Directions, Ingredients. The install prompt is the Directions block.",
+      "palette": ["#ffffff", "#111111", "#d8262c", "#1747a6", "#ffd42a"],
+      "materials": ["coated carton board", "one-color hairline rules", "saturated box-front color fields"],
+      "viewport": "Left: a monumental product name and one-line offer over a saturated box-front field. Right: the featured skill's full Facts panel at print scale, Directions block open, one Copy install prompt button inside it. Below: the aisle, a shelf of category-colored boxes, and the search field.",
+      "risk": "Reads as a gag if the panel is a costume; it works only if the panel is the real page structure and the copy stays literal and sober.",
+      "raised": [
+        {"from": "challenger-teletext", "raise": "One fixed column measure for every panel, phone to desktop; the panel scales its cell, never reflows into cards."},
+        {"from": "challenger-jackfield", "raise": "Entry type (skill, prompt, workflow, config) is carried by a drawn mark and a word, never by color alone."},
+        {"from": "challenger-alphabet-storm", "raise": "Display type set at physical carton scale: the product name is the largest ink on the page and behaves like printed matter, not a web heading."},
+        {"from": "challenger-cyclorama", "raise": "The install flow has three named phases (Copy, Paste, Confirm) rendered as discrete labeled states, so progress is legible without color."},
+        {"from": "challenger-mezzotint", "raise": "Color commits at region scale: a box-front field owns its whole area; no accent scattered over white."}
+      ],
+      "wireframe": {"cols": 12, "rows": 10, "regions": [
+        {"label": "masthead", "x": 0, "y": 0, "w": 12, "h": 1},
+        {"label": "product name + offer (box front)", "x": 0, "y": 1, "w": 5, "h": 4, "accent": true},
+        {"label": "featured Skill Facts panel", "x": 5, "y": 1, "w": 7, "h": 9},
+        {"label": "search", "x": 0, "y": 5, "w": 5, "h": 1},
+        {"label": "the aisle: category shelves", "x": 0, "y": 6, "w": 5, "h": 4}
+      ]},
+      "comp": ".impeccable/mocks/decision/assigned.webp"
+    },
+    {
+      "id": "model-pick",
+      "label": "Patch Library",
+      "kicker": "IMPECCABLE’S PICK",
+      "lineage": "synth patch sheets and hardware preset banks",
+      "thesis": "Each skill is a patch: a numbered slot, a patch sheet showing what is wired to what, and one Load button.",
+      "palette": ["#14161a", "#e6e2d6", "#ff7a1a", "#3ec1c9"],
+      "materials": ["brushed panel", "screen-printed legends", "LCD"],
+      "viewport": "A bank of numbered patch slots across the top; the selected patch's sheet fills the page with its routing and a Load patch action.",
+      "risk": "The most familiar of the grounded list for a tinkerer audience, and it can read as a music product to everyone else.",
+      "wireframe": {"cols": 12, "rows": 10, "regions": [
+        {"label": "patch bank", "x": 0, "y": 0, "w": 12, "h": 2, "accent": true},
+        {"label": "patch sheet", "x": 0, "y": 2, "w": 8, "h": 8},
+        {"label": "load + legend", "x": 8, "y": 2, "w": 4, "h": 8}
+      ]},
+      "comp": ".impeccable/mocks/decision/model-pick.webp"
+    },
+    {
+      "id": "challenger-zine",
+      "label": "Copy-Shop Zine",
+      "verdict": "competitive",
+      "lineage": "photocopied zine interiors on colored copy stock",
+      "thesis": "Every skill is a typed sheet on its own colored stock, passed hand to hand.",
+      "palette": ["#f2c230", "#e8452c", "#3a7d44", "#2b56a8", "#1a1a1a"],
+      "materials": ["colored copy stock", "typewriter column", "platen-enlarged caps"],
+      "viewport": "One goldenrod sheet square to the frame, the featured skill typed down it, neighbors visible as strips of stock at the edges.",
+      "case": "Community sharing is its native subject, so identification is strong; the single typed column loses on clarity for a scannable directory.",
+      "risk": "Reads as nostalgia when the copier filter does the work the structure should.",
+      "wireframe": {"cols": 12, "rows": 10, "regions": [
+        {"label": "stock edge", "x": 0, "y": 0, "w": 1, "h": 10},
+        {"label": "typed sheet", "x": 1, "y": 0, "w": 10, "h": 10, "accent": true},
+        {"label": "stock edge", "x": 11, "y": 0, "w": 1, "h": 10}
+      ]},
+      "hero": "https://impeccable.style/worlds/cards/rw-copy-shop-zine-interior-hero.webp",
+      "comp": ".impeccable/mocks/decision/challenger-zine.webp"
+    },
+    {
+      "id": "challenger-teletext",
+      "label": "Teletext Service",
+      "verdict": "declined",
+      "lineage": "broadcast teletext magazines",
+      "thesis": "The directory as a broadcast index: three-digit pages, not sections.",
+      "palette": ["#000000", "#ffff00", "#00ffff", "#ffffff"],
+      "materials": ["block mosaic", "bitmap grid"],
+      "viewport": "P100 index, skills as numbered rows.",
+      "case": "Muse's audience does not identify with teletext, and the 40-cell grid fights long install prompts.",
+      "risk": "Retro novelty.",
+      "kept": "One fixed column measure everywhere.",
+      "hero": "https://impeccable.style/worlds/cards/broadcast-programming-teletext-service-hero.webp"
+    },
+    {
+      "id": "challenger-jackfield",
+      "label": "Normalled Jackfield",
+      "verdict": "declined",
+      "lineage": "patchbay normalling schedules",
+      "thesis": "Every skill tied to its default by an amber link line.",
+      "palette": ["#0a0a0a", "#ffb000"],
+      "materials": ["black glass", "amber legends"],
+      "viewport": "Numbered lanes with link lines.",
+      "case": "An Operate grammar for a Persuade surface; state vocabulary the directory does not need.",
+      "risk": "Machine-room cold.",
+      "kept": "State by drawn mark, never color alone.",
+      "hero": "https://impeccable.style/worlds/cards/operate-b-normalled-jackfield-hero.webp"
+    },
+    {
+      "id": "challenger-alphabet-storm",
+      "label": "Alphabet Storm",
+      "verdict": "declined",
+      "lineage": "surreal typographic weather",
+      "thesis": "Letters as weather.",
+      "palette": ["#ffffff", "#000000", "#c0c0c0"],
+      "materials": ["monumental grotesk", "particles"],
+      "viewport": "A word-storm across the field.",
+      "case": "No product clarity for a directory; the mechanism is one paste, not language physics.",
+      "risk": "Spectacle without a product.",
+      "kept": "Type at physical scale.",
+      "hero": "https://impeccable.style/worlds/cards/dream-surreal-impossible-worlds-alphabet-storm-hero.webp"
+    },
+    {
+      "id": "challenger-cyclorama",
+      "label": "Cyclorama Dawn",
+      "verdict": "declined",
+      "lineage": "theater lighting cyc",
+      "thesis": "Content in horizon bands from night to day.",
+      "palette": ["#000000", "#1747a6", "#e07a9a", "#ffffff"],
+      "materials": ["light wash"],
+      "viewport": "Stacked horizon bands.",
+      "case": "Atmosphere with no directory topology; readers cannot find a skill by dawn phase.",
+      "risk": "Mood, not structure.",
+      "kept": "Discrete labeled phases.",
+      "hero": "https://impeccable.style/worlds/cards/stagecraft-theater-lighting-cyclorama-dawn-hero.webp"
+    },
+    {
+      "id": "challenger-mezzotint",
+      "label": "Mezzotint Night",
+      "verdict": "declined",
+      "lineage": "mezzotint printmaking",
+      "thesis": "Images emerge from total black.",
+      "palette": ["#050505", "#d9d4c7", "#6b4f3a"],
+      "materials": ["velvet black", "burnished silver"],
+      "viewport": "A dark plate with one lit passage.",
+      "case": "Fine-art gravity a consumer skills directory cannot carry; long source blocks on velvet black lose legibility.",
+      "risk": "Unreadable at scale.",
+      "kept": "Total commitment to the ground.",
+      "hero": "https://impeccable.style/worlds/cards/ink-pigment-printmaking-mezzotint-velvet-night-hero.webp"
+    }
+  ],
+  "reroll": {"registers": ["safer", "bolder"]},
+  "buildPath": {"value": "code", "toggle": false},
+  "canon": true,
+  "canonCard": {
+    "label": "The category standard",
+    "thesis": "The directory grid grokbot.dev and every prompt library ship: search hero, card grid, detail page with a code block.",
+    "palette": ["#ffffff", "#111827", "#2563eb"],
+    "materials": ["clean grid", "rounded cards"],
+    "viewport": "Search bar over a card grid grouped by category.",
+    "risk": "Indistinguishable from the competition by design.",
+    "wireframe": {"cols": 12, "rows": 10, "regions": [
+      {"label": "hero + search", "x": 0, "y": 0, "w": 12, "h": 3, "accent": true},
+      {"label": "card grid", "x": 0, "y": 3, "w": 12, "h": 7}
+    ]}
+  },
+  "steer": true
+}

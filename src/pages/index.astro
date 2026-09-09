@@ -1,0 +1,5 @@
+---
+import { getCollection } from 'astro:content';
+const entries = await getCollection('entries');
+---
+<ul>{entries.map((e) => <li>{e.data.title} ({e.data.type}, {e.data.category})</li>)}</ul>
