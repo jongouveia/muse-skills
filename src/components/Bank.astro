@@ -69,7 +69,7 @@ const renderedSheets = await Promise.all(
   <div class="sheet-region" id="patch-sheet-panel" role="tabpanel" aria-label="Selected patch">
     {renderedSheets.map(({ entry, Content }) => (
       <div class="sheet-slot" data-sheet-slot={entry.id} hidden={entry.id !== activeSlug}>
-        <PatchSheet entry={entry} body={Content} />
+        <PatchSheet entry={entry} body={Content} showSourceLink />
       </div>
     ))}
   </div>

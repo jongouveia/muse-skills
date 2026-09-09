@@ -50,13 +50,13 @@ import { TYPES } from '../lib/categories';
   .form-field label, .checklist h2 { color: var(--color-bone); font-family: var(--font-legend); font-size: 0.875rem; font-weight: 600; letter-spacing: 0.06em; line-height: 1; text-transform: uppercase; }
   .form-field :where(input, select, textarea) { box-sizing: border-box; width: 100%; border: 1px solid var(--color-rule); border-radius: var(--radius-panel); background: var(--color-panel-recess); color: var(--color-bone); padding: 10px 12px; }
   .form-field :where(input, select) { min-height: 40px; }
-  .form-field textarea { min-height: 240px; resize: vertical; font-family: var(--font-mono); font-size: 0.85rem; line-height: 1.5; }
+  .form-field textarea { min-height: 240px; resize: vertical; font-family: var(--font-prose); font-size: 0.85rem; line-height: 1.5; }
   .submit-button { width: 100%; margin-top: 8px; }
   .checklist { padding-top: 32px; border-top: 1px solid var(--color-rule); margin-top: 56px; }
   .checklist h2 { margin: 0 0 16px; }
   .checklist ul { display: grid; gap: 0; margin: 0; padding: 0; color: var(--color-bone-dim); list-style: none; }
-  .checklist li { position: relative; padding: 14px 0 14px 40px; border-top: 1px solid var(--color-rule); }
+  .checklist li { position: relative; padding: 14px 0 14px 44px; border-top: 1px solid var(--color-rule); }
   .checklist li:last-child { border-bottom: 1px solid var(--color-rule); }
-  .checklist li::before { position: absolute; left: 0; top: 14px; color: var(--color-live); content: "[ ]"; font-family: var(--font-mono); line-height: 1.6; }
+  .checklist li::before { position: absolute; left: 0; top: 14px; width: 28px; color: var(--color-live); content: "[ ]"; font-family: var(--font-legend); font-variant-numeric: tabular-nums; line-height: 1.6; }
   .checklist li + li { margin-top: 12px; }
 </style>

@@ -10,10 +10,11 @@ interface Props {
   body: AstroComponentFactory;
   headingLevel?: 1 | 2;
   showLoad?: boolean;
+  showSourceLink?: boolean;
   warningsHeading?: string;
 }
 
-const { entry, body: Body, headingLevel = 2, showLoad = true, warningsHeading = 'Warnings' } = Astro.props;
+const { entry, body: Body, headingLevel = 2, showLoad = true, showSourceLink = false, warningsHeading = 'Warnings' } = Astro.props;
 const { data } = entry;
 const warnings = [
   'A shared skill carries somebody else\'s instructions. Read the source before you install it.',
@@ -57,6 +58,7 @@ const warnings = [
       <div class="load-action">
         <LoadKey text={data.install_prompt} label="Copy install prompt" />
         <p class="load-status" data-status aria-live="polite">Ready. Press Load to copy the install prompt.</p>
+        {showSourceLink && <a class="sheet-source-link" href={`/entry/${entry.id}/`}>Read the full source</a>}
       </div>
     )}
   </aside>

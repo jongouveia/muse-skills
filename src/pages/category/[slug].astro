@@ -25,5 +25,5 @@ const name = categoryName(Astro.params.slug ?? '');
 <style>
   .category-header { padding-bottom: 32px; }
   .category-header h1 { margin: 0; color: var(--color-bone); font-family: var(--font-legend); font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 700; line-height: 0.95; text-transform: uppercase; letter-spacing: -0.01em; }
-  .category-count-line { margin: 8px 0 0; color: var(--color-live); font-family: var(--font-mono); font-size: 0.85rem; }
+  .category-count-line { margin: 8px 0 0; color: var(--color-live); font-family: var(--font-legend); font-size: 0.85rem; font-variant-numeric: tabular-nums; letter-spacing: 0.04em; }
 </style>

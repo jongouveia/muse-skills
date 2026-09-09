@@ -18,10 +18,6 @@ const categoryRows = Object.entries(CATEGORIES).map(([slug, name]) => ({
 const offerLine = 'Ready-to-use skills, prompt packs, scheduled workflows, and config snippets for Muse AI. Pick a slot, read the sheet, press Load.';
 ---
 <Base title="Muse Skills" description={offerLine}>
-  <section class="offer-line">
-    <p>{offerLine}</p>
-  </section>
-
   <Bank entries={entries} />
 
   <div class="below-fold">
