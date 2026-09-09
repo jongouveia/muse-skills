@@ -1,0 +1,13 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="Patch not found: Muse Skills" description="The requested Muse patch was not found.">
+  <div class="not-found">
+    <h1>No patch in this slot.</h1>
+    <a href="/">Back to the bank</a>
+  </div>
+</Base>
+<style>
+  .not-found h1 { margin: 0 0 20px; color: var(--color-bone); font-family: var(--font-legend); font-size: clamp(2.5rem, 6vw, 5.5rem); font-weight: 700; line-height: 0.9; letter-spacing: -0.02em; }
+  .not-found a { color: var(--color-live); }
+</style>

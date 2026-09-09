@@ -1,0 +1,59 @@
+---
+import Base from '../layouts/Base.astro';
+import { TYPES } from '../lib/categories';
+---
+<Base title="Submit a skill: Muse Skills" description="Submit a Muse skill, prompt pack, workflow, or config snippet for review.">
+  <div class="submit-content">
+    <h1>Submit a skill</h1>
+    <p class="submit-intro">Share a skill, prompt pack, workflow, or config snippet. A person reviews every submission against the checklist below before it's listed.</p>
+    <form id="submit-form">
+      <div class="form-field"><label for="name">Name</label><input id="name" name="name" type="text" required /></div>
+      <div class="form-field"><label for="type">Type</label><select id="type" name="type">{TYPES.map((type) => <option value={type}>{type}</option>)}</select></div>
+      <div class="form-field"><label for="source">Full source</label><textarea id="source" name="source" required rows="16"></textarea></div>
+      <div class="form-field"><label for="source_url">Where you shared it</label><input id="source_url" name="source_url" type="url" /></div>
+      <div class="form-field"><label for="author">Your name or handle</label><input id="author" name="author" type="text" /></div>
+      <button class="load-key submit-button" type="submit">Open a prefilled GitHub issue</button>
+    </form>
+    <section class="checklist" aria-labelledby="checklist-heading">
+      <h2 id="checklist-heading">What we check</h2>
+      <ul>
+        <li>The full source reads on the page. Nothing hidden behind a link.</li>
+        <li>It never asks for a credential.</li>
+        <li>It never sends your data to a third party.</li>
+        <li>The install prompt worked end to end in a fresh Muse chat.</li>
+        <li>The author is credited with a source link.</li>
+      </ul>
+    </section>
+  </div>
+</Base>
+<script>
+  const form = document.querySelector('#submit-form');
+  if (form instanceof HTMLFormElement) {
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const getValue = (id) => {
+        const field = form.querySelector(`#${id}`);
+        return field instanceof HTMLInputElement || field instanceof HTMLTextAreaElement || field instanceof HTMLSelectElement ? field.value : '';
+      };
+      const name = getValue('name');
+      const url = `https://github.com/jongouveia/muse-skills/issues/new?template=submission.yml&title=${encodeURIComponent(`[Submission] ${name}`)}&name=${encodeURIComponent(name)}&type=${encodeURIComponent(getValue('type'))}&source=${encodeURIComponent(getValue('source'))}&source_url=${encodeURIComponent(getValue('source_url'))}&author=${encodeURIComponent(getValue('author'))}`;
+      window.open(url, '_blank', 'noopener');
+    });
+  }
+</script>
+<style>
+  .submit-content { max-width: 68ch; }
+  .submit-content h1 { margin: 0 0 20px; color: var(--color-bone); font-family: var(--font-legend); font-size: clamp(2.5rem, 6vw, 5.5rem); font-weight: 700; line-height: 0.9; letter-spacing: -0.02em; }
+  .submit-intro { max-width: 62ch; margin: 0 0 40px; color: var(--color-bone-dim); }
+  #submit-form { display: grid; gap: 24px; }
+  .form-field { display: grid; gap: 8px; }
+  .form-field label, .checklist h2 { color: var(--color-bone); font-family: var(--font-legend); font-size: 0.875rem; font-weight: 600; letter-spacing: 0.06em; line-height: 1; text-transform: uppercase; }
+  .form-field :where(input, select, textarea) { box-sizing: border-box; width: 100%; border: 1px solid var(--color-rule); border-radius: var(--radius-panel); background: var(--color-panel-recess); color: var(--color-bone); padding: 10px 12px; }
+  .form-field :where(input, select) { min-height: 40px; }
+  .form-field textarea { min-height: 240px; resize: vertical; font-family: var(--font-mono); font-size: 0.85rem; line-height: 1.5; }
+  .submit-button { width: 100%; margin-top: 8px; }
+  .checklist { padding-top: 32px; border-top: 1px solid var(--color-rule); margin-top: 56px; }
+  .checklist h2 { margin: 0 0 16px; }
+  .checklist ul { margin: 0; padding-left: 24px; color: var(--color-bone-dim); }
+  .checklist li + li { margin-top: 12px; }
+</style>

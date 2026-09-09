@@ -8,9 +8,12 @@ import LoadKey from './LoadKey.astro';
 interface Props {
   entry: CollectionEntry<'entries'>;
   body: AstroComponentFactory;
+  headingLevel?: 1 | 2;
+  showLoad?: boolean;
+  warningsHeading?: string;
 }
 
-const { entry, body: Body } = Astro.props;
+const { entry, body: Body, headingLevel = 2, showLoad = true, warningsHeading = 'Warnings' } = Astro.props;
 const { data } = entry;
 const warnings = [
   'A shared skill carries somebody else\'s instructions. Read the source below before you install it.',
@@ -20,7 +23,11 @@ const warnings = [
 ---
 <article class="sheet" id={`sheet-${entry.id}`} data-sheet={entry.id} aria-labelledby={`sheet-title-${entry.id}`}>
   <div class="sheet-main">
-    <h2 class="sheet-title" id={`sheet-title-${entry.id}`}>{data.title}</h2>
+    {headingLevel === 1 ? (
+      <h1 class="sheet-title" id={`sheet-title-${entry.id}`}>{data.title}</h1>
+    ) : (
+      <h2 class="sheet-title" id={`sheet-title-${entry.id}`}>{data.title}</h2>
+    )}
     <p class="sheet-tagline">{data.tagline}</p>
     <div class="sheet-content">
       <section aria-labelledby={`uses-${entry.id}`}>
@@ -34,7 +41,7 @@ const warnings = [
         </ul>
       </section>
       <section class="warnings-block" aria-labelledby={`warnings-${entry.id}`}>
-        <h3 class="sheet-label" id={`warnings-${entry.id}`}>Warnings</h3>
+        <h3 class="sheet-label" id={`warnings-${entry.id}`}>{warningsHeading}</h3>
         <ul class="warnings-list">
           {warnings.map((warning) => <li>{warning}</li>)}
           <li class="safety-note">{data.safety_notes}</li>
@@ -51,9 +58,11 @@ const warnings = [
       <div class="metadata-item"><dt class="meta-label">Added</dt><dd class="meta-value">{formatDate(data.date_added)}</dd></div>
       <div class="metadata-item"><dt class="meta-label">Author</dt><dd class="meta-value"><a class="source-link" href={data.source_url}>{data.author}</a></dd></div>
     </dl>
-    <div class="load-action">
-      <LoadKey text={data.install_prompt} label="Copy install prompt" />
-      <p class="load-status" data-status aria-live="polite">Ready. Press Load to copy the install prompt.</p>
-    </div>
+    {showLoad && (
+      <div class="load-action">
+        <LoadKey text={data.install_prompt} label="Copy install prompt" />
+        <p class="load-status" data-status aria-live="polite">Ready. Press Load to copy the install prompt.</p>
+      </div>
+    )}
   </aside>
 </article>

@@ -1,0 +1,29 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Bank from '../../components/Bank.astro';
+import { CATEGORIES, categoryName } from '../../lib/categories';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('entries');
+  return Object.keys(CATEGORIES).map((slug) => ({
+    params: { slug },
+    props: { entries: entries.filter((entry) => entry.data.category === slug) },
+  }));
+}
+
+const { entries } = Astro.props;
+const name = categoryName(Astro.params.slug ?? '');
+---
+<Base title={`${name}: Muse Skills`} description={`${entries.length} patches in ${name} for Muse AI.`}>
+  <section class="category-header">
+    <h1>{name}</h1>
+    <p class="category-count-line">{entries.length} patches</p>
+  </section>
+  <Bank entries={entries} />
+</Base>
+<style>
+  .category-header { padding-bottom: 32px; }
+  .category-header h1 { margin: 0; color: var(--color-bone); font-family: var(--font-legend); font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 700; line-height: 0.95; text-transform: uppercase; letter-spacing: -0.01em; }
+  .category-count-line { margin: 8px 0 0; color: var(--color-live); font-family: var(--font-mono); font-size: 0.85rem; }
+</style>
