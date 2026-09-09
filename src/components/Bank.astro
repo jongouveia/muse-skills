@@ -2,6 +2,7 @@
 import { render } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 import { CATEGORIES, categoryName } from '../lib/categories';
+import { orderedBankEntries } from '../lib/bank';
 import PatchSheet from './PatchSheet.astro';
 
 interface Props {
@@ -9,18 +10,13 @@ interface Props {
 }
 
 const { entries } = Astro.props;
-const compareEntries = (a: CollectionEntry<'entries'>, b: CollectionEntry<'entries'>) => {
-  const dateDifference = a.data.date_added.valueOf() - b.data.date_added.valueOf();
-  return dateDifference || a.data.title.localeCompare(b.data.title);
-};
-
 const categoryGroups = (Object.keys(CATEGORIES) as Array<keyof typeof CATEGORIES>)
   .map((category) => ({
     category,
-    entries: entries.filter((entry) => entry.data.category === category).sort(compareEntries),
+    entries: orderedBankEntries(entries).filter((entry) => entry.data.category === category),
   }))
   .filter((group) => group.entries.length > 0);
-const orderedEntries = categoryGroups.flatMap((group) => group.entries);
+const orderedEntries = orderedBankEntries(entries);
 const slotNumbers = new Map(orderedEntries.map((entry, index) => [entry.id, index + 1]));
 const requestedSlot = Astro.url.searchParams.get('slot');
 const activeSlug = orderedEntries.some((entry) => entry.id === requestedSlot)

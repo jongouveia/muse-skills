@@ -15,17 +15,21 @@ import Base from '../layouts/Base.astro';
     <section aria-labelledby="safety-heading">
       <h2 id="safety-heading">Safety policy</h2>
       <ul>
-        <li>A shared skill carries somebody else's instructions. Read the source below before you install it.</li>
+        <li>A shared skill carries somebody else's instructions. Read the source before you install it.</li>
         <li>Never paste an API key, password, or token into anything a skill asks for. Legitimate skills use Muse's own secure flows.</li>
         <li>Installing copies the setup into your own environment. It gives the author nothing.</li>
       </ul>
-      <p>We test every install prompt in a fresh Muse chat before it's listed.</p>
+      <ul>
+        <li>We test every install prompt in a fresh Muse chat before it's listed.</li>
+      </ul>
     </section>
     <section aria-labelledby="curation-heading">
       <h2 id="curation-heading">How patches get here</h2>
       <p>We sweep X, Threads, Reddit, and GitHub each week for shared Muse skills, and we take submissions. New patches land in a weekly batch.</p>
     </section>
-    <p>Muse Skills is an independent community directory. It isn't affiliated with Meta. Muse and Muse AI are Meta's names.</p>
+    <section class="independence-block">
+      <p>Muse Skills is an independent community directory. It isn't affiliated with Meta. Muse and Muse AI are Meta's names.</p>
+    </section>
   </div>
 </Base>
 <style>
@@ -38,4 +42,5 @@ import Base from '../layouts/Base.astro';
   .about-content li + li { margin-top: 12px; }
   .about-content section > p + p { margin-top: 16px; }
   .about-content > p:last-child { padding-top: 32px; border-top: 1px solid var(--color-rule); margin-top: 32px; }
+  .about-content .independence-block { padding-top: 32px; }
 </style>

@@ -3,11 +3,19 @@ interface Props {
   text: string;
   label: string;
   includeFallback?: boolean;
+  idleText?: string;
+  doneText?: string;
 }
 
-const { text, label, includeFallback = true } = Astro.props;
+const {
+  text,
+  label,
+  includeFallback = true,
+  idleText = 'Ready. Press Load to copy the install prompt.',
+  doneText = 'Loaded. Paste it into your Muse chat.',
+} = Astro.props;
 ---
-<button type="button" class="load-key" data-copy={text} aria-label={label}>{label}</button>
+<button type="button" class="load-key" data-copy={text} data-idle-text={idleText} data-done-text={doneText} aria-label={label}>{label}</button>
 {includeFallback && <textarea class="fallback-text" data-fallback readonly aria-label={label}>{text}</textarea>}
 <script is:inline>
   if (!window.__museLoadKeyBound) {
@@ -23,10 +31,10 @@ const { text, label, includeFallback = true } = Astro.props;
         if (!navigator.clipboard?.writeText) throw new Error('Clipboard unavailable');
         await navigator.clipboard.writeText(text);
         button.dataset.state = 'loaded';
-        if (status) status.textContent = 'Loaded. Paste it into your Muse chat.';
+        if (status) status.textContent = button.dataset.doneText ?? 'Loaded. Paste it into your Muse chat.';
         window.setTimeout(() => {
           delete button.dataset.state;
-          if (status) status.textContent = 'Ready. Press Load to copy the install prompt.';
+          if (status) status.textContent = button.dataset.idleText ?? 'Ready. Press Load to copy the install prompt.';
         }, 2000);
       } catch {
         const fallback = action?.querySelector('[data-fallback]');

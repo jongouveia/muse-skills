@@ -2,6 +2,8 @@
 import { getCollection, render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import PatchSheet from '../../components/PatchSheet.astro';
+import LoadKey from '../../components/LoadKey.astro';
+import { bankSlot } from '../../lib/bank';
 
 export async function getStaticPaths() {
   const entries = await getCollection('entries');
@@ -40,18 +42,20 @@ const sourceLines = data.source.split('\n');
     <h2 class="sheet-label" id="directions-heading">Directions</h2>
     <p>Copy this block and paste it into your Muse chat. Muse does the install and confirms when it's done.</p>
     <div class="load-action directions-load">
-      <button type="button" class="load-key" data-copy={data.install_prompt} aria-label="Copy install prompt">Copy install prompt</button>
-      <p class="load-status" data-status aria-live="polite">Ready. Press Load to copy the install prompt.</p>
+      <div class="directions-control">
+        <LoadKey text={data.install_prompt} label="Copy install prompt" />
+        <p class="load-status" data-status aria-live="polite">Ready. Press Load to copy the install prompt.</p>
+      </div>
+      <textarea class="install-display" readonly data-fallback aria-label="Install prompt text" rows="14">{data.install_prompt}</textarea>
     </div>
-    <textarea class="install-display" readonly data-fallback aria-label="Install prompt text" rows="12">{data.install_prompt}</textarea>
   </section>
 
   <section class="source-block" aria-labelledby="source-heading">
     <h2 class="sheet-label" id="source-heading">Full source</h2>
     <p>This is the exact text Muse installs. Read it. That's the whole trust model.</p>
     <div class="load-action source-copy">
-      <button type="button" class="load-key" data-copy={data.source} aria-label="Copy source">Copy source</button>
-      <p class="load-status" data-status aria-live="polite">Ready. Press Load to copy the install prompt.</p>
+      <LoadKey text={data.source} label="Copy source" idleText="Ready." doneText="Source copied." />
+      <p class="load-status" data-status aria-live="polite">Ready.</p>
     </div>
     <pre class="source-pre" data-fallback><code>{sourceLines.map((line, i) => <span class="source-line" style={`--line: ${i + 1}`}>{line}</span>)}</code></pre>
   </section>
@@ -68,7 +72,7 @@ const sourceLines = data.source.split('\n');
       <div class="related-slots">
         {related.map((e, i) => (
           <a class="slot-button" href={`/entry/${e.id}`}>
-            <span class="slot-number">{String(i + 1).padStart(2, '0')}</span>
+            <span class="slot-number">{String(bankSlot(allEntries, e.id)).padStart(2, '0')}</span>
             <span class="slot-name">{e.data.title}</span>
           </a>
         ))}
@@ -79,15 +83,22 @@ const sourceLines = data.source.split('\n');
 
 <style>
   .sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
-  .directions-block, .source-block, .shared-block, .related-block { max-width: 72ch; padding-top: 48px; border-top: 1px solid var(--color-rule); margin-top: 48px; }
-  .directions-load, .source-copy { max-width: 420px; }
-  .directions-load .load-key, .source-copy .load-key { width: 100%; }
+  .directions-block, .source-block, .shared-block, .related-block { width: 100%; max-width: none; padding-top: 48px; border-top: 1px solid var(--color-rule); margin-top: 48px; }
+  .directions-load { display: grid; grid-template-columns: 320px minmax(0, 1fr); gap: 16px 32px; align-items: start; }
+  .directions-control { grid-column: 1; }
+  .directions-load .load-key { width: 100%; }
+  .directions-load .load-status { margin-top: 12px; }
   .source-copy .load-key { min-height: 44px; font-size: 0.85rem; }
-  .install-display { box-sizing: border-box; width: 100%; max-width: 72ch; margin-top: 16px; padding: 16px; border: 1px solid var(--color-rule); border-radius: var(--radius-panel); background: var(--color-panel-recess); color: var(--color-bone); font-family: var(--font-mono); font-size: 0.85rem; line-height: 1.5; overflow: auto; resize: vertical; white-space: pre; }
-  .source-pre { box-sizing: border-box; max-width: 72ch; margin: 16px 0 0; padding: 16px; overflow-x: auto; border: 1px solid var(--color-rule); border-radius: var(--radius-panel); background: var(--color-panel-recess); font-family: var(--font-mono); font-size: 0.82rem; line-height: 1.6; counter-reset: line; }
-  .source-line { display: block; padding-left: 3.5em; white-space: pre; position: relative; }
-  .source-line::before { counter-increment: line; content: counter(line); position: absolute; left: 0; width: 3em; color: var(--color-bone-dim); text-align: right; }
+  .install-display { box-sizing: border-box; grid-column: 2; grid-row: 1; width: 100%; min-width: 0; padding: 16px; border: 1px solid var(--color-rule); border-radius: var(--radius-panel); background: var(--color-panel-recess); color: var(--color-bone); font-family: var(--font-mono); font-size: 0.85rem; line-height: 1.5; overflow: auto; resize: vertical; white-space: pre; }
+  .source-pre { box-sizing: border-box; width: 100%; max-width: none; margin: 16px 0 0; padding: 16px 16px 16px 72px; overflow-x: auto; border: 1px solid var(--color-rule); border-radius: var(--radius-panel); background: var(--color-panel-recess); font-family: var(--font-mono); font-size: 0.82rem; line-height: 1.6; counter-reset: line; }
+  .source-line { display: block; min-width: max-content; white-space: pre; position: relative; }
+  .source-line::before { counter-increment: line; content: counter(line, decimal-leading-zero); position: absolute; right: calc(100% + 16px); color: var(--color-bone-dim); text-align: right; user-select: none; }
   .unverified-note { margin: 8px 0 0; color: var(--color-warn); font-family: var(--font-legend); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; }
   .related-slots { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 16px; }
   .related-slots .slot-button { text-decoration: none; }
+  @media (max-width: 720px) {
+    .directions-load { grid-template-columns: 1fr; }
+    .directions-control, .install-display { grid-column: 1; grid-row: auto; }
+    .install-display { min-height: 0; }
+  }
 </style>
