@@ -179,7 +179,7 @@ img, svg { display: block; }
 .load-key:hover { border-color: var(--color-lit); color: var(--color-lit); }
 .load-key:active, .load-key[data-state="loaded"] { border-color: var(--color-lit); background: var(--color-lit); box-shadow: none; color: var(--color-lit-ink); transform: translateY(1px); }
 .load-status { box-sizing: border-box; min-height: 48px; margin: 0; padding: 8px 10px; border: 1px solid var(--color-rule); background: var(--color-panel-recess); color: var(--color-live); font-family: var(--font-legend); font-size: 0.75rem; font-variant-numeric: tabular-nums; letter-spacing: 0.03em; line-height: 1.35; }
-.sheet-source-link { color: var(--color-bone); font-family: var(--font-legend); font-size: 0.8rem; font-variant-numeric: tabular-nums; letter-spacing: 0.04em; text-underline-offset: 2px; }
+.sheet-source-link { color: var(--color-bone); font-family: var(--font-legend); font-size: 0.8rem; font-variant-numeric: tabular-nums; letter-spacing: 0.04em; text-decoration: underline; text-underline-offset: 2px; }
 .fallback-text { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .redraw-sheet > * { opacity: 0; animation: sheet-line-in 200ms cubic-bezier(0.16, 1, 0.3, 1) forwards; }
 .redraw-sheet > :nth-child(2) { animation-delay: 20ms; }
@@ -278,7 +278,10 @@ img, svg { display: block; }
 
 @media (min-width: 1280px) {
   .bank-strip { flex-wrap: nowrap; gap: 12px 8px; }
+  .bank-group { flex: var(--group-slots, 1) 1 0; min-width: 0; }
   .bank-group-slots { gap: 3px; }
+  .slot-button { flex: 1 1 0; min-width: 0; height: 64px; }
+  .slot-name { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-height: 1.1; overflow-wrap: anywhere; white-space: normal; }
 }
 
 @media (max-width: 720px) {

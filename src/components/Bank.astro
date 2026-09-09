@@ -37,7 +37,7 @@ const renderedSheets = await Promise.all(
   </div>
   <div class="bank-strip" role="tablist" aria-label="Patch bank slots">
     {categoryGroups.map(({ category, entries: groupEntries }) => (
-      <div class="bank-group">
+      <div class="bank-group" style={`--group-slots:${groupEntries.length}`}>
         <span class="bank-group-label" title={categoryName(category)}>{categoryName(category)}</span>
         <div class="bank-group-slots">
           {groupEntries.map((entry) => {
