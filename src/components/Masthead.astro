@@ -1,9 +1,17 @@
 ---
-const isHomepage = Astro.url.pathname === '/';
+interface Props {
+  isHomepage?: boolean;
+}
+
+const { isHomepage = Astro.url.pathname === '/' } = Astro.props;
 const query = Astro.url.searchParams.get('q') ?? '';
 ---
 <div class="masthead">
-  <a class="masthead-brand" href="/" aria-label="Muse Skills home">Muse Skills</a>
+  {isHomepage ? (
+    <h1 class="masthead-brand">Muse Skills</h1>
+  ) : (
+    <a class="masthead-brand" href="/" aria-label="Muse Skills home">Muse Skills</a>
+  )}
   <p class="masthead-tagline">One paste installs the whole thing.</p>
   <div class="masthead-tools">
     <nav class="masthead-nav" aria-label="Primary navigation">

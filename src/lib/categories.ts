@@ -22,6 +22,10 @@ export function categoryName(category: Category | string): string {
   return CATEGORIES[category as Category] ?? category;
 }
 
+export function patchCount(n: number): string {
+  return `${n} patch${n === 1 ? '' : 'es'}`;
+}
+
 export function formatDate(value: Date | string | number): string {
   const date = value instanceof Date ? value : new Date(value);
   const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];

@@ -2,7 +2,7 @@
 import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import Bank from '../../components/Bank.astro';
-import { CATEGORIES, categoryName } from '../../lib/categories';
+import { CATEGORIES, categoryName, patchCount } from '../../lib/categories';
 
 export async function getStaticPaths() {
   const entries = await getCollection('entries');
@@ -15,10 +15,10 @@ export async function getStaticPaths() {
 const { entries } = Astro.props;
 const name = categoryName(Astro.params.slug ?? '');
 ---
-<Base title={`${name}: Muse Skills`} description={`${entries.length} patches in ${name} for Muse AI.`}>
+<Base title={`${name}: Muse Skills`} description={`${patchCount(entries.length)} in ${name} for Muse AI.`}>
   <section class="category-header">
     <h1>{name}</h1>
-    <p class="category-count-line">{entries.length} patches</p>
+    <p class="category-count-line">{patchCount(entries.length)}</p>
   </section>
   <Bank entries={entries} />
 </Base>

@@ -34,12 +34,6 @@ const warnings = [
         <h3 class="sheet-label" id={`uses-${entry.id}`}>Uses</h3>
         <Body />
       </section>
-      <section class="sheet-includes" aria-labelledby={`includes-${entry.id}`}>
-        <h3 class="sheet-label" id={`includes-${entry.id}`}>What it includes</h3>
-        <ul class="routing-list">
-          {data.includes.map((item) => <li><span class="routing-connector" aria-hidden="true"></span><span>{item}</span></li>)}
-        </ul>
-      </section>
       <section class="warnings-block" aria-labelledby={`warnings-${entry.id}`}>
         <h3 class="sheet-label" id={`warnings-${entry.id}`}>{warningsHeading}</h3>
         <ul class="warnings-list">
@@ -57,6 +51,7 @@ const warnings = [
       <div class="metadata-item"><dt class="meta-label">Version</dt><dd class="meta-value">{data.version}</dd></div>
       <div class="metadata-item"><dt class="meta-label">Added</dt><dd class="meta-value">{formatDate(data.date_added)}</dd></div>
       <div class="metadata-item"><dt class="meta-label">Author</dt><dd class="meta-value"><a class="source-link" href={data.source_url}>{data.author}</a></dd></div>
+      <div class="metadata-item metadata-includes"><dt class="meta-label">Includes</dt><dd class="includes-chips">{data.includes.map((item) => <span class="include-chip">{item}</span>)}</dd></div>
     </dl>
     {showLoad && (
       <div class="load-action">

@@ -27,11 +27,14 @@
 - Directions intro: Copy this block and paste it into your Muse chat. Muse does the install and confirms when it's done.
 - Warnings heading: Before you install
 - Warnings body:
-  - A shared skill carries somebody else's instructions. Read the source below before you install it.
+  - A shared skill carries somebody else's instructions. Read the source before you install it.
   - Never paste an API key, password, or token into anything a skill asks for. Legitimate skills use Muse's own secure flows.
   - Installing copies the setup into your own environment. It gives the author nothing.
 - Source heading: Full source
 - Source intro: This is the exact text Muse installs. Read it. That's the whole trust model.
+- Source copy key label: Copy source
+- Source status, idle: Ready.
+- Source status, after copy: Source copied.
 - Related heading: Other patches in this bank
 - Source link label: Where this was shared
 

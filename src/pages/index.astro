@@ -2,7 +2,7 @@
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import Bank from '../components/Bank.astro';
-import { CATEGORIES, categoryName } from '../lib/categories';
+import { CATEGORIES, categoryName, patchCount } from '../lib/categories';
 
 const entries = await getCollection('entries');
 const now = Date.now();
@@ -18,8 +18,7 @@ const categoryRows = Object.entries(CATEGORIES).map(([slug, name]) => ({
 const offerLine = 'Ready-to-use skills, prompt packs, scheduled workflows, and config snippets for Muse AI. Pick a slot, read the sheet, press Load.';
 ---
 <Base title="Muse Skills" description={offerLine}>
-  <section class="offer-line" aria-labelledby="offer-heading">
-    <h1 id="offer-heading">Muse Skills</h1>
+  <section class="offer-line">
     <p>{offerLine}</p>
   </section>
 
@@ -48,7 +47,7 @@ const offerLine = 'Ready-to-use skills, prompt packs, scheduled workflows, and c
             <li class="category-row">
               <a href={`/category/${slug}`}>
                 <span>{categoryName(slug)}</span>
-                <span class="category-count">{count} patches</span>
+                <span class="category-count">{patchCount(count)}</span>
               </a>
             </li>
           ))}
