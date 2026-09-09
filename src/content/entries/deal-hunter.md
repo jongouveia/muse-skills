@@ -3,17 +3,18 @@ title: "Deal Hunter"
 tagline: "Watches new private-seller listings and flags the mispriced ones."
 category: "deal-hunting"
 type: "skill"
-author: "Muse community"
-source_url: "https://github.com/muse-skills/directory"
+author: "Muse Skills editors"
+source_url: "https://github.com/jongouveia/muse-skills/blob/main/src/content/entries/deal-hunter.md"
 source_verified: false
+origin: "directory"
 includes: ["instructions", "workflow", "schedule"]
 version: "1.0.0"
 date_added: 2026-09-09
 safety_notes: |
   Reads public marketplace listings only, on the schedule you set.
   Writes a report to you and nothing else. Never contacts a seller,
-  never bids, never checks out. Never asks for a marketplace login;
-  it uses the assistant's own connected browsing session.
+  never bids, never checks out. It uses Muse's own browsing, so it
+  never needs a marketplace login.
 install_prompt: |
   Install the "Deal Hunter" skill. Its full source is below. Create it
   at ~/workspace/skills/deal-hunter/SKILL.md following skill-creator

@@ -3,7 +3,9 @@ import { getCollection, render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import PatchSheet from '../../components/PatchSheet.astro';
 import LoadKey from '../../components/LoadKey.astro';
+import TypeMark from '../../components/TypeMark.astro';
 import { bankSlot } from '../../lib/bank';
+import { categoryName, categorySlug, typeName } from '../../lib/categories';
 
 export async function getStaticPaths() {
   const entries = await getCollection('entries');
@@ -31,73 +33,88 @@ const jsonLd = {
   url: Astro.url.href,
 };
 const sourceLines = data.source.split('\n');
+const sharedLabel = data.origin === 'directory' ? 'Source file' : 'Where this was shared';
 ---
 <Base title={title} description={data.tagline}>
-  <h1 class="sr-only">{data.title}</h1>
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
-  <PatchSheet entry={entry} body={Content} />
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Bank</a>
+    <span aria-hidden="true">/</span>
+    <a href={`/category/${categorySlug(data.category)}/`}>{categoryName(data.category)}</a>
+    <span aria-hidden="true">/</span>
+    <span aria-current="page">{data.title}</span>
+  </nav>
 
-  <section class="directions-block" aria-labelledby="directions-heading">
-    <h2 class="sheet-label" id="directions-heading">Directions</h2>
-    <p>Copy this block and paste it into your Muse chat. Muse does the install and confirms when it's done.</p>
-    <div class="load-action directions-load">
-      <div class="directions-control">
-        <LoadKey text={data.install_prompt} label="Copy install prompt" />
-        <p class="load-status" data-status aria-live="polite">Ready. Press Load to copy the install prompt.</p>
+  <PatchSheet entry={entry} body={Content} headingLevel={1}>
+    <section slot="main-after" class="directions-block" aria-labelledby="directions-heading">
+      <h3 class="sheet-label" id="directions-heading">Directions</h3>
+      <p>Copy this block and paste it into your Muse chat. Muse does the install and confirms when it's done.</p>
+      <div class="load-action directions-load">
+        <div class="directions-control">
+          <LoadKey text={data.install_prompt} label="Copy install prompt" />
+          <p class="load-status" data-status aria-live="polite">Ready. Press Load to copy the install prompt.</p>
+        </div>
+        <textarea class="install-display" readonly data-fallback aria-label="Install prompt text" rows="14">{data.install_prompt}</textarea>
       </div>
-      <textarea class="install-display" readonly data-fallback aria-label="Install prompt text" rows="14">{data.install_prompt}</textarea>
-    </div>
-  </section>
+    </section>
 
-  <section class="source-block" aria-labelledby="source-heading">
-    <h2 class="sheet-label" id="source-heading">Full source</h2>
-    <p>This is the exact text Muse installs. Read it. That's the whole trust model.</p>
-    <div class="load-action source-copy">
-      <LoadKey text={data.source} label="Copy source" idleText="Ready." doneText="Source copied." />
-      <p class="load-status" data-status aria-live="polite">Ready.</p>
-    </div>
-    <pre class="source-pre" data-fallback><code>{sourceLines.map((line, i) => <span class="source-line" style={`--line: ${i + 1}`}>{line}</span>)}</code></pre>
-  </section>
+    <section slot="main-after" class="source-section" aria-labelledby="source-heading">
+      <h3 class="sheet-label" id="source-heading">Full source</h3>
+      <p>This is the exact text Muse installs. Read it. That's the whole trust model.</p>
+      <div class="load-action source-copy">
+        <LoadKey text={data.source} label="Copy source" idleText="Ready." doneText="Source copied." />
+        <p class="load-status" data-status aria-live="polite">Ready.</p>
+      </div>
+      <pre class="source-pre" data-fallback><code>{sourceLines.map((line, i) => <span class="source-line" style={`--line: ${i + 1}`}>{line}</span>)}</code></pre>
+    </section>
 
-  <section class="shared-block" aria-labelledby="shared-heading">
-    <h2 class="sheet-label" id="shared-heading">Where this was shared</h2>
-    <p><a class="source-link" href={data.source_url} rel="noopener" target="_blank">{data.source_url}</a></p>
-    {!data.source_verified && <p class="unverified-note">unverified source</p>}
-  </section>
+    <section slot="aside-after" class="shared-block" aria-labelledby="shared-heading">
+      <h2 class="meta-label" id="shared-heading">{sharedLabel}</h2>
+      <p><a class="source-link" href={data.source_url} rel="noopener" target="_blank">{data.source_url.replace(/^https?:\/\//, '')}</a></p>
+    </section>
+  </PatchSheet>
 
   {related.length > 0 && (
     <section class="related-block" aria-labelledby="related-heading">
-      <h2 class="section-title" id="related-heading">Other patches in this bank</h2>
-      <div class="related-slots">
-        {related.map((e, i) => (
-          <a class="slot-button" href={`/entry/${e.id}`}>
-            <span class="slot-number">{String(bankSlot(allEntries, e.id)).padStart(2, '0')}</span>
-            <span class="slot-name">{e.data.title}</span>
-          </a>
+      <h2 class="section-title" id="related-heading">More in {categoryName(data.category)}</h2>
+      <ul class="related-list">
+        {related.map((e) => (
+          <li class="related-row">
+            <a href={`/entry/${e.id}/`}>
+              <span class="slot-number">{String(bankSlot(allEntries, e.id)).padStart(2, '0')}</span>
+              <span class="related-body">
+                <span class="related-title">{e.data.title}</span>
+                <span class="related-tagline">{e.data.tagline}</span>
+              </span>
+              <span class="related-meta"><TypeMark type={e.data.type} /></span>
+            </a>
+          </li>
         ))}
-      </div>
+      </ul>
     </section>
   )}
 </Base>
 
 <style>
-  .sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
-  .directions-block, .source-block, .shared-block, .related-block { width: 100%; max-width: none; padding-top: 48px; border-top: 1px solid var(--color-rule); margin-top: 48px; }
-  .directions-load { display: grid; grid-template-columns: 320px minmax(0, 1fr); gap: 16px 32px; align-items: start; }
+  .directions-block, .source-section { padding-top: 40px; border-top: 1px solid var(--color-rule); margin-top: 44px; }
+  .directions-block > p, .source-section > p { margin: 0 0 20px; color: var(--color-bone-dim); }
+  .directions-load { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 16px 24px; align-items: start; }
   .directions-control { grid-column: 1; }
   .directions-load .load-key { width: 100%; }
   .directions-load .load-status { margin-top: 12px; }
+  .source-copy { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 12px; align-items: start; }
   .source-copy .load-key { min-height: 44px; font-size: 0.85rem; }
-  .install-display { box-sizing: border-box; grid-column: 2; grid-row: 1; width: 100%; min-width: 0; padding: 16px; border: 1px solid var(--color-rule); border-radius: var(--radius-panel); background: var(--color-panel-recess); color: var(--color-bone); font-family: var(--font-mono); font-size: 0.85rem; line-height: 1.5; overflow: auto; resize: vertical; white-space: pre; }
-  .source-pre { box-sizing: border-box; width: 100%; max-width: none; margin: 16px 0 0; padding: 16px 16px 16px 72px; overflow-x: auto; border: 1px solid var(--color-rule); border-radius: var(--radius-panel); background: var(--color-panel-recess); font-family: var(--font-mono); font-size: 0.82rem; line-height: 1.6; counter-reset: line; }
+  .source-copy .load-status { min-height: 44px; }
+  .install-display { box-sizing: border-box; grid-column: 2; grid-row: 1; width: 100%; min-width: 0; padding: 16px; border: 1px solid var(--color-rule); border-radius: var(--radius-panel); background: var(--color-panel-recess); color: var(--color-bone); font-family: var(--font-mono); font-size: 0.82rem; line-height: 1.5; overflow: auto; resize: vertical; white-space: pre; }
+  .source-pre { box-sizing: border-box; width: 100%; max-width: none; margin: 16px 0 0; padding: 16px 16px 16px 64px; overflow-x: auto; border: 1px solid var(--color-rule); border-radius: var(--radius-panel); background: var(--color-panel-recess); font-family: var(--font-mono); font-size: 0.8rem; line-height: 1.6; counter-reset: line; }
   .source-line { display: block; min-width: max-content; white-space: pre; position: relative; }
-  .source-line::before { counter-increment: line; content: counter(line, decimal-leading-zero); position: absolute; right: calc(100% + 16px); color: var(--color-bone-dim); text-align: right; user-select: none; }
-  .unverified-note { margin: 8px 0 0; color: var(--color-warn); font-family: var(--font-legend); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; }
-  .related-slots { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 16px; }
-  .related-slots .slot-button { text-decoration: none; }
+  .source-line::before { counter-increment: line; content: counter(line, decimal-leading-zero); position: absolute; right: calc(100% + 14px); color: var(--color-bone-dim); font-family: var(--font-legend); font-variant-numeric: tabular-nums; text-align: right; user-select: none; }
+  .shared-block { padding-top: 24px; border-top: 1px solid var(--color-rule); }
+  .shared-block h2 { margin-bottom: 6px; }
+  .shared-block p { margin: 0; overflow-wrap: anywhere; font-family: var(--font-legend); font-size: 0.8rem; letter-spacing: 0.02em; line-height: 1.4; }
   @media (max-width: 720px) {
-    .directions-load { grid-template-columns: 1fr; }
+    .directions-load, .source-copy { grid-template-columns: 1fr; }
     .directions-control, .install-display { grid-column: 1; grid-row: auto; }
     .install-display { min-height: 0; }
   }

@@ -2,7 +2,7 @@
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import Bank from '../components/Bank.astro';
-import { CATEGORIES, categoryName, patchCount } from '../lib/categories';
+import { CATEGORIES, categoryName, skillCount } from '../lib/categories';
 
 const entries = await getCollection('entries');
 const now = Date.now();
@@ -15,9 +15,13 @@ const categoryRows = Object.entries(CATEGORIES).map(([slug, name]) => ({
   name,
   count: entries.filter((entry) => entry.data.category === slug).length,
 }));
-const offerLine = 'Ready-to-use skills, prompt packs, scheduled workflows, and config snippets for Muse AI. Pick a slot, read the sheet, press Load.';
+const offerLine = 'Ready-to-use skills, prompt packs, scheduled workflows, and config snippets for Muse AI. Pick a skill, read the full source, press Load to copy its install prompt.';
 ---
 <Base title="Muse Skills" description={offerLine}>
+  <section class="hero" aria-label="What this site does">
+    <p class="hero-line">One paste installs the whole thing.</p>
+    <p class="hero-offer">{offerLine}</p>
+  </section>
   <Bank entries={entries} />
 
   <div class="below-fold">
@@ -43,7 +47,7 @@ const offerLine = 'Ready-to-use skills, prompt packs, scheduled workflows, and c
             <li class="category-row">
               <a href={`/category/${slug}`}>
                 <span>{categoryName(slug)}</span>
-                <span class="category-count">{patchCount(count)}</span>
+                <span class="category-count">{skillCount(count)}</span>
               </a>
             </li>
           ))}
@@ -57,7 +61,7 @@ const offerLine = 'Ready-to-use skills, prompt packs, scheduled workflows, and c
             <span class="step-number">01</span>
             <div>
               <h3>Copy</h3>
-              <p>Press Load on any patch. The install prompt goes to your clipboard.</p>
+              <p>Press Load on any skill. The install prompt goes to your clipboard.</p>
             </div>
           </li>
           <li class="how-step">

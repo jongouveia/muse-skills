@@ -3,9 +3,10 @@ title: "Subscription Audit"
 tagline: "Finds recurring charges in your email receipts and bank exports, then names what to cut."
 category: "money"
 type: "workflow"
-author: "Muse community"
-source_url: "https://github.com/muse-skills/directory"
+author: "Muse Skills editors"
+source_url: "https://github.com/jongouveia/muse-skills/blob/main/src/content/entries/subscription-audit.md"
 source_verified: false
+origin: "directory"
 includes: ["schedule", "workflow", "merchant grouping", "cut list"]
 version: "1.0.0"
 date_added: 2026-09-09

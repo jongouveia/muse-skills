@@ -1,16 +1,22 @@
 ---
 import Base from '../layouts/Base.astro';
 ---
-<Base title="About Muse Skills" description="How Muse Skills works, what patches contain, and how submissions are curated.">
+<Base title="About Muse Skills" description="How Muse Skills works, what skills contain, and how submissions are curated.">
   <div class="about-content">
     <h1>About Muse Skills</h1>
     <section aria-labelledby="what-heading">
       <h2 id="what-heading">What a skill is</h2>
-      <p>A Muse skill is a SKILL.md file: a name, a description, and the steps Muse follows when you use a trigger phrase. Prompt packs are reusable prompts. Workflows are skills on a schedule. Configs are snippets for settings like your feed prompt.</p>
+      <p>This directory lists four kinds of entry:</p>
+      <ul>
+        <li><strong>Skill.</strong> A SKILL.md file: a name, a description, and the steps Muse follows when you use a trigger phrase.</li>
+        <li><strong>Prompt pack.</strong> A reusable prompt you call by name.</li>
+        <li><strong>Workflow.</strong> A skill on a schedule.</li>
+        <li><strong>Config.</strong> A snippet for a setting, like your feed prompt.</li>
+      </ul>
     </section>
     <section aria-labelledby="paste-heading">
       <h2 id="paste-heading">How one paste works</h2>
-      <p>Every patch ships an install prompt. It tells Muse where to create the skill, includes the full source, and asks Muse to confirm the trigger phrases. Workflows and configs make Muse ask you before it schedules or writes anything.</p>
+      <p>Every skill ships an install prompt. It tells Muse where to create the skill, includes the full source, and asks Muse to confirm the trigger phrases. Workflows and configs make Muse ask you before it schedules or writes anything.</p>
     </section>
     <section aria-labelledby="safety-heading">
       <h2 id="safety-heading">Safety policy</h2>
@@ -18,14 +24,12 @@ import Base from '../layouts/Base.astro';
         <li>A shared skill carries somebody else's instructions. Read the source before you install it.</li>
         <li>Never paste an API key, password, or token into anything a skill asks for. Legitimate skills use Muse's own secure flows.</li>
         <li>Installing copies the setup into your own environment. It gives the author nothing.</li>
-      </ul>
-      <ul>
         <li>We test submitted install prompts in a fresh Muse chat before we list them.</li>
       </ul>
     </section>
     <section aria-labelledby="curation-heading">
-      <h2 id="curation-heading">How patches get here</h2>
-      <p>We sweep X, Threads, Reddit, and GitHub each week for shared Muse skills, and we take submissions. New patches land in a weekly batch.</p>
+      <h2 id="curation-heading">How skills get here</h2>
+      <p>We sweep X, Threads, Reddit, and GitHub each week for shared Muse skills, and we take submissions. New skills land in a weekly batch. The first twelve were written for this directory by its editors; each one says so on its page.</p>
     </section>
     <section class="independence-block">
       <p>Muse Skills is an independent community directory. It isn't affiliated with Meta. Muse and Muse AI are Meta's names.</p>
@@ -38,9 +42,9 @@ import Base from '../layouts/Base.astro';
   .about-content section { padding-top: 32px; border-top: 1px solid var(--color-rule); margin-top: 32px; }
   .about-content h2 { margin: 0 0 16px; color: var(--color-bone); font-family: var(--font-legend); font-size: 1rem; font-weight: 600; letter-spacing: 0.06em; line-height: 1; text-transform: uppercase; }
   .about-content p, .about-content ul { margin: 0; }
+  .about-content p + ul { margin-top: 12px; }
   .about-content ul { padding-left: 24px; }
   .about-content li + li { margin-top: 12px; }
-  .about-content section > p + p { margin-top: 16px; }
-  .about-content > p:last-child { padding-top: 32px; border-top: 1px solid var(--color-rule); margin-top: 32px; }
+  .about-content strong { color: var(--color-bone); font-weight: 600; }
   .about-content .independence-block { padding-top: 32px; }
 </style>

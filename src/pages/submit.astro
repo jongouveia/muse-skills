@@ -10,7 +10,7 @@ import { TYPES } from '../lib/categories';
       <div class="form-field"><label for="name">Name</label><input id="name" name="name" type="text" required /></div>
       <div class="form-field"><label for="type">Type</label><select id="type" name="type">{TYPES.map((type) => <option value={type}>{type}</option>)}</select></div>
       <div class="form-field"><label for="source">Full source</label><textarea id="source" name="source" required rows="16"></textarea></div>
-      <div class="form-field"><label for="source_url">Where you shared it</label><input id="source_url" name="source_url" type="url" /></div>
+      <div class="form-field"><label for="source_url">Where you shared it <span class="form-optional">optional</span></label><input id="source_url" name="source_url" type="url" /></div>
       <div class="form-field"><label for="author">Your name or handle</label><input id="author" name="author" type="text" /></div>
       <button class="load-key submit-button" type="submit">Open a prefilled GitHub issue</button>
     </form>
@@ -21,7 +21,7 @@ import { TYPES } from '../lib/categories';
         <li>It never asks for a credential.</li>
         <li>It never sends your data to a third party.</li>
         <li>The install prompt worked end to end in a fresh Muse chat.</li>
-        <li>The author is credited with a source link.</li>
+        <li>The author is credited. Link it if you shared it publicly; otherwise a name or handle is enough.</li>
       </ul>
     </section>
   </div>
@@ -47,6 +47,7 @@ import { TYPES } from '../lib/categories';
   .submit-intro { max-width: 62ch; margin: 0 0 40px; color: var(--color-bone-dim); }
   #submit-form { display: grid; gap: 24px; }
   .form-field { display: grid; gap: 8px; }
+  .form-optional { margin-left: 8px; color: var(--color-bone-dim); font-weight: 500; letter-spacing: 0.04em; text-transform: none; }
   .form-field label, .checklist h2 { color: var(--color-bone); font-family: var(--font-legend); font-size: 0.875rem; font-weight: 600; letter-spacing: 0.06em; line-height: 1; text-transform: uppercase; }
   .form-field :where(input, select, textarea) { box-sizing: border-box; width: 100%; border: 1px solid var(--color-rule); border-radius: var(--radius-panel); background: var(--color-panel-recess); color: var(--color-bone); padding: 10px 12px; }
   .form-field :where(input, select) { min-height: 40px; }

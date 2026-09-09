@@ -1,11 +1,12 @@
 ---
 title: "Weekly Feed Brief"
 tagline: "A feed-prompt template that turns your weekly briefing into topics you chose."
-category: "chief-of-staff"
+category: "productivity"
 type: "config"
-author: "Muse community"
-source_url: "https://github.com/muse-skills/directory"
+author: "Muse Skills editors"
+source_url: "https://github.com/jongouveia/muse-skills/blob/main/src/content/entries/weekly-feed-brief.md"
 source_verified: false
+origin: "directory"
 includes: ["config", "feed-prompt"]
 version: "1.0.0"
 date_added: 2026-09-09

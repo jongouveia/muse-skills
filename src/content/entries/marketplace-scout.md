@@ -3,9 +3,10 @@ title: "Marketplace Scout"
 tagline: "Finds flip candidates for your watchlist across Facebook, Craigslist, and eBay."
 category: "deal-hunting"
 type: "skill"
-author: "Muse community"
-source_url: "https://github.com/muse-skills/directory"
+author: "Muse Skills editors"
+source_url: "https://github.com/jongouveia/muse-skills/blob/main/src/content/entries/marketplace-scout.md"
 source_verified: false
+origin: "directory"
 includes: ["instructions", "workflow", "watchlist"]
 version: "1.0.0"
 date_added: 2026-09-09

@@ -3,9 +3,10 @@ title: "Vinyl Vault"
 tagline: "Catalogs your record collection from photos or lists and tracks its value."
 category: "creative"
 type: "skill"
-author: "Muse community"
-source_url: "https://github.com/muse-skills/directory"
+author: "Muse Skills editors"
+source_url: "https://github.com/jongouveia/muse-skills/blob/main/src/content/entries/vinyl-vault.md"
 source_verified: false
+origin: "directory"
 includes: ["instructions", "workflow", "wantlist"]
 version: "1.0.0"
 date_added: 2026-09-09

@@ -1,8 +1,17 @@
-<div>
-  <p>Independent community directory. Not affiliated with Meta.</p>
+---
+import { CATEGORIES } from '../lib/categories';
+---
+<div class="footer-columns">
+  <div class="footer-column">
+    <span class="footer-heading">Browse</span>
+    <a href="/">Bank</a>
+    {Object.entries(CATEGORIES).map(([slug, name]) => <a href={`/category/${slug}`}>{name}</a>)}
+  </div>
+  <div class="footer-column">
+    <span class="footer-heading">Project</span>
+    <a href="/about">About</a>
+    <a href="/submit">Submit a skill</a>
+    <a href="https://github.com/jongouveia/muse-skills" rel="noopener">GitHub</a>
+  </div>
 </div>
-<nav class="footer-nav" aria-label="Footer navigation">
-  <a href="/about">About</a>
-  <a href="/submit">Submit a skill</a>
-  <a href="https://github.com/muse-skills/directory">GitHub</a>
-</nav>
+<p class="footer-note">Independent community directory. Not affiliated with Meta.</p>

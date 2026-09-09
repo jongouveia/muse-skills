@@ -12,6 +12,7 @@ const entries = defineCollection({
     author: z.string(),
     source_url: z.string().url(),
     source_verified: z.boolean().default(false),
+    origin: z.enum(['shared', 'directory']).default('shared'),
     includes: z.array(z.string()),
     version: z.string(),
     date_added: z.coerce.date(),

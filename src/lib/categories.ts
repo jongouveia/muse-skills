@@ -1,6 +1,6 @@
 export const CATEGORIES = {
   'deal-hunting': 'Deal hunting',
-  'chief-of-staff': 'Chief of staff & productivity',
+  productivity: 'Productivity',
   money: 'Money & finance',
   shopping: 'Shopping',
   creative: 'Creative',
@@ -22,8 +22,19 @@ export function categoryName(category: Category | string): string {
   return CATEGORIES[category as Category] ?? category;
 }
 
-export function patchCount(n: number): string {
-  return `${n} patch${n === 1 ? '' : 'es'}`;
+export const TYPE_NAMES: Record<EntryType, string> = {
+  skill: 'skill',
+  prompt: 'prompt pack',
+  workflow: 'workflow',
+  config: 'config',
+};
+
+export function typeName(type: EntryType | string): string {
+  return TYPE_NAMES[type as EntryType] ?? type;
+}
+
+export function skillCount(n: number): string {
+  return `${n} skill${n === 1 ? '' : 's'}`;
 }
 
 export function formatDate(value: Date | string | number): string {

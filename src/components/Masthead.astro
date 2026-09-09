@@ -4,7 +4,12 @@ interface Props {
 }
 
 const { isHomepage = Astro.url.pathname === '/' } = Astro.props;
+const path = Astro.url.pathname;
 const query = Astro.url.searchParams.get('q') ?? '';
+const links = [
+  { href: '/', label: 'Bank', current: isHomepage || path.startsWith('/category/') || path.startsWith('/entry/') },
+  { href: '/about', label: 'About', current: path.startsWith('/about') },
+];
 ---
 <div class="masthead">
   {isHomepage ? (
@@ -12,18 +17,16 @@ const query = Astro.url.searchParams.get('q') ?? '';
   ) : (
     <a class="masthead-brand" href="/" aria-label="Muse Skills home">Muse Skills</a>
   )}
-  <p class="masthead-tagline">One paste installs the whole thing.</p>
-  <div class="masthead-tools">
-    <nav class="masthead-nav" aria-label="Primary navigation">
-      <a href="/">Bank</a>
-      <a href="/about">About</a>
-      <a href="/submit">Submit a skill</a>
-    </nav>
-    <form class="search-form" action="/" method="get" role="search">
-      <label class="sr-only" for="search">Search patches</label>
-      <input class="search-input" id="search" name="q" type="search" placeholder="Search patches" value={query} autocomplete="off" />
-    </form>
-  </div>
+  <nav class="masthead-nav" aria-label="Primary navigation">
+    {links.map((link) => (
+      <a href={link.href} aria-current={link.current ? 'page' : undefined}>{link.label}</a>
+    ))}
+  </nav>
+  <form class="search-form" action="/" method="get" role="search">
+    <label class="sr-only" for="search">Search skills</label>
+    <input class="search-input" id="search" name="q" type="search" placeholder="Search skills" value={query} autocomplete="off" />
+  </form>
+  <a class="masthead-cta" href="/submit" aria-current={path.startsWith('/submit') ? 'page' : undefined}>Submit a skill</a>
 </div>
 {!isHomepage && <script is:inline>
   const searchForm = document.querySelector('.search-form');

@@ -1,11 +1,12 @@
 ---
 title: "Chief of Staff Briefing"
 tagline: "A morning brief with today's priorities, meeting prep, and inbox items to answer."
-category: "chief-of-staff"
+category: "productivity"
 type: "prompt"
-author: "Muse community"
-source_url: "https://github.com/muse-skills/directory"
+author: "Muse Skills editors"
+source_url: "https://github.com/jongouveia/muse-skills/blob/main/src/content/entries/chief-of-staff-briefing.md"
 source_verified: false
+origin: "directory"
 includes: ["instructions", "goal-state-template"]
 version: "1.0.0"
 date_added: 2026-09-09
