@@ -14,6 +14,7 @@
 - Sheet status line, idle: Ready. Press Load to copy the install prompt.
 - Sheet status line, after Load: Loaded. Paste it into your Muse chat.
 - Load key label: Copy install prompt
+- Source link on the homepage sheet: Read the full source
 - Section: New this week
 - Section: Browse by category
 - How it works, three steps:
@@ -62,7 +63,7 @@
 - What a skill is: A Muse skill is a SKILL.md file: a name, a description, and the steps Muse follows when you use a trigger phrase. Prompt packs are reusable prompts. Workflows are skills on a schedule. Configs are snippets for settings like your feed prompt.
 - How one paste works: Every patch ships an install prompt. It tells Muse where to create the skill, includes the full source, and asks Muse to confirm the trigger phrases. Workflows and configs make Muse ask you before it schedules or writes anything.
 - Safety policy heading: Safety policy
-- Safety policy: the three Warnings lines above, plus: We test every install prompt in a fresh Muse chat before it's listed.
+- Safety policy: the three Warnings lines above, plus: We test submitted install prompts in a fresh Muse chat before we list them.
 - Curation heading: How patches get here
 - Curation: We sweep X, Threads, Reddit, and GitHub each week for shared Muse skills, and we take submissions. New patches land in a weekly batch.
 - Independence: Muse Skills is an independent community directory. It isn't affiliated with Meta. Muse and Muse AI are Meta's names.
