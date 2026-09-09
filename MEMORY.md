@@ -3,7 +3,7 @@
 Directory of ready-to-use skills, prompt packs, workflows, and configs for Muse AI (Meta's chatbot). Independent, not affiliated with Meta. One-paste install is the mechanism. Owner: Jon (personal, github.com/jongouveia/muse-skills).
 
 ## State (2026-09-09)
-- v0.1 build in progress. Astro 7 + Tailwind 4 static, Vercel target (Vercel URL only; no custom domain yet).
+- v0.1 live at https://muse-skills.vercel.app (Vercel project `muse-skills`, team jons-projects; `vercel deploy --prod` from the repo). No custom domain yet. GitHub remote pending (Jon runs `gh repo create`).
 - 12 seed entries in `src/content/entries/`, all `author: Muse community`, `source_verified: false`, placeholder `source_url`. Replace with real shared skills as the weekly sweep finds them.
 - Visual world: "Patch Library" (synth preset bank), chosen by Jon on the impeccable decision page over the rolled "Skill Facts Panel". Direction contract: `.impeccable/surfaces/src-pages-index-astro.md`. Seed key 243a3bd7. Code-led build.
 - Implementation runs in Codex lanes (Jon's call, 2026-09-09): specs in `docs/SPEC-A.md` (world + homepage) and `docs/SPEC-B.md` (routes). Claude is architect and reviewer.
@@ -16,6 +16,6 @@ Directory of ready-to-use skills, prompt packs, workflows, and configs for Muse 
 - `gh repo create` was blocked by the Claude Code classifier; Jon creates the remote.
 
 ## Open
-- v0.1: finish lane B, impeccable finish review + DESIGN.md, deploy to Vercel, E2E install test in Muse.
+- v0.1: impeccable finish review verdict + DESIGN.md; E2E install test of Deal Hunter in a real Muse chat; push to GitHub.
 - v0.2: newsletter (Buttondown or ConvertKit), Plausible, submission moderation flow.
 - v0.3: ratings, collections.
