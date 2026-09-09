@@ -1,5 +1,86 @@
 ---
 import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Bank from '../components/Bank.astro';
+import { CATEGORIES, categoryName } from '../lib/categories';
+
 const entries = await getCollection('entries');
+const now = Date.now();
+const weekAgo = now - 7 * 24 * 60 * 60 * 1000;
+const newEntries = entries
+  .filter((entry) => entry.data.date_added.valueOf() >= weekAgo)
+  .sort((a, b) => a.data.title.localeCompare(b.data.title));
+const categoryRows = Object.entries(CATEGORIES).map(([slug, name]) => ({
+  slug,
+  name,
+  count: entries.filter((entry) => entry.data.category === slug).length,
+}));
+const offerLine = 'Ready-to-use skills, prompt packs, scheduled workflows, and config snippets for Muse AI. Pick a slot, read the sheet, press Load.';
 ---
-<ul>{entries.map((e) => <li>{e.data.title} ({e.data.type}, {e.data.category})</li>)}</ul>
+<Base title="Muse Skills" description={offerLine}>
+  <section class="offer-line" aria-labelledby="offer-heading">
+    <h1 id="offer-heading">Muse Skills</h1>
+    <p>{offerLine}</p>
+  </section>
+
+  <Bank entries={entries} />
+
+  <div class="below-fold">
+    <section class="below-section" aria-labelledby="new-heading">
+      <h2 class="section-title" id="new-heading">New this week</h2>
+      <ul class="jump-list">
+        {newEntries.map((entry) => (
+          <li class="jump-item">
+            <button class="jump-button" type="button" data-jump-slot={entry.id}>
+              <span>{entry.data.title}</span>
+              <span>Load</span>
+            </button>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <div>
+      <section class="below-section" aria-labelledby="category-heading">
+        <h2 class="section-title" id="category-heading">Browse by category</h2>
+        <ul class="category-list">
+          {categoryRows.map(({ slug, name, count }) => (
+            <li class="category-row">
+              <a href={`/category/${slug}`}>
+                <span>{categoryName(slug)}</span>
+                <span class="category-count">{count} patches</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section class="below-section" aria-labelledby="how-heading">
+        <h2 class="section-title" id="how-heading">How it works</h2>
+        <ol class="how-list">
+          <li class="how-step">
+            <span class="step-number">01</span>
+            <div>
+              <h3>Copy</h3>
+              <p>Press Load on any patch. The install prompt goes to your clipboard.</p>
+            </div>
+          </li>
+          <li class="how-step">
+            <span class="step-number">02</span>
+            <div>
+              <h3>Paste</h3>
+              <p>Open your Muse chat and paste the block.</p>
+            </div>
+          </li>
+          <li class="how-step">
+            <span class="step-number">03</span>
+            <div>
+              <h3>Confirm</h3>
+              <p>Muse creates the skill, asks before it schedules anything, and tells you the trigger phrases.</p>
+            </div>
+          </li>
+        </ol>
+      </section>
+    </div>
+  </div>
+</Base>

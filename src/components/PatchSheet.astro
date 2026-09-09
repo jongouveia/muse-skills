@@ -18,23 +18,23 @@ const warnings = [
   'Installing copies the setup into your own environment. It gives the author nothing.',
 ];
 ---
-<article class="sheet" id={`sheet-${entry.slug}`} data-sheet={entry.slug} aria-labelledby={`sheet-title-${entry.slug}`}>
+<article class="sheet" id={`sheet-${entry.id}`} data-sheet={entry.id} aria-labelledby={`sheet-title-${entry.id}`}>
   <div class="sheet-main">
-    <h2 class="sheet-title" id={`sheet-title-${entry.slug}`}>{data.title}</h2>
+    <h2 class="sheet-title" id={`sheet-title-${entry.id}`}>{data.title}</h2>
     <p class="sheet-tagline">{data.tagline}</p>
     <div class="sheet-content">
-      <section aria-labelledby={`uses-${entry.slug}`}>
-        <h3 class="sheet-label" id={`uses-${entry.slug}`}>Uses</h3>
+      <section aria-labelledby={`uses-${entry.id}`}>
+        <h3 class="sheet-label" id={`uses-${entry.id}`}>Uses</h3>
         <Body />
       </section>
-      <section class="sheet-includes" aria-labelledby={`includes-${entry.slug}`}>
-        <h3 class="sheet-label" id={`includes-${entry.slug}`}>What it includes</h3>
+      <section class="sheet-includes" aria-labelledby={`includes-${entry.id}`}>
+        <h3 class="sheet-label" id={`includes-${entry.id}`}>What it includes</h3>
         <ul class="routing-list">
           {data.includes.map((item) => <li><span class="routing-connector" aria-hidden="true"></span><span>{item}</span></li>)}
         </ul>
       </section>
-      <section class="warnings-block" aria-labelledby={`warnings-${entry.slug}`}>
-        <h3 class="sheet-label" id={`warnings-${entry.slug}`}>Warnings</h3>
+      <section class="warnings-block" aria-labelledby={`warnings-${entry.id}`}>
+        <h3 class="sheet-label" id={`warnings-${entry.id}`}>Warnings</h3>
         <ul class="warnings-list">
           {warnings.map((warning) => <li>{warning}</li>)}
           <li class="safety-note">{data.safety_notes}</li>

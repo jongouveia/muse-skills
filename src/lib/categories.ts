@@ -13,7 +13,9 @@ export type Category = keyof typeof CATEGORIES;
 export type EntryType = (typeof TYPES)[number];
 
 export function categorySlug(category: string): string {
-  return category.toLowerCase().trim().replace(/\s+/g, '-');
+  if (category in CATEGORIES) return category;
+  const match = Object.entries(CATEGORIES).find(([, name]) => name === category);
+  return match?.[0] ?? category.toLowerCase().trim().replace(/\s+/g, '-');
 }
 
 export function categoryName(category: Category | string): string {
