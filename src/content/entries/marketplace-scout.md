@@ -55,7 +55,7 @@ install_prompt: |
      it.
   8. Sort surviving candidates by margin, highest first, grouped by
      watchlist item.
-  9. If nothing survives, end the run. Send nothing.
+  9. If nothing survives, end the run and send nothing.
   10. If something survives, write the report in the Output Contract
       shape and send it.
 
@@ -115,7 +115,7 @@ source: |
      it.
   8. Sort surviving candidates by margin, highest first, grouped by
      watchlist item.
-  9. If nothing survives, end the run. Send nothing.
+  9. If nothing survives, end the run and send nothing.
   10. If something survives, write the report in the Output Contract
       shape and send it.
 
@@ -178,13 +178,13 @@ Output on a run with hits:
 
 ```
 Nintendo Switch OLED
-Listing: OLED console, good condition — Facebook Marketplace — [link]
+Listing: OLED console, good condition. Facebook Marketplace. [link]
 Price: $150
 Est. resale: $230 (median of 5 sold comps)
 Margin: $54
 
 KitchenAid Artisan mixer
-Listing: Artisan 5qt, tested working — Craigslist — [link]
+Listing: Artisan 5qt, tested working. Craigslist. [link]
 Price: $80
 Est. resale: $145 (median of 4 sold comps)
 Margin: $52

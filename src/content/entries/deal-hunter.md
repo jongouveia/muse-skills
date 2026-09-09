@@ -175,7 +175,7 @@ scheduled to run every morning at 8am.
 Output, on a morning with one hit:
 
 ```
-Listing: 2019 Trek Domane SL5, 56cm — [link]
+Listing: 2019 Trek Domane SL5, 56cm. [link]
 Ask: $650
 Conservative comp: $1,400 (lowest of 4 sold comps, same size/condition)
 Upside: $750

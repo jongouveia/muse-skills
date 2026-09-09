@@ -154,24 +154,24 @@ Goal file:
 
 ```
 - Ship irisfile beta: waiting on QA sign-off, no update in 6 days
-- Close Broadtime renewal: proposal sent, awaiting reply
+- Close Northwind renewal: proposal sent, awaiting reply
 ```
 
 Output brief:
 
 ```
 Today's three priorities
-1. Reply to Broadtime before their 2pm call, proposal has been open 4 days
-2. Prep for the 10am irisfile sync, QA sign-off still pending
+1. Reply to Northwind before their 2pm call, proposal has been open 4 days
+2. Prep for the 10am Atlas sync, QA sign-off still pending
 3. Confirm irisfile QA status, no update in 6 days
 
 Meetings with prep notes
-10:00 irisfile sync, with Dana and Priya — prep: get QA's blocker list before the call
-2:00 Broadtime renewal call, with Marcus — prep: bring the revised proposal PDF
+10:00 Atlas sync, with Dana and Priya. Prep: get QA's blocker list before the call
+2:00 Northwind renewal call, with Marcus. Prep: bring the revised proposal PDF
 
 Inbox items needing a reply
-- Marcus (Broadtime), "Re: renewal terms" — needs a yes/no on the discount ask
-- Dana (irisfile), "QA blockers" — needs a decision on whether to slip the date
+- Marcus (Northwind), "Re: renewal terms": needs a yes/no on the discount ask
+- Dana (Atlas), "QA blockers": needs a decision on whether to slip the date
 
 One goal nudge
 Ship irisfile beta: ping Dana today for the specific QA blockers before the 10am sync.

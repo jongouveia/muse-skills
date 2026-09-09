@@ -39,7 +39,7 @@ install_prompt: |
   - [Decision 2]
 
   ## Action items
-  - [Task] — Owner: [Name or "No owner assigned"] — Deadline: [Date or "No deadline set"]
+  - [Task] | Owner: [Name or "No owner assigned"] | Deadline: [Date or "No deadline set"]
 
   ## Open questions
   - [Question 1]
@@ -74,7 +74,7 @@ source: |
   - [Decision 2]
 
   ## Action items
-  - [Task] — Owner: [Name or "No owner assigned"] — Deadline: [Date or "No deadline set"]
+  - [Task] | Owner: [Name or "No owner assigned"] | Deadline: [Date or "No deadline set"]
 
   ## Open questions
   - [Question 1]
@@ -120,8 +120,8 @@ using the old template or the new one.
 - The Q3 report is delayed.
 
 ## Action items
-- Pull the Q3 numbers — Owner: Sarah — Deadline: Friday
-- Email the client about the timeline — Owner: No owner assigned — Deadline: No deadline set
+- Pull the Q3 numbers | Owner: Sarah | Deadline: Friday
+- Email the client about the timeline | Owner: No owner assigned | Deadline: No deadline set
 
 ## Open questions
 - Are we using the old report template or the new one?
