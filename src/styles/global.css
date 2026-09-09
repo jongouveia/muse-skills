@@ -122,9 +122,9 @@ img, svg { display: block; }
 .bank-region { padding: 0 0 56px; }
 .bank-legend-row { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 16px; }
 .bank-legend-note { margin: 0; color: var(--color-live); font-family: var(--font-mono); font-size: 0.75rem; }
-.bank-strip { display: flex; align-items: flex-end; gap: 12px; padding: 20px 0 0; overflow-x: auto; scrollbar-width: thin; }
-.bank-group { display: flex; flex: 0 0 auto; flex-direction: column; gap: 8px; min-width: max-content; }
-.bank-group-label { position: relative; max-width: 18ch; overflow: hidden; padding: 0 8px 8px; color: var(--color-bone-dim); font-size: 0.75rem; line-height: 1; text-overflow: ellipsis; white-space: nowrap; }
+.bank-strip { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 16px 12px; padding: 20px 0 0; }
+.bank-group { display: flex; flex: 0 0 auto; flex-direction: column; gap: 8px; min-width: 0; }
+.bank-group-label { position: relative; max-width: 100%; padding: 0 8px 8px; color: var(--color-bone-dim); font-size: 0.75rem; line-height: 1.15; white-space: normal; }
 .bank-group-label::after { position: absolute; right: 8px; bottom: 0; left: 8px; height: 4px; border-top: 1px solid var(--color-rule); border-left: 1px solid var(--color-rule); border-right: 1px solid var(--color-rule); content: ""; }
 .bank-group-slots { display: flex; gap: 4px; }
 .slot-button { display: flex; flex: 0 0 104px; flex-direction: column; justify-content: space-between; height: 56px; padding: 8px; border: 1px solid var(--color-rule); border-radius: var(--radius-panel); background: var(--color-panel-recess); color: var(--color-bone-dim); cursor: pointer; font-size: 0.75rem; line-height: 1; text-align: left; transition: border-color 120ms ease, color 120ms ease, background-color 120ms ease; scroll-snap-align: start; }
@@ -285,7 +285,10 @@ img, svg { display: block; }
   .search-form { min-width: 0; }
   .page-main { padding-top: 40px; }
   .offer-line { padding-bottom: 40px; }
-  .bank-strip { margin-right: -16px; padding-right: 16px; scroll-snap-type: x proximity; }
+  .bank-strip { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: thin; margin-right: -16px; padding-right: 16px; scroll-snap-type: x proximity; }
+  .bank-group { min-width: max-content; }
+  .bank-group-label { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 18ch; }
+  .below-fold { grid-template-columns: 1fr; gap: 40px; }
   .sheet { display: block; }
   .sheet-main { border-right: 0; border-bottom: 1px solid var(--color-rule); }
   .sheet-load-column { position: static; padding-bottom: 24px; }
