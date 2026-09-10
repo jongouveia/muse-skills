@@ -7,13 +7,11 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "node scripts/gate-entries.mjs --quarantine && astro build && cp dist/sitemap-index.xml dist/sitemap.xml",
     "gate": "node scripts/gate-entries.mjs",
     "gate:fix": "node scripts/gate-entries.mjs --fix-dashes",
-    "prebuild": "node scripts/gate-entries.mjs --quarantine",
     "preview": "astro preview",
-    "astro": "astro",
-    "postbuild": "cp dist/sitemap-index.xml dist/sitemap.xml"
+    "astro": "astro"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.4",
