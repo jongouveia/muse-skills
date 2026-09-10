@@ -8,7 +8,9 @@
  */
 
 import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
+import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -156,6 +158,52 @@ function uniqueDestination(dir, filename) {
   return candidate;
 }
 
+function gitTrackingStatus(file) {
+  const gitDirectory = path.join(root, '.git');
+  try {
+    if (!fs.existsSync(gitDirectory) || !fs.statSync(gitDirectory).isDirectory()) return { available: false, tracked: false };
+  } catch {
+    return { available: false, tracked: false };
+  }
+  const relativeFile = path.relative(root, file);
+  try {
+    execFileSync('git', ['ls-files', '--error-unmatch', relativeFile], { cwd: root, stdio: 'ignore' });
+    return { available: true, tracked: true };
+  } catch (error) {
+    if (error?.status === 1) return { available: true, tracked: false };
+    return { available: false, tracked: false };
+  }
+}
+
+function restoreTrackedOrQuarantine(file, destinationDir) {
+  const status = gitTrackingStatus(file);
+  if (status.available && status.tracked) {
+    const slug = path.basename(file, path.extname(file));
+    const museCopy = path.join(destinationDir, `${slug}.muse.md`);
+    try {
+      fs.copyFileSync(file, museCopy);
+      const temporaryIndexDir = fs.mkdtempSync(path.join(os.tmpdir(), 'muse-gate-index-'));
+      const temporaryIndex = path.join(temporaryIndexDir, 'index');
+      try {
+        fs.copyFileSync(path.join(root, '.git/index'), temporaryIndex);
+        execFileSync('git', ['checkout', '--', path.relative(root, file)], {
+          cwd: root,
+          env: { ...process.env, GIT_INDEX_FILE: temporaryIndex },
+          stdio: 'ignore',
+        });
+      } finally {
+        fs.rmSync(temporaryIndexDir, { recursive: true, force: true });
+      }
+      return { type: 'restored', copy: path.relative(root, museCopy) };
+    } catch {
+      // Fall through to the existing quarantine behavior if Git handling fails.
+    }
+  }
+  const destination = uniqueDestination(destinationDir, path.basename(file));
+  fs.renameSync(file, destination);
+  return { type: 'moved', destination };
+}
+
 function main() {
   const options = parseArgs();
   if (!fs.existsSync(options.dir)) { console.error(`Directory not found: ${options.dir}`); process.exit(1); }
@@ -167,12 +215,26 @@ function main() {
     const destinationDir = path.join(root, 'drafts/entries');
     fs.mkdirSync(destinationDir, { recursive: true });
     const moved = [];
+    const fixed = [];
+    const restored = [];
     for (const result of results.filter((entry) => entry.failures.length)) {
-      const destination = uniqueDestination(destinationDir, path.basename(result.file));
-      fs.renameSync(result.file, destination);
-      moved.push(`- ${result.name} -> ${path.relative(root, destination)}: ${result.failures.join('; ')}`);
+      fixEmDashes(result.file);
+      const rechecked = checkFile(result.file, categories);
+      if (!rechecked.failures.length) {
+        fixed.push(`- ${result.name}: fixed dashes`);
+        console.log(`FIXED ${result.name}`);
+        continue;
+      }
+      const outcome = restoreTrackedOrQuarantine(result.file, destinationDir);
+      if (outcome.type === 'restored') {
+        restored.push(`- ${result.name}: restored tracked entry, Muse rewrite saved to ${outcome.copy}`);
+        console.log(`RESTORED ${result.name} (Muse rewrite saved to ${outcome.copy})`);
+      } else {
+        moved.push(`- ${result.name} -> ${path.relative(root, outcome.destination)}: ${rechecked.failures.join('; ')}`);
+      }
     }
-    const gateReport = `# Entry gate report\n\nRun: ${new Date().toISOString()}\n\n${moved.length ? moved.join('\n') : 'No files moved.'}\n`;
+    const reportLines = [...fixed, ...restored, ...moved];
+    const gateReport = `# Entry gate report\n\nRun: ${new Date().toISOString()}\n\n${reportLines.length ? reportLines.join('\n') : 'No files moved.'}\n`;
     fs.writeFileSync(path.join(root, 'drafts/GATE-REPORT.md'), gateReport);
     console.log(gateReport.trim());
     process.exit(0);
