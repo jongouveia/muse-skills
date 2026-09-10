@@ -19,6 +19,7 @@ Directory of ready-to-use skills, prompt packs, workflows, and configs for Muse 
 
 ## Open
 - GSC: properties `https://museskills.dev/` and `sc-domain:museskills.dev` added 2026-09-10 via `google-search-console-pp-cli webmasters add-site` (URL-encode the siteUrl), both unverified. Verify with the HTML-tag token via the `PUBLIC_GSC_VERIFICATION` Vercel env var, then `webmasters submit-sitemap <enc-site> <enc-sitemap-url>`.
+- Sitemap is served at `https://museskills.dev/sitemap.xml` (2026-09-10): `@astrojs/sitemap` writes `sitemap-index.xml`/`sitemap-0.xml`, and a `vercel.json` rewrite maps `/sitemap.xml` onto the index so every property uses the same URL. robots.txt advertises `/sitemap.xml`; submit that to GSC.
 - v0.1: impeccable finish review verdict + DESIGN.md on the top-nav layout; E2E install test of Deal Hunter in a real Muse chat; push to GitHub.
 - v0.2: newsletter (Buttondown or ConvertKit), Plausible, submission moderation flow.
 - v0.3: ratings, collections.
