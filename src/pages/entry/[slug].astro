@@ -1,11 +1,15 @@
 ---
 import { getCollection, render } from 'astro:content';
+import { ExternalLink, ShieldAlert } from 'lucide-astro';
 import Base from '../../layouts/Base.astro';
-import PatchSheet from '../../components/PatchSheet.astro';
-import LoadKey from '../../components/LoadKey.astro';
-import TypeMark from '../../components/TypeMark.astro';
-import { bankSlot } from '../../lib/bank';
-import { categoryName, categorySlug, typeName } from '../../lib/categories';
+import CopyButton from '../../components/CopyButton.astro';
+import SkillRow from '../../components/SkillRow.astro';
+import Alert from '../../components/ui/Alert.astro';
+import Badge from '../../components/ui/Badge.astro';
+import Breadcrumb from '../../components/ui/Breadcrumb.astro';
+import Button from '../../components/ui/Button.astro';
+import Card from '../../components/ui/Card.astro';
+import { categoryName, categorySlug, compareEntries, formatDate, typeName } from '../../lib/categories';
 
 export async function getStaticPaths() {
   const entries = await getCollection('entries');
@@ -15,11 +19,10 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { data } = entry;
 const { Content } = await render(entry);
-
 const allEntries = await getCollection('entries');
 const related = allEntries
-  .filter((e) => e.id !== entry.id && e.data.category === data.category)
-  .sort((a, b) => a.data.title.localeCompare(b.data.title))
+  .filter((candidate) => candidate.id !== entry.id && candidate.data.category === data.category)
+  .sort(compareEntries)
   .slice(0, 4);
 
 const title = `${data.title}: ${typeName(data.type)} for Muse AI | Muse Skills`;
@@ -45,96 +48,123 @@ const breadcrumbJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Bank', item: new URL('/', site).href },
+    { '@type': 'ListItem', position: 1, name: 'Skills', item: new URL('/', site).href },
     { '@type': 'ListItem', position: 2, name: categoryName(data.category), item: new URL(`/category/${categorySlug(data.category)}/`, site).href },
     { '@type': 'ListItem', position: 3, name: data.title, item: canonical.href },
   ],
 };
-const sourceLines = data.source.split('\n');
-const sharedLabel = data.origin === 'directory' ? 'Source file' : 'Where this was shared';
+const authorNote = data.origin === 'directory' ? 'Written for this directory' : data.source_verified ? undefined : 'Unverified source';
+const sourceUrl = new URL(data.source_url);
+const sourceLeaf = sourceUrl.pathname.split('/').filter(Boolean).at(-1) ?? `${entry.id}.md`;
+const sourceLabel = sourceUrl.hostname === 'github.com' ? `github.com/…/${entry.id}.md` : `${sourceUrl.hostname}/…/${sourceLeaf}`;
+const warnings = [
+  'A shared skill carries somebody else\'s instructions. Read the source before you install it.',
+  'Never paste an API key, password, or token into anything a skill asks for. Legitimate skills use Muse\'s own secure flows.',
+  'Installing copies the setup into your own environment. It gives the author nothing.',
+];
 ---
 <Base title={title} description={`${data.tagline} Read the full source, then paste one install prompt into Muse AI.`} ogType="article">
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbJsonLd)} />
 
-  <nav class="breadcrumb" aria-label="Breadcrumb">
-    <a href="/">Bank</a>
-    <span aria-hidden="true">/</span>
-    <a href={`/category/${categorySlug(data.category)}/`}>{categoryName(data.category)}</a>
-    <span aria-hidden="true">/</span>
-    <span aria-current="page">{data.title}</span>
-  </nav>
+  <div class="mx-auto w-full max-w-4xl space-y-8 px-4 py-8 md:py-10">
+    <Breadcrumb items={[
+      { label: 'Skills', href: '/' },
+      { label: categoryName(data.category), href: `/category/${categorySlug(data.category)}/` },
+      { label: data.title },
+    ]} />
 
-  <PatchSheet entry={entry} body={Content} headingLevel={1}>
-    <section slot="main-after" class="directions-block" aria-labelledby="directions-heading">
-      <h2 class="sheet-label" id="directions-heading">Directions</h2>
-      <p>Copy this block and paste it into your Muse chat. Muse does the install and confirms when it's done.</p>
-      <div class="load-action directions-load">
-        <div class="directions-control">
-          <LoadKey text={data.install_prompt} label="Copy install prompt" />
-          <p class="load-status" data-status aria-live="polite">Ready. Press Load to copy the install prompt.</p>
-        </div>
-        <textarea class="install-display" readonly data-fallback aria-label="Install prompt text" rows="14">{data.install_prompt}</textarea>
+    <div class="lg:grid lg:grid-cols-[minmax(0,1fr)_280px] lg:gap-10">
+      <div class="min-w-0">
+        <header>
+          <h1 class="text-3xl font-semibold tracking-tight">{data.title}</h1>
+          <p class="mt-2 text-lg text-muted-foreground">{data.tagline}</p>
+          <div class="mt-4 flex flex-wrap gap-1.5">
+            <Badge variant="secondary">{typeName(data.type)}</Badge>
+            <Badge variant="outline" href={`/category/${categorySlug(data.category)}/`} class="hover:bg-accent">{categoryName(data.category)}</Badge>
+            {data.includes.map((item) => <Badge variant="outline" class="text-[11px]">{item}</Badge>)}
+          </div>
+          <p class="mt-3 text-xs text-muted-foreground">
+            {data.origin === 'directory' ? 'by Muse Skills editors · Written for this directory' : `shared by ${data.author}`}
+          </p>
+          <div class="mt-6 flex flex-wrap gap-2">
+            <CopyButton text={data.install_prompt} label="Copy install prompt" statusId="install-status" />
+            <Button href="#source" variant="outline">View source</Button>
+          </div>
+          <p id="install-status" class="mt-3 text-sm text-muted-foreground" aria-live="polite">Ready to copy.</p>
+        </header>
+
+        <Alert title="Before you install" class="mt-8">
+          <ShieldAlert slot="icon" size={16} strokeWidth={1.5} aria-hidden="true" />
+          <ul>{warnings.map((warning) => <li>{warning}</li>)}</ul>
+        </Alert>
+
+        <section class="mt-10" aria-labelledby="what-heading">
+          <h2 id="what-heading" class="text-xl font-semibold">What it does</h2>
+          <div class="prose"><Content /></div>
+        </section>
+
+        <section class="mt-10" aria-labelledby="scope-heading">
+          <h2 id="scope-heading" class="text-xl font-semibold">What this one touches</h2>
+          <p class="mt-3 whitespace-pre-line text-muted-foreground">{data.safety_notes}</p>
+        </section>
+
+        <section class="mt-10" aria-labelledby="install-heading">
+          <h2 id="install-heading" class="text-xl font-semibold">Install</h2>
+          <p class="mt-3 text-muted-foreground">Copy this block and paste it into your Muse chat. Muse does the install and confirms when it's done.</p>
+          <Card class="mt-4 overflow-hidden">
+            <div class="flex items-center justify-between gap-3 border-b p-4">
+              <span class="text-sm font-medium">Install prompt</span>
+              <CopyButton text={data.install_prompt} label="Copy install prompt" size="sm" variant="outline" statusId="install-status" />
+            </div>
+            <div class="p-4">
+              <textarea readonly rows="12" class="w-full max-w-full resize-y overflow-auto rounded-md border bg-muted p-3 font-mono text-xs leading-relaxed text-foreground">{data.install_prompt}</textarea>
+            </div>
+          </Card>
+        </section>
+
+        <section class="mt-10" id="source" aria-labelledby="source-heading">
+          <h2 id="source-heading" class="text-xl font-semibold">Full source</h2>
+          <p class="mt-3 text-muted-foreground">This is the exact text Muse installs. Read it. That's the whole trust model.</p>
+          <Card class="mt-4 min-w-0 overflow-hidden">
+            <div class="flex items-center justify-between gap-3 border-b p-4">
+              <span class="text-sm font-medium">SKILL.md</span>
+              <CopyButton text={data.source} label="Copy source" size="sm" variant="outline" />
+            </div>
+            <pre class="max-w-full overflow-x-auto p-4 font-mono text-xs leading-relaxed"><code>{data.source}</code></pre>
+          </Card>
+        </section>
+
+        {related.length > 0 && (
+          <section class="mt-10" aria-labelledby="related-heading">
+            <h2 id="related-heading" class="text-xl font-semibold">More in {categoryName(data.category)}</h2>
+            <ul class="mt-3 divide-y">
+              {related.map((relatedEntry) => <li><SkillRow entry={relatedEntry} showCategory={false} /></li>)}
+            </ul>
+          </section>
+        )}
       </div>
-    </section>
 
-    <section slot="main-after" class="source-section" aria-labelledby="source-heading">
-      <h2 class="sheet-label" id="source-heading">Full source</h2>
-      <p>This is the exact text Muse installs. Read it. That's the whole trust model.</p>
-      <div class="load-action source-copy">
-        <LoadKey text={data.source} label="Copy source" idleText="Ready." doneText="Source copied." />
-        <p class="load-status" data-status aria-live="polite">Ready.</p>
-      </div>
-      <pre class="source-pre" data-fallback><code>{sourceLines.map((line, i) => <span class="source-line" style={`--line: ${i + 1}`}>{line}</span>)}</code></pre>
-    </section>
-
-    <section slot="aside-after" class="shared-block" aria-labelledby="shared-heading">
-      <h3 class="meta-label" id="shared-heading">{sharedLabel}</h3>
-      <p><a class="source-link" href={data.source_url} rel="noopener" target="_blank">{data.source_url.replace(/^https?:\/\//, '')}</a></p>
-    </section>
-  </PatchSheet>
-
-  {related.length > 0 && (
-    <section class="related-block" aria-labelledby="related-heading">
-      <h2 class="section-title" id="related-heading">More in {categoryName(data.category)}</h2>
-      <ul class="related-list">
-        {related.map((e) => (
-          <li class="related-row">
-            <a href={`/entry/${e.id}/`}>
-              <span class="slot-number">{String(bankSlot(allEntries, e.id)).padStart(2, '0')}</span>
-              <span class="related-body">
-                <span class="related-title">{e.data.title}</span>
-                <span class="related-tagline">{e.data.tagline}</span>
-              </span>
-              <span class="related-meta"><TypeMark type={e.data.type} /></span>
-            </a>
-          </li>
-        ))}
-      </ul>
-    </section>
-  )}
+      <aside class="mt-10 self-start lg:sticky lg:top-20 lg:mt-0">
+        <Card class="p-5">
+          <h2 class="text-base font-semibold">Details</h2>
+          <dl class="mt-5 grid grid-cols-[88px_1fr] gap-y-3 text-sm">
+            <dt class="text-muted-foreground">Type</dt><dd>{typeName(data.type)}</dd>
+            <dt class="text-muted-foreground">Category</dt><dd><a class="underline" href={`/category/${categorySlug(data.category)}/`}>{categoryName(data.category)}</a></dd>
+            <dt class="text-muted-foreground">Version</dt><dd>{data.version}</dd>
+            <dt class="text-muted-foreground">Added</dt><dd>{formatDate(data.date_added)}</dd>
+            <dt class="text-muted-foreground">Author</dt><dd>{data.author}{authorNote && <span class="mt-1 block text-xs text-muted-foreground">{authorNote}</span>}</dd>
+            <dt class="text-muted-foreground">Includes</dt><dd class="flex flex-wrap gap-1">{data.includes.map((item) => <Badge variant="outline" class="text-[11px]">{item}</Badge>)}</dd>
+            <dt class="text-muted-foreground">Source</dt>
+            <dd class="min-w-0">
+              <a class="inline-flex max-w-full items-center gap-1 underline" href={data.source_url} rel="noopener" target="_blank">
+                <span class="truncate">{sourceLabel}</span><ExternalLink class="shrink-0" size={16} strokeWidth={1.5} aria-hidden="true" />
+              </a>
+            </dd>
+          </dl>
+          <CopyButton text={data.install_prompt} label="Copy install prompt" class="mt-6 w-full" statusId="install-status" />
+        </Card>
+      </aside>
+    </div>
+  </div>
 </Base>
-
-<style>
-  .directions-block, .source-section { padding-top: 40px; border-top: 1px solid var(--color-rule); margin-top: 44px; }
-  .directions-block > p, .source-section > p { margin: 0 0 20px; color: var(--color-bone-dim); }
-  .directions-load { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 16px 24px; align-items: start; }
-  .directions-control { grid-column: 1; }
-  .directions-load .load-key { width: 100%; }
-  .directions-load .load-status { margin-top: 12px; }
-  .source-copy { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 12px; align-items: start; }
-  .source-copy .load-key { min-height: 44px; font-size: 0.85rem; }
-  .source-copy .load-status { min-height: 44px; }
-  .install-display { box-sizing: border-box; grid-column: 2; grid-row: 1; width: 100%; min-width: 0; padding: 16px; border: 1px solid var(--color-rule); border-radius: var(--radius-panel); background: var(--color-panel-recess); color: var(--color-bone); font-family: var(--font-mono); font-size: 0.82rem; line-height: 1.5; overflow: auto; resize: vertical; white-space: pre; }
-  .source-pre { box-sizing: border-box; width: 100%; max-width: none; margin: 16px 0 0; padding: 16px 16px 16px 64px; overflow-x: auto; border: 1px solid var(--color-rule); border-radius: var(--radius-panel); background: var(--color-panel-recess); font-family: var(--font-mono); font-size: 0.8rem; line-height: 1.6; counter-reset: line; }
-  .source-line { display: block; min-width: max-content; white-space: pre; position: relative; }
-  .source-line::before { counter-increment: line; content: counter(line, decimal-leading-zero); position: absolute; right: calc(100% + 14px); color: var(--color-bone-dim); font-family: var(--font-legend); font-variant-numeric: tabular-nums; text-align: right; user-select: none; }
-  .shared-block { padding-top: 24px; border-top: 1px solid var(--color-rule); }
-  .shared-block h3 { margin-bottom: 6px; }
-  .shared-block p { margin: 0; overflow-wrap: anywhere; font-family: var(--font-legend); font-size: 0.8rem; letter-spacing: 0.02em; line-height: 1.4; }
-  @media (max-width: 720px) {
-    .directions-load, .source-copy { grid-template-columns: 1fr; }
-    .directions-control, .install-display { grid-column: 1; grid-row: auto; }
-    .install-display { min-height: 0; }
-  }
-</style>

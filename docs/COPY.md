@@ -1,53 +1,49 @@
 # Site copy (verbatim; page code uses these strings)
 
-## Masthead
+## Directory chrome
 
 - Site name: Muse Skills
-- Tagline: One paste installs the whole thing.
-- Nav: Bank · About. Right end: search, then the Submit a skill key.
+- Nav: Skills · About · Submit a skill
 - Search placeholder: Search skills
+- Filter panel: Clear filters · "{n} of {m} skills" · group labels "category" and "type"
+- Empty state: No skills match your filters.
+- Row actions: View · Copy install prompt · Copied
+- Status: Ready to copy. · Paste it into your Muse chat.
+- Entry sections: What it does · What this one touches · Install · Full source · Details · Source · View source
+- Theme toggle label: Toggle theme
+- 404 line: That page is not in the directory.
+- 404 button: Back to skills
 
 ## Homepage
 
 - H1: Ready-to-use skills for Muse AI.
-- Offer line (beside the hero line): One paste installs the whole thing. Pick a skill, read its full source, copy the install prompt, and paste it into your Muse chat. Skills, prompt packs, scheduled workflows, and config snippets, all free.
-- Bank legend: Skill bank
-- Sheet status line, idle: Ready. Press Load to copy the install prompt.
-- Sheet status line, after Load: Loaded. Paste it into your Muse chat.
-- Load key label: Copy install prompt
-- Source link on the homepage sheet: Read the full source
-- Section: New this week
-- Section: Browse by category
+- Offer line: One paste installs the whole thing. Pick a skill, read its full source, copy the install prompt, and paste it into your Muse chat. Skills, prompt packs, scheduled workflows, and config snippets, all free.
 - How it works, three steps:
-  1. Copy. Press Load on any skill. The install prompt goes to your clipboard.
+  1. Copy. Choose Copy install prompt on any skill. The install prompt goes to your clipboard.
   2. Paste. Open your Muse chat and paste the block.
   3. Confirm. Muse creates the skill, asks before it schedules anything, and tells you the trigger phrases.
 
 ## Entry page
 
-- Breadcrumb: Bank / {Category name} / {Title}
-- Sheet labels (legend style): Uses · What it includes · Before you install · What this one touches · Directions · Full source · Author · Version · Added · Type · Includes
+- Breadcrumb: Skills / {Category name} / {Title}
+- Labels: What it does · Before you install · What this one touches · Install · Full source · Details · Source · Author · Version · Added · Type · Includes
 - Type values: skill · prompt pack · workflow · config
 - Author note under the author name: "Written for this directory" for seed entries; "Unverified source" for shared entries not yet verified
-- Directions intro: Copy this block and paste it into your Muse chat. Muse does the install and confirms when it's done.
+- Install intro: Copy this block and paste it into your Muse chat. Muse does the install and confirms when it's done.
 - Before you install heading: Before you install
 - Warnings body:
   - A shared skill carries somebody else's instructions. Read the source before you install it.
   - Never paste an API key, password, or token into anything a skill asks for. Legitimate skills use Muse's own secure flows.
   - Installing copies the setup into your own environment. It gives the author nothing.
-- Source heading: Full source
 - Source intro: This is the exact text Muse installs. Read it. That's the whole trust model.
-- Source copy key label: Copy source
-- Source status, idle: Ready.
-- Source status, after copy: Source copied.
-- Scope block ("What this one touches"): the entry's own safety_notes, kept apart from the three global lines
+- Source copy label: Copy source
+- Scope section ("What this one touches"): the entry's own safety_notes, kept apart from the three global lines
 - Related heading: More in {Category name}
-- Source link label: Where this was shared (shared entries) · Source file (seed entries)
 
 ## Category page
 
 - Heading pattern: "{Category name}" with the count: "{n} skills" ("1 skill")
-- Categories: Deal hunting · Productivity · Money & finance · Shopping · Creative · Dev & automation
+- Categories: Deal hunting · Productivity · Money & finance · Shopping · Creative · Marketing · Dev & automation
 
 ## Submit page
 
@@ -80,5 +76,5 @@
 
 ## Footer
 
-- Columns: Browse (Bank, then each category) · Project (About, Submit a skill, GitHub)
+- Columns: Browse (Skills, then each category) · Project (About, Submit a skill, GitHub)
 - Note: Independent community directory. Not affiliated with Meta.

@@ -7,5 +7,5 @@ export default defineConfig({
   site: 'https://museskills.dev',
   trailingSlash: 'always',
   integrations: [sitemap({ filter: (page) => !page.includes('/og-default') })],
-  vite: { plugins: [tailwindcss()] },
+  vite: { plugins: [tailwindcss()], ssr: { noExternal: true } },
 });

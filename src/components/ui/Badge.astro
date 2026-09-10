@@ -1,0 +1,18 @@
+---
+interface Props {
+  variant?: 'secondary' | 'outline';
+  as?: 'span' | 'button' | 'a';
+  href?: string;
+  class?: string;
+  [key: string]: unknown;
+}
+
+const { variant = 'secondary', as, href, class: className = '', ...rest } = Astro.props;
+const Tag = as ?? (href ? 'a' : 'span');
+const variants = {
+  secondary: 'border-transparent bg-secondary text-secondary-foreground',
+  outline: 'text-foreground',
+};
+const classes = `inline-flex items-center rounded-md border px-2 py-0.5 text-xs font-medium whitespace-nowrap transition-colors ${variants[variant]} ${className}`;
+---
+<Tag href={href} class={classes} {...rest}><slot /></Tag>

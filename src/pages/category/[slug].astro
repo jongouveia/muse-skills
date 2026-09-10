@@ -1,20 +1,34 @@
 ---
 import { getCollection } from 'astro:content';
+import { Search, X } from 'lucide-astro';
 import Base from '../../layouts/Base.astro';
-import Bank from '../../components/Bank.astro';
-import { CATEGORIES, categoryDescription, categoryName, skillCount } from '../../lib/categories';
+import SkillRow from '../../components/SkillRow.astro';
+import Badge from '../../components/ui/Badge.astro';
+import Breadcrumb from '../../components/ui/Breadcrumb.astro';
+import Button from '../../components/ui/Button.astro';
+import Card from '../../components/ui/Card.astro';
+import Input from '../../components/ui/Input.astro';
+import { CATEGORIES, TYPES, categoryDescription, categoryName, compareEntries, skillCount, typeName } from '../../lib/categories';
 
 export async function getStaticPaths() {
   const entries = await getCollection('entries');
-  return Object.keys(CATEGORIES).map((slug) => ({
-    params: { slug },
-    props: { entries: entries.filter((entry) => entry.data.category === slug) },
-  }));
+  return Object.keys(CATEGORIES)
+    .filter((slug) => entries.some((entry) => entry.data.category === slug))
+    .map((slug) => ({
+      params: { slug },
+      props: { entries: entries.filter((entry) => entry.data.category === slug).sort(compareEntries) },
+    }));
 }
 
 const { entries } = Astro.props;
 const name = categoryName(Astro.params.slug ?? '');
-const description = `${skillCount(entries.length)} for Muse AI in ${name}: ${entries.map((entry) => entry.data.title).join(', ')}. Each shows its full source and installs with one paste.`;
+const total = entries.length;
+const typeRows = TYPES.map((type) => ({
+  type,
+  name: typeName(type),
+  count: entries.filter((entry) => entry.data.type === type).length,
+}));
+const description = `${skillCount(total)} for Muse AI in ${name}: ${entries.map((entry) => entry.data.title).join(', ')}. Each shows its full source and installs with one paste.`;
 const site = Astro.site ?? Astro.url;
 const collectionJsonLd = {
   '@context': 'https://schema.org',
@@ -34,16 +48,100 @@ const collectionJsonLd = {
 ---
 <Base title={`${name} skills for Muse AI | Muse Skills`} description={description}>
   <script type="application/ld+json" set:html={JSON.stringify(collectionJsonLd)} />
-  <section class="category-header">
-    <h1>{name}</h1>
-    <p class="category-intro">{categoryDescription(Astro.params.slug ?? '')}</p>
-    <p class="category-count-line">{skillCount(entries.length)}</p>
-  </section>
-  <Bank entries={entries} />
+  <div class="mx-auto w-full max-w-4xl space-y-10 px-4 py-8 md:py-10">
+    <div class="space-y-6">
+      <Breadcrumb items={[{ label: 'Skills', href: '/' }, { label: name }]} />
+      <header>
+        <h1 class="text-3xl font-semibold tracking-tight">{name}</h1>
+        <p class="mt-3 max-w-[65ch] text-lg text-muted-foreground">{categoryDescription(Astro.params.slug ?? '')}</p>
+      </header>
+    </div>
+
+    <Card class="space-y-4 p-4" data-filter-panel>
+      <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
+        <div class="relative flex-1">
+          <label class="sr-only" for="search">Search skills</label>
+          <Search class="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" size={16} strokeWidth={1.5} aria-hidden="true" />
+          <Input id="search" type="search" placeholder="Search skills" autocomplete="off" class="pl-9" data-search-input />
+        </div>
+        <div class="flex items-center justify-between gap-3 sm:contents">
+        <Button type="button" variant="outline" size="sm" data-clear>
+          <X size={16} strokeWidth={1.5} aria-hidden="true" />
+          Clear filters
+        </Button>
+        <span class="text-sm tabular-nums text-muted-foreground" data-count>{total} of {total} skills</span>
+        </div>
+      </div>
+      <div class="flex flex-wrap items-center gap-2">
+        <span class="w-16 text-xs text-muted-foreground">type</span>
+        {typeRows.map(({ type, name: typeLabel, count }) => (
+          <Badge as="button" type="button" variant="outline" class="gap-1.5 tabular-nums hover:bg-accent" data-filter data-filter-value={type} aria-pressed="false">
+            {typeLabel} <span class="text-muted-foreground">{count}</span>
+          </Badge>
+        ))}
+      </div>
+    </Card>
+
+    <section aria-label={`${name} skills`}>
+      <ul class="divide-y" data-list>
+        {entries.map((entry) => (
+          <li data-type={entry.data.type} data-search={`${entry.data.title} ${entry.data.tagline} ${typeName(entry.data.type)} ${entry.data.includes.join(' ')}`.toLowerCase()}>
+            <SkillRow entry={entry} showCategory={false} />
+          </li>
+        ))}
+      </ul>
+      <p class="py-10 text-sm text-muted-foreground" hidden data-empty>No skills match your filters.</p>
+    </section>
+  </div>
 </Base>
-<style>
-  .category-header { padding-bottom: 32px; }
-  .category-header h1 { margin: 0; color: var(--color-bone); font-family: var(--font-legend); font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 700; line-height: 0.95; text-transform: uppercase; letter-spacing: -0.01em; }
-  .category-count-line { margin: 8px 0 0; color: var(--color-live); font-family: var(--font-legend); font-size: 0.85rem; font-variant-numeric: tabular-nums; letter-spacing: 0.04em; }
-  .category-intro { max-width: 62ch; margin: 16px 0 0; color: var(--color-bone-dim); }
-</style>
+
+<script>
+  const panel = document.querySelector('[data-filter-panel]');
+  const list = document.querySelector('[data-list]');
+  const search = panel?.querySelector('[data-search-input]');
+  const count = panel?.querySelector('[data-count]');
+  const empty = document.querySelector('[data-empty]');
+  const rows = list ? Array.from(list.querySelectorAll(':scope > li')) : [];
+  const filterButtons = panel ? Array.from(panel.querySelectorAll('[data-filter]')) : [];
+  let selectedType = '';
+
+  const update = () => {
+    const query = search instanceof HTMLInputElement ? search.value.trim().toLowerCase() : '';
+    let visible = 0;
+    rows.forEach((row) => {
+      if (!(row instanceof HTMLElement)) return;
+      const matches = (row.dataset.search ?? '').includes(query) && (!selectedType || row.dataset.type === selectedType);
+      row.hidden = !matches;
+      if (matches) visible += 1;
+    });
+    if (count) count.textContent = `${visible} of ${rows.length} skill${rows.length === 1 ? '' : 's'}`;
+    if (empty instanceof HTMLElement) empty.hidden = visible !== 0;
+    filterButtons.forEach((button) => {
+      if (!(button instanceof HTMLElement)) return;
+      button.setAttribute('aria-pressed', String(button.dataset.filterValue === selectedType));
+    });
+    const params = new URLSearchParams();
+    if (query) params.set('q', query);
+    if (selectedType) params.set('type', selectedType);
+    const nextQuery = params.toString();
+    history.replaceState(null, '', `${location.pathname}${nextQuery ? `?${nextQuery}` : ''}`);
+  };
+
+  const params = new URLSearchParams(location.search);
+  if (search instanceof HTMLInputElement) search.value = params.get('q') ?? '';
+  const requestedType = params.get('type') ?? '';
+  if (filterButtons.some((button) => button instanceof HTMLElement && button.dataset.filterValue === requestedType)) selectedType = requestedType;
+  search?.addEventListener('input', update);
+  panel?.querySelector('[data-clear]')?.addEventListener('click', () => {
+    if (search instanceof HTMLInputElement) search.value = '';
+    selectedType = '';
+    update();
+  });
+  filterButtons.forEach((button) => button.addEventListener('click', () => {
+    if (!(button instanceof HTMLElement)) return;
+    const value = button.dataset.filterValue ?? '';
+    selectedType = selectedType === value ? '' : value;
+    update();
+  }));
+  update();
+</script>

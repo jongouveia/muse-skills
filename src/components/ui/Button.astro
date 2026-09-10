@@ -1,0 +1,36 @@
+---
+interface Props {
+  variant?: 'default' | 'outline' | 'ghost' | 'secondary';
+  size?: 'default' | 'sm' | 'icon';
+  href?: string;
+  class?: string;
+  [key: string]: unknown;
+}
+
+const {
+  variant = 'default',
+  size = 'default',
+  href,
+  class: className = '',
+  ...rest
+} = Astro.props;
+
+const base = 'inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap shadow-xs transition-colors disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0';
+const variants = {
+  default: 'bg-primary text-primary-foreground hover:bg-primary/90',
+  outline: 'border border-input bg-background text-foreground hover:bg-accent hover:text-accent-foreground',
+  ghost: 'bg-transparent text-foreground shadow-none hover:bg-accent hover:text-accent-foreground',
+  secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/80',
+};
+const sizes = {
+  default: 'h-9 px-4',
+  sm: 'h-8 px-3 text-xs',
+  icon: 'size-9',
+};
+const classes = `${base} ${variants[variant]} ${sizes[size]} ${className}`;
+---
+{href ? (
+  <a href={href} class={classes} {...rest}><slot /></a>
+) : (
+  <button class={classes} {...rest}><slot /></button>
+)}

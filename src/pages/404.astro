@@ -1,13 +1,11 @@
 ---
 import Base from '../layouts/Base.astro';
+import Button from '../components/ui/Button.astro';
 ---
-<Base title="Page not found | Muse Skills" description="That page is not in the bank. Go back to the skill bank or browse by category." noindex>
-  <div class="not-found">
-    <h1>No patch in this slot.</h1>
-    <a href="/">Back to the bank</a>
+<Base title="Page not found | Muse Skills" description="That page is not in the directory." noindex>
+  <div class="mx-auto flex min-h-[50vh] w-full max-w-4xl flex-col items-start justify-center px-4 py-8 md:py-10">
+    <h1 class="text-3xl font-semibold tracking-tight">Page not found</h1>
+    <p class="mt-3 text-muted-foreground">That page is not in the directory.</p>
+    <Button href="/" variant="outline" class="mt-6">Back to skills</Button>
   </div>
 </Base>
-<style>
-  .not-found h1 { margin: 0 0 20px; color: var(--color-bone); font-family: var(--font-legend); font-size: clamp(2.5rem, 6vw, 5.5rem); font-weight: 700; line-height: 0.9; letter-spacing: -0.02em; }
-  .not-found a { color: var(--color-live); }
-</style>

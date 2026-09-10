@@ -1,0 +1,50 @@
+---
+import { Moon, Search, Sun } from 'lucide-astro';
+import Button from './ui/Button.astro';
+import Input from './ui/Input.astro';
+
+const path = Astro.url.pathname;
+const isHomepage = path === '/';
+const query = Astro.url.searchParams.get('q') ?? '';
+const links = [
+  { href: '/', label: 'Skills', current: path === '/' || path.startsWith('/category/') || path.startsWith('/entry/') },
+  { href: '/about/', label: 'About', current: path.startsWith('/about') },
+];
+---
+<header class="sticky top-0 z-50 h-14 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
+  <div class="mx-auto flex h-full w-full max-w-4xl items-center gap-3 px-4">
+    <a class="shrink-0 font-semibold" href="/" aria-label="Muse Skills home">Muse Skills</a>
+    <nav class="flex items-center gap-3" aria-label="Primary navigation">
+      {links.map((link) => (
+        <a
+          href={link.href}
+          class:list={['text-sm transition-colors hover:text-foreground', link.current ? 'text-foreground' : 'text-muted-foreground']}
+          aria-current={link.current ? 'page' : undefined}
+        >{link.label}</a>
+      ))}
+    </nav>
+    <div class="ml-auto flex min-w-0 items-center gap-2">
+      {!isHomepage && <form class="relative hidden w-44 md:block" action="/" method="get" role="search">
+        <label class="sr-only" for="header-search">Search skills</label>
+        <Search class="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" size={16} strokeWidth={1.5} aria-hidden="true" />
+        <Input id="header-search" name="q" type="search" placeholder="Search skills" value={query} autocomplete="off" class="pl-9" />
+      </form>}
+      <Button variant="ghost" size="icon" type="button" aria-label="Toggle theme" data-theme-toggle>
+        <Sun class="theme-icon-sun" size={16} strokeWidth={1.5} aria-hidden="true" />
+        <Moon class="theme-icon-moon" size={16} strokeWidth={1.5} aria-hidden="true" />
+      </Button>
+      <Button href="/submit/" size="sm" aria-current={path.startsWith('/submit') ? 'page' : undefined}>Submit a skill</Button>
+    </div>
+  </div>
+</header>
+
+<script>
+  const themeButton = document.querySelector('[data-theme-toggle]');
+  themeButton?.addEventListener('click', () => {
+    const root = document.documentElement;
+    const nextDark = !root.classList.contains('dark');
+    root.classList.toggle('dark', nextDark);
+    localStorage.setItem('theme', nextDark ? 'dark' : 'light');
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', nextDark ? '#09090b' : '#ffffff');
+  });
+</script>

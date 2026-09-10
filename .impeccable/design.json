@@ -1,0 +1,199 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-09T23:30:00-04:00",
+  "title": "Design System: Muse Skills",
+  "extensions": {
+    "colorMeta": {
+      "primary": { "role": "primary", "displayName": "Ink", "canonical": "#18181b", "darkValue": "#fafafa", "tonalRamp": ["#09090b", "#18181b", "#27272a", "#3f3f46", "#52525b", "#71717a", "#a1a1aa", "#d4d4d8", "#e4e4e7", "#f4f4f5", "#fafafa"] },
+      "primary-foreground": { "role": "primary", "displayName": "Paper on Ink", "canonical": "#fafafa", "darkValue": "#18181b", "tonalRamp": ["#09090b", "#18181b", "#27272a", "#3f3f46", "#52525b", "#71717a", "#a1a1aa", "#d4d4d8", "#e4e4e7", "#f4f4f5", "#fafafa"] },
+      "background": { "role": "neutral", "displayName": "Paper", "canonical": "#ffffff", "darkValue": "#09090b", "tonalRamp": ["#09090b", "#18181b", "#27272a", "#3f3f46", "#52525b", "#71717a", "#a1a1aa", "#d4d4d8", "#e4e4e7", "#f4f4f5", "#ffffff"] },
+      "foreground": { "role": "neutral", "displayName": "Text Ink", "canonical": "#09090b", "darkValue": "#fafafa", "tonalRamp": ["#09090b", "#18181b", "#27272a", "#3f3f46", "#52525b", "#71717a", "#a1a1aa", "#d4d4d8", "#e4e4e7", "#f4f4f5", "#fafafa"] },
+      "muted": { "role": "neutral", "displayName": "Field Grey", "canonical": "#f4f4f5", "darkValue": "#27272a", "tonalRamp": ["#09090b", "#18181b", "#27272a", "#3f3f46", "#52525b", "#71717a", "#a1a1aa", "#d4d4d8", "#e4e4e7", "#f4f4f5", "#fafafa"] },
+      "muted-foreground": { "role": "neutral", "displayName": "Secondary Text", "canonical": "#71717a", "darkValue": "#a1a1aa", "tonalRamp": ["#09090b", "#18181b", "#27272a", "#3f3f46", "#52525b", "#71717a", "#a1a1aa", "#d4d4d8", "#e4e4e7", "#f4f4f5", "#fafafa"] },
+      "border": { "role": "neutral", "displayName": "Hairline", "canonical": "#e4e4e7", "darkValue": "#27272a", "tonalRamp": ["#09090b", "#18181b", "#27272a", "#3f3f46", "#52525b", "#71717a", "#a1a1aa", "#d4d4d8", "#e4e4e7", "#f4f4f5", "#fafafa"] },
+      "accent": { "role": "neutral", "displayName": "Chip Grey (hover fill)", "canonical": "#f4f4f5", "darkValue": "#27272a", "tonalRamp": ["#09090b", "#18181b", "#27272a", "#3f3f46", "#52525b", "#71717a", "#a1a1aa", "#d4d4d8", "#e4e4e7", "#f4f4f5", "#fafafa"] },
+      "ring": { "role": "neutral", "displayName": "Focus Ring", "canonical": "#a1a1aa", "darkValue": "#d4d4d8", "tonalRamp": ["#09090b", "#18181b", "#27272a", "#3f3f46", "#52525b", "#71717a", "#a1a1aa", "#d4d4d8", "#e4e4e7", "#f4f4f5", "#fafafa"] },
+      "destructive": { "role": "neutral", "displayName": "Destructive (defined, unused)", "canonical": "#dc2626", "darkValue": "#ef4444", "tonalRamp": ["#450a0a", "#7f1d1d", "#991b1b", "#b91c1c", "#dc2626", "#ef4444", "#f87171", "#fca5a5", "#fecaca", "#fee2e2", "#fef2f2"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Homepage h1 only." },
+      "headline": { "displayName": "Headline", "purpose": "h1 on entry, category, about, and submit pages." },
+      "title": { "displayName": "Title", "purpose": "Section h2s." },
+      "lead": { "displayName": "Lead", "purpose": "Muted paragraph under an h1, max 65ch on list pages." },
+      "body": { "displayName": "Body", "purpose": "Prose and safety notes, mostly in muted-foreground." },
+      "row-title": { "displayName": "Row Title", "purpose": "Entry title link in a skill row." },
+      "small": { "displayName": "Small", "purpose": "Taglines, nav, breadcrumb, buttons, inputs, details, footer, status." },
+      "label": { "displayName": "Label", "purpose": "Badges, chips, sm buttons; uppercase only in footer column headings." },
+      "code": { "displayName": "Code", "purpose": "Geist Mono inside install-prompt and source blocks only." }
+    },
+    "themes": {
+      "mechanism": "Class `dark` on <html>, toggled by the header ghost icon button, persisted in localStorage.theme, applied by an inline head script before paint. Light is the default; system preference is not read. meta[name=theme-color] follows (#ffffff / #09090b). color-scheme: light dark on html, dark on html.dark.",
+      "dark": {
+        "background": "#09090b", "foreground": "#fafafa", "card": "#09090b", "card-foreground": "#fafafa",
+        "muted": "#27272a", "muted-foreground": "#a1a1aa", "border": "#27272a", "input": "#27272a",
+        "primary": "#fafafa", "primary-foreground": "#18181b", "secondary": "#27272a", "secondary-foreground": "#fafafa",
+        "accent": "#27272a", "accent-foreground": "#fafafa", "destructive": "#ef4444", "ring": "#d4d4d8"
+      }
+    },
+    "shadows": [
+      { "name": "card-lift", "value": "0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)", "purpose": "Every Card (shadow-sm). Never on hover." },
+      { "name": "control-edge", "value": "0 1px 2px 0 rgb(0 0 0 / 0.05)", "purpose": "Default, outline, and secondary buttons; inputs (shadow-xs). Ghost buttons drop it." }
+    ],
+    "motion": [
+      { "name": "color-transition", "value": "150ms cubic-bezier(0.4, 0, 0.2, 1)", "purpose": "transition-colors on buttons, badges, chips, inputs, nav and breadcrumb links. The only continuous motion." },
+      { "name": "copy-confirm", "value": "2000ms", "purpose": "Copy button holds the Check icon, 'Copied' label, and 'Paste it into your Muse chat.' status, then restores." },
+      { "name": "reduced-motion", "value": "transition-duration: 0.01ms", "purpose": "Global prefers-reduced-motion override." }
+    ],
+    "focus": { "value": "outline: 2px solid var(--ring); outline-offset: 2px", "purpose": "Global :focus-visible on a, button, input, select, textarea. No per-component focus styles." },
+    "breakpoints": [
+      { "name": "sm", "value": "640px", "purpose": "Skill row goes horizontal; filter panel row inline." },
+      { "name": "md", "value": "768px", "purpose": "Page padding 40px; header search appears; footer and How it works go three columns." },
+      { "name": "lg", "value": "1024px", "purpose": "Entry page splits into main column plus sticky 280px details column." }
+    ],
+    "containers": [
+      { "name": "page", "value": "896px (max-w-4xl)", "purpose": "Header, footer, 404, index, category, entry." },
+      { "name": "reading", "value": "672px (max-w-2xl)", "purpose": "About and submit." },
+      { "name": "gutter", "value": "16px", "purpose": "px-4 on every container." },
+      { "name": "header", "value": "56px sticky, 1px bottom border, bg-background/80 with backdrop-blur", "purpose": "Site chrome." },
+      { "name": "min-width", "value": "320px", "purpose": "html and body minimum; page never scrolls horizontally." }
+    ],
+    "icons": { "library": "lucide-astro", "size": "16px", "strokeWidth": 1.5, "purpose": "Always aria-hidden, paired with a label or aria-label." },
+    "copyVocabulary": {
+      "siteName": "Muse Skills",
+      "nav": ["Skills", "About", "Submit a skill"],
+      "searchPlaceholder": "Search skills",
+      "filterPanel": ["Clear filters", "{n} of {m} skills", "category", "type"],
+      "emptyState": "No skills match your filters.",
+      "rowActions": ["View", "Copy install prompt", "Copied"],
+      "status": ["Ready to copy.", "Paste it into your Muse chat."],
+      "entrySections": ["What it does", "What this one touches", "Install", "Full source", "Details", "Source", "View source"],
+      "themeToggleLabel": "Toggle theme",
+      "notFoundLine": "That page is not in the directory.",
+      "notFoundButton": "Back to skills"
+    }
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Solid ink button. Default 36px; sm 32px in the header and skill rows.",
+      "html": "<button class=\"ds-btn ds-btn-primary\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><rect width=\"14\" height=\"14\" x=\"8\" y=\"8\" rx=\"2\" ry=\"2\"/><path d=\"M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2\"/></svg>Copy install prompt</button>",
+      "css": ".ds-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 36px; padding: 0 16px; border-radius: calc(var(--radius, 0.5rem) - 2px); font-family: 'Geist Variable', ui-sans-serif, system-ui, sans-serif; font-size: 14px; font-weight: 500; white-space: nowrap; border: 1px solid transparent; cursor: pointer; transition: color 150ms cubic-bezier(0.4,0,0.2,1), background-color 150ms cubic-bezier(0.4,0,0.2,1), border-color 150ms cubic-bezier(0.4,0,0.2,1); } .ds-btn:focus-visible { outline: 2px solid var(--ring, #a1a1aa); outline-offset: 2px; } .ds-btn:disabled { opacity: 0.5; pointer-events: none; } .ds-btn-primary { background: var(--primary, #18181b); color: var(--primary-foreground, #fafafa); box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); } .ds-btn-primary:hover { background: color-mix(in oklab, var(--primary, #18181b) 90%, transparent); }"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Paper button with a hairline border. View, View source, Clear filters, in-card copy.",
+      "html": "<button class=\"ds-btn ds-btn-outline ds-btn-sm\">View</button>",
+      "css": ".ds-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 36px; padding: 0 16px; border-radius: calc(var(--radius, 0.5rem) - 2px); font-family: 'Geist Variable', ui-sans-serif, system-ui, sans-serif; font-size: 14px; font-weight: 500; white-space: nowrap; border: 1px solid transparent; cursor: pointer; transition: color 150ms cubic-bezier(0.4,0,0.2,1), background-color 150ms cubic-bezier(0.4,0,0.2,1); } .ds-btn:focus-visible { outline: 2px solid var(--ring, #a1a1aa); outline-offset: 2px; } .ds-btn-outline { background: var(--background, #ffffff); color: var(--foreground, #09090b); border-color: var(--input, #e4e4e7); box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); } .ds-btn-outline:hover { background: var(--accent, #f4f4f5); color: var(--accent-foreground, #18181b); } .ds-btn-sm { height: 32px; padding: 0 12px; font-size: 12px; }"
+    },
+    {
+      "name": "Ghost Icon Button (theme toggle)",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "36px square, no fill or shadow at rest; hover fills with accent. Holds the Sun or Moon icon.",
+      "html": "<button class=\"ds-btn ds-btn-ghost ds-btn-icon\" aria-label=\"Toggle theme\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"4\"/><path d=\"M12 2v2\"/><path d=\"M12 20v2\"/><path d=\"m4.93 4.93 1.41 1.41\"/><path d=\"m17.66 17.66 1.41 1.41\"/><path d=\"M2 12h2\"/><path d=\"M20 12h2\"/><path d=\"m6.34 17.66-1.41 1.41\"/><path d=\"m19.07 4.93-1.41 1.41\"/></svg></button>",
+      "css": ".ds-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 36px; padding: 0 16px; border-radius: calc(var(--radius, 0.5rem) - 2px); font-family: 'Geist Variable', ui-sans-serif, system-ui, sans-serif; font-size: 14px; font-weight: 500; border: 1px solid transparent; cursor: pointer; transition: color 150ms cubic-bezier(0.4,0,0.2,1), background-color 150ms cubic-bezier(0.4,0,0.2,1); } .ds-btn:focus-visible { outline: 2px solid var(--ring, #a1a1aa); outline-offset: 2px; } .ds-btn-ghost { background: transparent; color: var(--foreground, #09090b); box-shadow: none; } .ds-btn-ghost:hover { background: var(--accent, #f4f4f5); color: var(--accent-foreground, #18181b); } .ds-btn-icon { width: 36px; height: 36px; padding: 0; }"
+    },
+    {
+      "name": "Search Input",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "36px hairline field, transparent fill, 16px Search icon at the left.",
+      "html": "<div class=\"ds-search\"><svg class=\"ds-search-icon\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><circle cx=\"11\" cy=\"11\" r=\"8\"/><path d=\"m21 21-4.3-4.3\"/></svg><input class=\"ds-input ds-input-search\" type=\"search\" placeholder=\"Search skills\" aria-label=\"Search skills\"></div>",
+      "css": ".ds-search { position: relative; width: 100%; } .ds-search-icon { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--muted-foreground, #71717a); pointer-events: none; } .ds-input { height: 36px; width: 100%; min-width: 0; padding: 4px 12px; border: 1px solid var(--input, #e4e4e7); border-radius: calc(var(--radius, 0.5rem) - 2px); background: transparent; color: var(--foreground, #09090b); font-family: 'Geist Variable', ui-sans-serif, system-ui, sans-serif; font-size: 14px; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); outline: none; transition: color 150ms, background-color 150ms, border-color 150ms; } .ds-input::placeholder { color: var(--muted-foreground, #71717a); } .ds-input:focus-visible { outline: 2px solid var(--ring, #a1a1aa); outline-offset: 2px; } .ds-input:disabled { opacity: 0.5; cursor: not-allowed; } .ds-input-search { padding-left: 36px; }"
+    },
+    {
+      "name": "Badges",
+      "kind": "chip",
+      "refersTo": "badge-secondary",
+      "description": "Secondary badge names the entry type; outline badges name the category and includes items.",
+      "html": "<span class=\"ds-badge ds-badge-secondary\">skill</span> <a class=\"ds-badge ds-badge-outline\" href=\"#\">Deal hunting</a> <span class=\"ds-badge ds-badge-outline ds-badge-tiny\">instructions</span>",
+      "css": ".ds-badge { display: inline-flex; align-items: center; padding: 2px 8px; border: 1px solid var(--border, #e4e4e7); border-radius: calc(var(--radius, 0.5rem) - 2px); font-family: 'Geist Variable', ui-sans-serif, system-ui, sans-serif; font-size: 12px; font-weight: 500; line-height: 16px; white-space: nowrap; text-decoration: none; transition: color 150ms, background-color 150ms, border-color 150ms; } .ds-badge-secondary { border-color: transparent; background: var(--secondary, #f4f4f5); color: var(--secondary-foreground, #18181b); } .ds-badge-outline { color: var(--foreground, #09090b); } a.ds-badge-outline:hover { background: var(--accent, #f4f4f5); } .ds-badge-tiny { font-size: 11px; } .ds-badge:focus-visible { outline: 2px solid var(--ring, #a1a1aa); outline-offset: 2px; }"
+    },
+    {
+      "name": "Filter Chip",
+      "kind": "chip",
+      "refersTo": "chip-pressed",
+      "description": "Outline badge as a toggle button with a muted count; aria-pressed inverts it to ink.",
+      "html": "<button class=\"ds-chip\" aria-pressed=\"false\">Productivity <span>7</span></button> <button class=\"ds-chip\" aria-pressed=\"true\">Deal hunting <span>5</span></button>",
+      "css": ".ds-chip { display: inline-flex; align-items: center; gap: 6px; padding: 2px 8px; border: 1px solid var(--border, #e4e4e7); border-radius: calc(var(--radius, 0.5rem) - 2px); background: transparent; color: var(--foreground, #09090b); font-family: 'Geist Variable', ui-sans-serif, system-ui, sans-serif; font-size: 12px; font-weight: 500; line-height: 16px; font-variant-numeric: tabular-nums; white-space: nowrap; cursor: pointer; transition: color 150ms, background-color 150ms, border-color 150ms; } .ds-chip span { color: var(--muted-foreground, #71717a); } .ds-chip:hover { background: var(--accent, #f4f4f5); } .ds-chip:focus-visible { outline: 2px solid var(--ring, #a1a1aa); outline-offset: 2px; } .ds-chip[aria-pressed=\"true\"] { border-color: var(--primary, #18181b); background: var(--primary, #18181b); color: var(--primary-foreground, #fafafa); } .ds-chip[aria-pressed=\"true\"] span { color: color-mix(in oklab, var(--primary-foreground, #fafafa) 70%, transparent); }"
+    },
+    {
+      "name": "Card with panel header",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "8px radius, hairline border, shadow-sm. Code cards add a bordered header row with a label and an outline sm copy button.",
+      "html": "<div class=\"ds-card\"><div class=\"ds-card-head\"><span>Install prompt</span><button class=\"ds-card-btn\">Copy install prompt</button></div><pre class=\"ds-card-code\">Install the \"Deal Hunter\" skill. Its full source is below.</pre></div>",
+      "css": ".ds-card { border: 1px solid var(--border, #e4e4e7); border-radius: var(--radius, 0.5rem); background: var(--card, #ffffff); color: var(--card-foreground, #09090b); box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1); overflow: hidden; font-family: 'Geist Variable', ui-sans-serif, system-ui, sans-serif; } .ds-card-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 16px; border-bottom: 1px solid var(--border, #e4e4e7); font-size: 14px; font-weight: 500; } .ds-card-btn { height: 32px; padding: 0 12px; border: 1px solid var(--input, #e4e4e7); border-radius: calc(var(--radius, 0.5rem) - 2px); background: var(--background, #ffffff); color: var(--foreground, #09090b); font: inherit; font-size: 12px; font-weight: 500; cursor: pointer; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); transition: background-color 150ms; } .ds-card-btn:hover { background: var(--accent, #f4f4f5); } .ds-card-btn:focus-visible { outline: 2px solid var(--ring, #a1a1aa); outline-offset: 2px; } .ds-card-code { margin: 0; padding: 16px; overflow-x: auto; font-family: 'Geist Mono Variable', ui-monospace, monospace; font-size: 12px; line-height: 1.625; }"
+    },
+    {
+      "name": "Header Navigation",
+      "kind": "nav",
+      "refersTo": "button-sm",
+      "description": "Sticky 56px bar: wordmark, Skills / About, then theme toggle and the sm primary Submit button.",
+      "html": "<header class=\"ds-header\"><a class=\"ds-wordmark\" href=\"#\">Muse Skills</a><nav class=\"ds-nav\"><a href=\"#\" aria-current=\"page\">Skills</a><a href=\"#\">About</a></nav><div class=\"ds-header-right\"><button class=\"ds-header-ghost\" aria-label=\"Toggle theme\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"4\"/><path d=\"M12 2v2\"/><path d=\"M12 20v2\"/><path d=\"m4.93 4.93 1.41 1.41\"/><path d=\"m17.66 17.66 1.41 1.41\"/><path d=\"M2 12h2\"/><path d=\"M20 12h2\"/><path d=\"m6.34 17.66-1.41 1.41\"/><path d=\"m19.07 4.93-1.41 1.41\"/></svg></button><a class=\"ds-header-primary\" href=\"#\">Submit a skill</a></div></header>",
+      "css": ".ds-header { display: flex; align-items: center; gap: 12px; height: 56px; padding: 0 16px; border-bottom: 1px solid var(--border, #e4e4e7); background: color-mix(in oklab, var(--background, #ffffff) 80%, transparent); backdrop-filter: blur(8px); font-family: 'Geist Variable', ui-sans-serif, system-ui, sans-serif; color: var(--foreground, #09090b); } .ds-wordmark { font-weight: 600; font-size: 16px; color: inherit; text-decoration: none; } .ds-nav { display: flex; gap: 12px; } .ds-nav a { font-size: 14px; color: var(--muted-foreground, #71717a); text-decoration: none; transition: color 150ms; } .ds-nav a:hover, .ds-nav a[aria-current=\"page\"] { color: var(--foreground, #09090b); } .ds-header-right { margin-left: auto; display: flex; align-items: center; gap: 8px; } .ds-header-ghost { width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center; border: 0; border-radius: calc(var(--radius, 0.5rem) - 2px); background: transparent; color: inherit; cursor: pointer; transition: background-color 150ms; } .ds-header-ghost:hover { background: var(--accent, #f4f4f5); } .ds-header-primary { display: inline-flex; align-items: center; height: 32px; padding: 0 12px; border-radius: calc(var(--radius, 0.5rem) - 2px); background: var(--primary, #18181b); color: var(--primary-foreground, #fafafa); font-size: 12px; font-weight: 500; text-decoration: none; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); transition: background-color 150ms; } .ds-header-primary:hover { background: color-mix(in oklab, var(--primary, #18181b) 90%, transparent); } .ds-header a:focus-visible, .ds-header button:focus-visible { outline: 2px solid var(--ring, #a1a1aa); outline-offset: 2px; }"
+    },
+    {
+      "name": "Skill Row",
+      "kind": "custom",
+      "refersTo": "row-title",
+      "description": "The directory's list item: title, tagline, badge run, author line; View and Copy on the right from 640px.",
+      "html": "<article class=\"ds-row\"><div class=\"ds-row-main\"><p class=\"ds-row-title\"><a href=\"#\">Deal Hunter</a></p><p class=\"ds-row-tagline\">Watches new private-seller listings and flags the mispriced ones.</p><div class=\"ds-row-badges\"><span class=\"ds-row-badge ds-row-badge-secondary\">skill</span><span class=\"ds-row-badge\">Deal hunting</span><span class=\"ds-row-badge ds-row-badge-tiny\">schedule</span></div><p class=\"ds-row-author\">by Muse Skills editors · Written for this directory</p></div><div class=\"ds-row-actions\"><a class=\"ds-row-btn ds-row-btn-outline\" href=\"#\">View</a><button class=\"ds-row-btn ds-row-btn-primary\">Copy install prompt</button></div></article>",
+      "css": ".ds-row { display: flex; flex-direction: column; gap: 16px; padding: 20px 0; border-bottom: 1px solid var(--border, #e4e4e7); font-family: 'Geist Variable', ui-sans-serif, system-ui, sans-serif; color: var(--foreground, #09090b); } @media (min-width: 640px) { .ds-row { flex-direction: row; align-items: center; justify-content: space-between; } } .ds-row-main { min-width: 0; display: grid; gap: 8px; } .ds-row-title { margin: 0; font-size: 16px; font-weight: 500; line-height: 24px; } .ds-row-title a { color: inherit; text-decoration: none; } .ds-row-title a:hover { text-decoration: underline; text-underline-offset: 3px; } .ds-row-tagline { margin: 4px 0 0; font-size: 14px; line-height: 20px; color: var(--muted-foreground, #71717a); } .ds-row-badges { display: flex; flex-wrap: wrap; gap: 6px; } .ds-row-badge { display: inline-flex; align-items: center; padding: 2px 8px; border: 1px solid var(--border, #e4e4e7); border-radius: calc(var(--radius, 0.5rem) - 2px); font-size: 12px; font-weight: 500; line-height: 16px; } .ds-row-badge-secondary { border-color: transparent; background: var(--secondary, #f4f4f5); } .ds-row-badge-tiny { font-size: 11px; } .ds-row-author { margin: 0; font-size: 12px; color: var(--muted-foreground, #71717a); } .ds-row-actions { display: flex; flex-wrap: wrap; gap: 8px; flex-shrink: 0; } .ds-row-btn { display: inline-flex; align-items: center; height: 32px; padding: 0 12px; border: 1px solid transparent; border-radius: calc(var(--radius, 0.5rem) - 2px); font: inherit; font-size: 12px; font-weight: 500; text-decoration: none; cursor: pointer; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); transition: background-color 150ms, color 150ms; } .ds-row-btn-outline { border-color: var(--input, #e4e4e7); background: var(--background, #ffffff); color: var(--foreground, #09090b); } .ds-row-btn-outline:hover { background: var(--accent, #f4f4f5); } .ds-row-btn-primary { background: var(--primary, #18181b); color: var(--primary-foreground, #fafafa); } .ds-row-btn-primary:hover { background: color-mix(in oklab, var(--primary, #18181b) 90%, transparent); } .ds-row-btn:focus-visible { outline: 2px solid var(--ring, #a1a1aa); outline-offset: 2px; }"
+    },
+    {
+      "name": "Alert",
+      "kind": "custom",
+      "refersTo": "alert",
+      "description": "Bordered 8px panel with a 16px icon, a medium title, and muted list body. One instance: 'Before you install'.",
+      "html": "<div class=\"ds-alert\" role=\"alert\"><svg class=\"ds-alert-icon\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z\"/><path d=\"M12 8v4\"/><path d=\"M12 16h.01\"/></svg><h2 class=\"ds-alert-title\">Before you install</h2><ul class=\"ds-alert-body\"><li>A shared skill carries somebody else's instructions. Read the source before you install it.</li><li>Never paste an API key, password, or token into anything a skill asks for.</li></ul></div>",
+      "css": ".ds-alert { position: relative; width: 100%; padding: 16px 16px 16px 44px; border: 1px solid var(--border, #e4e4e7); border-radius: var(--radius, 0.5rem); background: var(--background, #ffffff); color: var(--foreground, #09090b); font-family: 'Geist Variable', ui-sans-serif, system-ui, sans-serif; font-size: 14px; line-height: 20px; box-sizing: border-box; } .ds-alert-icon { position: absolute; left: 16px; top: 16px; } .ds-alert-title { margin: 0 0 4px; font-size: 14px; font-weight: 500; line-height: 1; letter-spacing: -0.025em; } .ds-alert-body { margin: 0; padding-left: 20px; list-style: disc; color: var(--muted-foreground, #71717a); } .ds-alert-body li + li { margin-top: 4px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Category Standard, Played Straight",
+    "overview": "Muse Skills is a plain directory. It borrows the shadcn zinc vocabulary without adding to it: one white ground, near-black ink, a single grey for secondary text, hairline borders, and one solid primary button. The page is a list you can filter and a detail page you can read top to bottom. Nothing on the screen exists to be looked at; every element is there to help a visitor find a skill, judge it safe, and copy its install prompt.\n\nDensity is moderate and even. Rows are separated by 1px rules rather than boxes; only two things get a bordered card on the index (the filter panel and nothing else), and on an entry page cards hold the install prompt, the source, and the details column. Type is one family (Geist) at a small set of sizes; mono appears only inside code. Dark mode is the same system with the zinc scale flipped, not a second theme.\n\nConfirmed rejections from the build: no themed or skeuomorphic controls, no accent hue, no motion beyond the copy confirmation and 150ms colour transitions, no shadows heavier than the two shadcn defaults.",
+    "keyCharacteristics": [
+      "Single neutral scale (zinc) in both themes; no chromatic accent.",
+      "Primary is ink on paper: near-black button in light, near-white in dark.",
+      "1px `border` rules do the structural work; cards are the exception, not the default.",
+      "Geist Sans for all UI text, Geist Mono only inside source and install-prompt blocks.",
+      "Radius family from one `--radius: 0.5rem` token (lg 8px, md 6px, sm 4px).",
+      "Lucide icons at 16px, 1.5 stroke, always paired with a text label or an aria-label.",
+      "Filtering updates the list in place with no animation."
+    ],
+    "rules": [
+      { "name": "The One Grey Rule", "body": "Secondary text is always `muted-foreground`. Do not introduce a third text tone or lower opacity on `foreground`.", "section": "colors" },
+      { "name": "The Ink-Only Primary Rule", "body": "There is no accent hue. Emphasis is achieved by inverting the neutral scale (ink fill, paper text), never by colour.", "section": "colors" },
+      { "name": "The Swap, Not Restyle Rule", "body": "Dark mode changes only the custom properties on `.dark`. No component carries a `dark:` class; if a surface needs a dark treatment, the token is wrong.", "section": "colors" },
+      { "name": "The Mono-Inside-Blocks Rule", "body": "Geist Mono appears only inside a bordered code surface (textarea, pre). Never inline, never for labels or numbers; tabular numerals on counts are Geist Sans with `tabular-nums`.", "section": "typography" },
+      { "name": "The Two-Tracking Rule", "body": "Negative tracking (-0.025em) belongs to h1 and card titles only. Everything else is default tracking, except the two uppercase footer headings at `tracking-wide`.", "section": "typography" },
+      { "name": "The Border-Does-The-Work Rule", "body": "If a surface needs separation, add a 1px `border` rule. Shadows never grow past `shadow-sm`, and nothing gets a shadow on hover.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do build every control from the `Button`, `Badge`, `Input`, `Card`, `Alert`, and `Breadcrumb` recipes in `src/components/ui/` and pass extra Tailwind classes through `class`; never restyle from scratch.",
+      "Do use `muted-foreground` for every piece of secondary text and `foreground` for everything the visitor must read first.",
+      "Do separate list items with `divide-y` (1px `border`) and reserve `Card` for panels that hold controls or code.",
+      "Do keep the 40px section rhythm (`space-y-10` / `mt-10`) and 16px page gutter (`px-4`) on every page.",
+      "Do render icons with Lucide at 16px and 1.5 stroke, hidden from assistive tech, next to a text label or with an `aria-label`.",
+      "Do put the pressed state of any toggle in a global attribute rule (`[aria-pressed=\"true\"]`) rather than swapping classes in script.",
+      "Do confirm a copy with the icon swap, the \"Copied\" label, and the live status line for 2000ms, then restore.",
+      "Do rely on the shared `:focus-visible` outline (2px `ring`, 2px offset); do not add per-component focus styles.",
+      "Do respect `prefers-reduced-motion`: the global rule collapses all transitions to 0.01ms."
+    ],
+    "donts": [
+      "Don't introduce a chromatic accent, a gradient, or a second grey for text.",
+      "Don't add `dark:` utilities to components; dark mode is the `.dark` token swap only.",
+      "Don't use shadows beyond `shadow-sm` on cards and `shadow-xs` on controls, and never a shadow as a hover or pressed signal.",
+      "Don't use Geist Mono outside a bordered code surface.",
+      "Don't animate filtering, list changes, or the theme switch; the only motion is 150ms colour transitions and the timed copy confirmation.",
+      "Don't add uppercase labels, kickers, or eyebrows above headings; the only uppercase text is the two footer column headings.",
+      "Don't let a page scroll horizontally; code blocks scroll inside their own container.",
+      "Don't put more than one h1 on a page, and never render the site name as if it were Muse itself."
+    ]
+  }
+}

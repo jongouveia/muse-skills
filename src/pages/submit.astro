@@ -1,37 +1,48 @@
 ---
+import { Square } from 'lucide-astro';
 import Base from '../layouts/Base.astro';
+import Button from '../components/ui/Button.astro';
+import Input from '../components/ui/Input.astro';
 import { TYPES } from '../lib/categories';
+
+const fieldClass = 'h-9 w-full min-w-0 rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-xs transition-colors outline-none disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50';
+const checks = [
+  'The full source reads on the page. Nothing hidden behind a link.',
+  'It never asks for a credential.',
+  'It never sends your data to a third party.',
+  'The install prompt worked end to end in a fresh Muse chat.',
+  'The author is credited. Link it if you shared it publicly; otherwise a name or handle is enough.',
+];
 ---
 <Base title="Submit a skill to Muse Skills" description="Share a Muse skill, prompt pack, workflow, or config snippet. A person checks the source, the safety rules, and the install prompt before it is listed.">
-  <div class="submit-content">
-    <h1>Submit a skill</h1>
-    <p class="submit-intro">Share a skill, prompt pack, workflow, or config snippet. A person reviews every submission against the checklist below before it's listed.</p>
-    <form id="submit-form">
-      <div class="form-field"><label for="name">Name</label><input id="name" name="name" type="text" required /></div>
-      <div class="form-field"><label for="type">Type</label><select id="type" name="type">{TYPES.map((type) => <option value={type}>{type}</option>)}</select></div>
-      <div class="form-field"><label for="source">Full source</label><textarea id="source" name="source" required rows="16"></textarea></div>
-      <div class="form-field"><label for="source_url">Where you shared it <span class="form-optional">optional</span></label><input id="source_url" name="source_url" type="url" /></div>
-      <div class="form-field"><label for="author">Your name or handle</label><input id="author" name="author" type="text" /></div>
-      <button class="load-key submit-button" type="submit">Open a prefilled GitHub issue</button>
+  <div class="mx-auto w-full max-w-2xl px-4 py-8 md:py-10">
+    <h1 class="text-3xl font-semibold tracking-tight">Submit a skill</h1>
+    <p class="mt-3 text-muted-foreground">Share a skill, prompt pack, workflow, or config snippet. A person reviews every submission against the checklist below before it's listed.</p>
+
+    <form id="submit-form" class="mt-8 grid gap-5">
+      <div class="grid gap-2"><label class="text-sm font-medium" for="name">Name</label><Input id="name" name="name" type="text" required /></div>
+      <div class="grid gap-2"><label class="text-sm font-medium" for="type">Type</label><select class={fieldClass} id="type" name="type">{TYPES.map((type) => <option value={type}>{type}</option>)}</select></div>
+      <div class="grid gap-2"><label class="text-sm font-medium" for="source">Full source</label><textarea class={`${fieldClass} min-h-60 resize-y py-3 font-mono text-xs`} id="source" name="source" required></textarea></div>
+      <div class="grid gap-2"><label class="text-sm font-medium" for="source_url">Where you shared it <span class="font-normal text-muted-foreground">optional</span></label><Input id="source_url" name="source_url" type="url" /></div>
+      <div class="grid gap-2"><label class="text-sm font-medium" for="author">Your name or handle</label><Input id="author" name="author" type="text" /></div>
+      <Button type="submit" class="mt-2 justify-self-start">Open a prefilled GitHub issue</Button>
     </form>
-    <section class="checklist" aria-labelledby="checklist-heading">
-      <h2 id="checklist-heading">What we check</h2>
-      <ul>
-        <li>The full source reads on the page. Nothing hidden behind a link.</li>
-        <li>It never asks for a credential.</li>
-        <li>It never sends your data to a third party.</li>
-        <li>The install prompt worked end to end in a fresh Muse chat.</li>
-        <li>The author is credited. Link it if you shared it publicly; otherwise a name or handle is enough.</li>
+
+    <section aria-labelledby="checklist-heading">
+      <h2 id="checklist-heading" class="mt-10 text-xl font-semibold">What we check</h2>
+      <ul class="mt-4 space-y-3 text-muted-foreground">
+        {checks.map((check) => <li class="flex gap-3"><Square class="mt-1 shrink-0 text-foreground" size={16} strokeWidth={1.5} aria-hidden="true" /><span>{check}</span></li>)}
       </ul>
     </section>
   </div>
 </Base>
+
 <script>
   const form = document.querySelector('#submit-form');
   if (form instanceof HTMLFormElement) {
     form.addEventListener('submit', (event) => {
       event.preventDefault();
-      const getValue = (id) => {
+      const getValue = (id: string) => {
         const field = form.querySelector(`#${id}`);
         return field instanceof HTMLInputElement || field instanceof HTMLTextAreaElement || field instanceof HTMLSelectElement ? field.value : '';
       };
@@ -41,23 +52,3 @@ import { TYPES } from '../lib/categories';
     });
   }
 </script>
-<style>
-  .submit-content { max-width: 720px; }
-  .submit-content h1 { margin: 0 0 20px; color: var(--color-bone); font-family: var(--font-legend); font-size: clamp(2.5rem, 6vw, 5.5rem); font-weight: 700; line-height: 0.9; letter-spacing: -0.02em; }
-  .submit-intro { max-width: 62ch; margin: 0 0 40px; color: var(--color-bone-dim); }
-  #submit-form { display: grid; gap: 24px; }
-  .form-field { display: grid; gap: 8px; }
-  .form-optional { margin-left: 8px; color: var(--color-bone-dim); font-weight: 500; letter-spacing: 0.04em; text-transform: none; }
-  .form-field label, .checklist h2 { color: var(--color-bone); font-family: var(--font-legend); font-size: 0.875rem; font-weight: 600; letter-spacing: 0.06em; line-height: 1; text-transform: uppercase; }
-  .form-field :where(input, select, textarea) { box-sizing: border-box; width: 100%; border: 1px solid var(--color-rule); border-radius: var(--radius-panel); background: var(--color-panel-recess); color: var(--color-bone); padding: 10px 12px; }
-  .form-field :where(input, select) { min-height: 40px; }
-  .form-field textarea { min-height: 240px; resize: vertical; font-family: var(--font-prose); font-size: 0.85rem; line-height: 1.5; }
-  .submit-button { width: 100%; margin-top: 8px; }
-  .checklist { padding-top: 32px; border-top: 1px solid var(--color-rule); margin-top: 56px; }
-  .checklist h2 { margin: 0 0 16px; }
-  .checklist ul { display: grid; gap: 0; margin: 0; padding: 0; color: var(--color-bone-dim); list-style: none; }
-  .checklist li { position: relative; padding: 14px 0 14px 44px; border-top: 1px solid var(--color-rule); }
-  .checklist li:last-child { border-bottom: 1px solid var(--color-rule); }
-  .checklist li::before { position: absolute; left: 0; top: 14px; width: 28px; color: var(--color-live); content: "[ ]"; font-family: var(--font-legend); font-variant-numeric: tabular-nums; line-height: 1.6; }
-  .checklist li + li { margin-top: 12px; }
-</style>

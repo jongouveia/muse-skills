@@ -1,0 +1,35 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { categoryName, categorySlug, typeName } from '../lib/categories';
+import CopyButton from './CopyButton.astro';
+import Badge from './ui/Badge.astro';
+import Button from './ui/Button.astro';
+
+interface Props {
+  entry: CollectionEntry<'entries'>;
+  showCategory?: boolean;
+}
+
+const { entry, showCategory = true } = Astro.props;
+const { data } = entry;
+---
+<article class="flex min-w-0 flex-col gap-4 py-5 sm:flex-row sm:items-center sm:justify-between">
+  <div class="min-w-0 space-y-2">
+    <div>
+      <p class="text-base font-medium text-foreground"><a class="hover:underline" href={`/entry/${entry.id}/`}>{data.title}</a></p>
+      <p class="mt-1 text-sm text-muted-foreground">{data.tagline}</p>
+    </div>
+    <div class="flex flex-wrap gap-1.5">
+      <Badge variant="secondary">{typeName(data.type)}</Badge>
+      {showCategory && <Badge variant="outline" href={`/category/${categorySlug(data.category)}/`} class="hover:bg-accent">{categoryName(data.category)}</Badge>}
+      {data.includes.map((item) => <Badge variant="outline" class="text-[11px]">{item}</Badge>)}
+    </div>
+    <p class="text-xs text-muted-foreground">
+      {data.origin === 'directory' ? 'by Muse Skills editors · Written for this directory' : `shared by ${data.author}`}
+    </p>
+  </div>
+  <div class="flex shrink-0 flex-wrap gap-2 sm:justify-end">
+    <Button href={`/entry/${entry.id}/`} variant="outline" size="sm">View</Button>
+    <CopyButton text={data.install_prompt} label="Copy install prompt" size="sm" />
+  </div>
+</article>

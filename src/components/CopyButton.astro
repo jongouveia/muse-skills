@@ -1,0 +1,72 @@
+---
+import { Check, Copy } from 'lucide-astro';
+import Button from './ui/Button.astro';
+
+interface Props {
+  text: string;
+  label: string;
+  size?: 'default' | 'sm' | 'icon';
+  variant?: 'default' | 'outline' | 'ghost' | 'secondary';
+  statusId?: string;
+  class?: string;
+}
+
+const {
+  text,
+  label,
+  size = 'default',
+  variant = 'default',
+  statusId,
+  class: className = '',
+} = Astro.props;
+---
+<Button type="button" size={size} variant={variant} class={className} data-copy-button data-copy={text} data-status-id={statusId}>
+  <span data-copy-icon><Copy size={16} strokeWidth={1.5} aria-hidden="true" /></span>
+  <span data-check-icon hidden><Check size={16} strokeWidth={1.5} aria-hidden="true" /></span>
+  <span data-copy-label>{label}</span>
+</Button>
+<textarea class="visually-hidden-fallback" data-copy-fallback readonly aria-label={label}>{text}</textarea>
+
+<script>
+  const copyWindow = window as Window & { __museCopyBound?: boolean };
+
+  if (!copyWindow.__museCopyBound) {
+    copyWindow.__museCopyBound = true;
+    document.addEventListener('click', async (event) => {
+      const target = event.target;
+      const button = target instanceof Element ? target.closest('[data-copy-button]') : null;
+      if (!(button instanceof HTMLButtonElement)) return;
+
+      const copyIcon = button.querySelector('[data-copy-icon]');
+      const checkIcon = button.querySelector('[data-check-icon]');
+      const label = button.querySelector('[data-copy-label]');
+      const originalLabel = label?.textContent ?? 'Copy install prompt';
+      const statusId = button.dataset.statusId;
+      const status = statusId ? document.getElementById(statusId) : null;
+
+      try {
+        if (!navigator.clipboard?.writeText) throw new Error('Clipboard unavailable');
+        await navigator.clipboard.writeText(button.dataset.copy ?? '');
+      } catch {
+        const fallback = button.nextElementSibling;
+        if (fallback instanceof HTMLTextAreaElement && fallback.matches('[data-copy-fallback]')) {
+          fallback.focus();
+          fallback.select();
+        }
+        return;
+      }
+
+      copyIcon?.setAttribute('hidden', '');
+      checkIcon?.removeAttribute('hidden');
+      if (label) label.textContent = 'Copied';
+      if (status) status.textContent = 'Paste it into your Muse chat.';
+
+      window.setTimeout(() => {
+        checkIcon?.setAttribute('hidden', '');
+        copyIcon?.removeAttribute('hidden');
+        if (label) label.textContent = originalLabel;
+        if (status) status.textContent = 'Ready to copy.';
+      }, 2000);
+    });
+  }
+</script>

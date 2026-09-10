@@ -1,18 +1,26 @@
 ---
+import { getCollection } from 'astro:content';
 import { CATEGORIES } from '../lib/categories';
+
+const entries = await getCollection('entries');
+const categories = Object.entries(CATEGORIES).filter(([slug]) => entries.some((entry) => entry.data.category === slug));
 ---
-<div class="footer-columns">
-  <div class="footer-column">
-    <span class="footer-heading">Browse</span>
-    <a href="/">Bank</a>
-    {Object.entries(CATEGORIES).map(([slug, name]) => <a href={`/category/${slug}`}>{name}</a>)}
+<footer class="border-t">
+  <div class="mx-auto grid w-full max-w-4xl gap-10 px-4 py-10 text-sm text-muted-foreground md:grid-cols-3">
+    <div class="grid content-start justify-items-start gap-2">
+      <h2 class="mb-1 text-xs font-medium uppercase tracking-wide text-foreground">Browse</h2>
+      <a class="hover:text-foreground" href="/">Skills</a>
+      {categories.map(([slug, name]) => <a class="hover:text-foreground" href={`/category/${slug}/`}>{name}</a>)}
+    </div>
+    <div class="grid content-start justify-items-start gap-2">
+      <h2 class="mb-1 text-xs font-medium uppercase tracking-wide text-foreground">Project</h2>
+      <a class="hover:text-foreground" href="/about/">About</a>
+      <a class="hover:text-foreground" href="/submit/">Submit a skill</a>
+      <a class="hover:text-foreground" href="https://github.com/jongouveia/muse-skills" rel="noopener">GitHub</a>
+    </div>
+    <div class="space-y-4">
+      <p>Independent community directory. Not affiliated with Meta.</p>
+      <p>Questions or corrections: <a class="text-foreground underline" href="https://github.com/jongouveia/muse-skills/issues" rel="noopener">open an issue on GitHub</a>.</p>
+    </div>
   </div>
-  <div class="footer-column">
-    <span class="footer-heading">Project</span>
-    <a href="/about">About</a>
-    <a href="/submit">Submit a skill</a>
-    <a href="https://github.com/jongouveia/muse-skills" rel="noopener">GitHub</a>
-  </div>
-</div>
-<p class="footer-note">Independent community directory. Not affiliated with Meta.</p>
-<p class="footer-note">Questions or corrections: <a href="https://github.com/jongouveia/muse-skills/issues" rel="noopener">open an issue on GitHub</a>.</p>
+</footer>

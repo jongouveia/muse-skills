@@ -1,0 +1,5 @@
+---
+interface Props { class?: string; }
+const { class: className = '' } = Astro.props;
+---
+<div role="separator" class={`h-px w-full shrink-0 bg-border ${className}`}></div>

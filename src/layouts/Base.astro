@@ -1,7 +1,7 @@
 ---
 import '../styles/global.css';
-import Masthead from '../components/Masthead.astro';
 import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
 
 interface Props {
   title: string;
@@ -15,7 +15,7 @@ const { title, description, ogType = 'website', image = '/og-default.png', noind
 const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url);
 const site = Astro.site ?? Astro.url;
 const imageUrl = new URL(image, site);
-const websiteDescription = 'Ready-to-use skills, prompt packs, scheduled workflows, and config snippets for Muse AI. Pick a skill, read the full source, press Load to copy its install prompt.';
+const websiteDescription = 'Ready-to-use skills, prompt packs, scheduled workflows, and config snippets for Muse AI. Pick a skill, read the full source, and copy its install prompt.';
 const websiteJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
@@ -42,7 +42,16 @@ const organizationJsonLd = {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#1a1816" />
+    <meta name="theme-color" content="#ffffff" />
+    <script is:inline>
+      (() => {
+        let theme;
+        try { theme = localStorage.getItem('theme'); } catch {}
+        const dark = theme === 'dark';
+        document.documentElement.classList.toggle('dark', dark);
+        document.querySelector('meta[name="theme-color"]')?.setAttribute('content', dark ? '#09090b' : '#ffffff');
+      })();
+    </script>
     <meta name="description" content={description} />
     {noindex && <meta name="robots" content="noindex" />}
     <link rel="canonical" href={canonical} />
@@ -64,20 +73,10 @@ const organizationJsonLd = {
     <script type="application/ld+json" set:html={JSON.stringify(organizationJsonLd)} />
     <title>{title}</title>
   </head>
-  <body>
-    <a class="skip-link legend" href="#main-content">Skip to content</a>
-    <header class="site-header">
-      <div class="site-shell">
-        <Masthead isHomepage={Astro.url.pathname === '/'} />
-      </div>
-    </header>
-    <main id="main-content" class="page-main">
-      <div class="site-shell">
-        <slot />
-      </div>
-    </main>
-    <footer class="site-shell footer">
-      <Footer />
-    </footer>
+  <body class="flex min-h-screen flex-col">
+    <a class="fixed left-2 top-2 z-[100] -translate-y-20 rounded-md bg-primary px-3 py-2 text-sm text-primary-foreground focus:translate-y-0" href="#main-content">Skip to content</a>
+    <Header />
+    <main id="main-content" class="flex-1"><slot /></main>
+    <Footer />
   </body>
 </html>
