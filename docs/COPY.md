@@ -71,7 +71,7 @@
 - Safety policy heading: Safety policy
 - Safety policy: one list of four: the three Before you install lines above, then: We test submitted install prompts in a fresh Muse chat before we list them.
 - Curation heading: How skills get here
-- Curation: We sweep X, Threads, Reddit, and GitHub each week for shared Muse skills, and we take submissions. New skills land in a weekly batch. The first twelve were written for this directory by its editors; each one says so on its page.
+- Curation: We sweep X, Threads, Reddit, and GitHub each week for shared Muse skills, and we take submissions. New skills land in a weekly batch. Entries marked "Written for this directory" came from its editors or from Muse itself; each one says so on its page.
 - Independence: Muse Skills is an independent community directory. It isn't affiliated with Meta. Muse and Muse AI are Meta's names.
 
 ## Footer

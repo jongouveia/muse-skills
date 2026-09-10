@@ -74,9 +74,8 @@ const warnings = [
       { label: data.title },
     ]} />
 
-    <div class="lg:grid lg:grid-cols-[minmax(0,1fr)_280px] lg:gap-10">
-      <div class="min-w-0">
-        <header>
+    <div class="lg:grid lg:grid-cols-[minmax(0,1fr)_280px] lg:gap-x-10 lg:gap-y-0">
+      <header class="min-w-0">
           <h1 class="text-3xl font-semibold tracking-tight">{data.title}</h1>
           <p class="mt-2 text-lg text-muted-foreground">{data.tagline}</p>
           <div class="mt-4 flex flex-wrap gap-1.5">
@@ -92,7 +91,30 @@ const warnings = [
             <Button href="#source" variant="outline">View source</Button>
           </div>
           <p id="install-status" class="mt-3 text-sm text-muted-foreground" aria-live="polite">Ready to copy.</p>
-        </header>
+      </header>
+
+      <aside class="mt-10 self-start lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:sticky lg:top-20 lg:mt-0">
+        <Card class="p-5">
+          <h2 class="text-base font-semibold">Details</h2>
+          <dl class="mt-5 grid grid-cols-[88px_1fr] gap-y-3 text-sm">
+            <dt class="text-muted-foreground">Type</dt><dd>{typeName(data.type)}</dd>
+            <dt class="text-muted-foreground">Category</dt><dd><a class="underline" href={`/category/${categorySlug(data.category)}/`}>{categoryName(data.category)}</a></dd>
+            <dt class="text-muted-foreground">Version</dt><dd>{data.version}</dd>
+            <dt class="text-muted-foreground">Added</dt><dd>{formatDate(data.date_added)}</dd>
+            <dt class="text-muted-foreground">Author</dt><dd>{data.author}{authorNote && <span class="mt-1 block text-xs text-muted-foreground">{authorNote}</span>}</dd>
+            <dt class="text-muted-foreground">Includes</dt><dd class="flex flex-wrap gap-1">{data.includes.map((item) => <Badge variant="outline" class="text-[11px]">{item}</Badge>)}</dd>
+            <dt class="text-muted-foreground">Source</dt>
+            <dd class="min-w-0">
+              <a class="inline-flex max-w-full items-center gap-1 underline" href={data.source_url} rel="noopener" target="_blank">
+                <span class="truncate">{sourceLabel}</span><ExternalLink class="shrink-0" size={16} strokeWidth={1.5} aria-hidden="true" />
+              </a>
+            </dd>
+          </dl>
+          <CopyButton text={data.install_prompt} label="Copy install prompt" variant="outline" class="mt-6 w-full" statusId="install-status" />
+        </Card>
+      </aside>
+
+      <div class="min-w-0">
 
         <Alert title="Before you install" class="mt-8">
           <ShieldAlert slot="icon" size={16} strokeWidth={1.5} aria-hidden="true" />
@@ -117,9 +139,7 @@ const warnings = [
               <span class="text-sm font-medium">Install prompt</span>
               <CopyButton text={data.install_prompt} label="Copy install prompt" size="sm" variant="outline" statusId="install-status" />
             </div>
-            <div class="p-4">
-              <textarea readonly rows="12" class="w-full max-w-full resize-y overflow-auto rounded-md border bg-muted p-3 font-mono text-xs leading-relaxed text-foreground">{data.install_prompt}</textarea>
-            </div>
+            <textarea readonly rows="12" class="w-full max-w-full resize-y overflow-auto rounded-none border-0 bg-muted p-4 font-mono text-xs leading-relaxed text-foreground">{data.install_prompt}</textarea>
           </Card>
         </section>
 
@@ -144,27 +164,6 @@ const warnings = [
           </section>
         )}
       </div>
-
-      <aside class="mt-10 self-start lg:sticky lg:top-20 lg:mt-0">
-        <Card class="p-5">
-          <h2 class="text-base font-semibold">Details</h2>
-          <dl class="mt-5 grid grid-cols-[88px_1fr] gap-y-3 text-sm">
-            <dt class="text-muted-foreground">Type</dt><dd>{typeName(data.type)}</dd>
-            <dt class="text-muted-foreground">Category</dt><dd><a class="underline" href={`/category/${categorySlug(data.category)}/`}>{categoryName(data.category)}</a></dd>
-            <dt class="text-muted-foreground">Version</dt><dd>{data.version}</dd>
-            <dt class="text-muted-foreground">Added</dt><dd>{formatDate(data.date_added)}</dd>
-            <dt class="text-muted-foreground">Author</dt><dd>{data.author}{authorNote && <span class="mt-1 block text-xs text-muted-foreground">{authorNote}</span>}</dd>
-            <dt class="text-muted-foreground">Includes</dt><dd class="flex flex-wrap gap-1">{data.includes.map((item) => <Badge variant="outline" class="text-[11px]">{item}</Badge>)}</dd>
-            <dt class="text-muted-foreground">Source</dt>
-            <dd class="min-w-0">
-              <a class="inline-flex max-w-full items-center gap-1 underline" href={data.source_url} rel="noopener" target="_blank">
-                <span class="truncate">{sourceLabel}</span><ExternalLink class="shrink-0" size={16} strokeWidth={1.5} aria-hidden="true" />
-              </a>
-            </dd>
-          </dl>
-          <CopyButton text={data.install_prompt} label="Copy install prompt" class="mt-6 w-full" statusId="install-status" />
-        </Card>
-      </aside>
     </div>
   </div>
 </Base>
