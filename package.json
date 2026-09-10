@@ -12,7 +12,8 @@
     "gate:fix": "node scripts/gate-entries.mjs --fix-dashes",
     "prebuild": "node scripts/gate-entries.mjs --quarantine",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "postbuild": "cp dist/sitemap-index.xml dist/sitemap.xml"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.4",
