@@ -9,8 +9,8 @@
 
 ## Homepage
 
-- Hero line: One paste installs the whole thing.
-- Offer line (beside the hero line): Ready-to-use skills, prompt packs, scheduled workflows, and config snippets for Muse AI. Pick a skill, read the full source, press Load to copy its install prompt.
+- H1: Ready-to-use skills for Muse AI.
+- Offer line (beside the hero line): One paste installs the whole thing. Pick a skill, read its full source, copy the install prompt, and paste it into your Muse chat. Skills, prompt packs, scheduled workflows, and config snippets, all free.
 - Bank legend: Skill bank
 - Sheet status line, idle: Ready. Press Load to copy the install prompt.
 - Sheet status line, after Load: Loaded. Paste it into your Muse chat.

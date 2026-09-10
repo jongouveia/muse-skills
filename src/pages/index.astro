@@ -15,7 +15,8 @@ const categoryRows = Object.entries(CATEGORIES).map(([slug, name]) => ({
   name,
   count: entries.filter((entry) => entry.data.category === slug).length,
 }));
-const offerLine = 'Ready-to-use skills, prompt packs, scheduled workflows, and config snippets for Muse AI. Pick a skill, read the full source, press Load to copy its install prompt.';
+const heroOffer = 'One paste installs the whole thing. Pick a skill, read its full source, copy the install prompt, and paste it into your Muse chat. Skills, prompt packs, scheduled workflows, and config snippets, all free.';
+const metaDescription = 'Ready-to-use skills, prompt packs, scheduled workflows, and config snippets for Muse AI. Read the full source, copy one install prompt, paste it into Muse.';
 const itemListJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'ItemList',
@@ -27,11 +28,11 @@ const itemListJsonLd = {
   })),
 };
 ---
-<Base title="Muse Skills: one-paste skills and prompts for Muse AI" description={offerLine}>
+<Base title="Muse Skills: one-paste skills and prompts for Muse AI" description={metaDescription}>
   <script type="application/ld+json" set:html={JSON.stringify(itemListJsonLd)} />
   <section class="hero" aria-label="What this site does">
-    <p class="hero-line">One paste installs the whole thing.</p>
-    <p class="hero-offer">{offerLine}</p>
+    <h1 class="hero-line">Ready-to-use skills for Muse AI.</h1>
+    <p class="hero-offer">{heroOffer}</p>
   </section>
   <Bank entries={entries} />
 
