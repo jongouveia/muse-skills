@@ -8,6 +8,9 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "gate": "node scripts/gate-entries.mjs",
+    "gate:fix": "node scripts/gate-entries.mjs --fix-dashes",
+    "prebuild": "node scripts/gate-entries.mjs --quarantine",
     "preview": "astro preview",
     "astro": "astro"
   },

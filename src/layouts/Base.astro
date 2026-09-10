@@ -43,6 +43,7 @@ const organizationJsonLd = {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#ffffff" />
+    {import.meta.env.PUBLIC_GSC_VERIFICATION && <meta name="google-site-verification" content={import.meta.env.PUBLIC_GSC_VERIFICATION} />}
     <script is:inline>
       (() => {
         let theme;
