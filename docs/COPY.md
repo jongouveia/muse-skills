@@ -17,7 +17,7 @@
 ## Homepage
 
 - H1: Ready-to-use skills for Muse AI.
-- Offer line: One paste installs the whole thing. Pick a skill, read its full source, copy the install prompt, and paste it into your Muse chat. Skills, prompt packs, scheduled workflows, and config snippets, all free.
+- Offer line: Muse is Meta's new AI assistant. One paste installs the whole thing. Pick a skill, read its full source, copy the install prompt, and paste it into your Muse chat. Skills, prompt packs, scheduled workflows, and config snippets, all free.
 - How it works, three steps:
   1. Copy. Choose Copy install prompt on any skill. The install prompt goes to your clipboard.
   2. Paste. Open your Muse chat and paste the block.
@@ -62,7 +62,7 @@
 ## About page
 
 - Heading: About Muse Skills
-- What a skill is: This directory lists four kinds of entry:
+- What a skill is: Muse is Meta's new AI assistant. This directory lists four kinds of entry:
   - Skill. A SKILL.md file: a name, a description, and the steps Muse follows when you use a trigger phrase.
   - Prompt pack. A reusable prompt you call by name.
   - Workflow. A skill on a schedule.
