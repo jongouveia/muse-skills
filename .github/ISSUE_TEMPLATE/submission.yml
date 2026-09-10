@@ -1,0 +1,49 @@
+name: Submit a skill
+description: Submit a Muse skill, prompt pack, workflow, or config snippet for review.
+title: "[Submission] "
+labels: ["submission"]
+body:
+  - type: input
+    id: name
+    attributes:
+      label: Name
+      placeholder: Deal Hunter
+    validations:
+      required: true
+  - type: dropdown
+    id: type
+    attributes:
+      label: Type
+      options:
+        - skill
+        - prompt
+        - workflow
+        - config
+    validations:
+      required: true
+  - type: textarea
+    id: source
+    attributes:
+      label: Full source
+      description: The exact text Muse installs. It renders on the page in full.
+      render: markdown
+    validations:
+      required: true
+  - type: input
+    id: source_url
+    attributes:
+      label: Where you shared it
+      description: Optional. Link it if you shared it publicly.
+      placeholder: https://
+  - type: input
+    id: author
+    attributes:
+      label: Your name or handle
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Before you submit
+      options:
+        - label: It never asks for a credential.
+        - label: It never sends the user's data to a third party.
+        - label: The install prompt worked end to end in a fresh Muse chat.
