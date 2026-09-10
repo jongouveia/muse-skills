@@ -2,7 +2,7 @@
 import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import Bank from '../../components/Bank.astro';
-import { CATEGORIES, categoryName, skillCount } from '../../lib/categories';
+import { CATEGORIES, categoryDescription, categoryName, skillCount } from '../../lib/categories';
 
 export async function getStaticPaths() {
   const entries = await getCollection('entries');
@@ -14,10 +14,29 @@ export async function getStaticPaths() {
 
 const { entries } = Astro.props;
 const name = categoryName(Astro.params.slug ?? '');
+const description = `${skillCount(entries.length)} for Muse AI in ${name}: ${entries.map((entry) => entry.data.title).join(', ')}. Each shows its full source and installs with one paste.`;
+const site = Astro.site ?? Astro.url;
+const collectionJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: `${name} skills for Muse AI | Muse Skills`,
+  description,
+  mainEntity: {
+    '@type': 'ItemList',
+    itemListElement: entries.map((entry, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      url: new URL(`/entry/${entry.id}/`, site).href,
+      name: entry.data.title,
+    })),
+  },
+};
 ---
-<Base title={`${name}: Muse Skills`} description={`${skillCount(entries.length)} in ${name} for Muse AI.`}>
+<Base title={`${name} skills for Muse AI | Muse Skills`} description={description}>
+  <script type="application/ld+json" set:html={JSON.stringify(collectionJsonLd)} />
   <section class="category-header">
     <h1>{name}</h1>
+    <p class="category-intro">{categoryDescription(Astro.params.slug ?? '')}</p>
     <p class="category-count-line">{skillCount(entries.length)}</p>
   </section>
   <Bank entries={entries} />
@@ -26,4 +45,5 @@ const name = categoryName(Astro.params.slug ?? '');
   .category-header { padding-bottom: 32px; }
   .category-header h1 { margin: 0; color: var(--color-bone); font-family: var(--font-legend); font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 700; line-height: 0.95; text-transform: uppercase; letter-spacing: -0.01em; }
   .category-count-line { margin: 8px 0 0; color: var(--color-live); font-family: var(--font-legend); font-size: 0.85rem; font-variant-numeric: tabular-nums; letter-spacing: 0.04em; }
+  .category-intro { max-width: 62ch; margin: 16px 0 0; color: var(--color-bone-dim); }
 </style>

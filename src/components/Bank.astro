@@ -35,7 +35,7 @@ const renderedSheets = await Promise.all(
   <div class="bank-legend-row">
     <h2 class="section-title" id="bank-heading">Skill bank</h2>
   </div>
-  <div class="bank-strip" role="tablist" aria-label="Skill bank slots">
+  <div class:list={["bank-strip", { "bank-strip-wrap": orderedEntries.length > 12 }]} role="tablist" aria-label="Skill bank slots">
     {categoryGroups.map(({ category, entries: groupEntries }) => (
       <div class="bank-group" style={`--group-slots:${groupEntries.length}`}>
         <span class="bank-group-label" title={categoryName(category)}>{categoryName(category)}</span>
@@ -121,7 +121,8 @@ const renderedSheets = await Promise.all(
       tabButtons.forEach((button) => {
         button.dataset.hidden = String(!matches.includes(button));
       });
-      if (matches[0]?.dataset.slot) {
+      const activeMatches = matches.some((button) => button.dataset.slot === activeSlot);
+      if (query && !activeMatches && matches[0]?.dataset.slot) {
         activateSlot(matches[0].dataset.slot, { redraw: false, replaceUrl });
       } else if (activeSlot) {
         activateSlot(activeSlot, { redraw: false, replaceUrl: false });

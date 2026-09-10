@@ -4,7 +4,8 @@ import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://muse-skills.vercel.app',
-  integrations: [sitemap()],
+  site: 'https://museskills.dev',
+  trailingSlash: 'always',
+  integrations: [sitemap({ filter: (page) => !page.includes('/og-default') })],
   vite: { plugins: [tailwindcss()] },
 });

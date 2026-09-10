@@ -1,0 +1,31 @@
+---
+import '../styles/global.css';
+
+const noindex = true;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    {noindex && <meta name="robots" content="noindex" />}
+    <title>Muse Skills</title>
+  </head>
+  <body>
+    <main class="og-card">
+      <div>
+        <p class="og-brand">MUSE SKILLS</p>
+        <p class="og-line">One paste installs the whole thing.</p>
+      </div>
+      <p class="og-site"><span class="og-slot">01</span> museskills.dev</p>
+    </main>
+  </body>
+</html>
+<style is:global>
+  html, body { width: 1200px; height: 630px; margin: 0; }
+  body { overflow: hidden; }
+  .og-card { box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; width: 1200px; height: 630px; padding: 76px; background: var(--color-panel); color: var(--color-bone); }
+  .og-brand { margin: 0; color: var(--color-bone); font-family: var(--font-legend); font-size: 120px; font-weight: 700; line-height: 0.82; letter-spacing: -0.02em; }
+  .og-line { max-width: 980px; margin: 36px 0 0; color: var(--color-bone); font-family: var(--font-legend); font-size: 56px; line-height: 0.95; }
+  .og-slot { display: inline-block; margin-right: 16px; padding: 6px 12px; border-radius: 2px; background: var(--color-lit); color: var(--color-lit-ink); }
+  .og-site { align-self: flex-end; margin: 0; color: var(--color-live); font-family: var(--font-legend); font-size: 28px; letter-spacing: 0.04em; }
+</style>

@@ -6,19 +6,62 @@ import Footer from '../components/Footer.astro';
 interface Props {
   title: string;
   description: string;
+  ogType?: string;
+  image?: string;
+  noindex?: boolean;
 }
 
-const { title, description } = Astro.props;
+const { title, description, ogType = 'website', image = '/og-default.png', noindex = false } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url);
+const site = Astro.site ?? Astro.url;
+const imageUrl = new URL(image, site);
+const websiteDescription = 'Ready-to-use skills, prompt packs, scheduled workflows, and config snippets for Muse AI. Pick a skill, read the full source, press Load to copy its install prompt.';
+const websiteJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'Muse Skills',
+  url: new URL('/', site).href,
+  description: websiteDescription,
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: 'https://museskills.dev/?q={search_term_string}',
+    'query-input': 'required name=search_term_string',
+  },
+};
+const organizationJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Muse Skills',
+  url: new URL('/', site).href,
+  logo: new URL('/favicon.svg', site).href,
+  sameAs: ['https://github.com/jongouveia/muse-skills'],
+};
 ---
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#1a1816" />
     <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex" />}
     <link rel="canonical" href={canonical} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta property="og:site_name" content="Muse Skills" />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={imageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Muse Skills: one paste installs the whole thing." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageUrl} />
+    <script type="application/ld+json" set:html={JSON.stringify(websiteJsonLd)} />
+    <script type="application/ld+json" set:html={JSON.stringify(organizationJsonLd)} />
     <title>{title}</title>
   </head>
   <body>

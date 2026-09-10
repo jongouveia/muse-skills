@@ -16,8 +16,19 @@ const categoryRows = Object.entries(CATEGORIES).map(([slug, name]) => ({
   count: entries.filter((entry) => entry.data.category === slug).length,
 }));
 const offerLine = 'Ready-to-use skills, prompt packs, scheduled workflows, and config snippets for Muse AI. Pick a skill, read the full source, press Load to copy its install prompt.';
+const itemListJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  itemListElement: entries.map((entry, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    url: new URL(`/entry/${entry.id}/`, Astro.site ?? Astro.url).href,
+    name: entry.data.title,
+  })),
+};
 ---
-<Base title="Muse Skills" description={offerLine}>
+<Base title="Muse Skills: one-paste skills and prompts for Muse AI" description={offerLine}>
+  <script type="application/ld+json" set:html={JSON.stringify(itemListJsonLd)} />
   <section class="hero" aria-label="What this site does">
     <p class="hero-line">One paste installs the whole thing.</p>
     <p class="hero-offer">{offerLine}</p>
@@ -30,10 +41,10 @@ const offerLine = 'Ready-to-use skills, prompt packs, scheduled workflows, and c
       <ul class="jump-list">
         {newEntries.map((entry) => (
           <li class="jump-item">
-            <button class="jump-button" type="button" data-jump-slot={entry.id}>
-              <span>{entry.data.title}</span>
-              <span>Load</span>
-            </button>
+            <div class="jump-row">
+              <a class="jump-link" href={`/entry/${entry.id}/`}>{entry.data.title}</a>
+              <button class="jump-button" type="button" data-jump-slot={entry.id}>Load</button>
+            </div>
           </li>
         ))}
       </ul>

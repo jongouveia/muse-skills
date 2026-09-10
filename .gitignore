@@ -4,3 +4,4 @@ dist
 .vercel
 .impeccable/config.local.json
 .env*
+drafts/

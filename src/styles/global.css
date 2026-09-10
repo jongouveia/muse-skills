@@ -207,9 +207,11 @@ img, svg { display: block; }
 .jump-list, .category-list, .how-list { margin: 20px 0 0; padding: 0; list-style: none; }
 .jump-item, .category-row { border-top: 1px solid var(--color-rule); }
 .jump-item:last-child, .category-row:last-child { border-bottom: 1px solid var(--color-rule); }
-.jump-button, .category-row a { display: flex; align-items: center; justify-content: space-between; width: 100%; min-height: 52px; padding: 8px 0; background: transparent; color: var(--color-bone-dim); cursor: pointer; font-size: 0.8rem; text-align: left; text-decoration: none; }
-.jump-button:hover, .category-row a:hover { color: var(--color-live); }
-.jump-button span:last-child, .category-count { color: var(--color-live); font-family: var(--font-legend); font-size: 0.75rem; font-variant-numeric: tabular-nums; letter-spacing: 0.04em; }
+.jump-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 52px; }
+.jump-link, .category-row a { display: flex; align-items: center; justify-content: space-between; min-height: 52px; padding: 8px 0; color: var(--color-bone-dim); font-size: 0.8rem; text-align: left; text-decoration: none; }
+.jump-link:hover, .jump-button:hover, .category-row a:hover { color: var(--color-live); }
+.jump-button { min-height: 32px; padding: 6px 10px; border: 1px solid var(--color-rule); background: transparent; color: var(--color-live); cursor: pointer; font-family: var(--font-legend); font-size: 0.75rem; letter-spacing: 0.04em; }
+.category-count { color: var(--color-live); font-family: var(--font-legend); font-size: 0.75rem; font-variant-numeric: tabular-nums; letter-spacing: 0.04em; }
 .how-list { display: grid; gap: 28px; }
 .how-step { display: grid; grid-template-columns: 48px minmax(0, 1fr); gap: 16px; }
 .step-number { color: var(--color-lit); font-size: 0.875rem; }
@@ -304,9 +306,12 @@ img, svg { display: block; }
 
 @media (min-width: 1280px) {
   .bank-strip { flex-wrap: nowrap; gap: 12px 8px; }
+  .bank-strip-wrap { flex-wrap: wrap; gap: 16px 8px; }
   .bank-group { flex: var(--group-slots, 1) 1 0; min-width: 0; }
+  .bank-strip-wrap .bank-group { flex: 0 0 auto; }
   .bank-group-slots { gap: 3px; }
   .slot-button { flex: 1 1 0; min-width: 0; height: 64px; }
+  .bank-strip-wrap .slot-button { flex: 0 0 108px; }
   .slot-name { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-height: 1.1; overflow-wrap: anywhere; white-space: normal; }
 }
 

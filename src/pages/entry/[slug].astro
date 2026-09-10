@@ -22,21 +22,40 @@ const related = allEntries
   .sort((a, b) => a.data.title.localeCompare(b.data.title))
   .slice(0, 4);
 
-const title = `${data.title}: Muse skill`;
+const title = `${data.title}: ${typeName(data.type)} for Muse AI | Muse Skills`;
+const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url);
+const site = Astro.site ?? Astro.url;
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'SoftwareSourceCode',
   name: data.title,
   description: data.tagline,
-  author: data.author,
-  dateCreated: data.date_added.toISOString(),
-  url: Astro.url.href,
+  url: canonical.href,
+  codeRepository: data.source_url,
+  programmingLanguage: 'Markdown',
+  author: { '@type': 'Organization', name: data.author },
+  datePublished: data.date_added.toISOString().slice(0, 10),
+  dateModified: data.date_added.toISOString().slice(0, 10),
+  version: data.version,
+  keywords: data.includes.join(', '),
+  isPartOf: { '@type': 'WebSite', url: new URL('/', site).href },
+  publisher: { '@type': 'Organization', name: 'Muse Skills' },
+};
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Bank', item: new URL('/', site).href },
+    { '@type': 'ListItem', position: 2, name: categoryName(data.category), item: new URL(`/category/${categorySlug(data.category)}/`, site).href },
+    { '@type': 'ListItem', position: 3, name: data.title, item: canonical.href },
+  ],
 };
 const sourceLines = data.source.split('\n');
 const sharedLabel = data.origin === 'directory' ? 'Source file' : 'Where this was shared';
 ---
-<Base title={title} description={data.tagline}>
+<Base title={title} description={`${data.tagline} Read the full source, then paste one install prompt into Muse AI.`} ogType="article">
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbJsonLd)} />
 
   <nav class="breadcrumb" aria-label="Breadcrumb">
     <a href="/">Bank</a>
@@ -48,7 +67,7 @@ const sharedLabel = data.origin === 'directory' ? 'Source file' : 'Where this wa
 
   <PatchSheet entry={entry} body={Content} headingLevel={1}>
     <section slot="main-after" class="directions-block" aria-labelledby="directions-heading">
-      <h3 class="sheet-label" id="directions-heading">Directions</h3>
+      <h2 class="sheet-label" id="directions-heading">Directions</h2>
       <p>Copy this block and paste it into your Muse chat. Muse does the install and confirms when it's done.</p>
       <div class="load-action directions-load">
         <div class="directions-control">
@@ -60,7 +79,7 @@ const sharedLabel = data.origin === 'directory' ? 'Source file' : 'Where this wa
     </section>
 
     <section slot="main-after" class="source-section" aria-labelledby="source-heading">
-      <h3 class="sheet-label" id="source-heading">Full source</h3>
+      <h2 class="sheet-label" id="source-heading">Full source</h2>
       <p>This is the exact text Muse installs. Read it. That's the whole trust model.</p>
       <div class="load-action source-copy">
         <LoadKey text={data.source} label="Copy source" idleText="Ready." doneText="Source copied." />
@@ -70,7 +89,7 @@ const sharedLabel = data.origin === 'directory' ? 'Source file' : 'Where this wa
     </section>
 
     <section slot="aside-after" class="shared-block" aria-labelledby="shared-heading">
-      <h2 class="meta-label" id="shared-heading">{sharedLabel}</h2>
+      <h3 class="meta-label" id="shared-heading">{sharedLabel}</h3>
       <p><a class="source-link" href={data.source_url} rel="noopener" target="_blank">{data.source_url.replace(/^https?:\/\//, '')}</a></p>
     </section>
   </PatchSheet>
@@ -111,7 +130,7 @@ const sharedLabel = data.origin === 'directory' ? 'Source file' : 'Where this wa
   .source-line { display: block; min-width: max-content; white-space: pre; position: relative; }
   .source-line::before { counter-increment: line; content: counter(line, decimal-leading-zero); position: absolute; right: calc(100% + 14px); color: var(--color-bone-dim); font-family: var(--font-legend); font-variant-numeric: tabular-nums; text-align: right; user-select: none; }
   .shared-block { padding-top: 24px; border-top: 1px solid var(--color-rule); }
-  .shared-block h2 { margin-bottom: 6px; }
+  .shared-block h3 { margin-bottom: 6px; }
   .shared-block p { margin: 0; overflow-wrap: anywhere; font-family: var(--font-legend); font-size: 0.8rem; letter-spacing: 0.02em; line-height: 1.4; }
   @media (max-width: 720px) {
     .directions-load, .source-copy { grid-template-columns: 1fr; }

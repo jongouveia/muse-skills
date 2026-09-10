@@ -12,6 +12,15 @@ export const TYPES = ['skill', 'prompt', 'workflow', 'config'] as const;
 export type Category = keyof typeof CATEGORIES;
 export type EntryType = (typeof TYPES)[number];
 
+export const CATEGORY_DESCRIPTIONS: Record<Category, string> = {
+  'deal-hunting': 'Skills that watch marketplaces and flag underpriced listings before anyone else sees them.',
+  productivity: 'Briefings, inbox triage, meeting notes, and feed prompts that run your day on a schedule.',
+  money: 'Skills that read your receipts and statements and tell you what to cut.',
+  shopping: 'Gift ideas and price watching, with links, on the schedule you set.',
+  creative: 'Trip plans, collections, and other projects Muse can research and organize for you.',
+  dev: 'Code review and automation skills for people who ship software.',
+};
+
 export function categorySlug(category: string): string {
   if (category in CATEGORIES) return category;
   const match = Object.entries(CATEGORIES).find(([, name]) => name === category);
@@ -20,6 +29,10 @@ export function categorySlug(category: string): string {
 
 export function categoryName(category: Category | string): string {
   return CATEGORIES[category as Category] ?? category;
+}
+
+export function categoryDescription(slug: Category | string): string {
+  return CATEGORY_DESCRIPTIONS[slug as Category] ?? '';
 }
 
 export const TYPE_NAMES: Record<EntryType, string> = {
