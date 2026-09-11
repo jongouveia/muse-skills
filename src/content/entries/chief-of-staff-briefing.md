@@ -15,8 +15,10 @@ safety_notes: |
   accounts, plus a goal file you maintain. Writes only the brief back
   to you. Never replies to an email or sends a calendar invite.
 install_prompt: |
-  Save this as a reusable prompt pack named "Chief of Staff Briefing"
-  and confirm what it does.
+  Install the "Chief of Staff Briefing" prompt pack. Its full source is below. Save it at
+  ~/workspace/prompts/chief-of-staff-briefing.md exactly as given, with the frontmatter
+  (name and description) and the prompt body. Do not run it now. Then
+  confirm it is saved and tell me the trigger phrases: "prepare my morning briefing", "brief me on today", "run chief of staff briefing".
 
   --- SOURCE ---
   # Chief of Staff Briefing
@@ -38,11 +40,13 @@ install_prompt: |
   Update it yourself as goals change. The briefing reads this file; it
   never edits it.
 
+  Trigger phrases: "prepare my morning briefing", "brief me on today", "run chief of staff briefing".
+
   ## The prompt
 
   You are my chief of staff for this morning's brief. Read my calendar
   for today, my inbox for unread and flagged messages from the last 24
-  hours, and my goal file at [path to goals.md]. Use only what these
+  hours, and my goal file at ~/workspace/goals.md. Use only what these
   three sources contain. Do not invent a meeting, an email, or a goal
   that is not in them.
 
@@ -73,6 +77,7 @@ install_prompt: |
 
   Never draft or send a reply, never create or edit a calendar event,
   and never edit the goal file. This is a read-and-report task only.
+  If ~/workspace/goals.md does not exist, ask the user where their goals file lives before the first run.
 source: |
   # Chief of Staff Briefing
 
@@ -93,11 +98,13 @@ source: |
   Update it yourself as goals change. The briefing reads this file; it
   never edits it.
 
+  Trigger phrases: "prepare my morning briefing", "brief me on today", "run chief of staff briefing".
+
   ## The prompt
 
   You are my chief of staff for this morning's brief. Read my calendar
   for today, my inbox for unread and flagged messages from the last 24
-  hours, and my goal file at [path to goals.md]. Use only what these
+  hours, and my goal file at ~/workspace/goals.md. Use only what these
   three sources contain. Do not invent a meeting, an email, or a goal
   that is not in them.
 
@@ -128,6 +135,7 @@ source: |
 
   Never draft or send a reply, never create or edit a calendar event,
   and never edit the goal file. This is a read-and-report task only.
+  If ~/workspace/goals.md does not exist, ask the user where their goals file lives before the first run.
 ---
 
 Chief of Staff Briefing turns your calendar, your inbox, and a goal

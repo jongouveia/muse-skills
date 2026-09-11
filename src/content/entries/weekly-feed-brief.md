@@ -15,17 +15,18 @@ safety_notes: |
   change. Never reads a file outside that setting. Never sends a topic, source, or
   preference to any third party. A week with nothing to report sends nothing.
 install_prompt: |
-  This config lives in the assistant's feed prompt setting, the field that controls what
-  your weekly briefing covers. Show me the filled-in snippet below with your topics,
-  sources, and preferences, and wait for me to confirm it before you write anything to the
-  feed prompt setting.
+  Install the "Weekly Feed Brief" config template. Its full source is below. Save the template at
+  ~/workspace/prompts/weekly-feed-brief.md exactly as given, with the bracketed fields left as
+  literal placeholders. Confirm it is saved. Then, as a separate second step, ask me for my
+  topics, sources, desired length, and delivery day. Only after I answer, offer to write the
+  feed prompt setting, and wait for my confirmation before writing it.
 
   --- SOURCE ---
   # Weekly Feed Brief config
 
   ## Where this lives
   Assistant settings → Feed → Feed prompt. This snippet replaces or extends the text in
-  that field. Ask the user to confirm before writing.
+  that field.
 
   ## Config snippet
 
@@ -53,20 +54,18 @@ install_prompt: |
   ```
 
   ## What to change
-  - `topics_follow`: name specific topics, not broad categories. "Fed rate decisions"
-    beats "the economy."
+  - `topics_follow`: name specific topics, not broad categories.
   - `sources_prefer`: name outlets or people, not "reputable sources."
   - `sources_skip`: name what to exclude, whether a source or a category of story.
   - `output_length`: pick one of the three named lengths.
   - `delivery_day`: one day and a rough time of day.
 
   ## Install steps
-  1. Ask the user to fill in each bracketed field above, or fill them in from what they
-     tell you in chat.
+  1. Fill in each bracketed field from what the user states.
   2. Show the completed snippet back to the user.
   3. Wait for explicit confirmation.
   4. Write the confirmed snippet to the assistant's feed prompt setting.
-  5. Confirm the write succeeded and tell the user which day the first briefing arrives.
+  5. Confirm the write succeeded and name the day the first briefing arrives.
 source: |
   # Weekly Feed Brief config
 

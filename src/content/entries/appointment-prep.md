@@ -15,8 +15,10 @@ safety_notes: |
   connected accounts. Writes only the brief back to you. Never
   contacts anyone or changes anything.
 install_prompt: |
-  Save this as a reusable prompt pack named "Appointment Prep" and
-  confirm what it does.
+  Install the "Appointment Prep" prompt pack. Its full source is below. Save it at
+  ~/workspace/prompts/appointment-prep.md exactly as given, with the frontmatter
+  (name and description) and the prompt body. Do not run it now. Then
+  confirm it is saved and tell me the trigger phrases: "prepare for an appointment", "brief me for my appointment", "what should I ask at my appointment".
 
   --- SOURCE ---
   # Appointment Prep
@@ -25,6 +27,8 @@ install_prompt: |
   interview : anything). It pulls the relevant history and hands
   you a one-page brief: what this is about, what happened last
   time, and what to ask or bring.
+  Trigger phrases: "prepare for an appointment", "brief me for my appointment", "what should I ask at my appointment".
+
   Save it as a reusable prompt pack named "Appointment Prep".
 
   ## The prompt
@@ -52,6 +56,8 @@ source: |
   interview : anything). It pulls the relevant history and hands
   you a one-page brief: what this is about, what happened last
   time, and what to ask or bring.
+  Trigger phrases: "prepare for an appointment", "brief me for my appointment", "what should I ask at my appointment".
+
   Save it as a reusable prompt pack named "Appointment Prep".
 
   ## The prompt

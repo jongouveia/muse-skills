@@ -72,11 +72,13 @@ source: |
     - Never sends the bank export or its contents to any third party or outside service.
     - A run with no bank export provided produces no report; it asks for the file instead.
 install_prompt: |
-  Set up the "Subscription Audit" workflow. Its full source is below. Default schedule:
-  monthly, the 1st at 08:00 local time. Ask me to confirm or change this timing before you
-  create the recurring job. Tell me at setup that each run needs a bank export file from me
-  covering the period since the last run, since this workflow never logs into a bank itself.
-  Tell me the job name and the confirmed schedule when it is set up.
+  Install the "Subscription Audit" workflow. Its full source is below. Create it at
+  ~/workspace/skills/subscription-audit/SKILL.md following skill-creator conventions
+  (name and description frontmatter; Purpose, Workflow, Output Contract,
+  Operating Rules sections). Confirm it is installed and tell me the
+  trigger phrases. Then, as a separate step, propose the default schedule
+  (monthly, the 1st at 08:00 local time) and wait for me to confirm or change it before you create
+  any recurring job.
 
   --- SOURCE ---
   name: subscription-audit

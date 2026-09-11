@@ -14,8 +14,10 @@ safety_notes: |
   Uses only the meals and staples you paste in. Writes only the list
   back to you. Nothing leaves the chat.
 install_prompt: |
-  Save this as a reusable prompt pack named "Grocery List Builder"
-  and confirm what it does.
+  Install the "Grocery List Builder" prompt pack. Its full source is below. Save it at
+  ~/workspace/prompts/grocery-list-builder.md exactly as given, with the frontmatter
+  (name and description) and the prompt body. Do not run it now. Then
+  confirm it is saved and tell me the trigger phrases: "build my grocery list", "organize my shopping list", "make a grocery list".
 
   --- SOURCE ---
   # Grocery List Builder
@@ -24,6 +26,8 @@ install_prompt: |
   of servings for each, and any household staples you are low on. It
   returns one consolidated list grouped by store section, with
   quantities merged.
+
+  Trigger phrases: "build my grocery list", "organize my shopping list", "make a grocery list".
 
   ## The prompt
 
@@ -50,6 +54,8 @@ source: |
   of servings for each, and any household staples you are low on. It
   returns one consolidated list grouped by store section, with
   quantities merged.
+
+  Trigger phrases: "build my grocery list", "organize my shopping list", "make a grocery list".
 
   ## The prompt
 

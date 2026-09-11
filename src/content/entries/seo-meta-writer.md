@@ -14,8 +14,10 @@ safety_notes: |
   Uses only the topic or URL you provide. Writes only the meta tags
   back to you. Never edits your site or publishes anything.
 install_prompt: |
-  Save this as a reusable prompt pack named "SEO Meta Writer" and
-  confirm what it does.
+  Install the "SEO Meta Writer" prompt pack. Its full source is below. Save it at
+  ~/workspace/prompts/seo-meta-writer.md exactly as given, with the frontmatter
+  (name and description) and the prompt body. Do not run it now. Then
+  confirm it is saved and tell me the trigger phrases: "write SEO metadata", "write a meta description", "create a title tag".
 
   --- SOURCE ---
   # SEO Meta Writer
@@ -23,6 +25,8 @@ install_prompt: |
   How to use: give a page URL or a topic plus the target keyword.
   It returns a title tag and meta description that fit the limits
   and read like a human wrote them.
+  Trigger phrases: "write SEO metadata", "write a meta description", "create a title tag".
+
   Save it as a reusable prompt pack named "SEO Meta Writer".
 
   ## The prompt
@@ -50,6 +54,8 @@ source: |
   How to use: give a page URL or a topic plus the target keyword.
   It returns a title tag and meta description that fit the limits
   and read like a human wrote them.
+  Trigger phrases: "write SEO metadata", "write a meta description", "create a title tag".
+
   Save it as a reusable prompt pack named "SEO Meta Writer".
 
   ## The prompt

@@ -16,8 +16,10 @@ safety_notes: |
   to you. Never sends mail, never creates calendar events, never
   edits your goal file.
 install_prompt: |
-  Save this as a reusable prompt pack named "Weekly Review" and
-  confirm what it does.
+  Install the "Weekly Review" prompt pack. Its full source is below. Save it at
+  ~/workspace/prompts/weekly-review.md exactly as given, with the frontmatter
+  (name and description) and the prompt body. Do not run it now. Then
+  confirm it is saved and tell me the trigger phrases: "run my weekly review", "draft my weekly review", "review my week".
 
   --- SOURCE ---
   # Weekly Review
@@ -25,6 +27,8 @@ install_prompt: |
   How to use: run this Friday afternoon, or on a schedule you set.
   It reads your calendar, inbox, and goal file, then drafts the
   review. You approve the priorities; it never sets them for you.
+
+  Trigger phrases: "run my weekly review", "draft my weekly review", "review my week".
 
   ## The prompt
 
@@ -55,6 +59,8 @@ source: |
   How to use: run this Friday afternoon, or on a schedule you set.
   It reads your calendar, inbox, and goal file, then drafts the
   review. You approve the priorities; it never sets them for you.
+
+  Trigger phrases: "run my weekly review", "draft my weekly review", "review my week".
 
   ## The prompt
 

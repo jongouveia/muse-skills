@@ -14,8 +14,10 @@ safety_notes: |
   Uses only the meeting details you provide. Writes only the agenda
   back to you. Never sends invites or contacts attendees.
 install_prompt: |
-  Save this as a reusable prompt pack named "Meeting Agenda
-  Builder" and confirm what it does.
+  Install the "Meeting Agenda Builder" prompt pack. Its full source is below. Save it at
+  ~/workspace/prompts/meeting-agenda-builder.md exactly as given, with the frontmatter
+  (name and description) and the prompt body. Do not run it now. Then
+  confirm it is saved and tell me the trigger phrases: "build a meeting agenda", "timebox this meeting", "plan this meeting".
 
   --- SOURCE ---
   # Meeting Agenda Builder
@@ -23,6 +25,8 @@ install_prompt: |
   How to use: give the meeting goal, the attendees, and the time
   available. It returns a timeboxed agenda where every item earns
   its slot.
+  Trigger phrases: "build a meeting agenda", "timebox this meeting", "plan this meeting".
+
   Save it as a reusable prompt pack named "Meeting Agenda Builder".
 
   ## The prompt
@@ -52,6 +56,8 @@ source: |
   How to use: give the meeting goal, the attendees, and the time
   available. It returns a timeboxed agenda where every item earns
   its slot.
+  Trigger phrases: "build a meeting agenda", "timebox this meeting", "plan this meeting".
+
   Save it as a reusable prompt pack named "Meeting Agenda Builder".
 
   ## The prompt

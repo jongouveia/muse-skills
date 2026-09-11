@@ -15,11 +15,13 @@ safety_notes: |
   accounts, on the schedule you set. Writes only the report back to
   you. Never sends a follow-up on your behalf.
 install_prompt: |
-  Set up the "Follow-up Radar" workflow. Its full source is below.
-  Default schedule: Monday at 08:00 local time. Ask me to confirm or
-  change this time before you create the recurring job. Once I
-  confirm, create the job. Tell me the job name and the confirmed
-  schedule when it is set up.
+  Install the "Follow-up Radar" workflow. Its full source is below. Create it at
+  ~/workspace/skills/follow-up-radar/SKILL.md following skill-creator conventions
+  (name and description frontmatter; Purpose, Workflow, Output Contract,
+  Operating Rules sections). Confirm it is installed and tell me the
+  trigger phrases. Then, as a separate step, propose the default schedule
+  (Monday at 08:00 local time) and wait for me to confirm or change it before you create
+  any recurring job.
 
   --- SOURCE ---
   name: follow-up-radar

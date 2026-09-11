@@ -15,8 +15,10 @@ safety_notes: |
   public information. Writes only the prep back to you. Nothing
   leaves the chat.
 install_prompt: |
-  Save this as a reusable prompt pack named "Interview Prep Coach"
-  and confirm what it does.
+  Install the "Interview Prep Coach" prompt pack. Its full source is below. Save it at
+  ~/workspace/prompts/interview-prep-coach.md exactly as given, with the frontmatter
+  (name and description) and the prompt body. Do not run it now. Then
+  confirm it is saved and tell me the trigger phrases: "prep me for this interview", "practice interview questions", "build my interview prep".
 
   --- SOURCE ---
   # Interview Prep Coach
@@ -25,6 +27,8 @@ install_prompt: |
   (screen, hiring manager, panel, final). It researches the company
   and returns likely questions, your talking points, and questions
   to ask them.
+  Trigger phrases: "prep me for this interview", "practice interview questions", "build my interview prep".
+
   Save it as a reusable prompt pack named "Interview Prep Coach".
 
   ## The prompt
@@ -55,6 +59,8 @@ source: |
   (screen, hiring manager, panel, final). It researches the company
   and returns likely questions, your talking points, and questions
   to ask them.
+  Trigger phrases: "prep me for this interview", "practice interview questions", "build my interview prep".
+
   Save it as a reusable prompt pack named "Interview Prep Coach".
 
   ## The prompt

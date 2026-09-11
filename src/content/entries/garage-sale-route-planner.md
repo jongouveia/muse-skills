@@ -15,12 +15,13 @@ safety_notes: |
   the route to you and nothing else. Never contacts a seller. Never
   needs a login; it uses Muse's own browsing.
 install_prompt: |
-  Set up the "Garage Sale Route Planner" workflow. Its full source is
-  below. Default schedule: Friday at 19:00 local time. Ask me to
-  confirm or change this time before you create the recurring job.
-  Once I confirm, create the job and ask me for my area, radius, and
-  interest keywords. Tell me the job name and the confirmed schedule
-  when it is set up.
+  Install the "Garage Sale Route Planner" workflow. Its full source is below. Create it at
+  ~/workspace/skills/garage-sale-route-planner/SKILL.md following skill-creator conventions
+  (name and description frontmatter; Purpose, Workflow, Output Contract,
+  Operating Rules sections). Confirm it is installed and tell me the
+  trigger phrases. Then, as a separate step, propose the default schedule
+  (Friday at 19:00 local time) and wait for me to confirm or change it before you create
+  any recurring job.
 
   --- SOURCE ---
   name: garage-sale-route-planner
@@ -33,6 +34,7 @@ install_prompt: |
   route_config: area, radius in miles (default 20), and interest keywords (for example: vinyl records, film cameras, tools, mid-century furniture). The user sets these once; the workflow reuses them until changed.
 
   steps:
+    On first run, ask the user for area, radius, and interest keywords, and store them for later runs.
     1. Sweep local listings for Saturday sales: Craigslist garage/yard sale section, Facebook Marketplace local sale posts, and estate-sale aggregators covering the user's area.
     2. Keep sales within the radius happening Saturday morning. Drop sales with no address or no start time.
     3. Score each sale on interest-keyword hits in its listing text. Sales mentioning a keyword rank above general sales.
@@ -59,6 +61,7 @@ source: |
   route_config: area, radius in miles (default 20), and interest keywords (for example: vinyl records, film cameras, tools, mid-century furniture). The user sets these once; the workflow reuses them until changed.
 
   steps:
+    On first run, ask the user for area, radius, and interest keywords, and store them for later runs.
     1. Sweep local listings for Saturday sales: Craigslist garage/yard sale section, Facebook Marketplace local sale posts, and estate-sale aggregators covering the user's area.
     2. Keep sales within the radius happening Saturday morning. Drop sales with no address or no start time.
     3. Score each sale on interest-keyword hits in its listing text. Sales mentioning a keyword rank above general sales.

@@ -14,8 +14,10 @@ safety_notes: |
   Uses only the diff or summary you paste in. Writes only the draft
   back to you. Never opens a PR or pushes code.
 install_prompt: |
-  Save this as a reusable prompt pack named "PR Description Writer"
-  and confirm what it does.
+  Install the "PR Description Writer" prompt pack. Its full source is below. Save it at
+  ~/workspace/prompts/pr-description-writer.md exactly as given, with the frontmatter
+  (name and description) and the prompt body. Do not run it now. Then
+  confirm it is saved and tell me the trigger phrases: "write my PR description", "draft a pull request", "summarize these changes for a PR".
 
   --- SOURCE ---
   # PR Description Writer
@@ -23,6 +25,8 @@ install_prompt: |
   How to use: paste a diff, a commit list, or a plain-English
   summary of what changed. It returns a PR title and description
   in the template below.
+  Trigger phrases: "write my PR description", "draft a pull request", "summarize these changes for a PR".
+
   Save it as a reusable prompt pack named "PR Description Writer".
 
   ## The prompt
@@ -52,6 +56,8 @@ source: |
   How to use: paste a diff, a commit list, or a plain-English
   summary of what changed. It returns a PR title and description
   in the template below.
+  Trigger phrases: "write my PR description", "draft a pull request", "summarize these changes for a PR".
+
   Save it as a reusable prompt pack named "PR Description Writer".
 
   ## The prompt

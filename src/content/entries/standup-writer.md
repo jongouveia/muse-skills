@@ -15,8 +15,10 @@ safety_notes: |
   assistant's own connected accounts. Writes only the draft back to
   you. Never commits, pushes, or posts anything anywhere.
 install_prompt: |
-  Save this as a reusable prompt pack named "Standup Writer" and
-  confirm what it does.
+  Install the "Standup Writer" prompt pack. Its full source is below. Save it at
+  ~/workspace/prompts/standup-writer.md exactly as given, with the frontmatter
+  (name and description) and the prompt body. Do not run it now. Then
+  confirm it is saved and tell me the trigger phrases: "write my standup", "draft my daily update", "prepare my standup".
 
   --- SOURCE ---
   # Standup Writer
@@ -24,6 +26,8 @@ install_prompt: |
   How to use: run each morning before standup. It reads yesterday's
   git history and today's calendar, then drafts the update in
   yesterday / today / blockers shape.
+
+  Trigger phrases: "write my standup", "draft my daily update", "prepare my standup".
 
   ## The prompt
 
@@ -49,6 +53,8 @@ source: |
   How to use: run each morning before standup. It reads yesterday's
   git history and today's calendar, then drafts the update in
   yesterday / today / blockers shape.
+
+  Trigger phrases: "write my standup", "draft my daily update", "prepare my standup".
 
   ## The prompt
 

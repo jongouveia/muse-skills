@@ -14,8 +14,10 @@ safety_notes: |
   Uses only the text you paste in. Writes only the adaptations back
   to you. Never posts to any platform.
 install_prompt: |
-  Save this as a reusable prompt pack named "Social Repurposer"
-  and confirm what it does.
+  Install the "Social Repurposer" prompt pack. Its full source is below. Save it at
+  ~/workspace/prompts/social-repurposer.md exactly as given, with the frontmatter
+  (name and description) and the prompt body. Do not run it now. Then
+  confirm it is saved and tell me the trigger phrases: "repurpose this content", "turn this into social posts", "make social versions".
 
   --- SOURCE ---
   # Social Repurposer
@@ -23,6 +25,8 @@ install_prompt: |
   How to use: paste one piece of long-form content (a blog post, a
   newsletter section, a thread draft). It returns platform-native
   versions: an X thread, a LinkedIn post, and a short-form caption.
+  Trigger phrases: "repurpose this content", "turn this into social posts", "make social versions".
+
   Save it as a reusable prompt pack named "Social Repurposer".
 
   ## The prompt
@@ -51,6 +55,8 @@ source: |
   How to use: paste one piece of long-form content (a blog post, a
   newsletter section, a thread draft). It returns platform-native
   versions: an X thread, a LinkedIn post, and a short-form caption.
+  Trigger phrases: "repurpose this content", "turn this into social posts", "make social versions".
+
   Save it as a reusable prompt pack named "Social Repurposer".
 
   ## The prompt

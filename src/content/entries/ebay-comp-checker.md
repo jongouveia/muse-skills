@@ -15,8 +15,10 @@ safety_notes: |
   lists nothing. Never asks for an eBay login; it uses Muse's own
   browsing.
 install_prompt: |
-  Save this as a reusable prompt pack named "eBay Comp Checker" and
-  confirm what it does.
+  Install the "eBay Comp Checker" prompt pack. Its full source is below. Save it at
+  ~/workspace/prompts/ebay-comp-checker.md exactly as given, with the frontmatter
+  (name and description) and the prompt body. Do not run it now. Then
+  confirm it is saved and tell me the trigger phrases: "comp this item", "find eBay comps", "price this eBay item".
 
   --- SOURCE ---
   # eBay Comp Checker
@@ -26,6 +28,8 @@ install_prompt: |
   affects value (edition, year, completeness). Ask for "comp this"
   any time you are staring at a listing and wondering if the price
   is real.
+
+  Trigger phrases: "comp this item", "find eBay comps", "price this eBay item".
 
   ## The prompt
 
@@ -59,6 +63,8 @@ source: |
   affects value (edition, year, completeness). Ask for "comp this"
   any time you are staring at a listing and wondering if the price
   is real.
+
+  Trigger phrases: "comp this item", "find eBay comps", "price this eBay item".
 
   ## The prompt
 

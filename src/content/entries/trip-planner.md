@@ -15,13 +15,17 @@ safety_notes: |
   Writes nothing outside the chat; it returns an itinerary and links to research.
   Never books a flight, hotel, or activity, and never touches payment details.
 install_prompt: |
-  Save this as a reusable prompt pack named "Trip Planner" and confirm what it
-  does.
+  Install the "Trip Planner" prompt pack. Its full source is below. Save it at
+  ~/workspace/prompts/trip-planner.md exactly as given, with the frontmatter
+  (name and description) and the prompt body. Do not run it now. Then
+  confirm it is saved and tell me the trigger phrases: "plan my trip", "build a travel itinerary", "help me plan this trip".
 
   --- SOURCE ---
   # Trip Planner
 
   Fill in the slots below, then send the whole prompt.
+
+  Trigger phrases: "plan my trip", "build a travel itinerary", "help me plan this trip".
 
   Plan a trip with these details:
 
@@ -67,6 +71,8 @@ source: |
   # Trip Planner
 
   Fill in the slots below, then send the whole prompt.
+
+  Trigger phrases: "plan my trip", "build a travel itinerary", "help me plan this trip".
 
   Plan a trip with these details:
 

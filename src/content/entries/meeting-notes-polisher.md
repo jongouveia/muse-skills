@@ -15,10 +15,15 @@ safety_notes: |
   for you to copy. Never contacts a calendar, task tracker, or any other person. Flags a
   missing owner instead of guessing one.
 install_prompt: |
-  Save this as a reusable prompt pack named "Meeting Notes Polisher" and confirm what it does.
+  Install the "Meeting Notes Polisher" prompt pack. Its full source is below. Save it at
+  ~/workspace/prompts/meeting-notes-polisher.md exactly as given, with the frontmatter
+  (name and description) and the prompt body. Do not run it now. Then
+  confirm it is saved and tell me the trigger phrases: "polish my meeting notes", "clean up these notes", "structure my meeting notes".
 
   --- SOURCE ---
   # Meeting Notes Polisher
+  Trigger phrases: "polish my meeting notes", "clean up these notes", "structure my meeting notes".
+
 
   Paste raw meeting notes below the line. Turn them into a structured record.
 
@@ -54,6 +59,8 @@ install_prompt: |
   [Paste raw meeting notes here]
 source: |
   # Meeting Notes Polisher
+  Trigger phrases: "polish my meeting notes", "clean up these notes", "structure my meeting notes".
+
 
   Paste raw meeting notes below the line. Turn them into a structured record.
 

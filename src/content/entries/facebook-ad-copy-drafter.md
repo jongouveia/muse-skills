@@ -15,8 +15,10 @@ safety_notes: |
   only the ad drafts back to you. Never creates campaigns or
   spends anything.
 install_prompt: |
-  Save this as a reusable prompt pack named "Facebook Ad Copy
-  Drafter" and confirm what it does.
+  Install the "Facebook Ad Copy Drafter" prompt pack. Its full source is below. Save it at
+  ~/workspace/prompts/facebook-ad-copy-drafter.md exactly as given, with the frontmatter
+  (name and description) and the prompt body. Do not run it now. Then
+  confirm it is saved and tell me the trigger phrases: "write Facebook ad copy", "draft ad variants", "create ad copy".
 
   --- SOURCE ---
   # Facebook Ad Copy Drafter
@@ -24,6 +26,8 @@ install_prompt: |
   How to use: describe the product and the audience. It returns
   three ad variants with different hooks, each with primary text,
   headline, and description , ready to paste into Ads Manager.
+  Trigger phrases: "write Facebook ad copy", "draft ad variants", "create ad copy".
+
   Save it as a reusable prompt pack named "Facebook Ad Copy Drafter".
 
   ## The prompt
@@ -54,6 +58,8 @@ source: |
   How to use: describe the product and the audience. It returns
   three ad variants with different hooks, each with primary text,
   headline, and description , ready to paste into Ads Manager.
+  Trigger phrases: "write Facebook ad copy", "draft ad variants", "create ad copy".
+
   Save it as a reusable prompt pack named "Facebook Ad Copy Drafter".
 
   ## The prompt

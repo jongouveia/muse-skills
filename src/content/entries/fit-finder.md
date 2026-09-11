@@ -14,8 +14,10 @@ safety_notes: |
   Uses only the measurements you provide. Writes only the size
   estimate back to you. Nothing leaves the chat.
 install_prompt: |
-  Save this as a reusable prompt pack named "Fit Finder" and
-  confirm what it does.
+  Install the "Fit Finder" prompt pack. Its full source is below. Save it at
+  ~/workspace/prompts/fit-finder.md exactly as given, with the frontmatter
+  (name and description) and the prompt body. Do not run it now. Then
+  confirm it is saved and tell me the trigger phrases: "find my size", "check this brand's fit", "what size should I order".
 
   --- SOURCE ---
   # Fit Finder
@@ -24,6 +26,8 @@ install_prompt: |
   (jeans, dress shirt, running shoes , whatever). It looks up the
   brand's size chart and tells you which size to order and what to
   watch for.
+  Trigger phrases: "find my size", "check this brand's fit", "what size should I order".
+
   Save it as a reusable prompt pack named "Fit Finder".
 
   ## The prompt
@@ -54,6 +58,8 @@ source: |
   (jeans, dress shirt, running shoes , whatever). It looks up the
   brand's size chart and tells you which size to order and what to
   watch for.
+  Trigger phrases: "find my size", "check this brand's fit", "what size should I order".
+
   Save it as a reusable prompt pack named "Fit Finder".
 
   ## The prompt

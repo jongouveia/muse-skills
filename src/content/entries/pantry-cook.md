@@ -14,8 +14,10 @@ safety_notes: |
   Uses only the photo or list you provide in the chat. Writes only
   the suggestions back to you. Nothing leaves the chat.
 install_prompt: |
-  Save this as a reusable prompt pack named "Pantry Cook" and
-  confirm what it does.
+  Install the "Pantry Cook" prompt pack. Its full source is below. Save it at
+  ~/workspace/prompts/pantry-cook.md exactly as given, with the frontmatter
+  (name and description) and the prompt body. Do not run it now. Then
+  confirm it is saved and tell me the trigger phrases: "cook from my pantry", "what can I make with these ingredients", "suggest pantry dinners".
 
   --- SOURCE ---
   # Pantry Cook
@@ -23,6 +25,8 @@ install_prompt: |
   How to use: photo your fridge, pantry, or both, or paste a list of
   what you have. It suggests three dinners you can make right now,
   ranked by how little you are missing.
+
+  Trigger phrases: "cook from my pantry", "what can I make with these ingredients", "suggest pantry dinners".
 
   ## The prompt
 
@@ -48,6 +52,8 @@ source: |
   How to use: photo your fridge, pantry, or both, or paste a list of
   what you have. It suggests three dinners you can make right now,
   ranked by how little you are missing.
+
+  Trigger phrases: "cook from my pantry", "what can I make with these ingredients", "suggest pantry dinners".
 
   ## The prompt
 

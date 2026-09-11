@@ -66,11 +66,13 @@ source: |
     - Never forward or quote a message to a third party outside delegation the user set up.
     - A quiet run (no reply or delegate drafts) sends nothing beyond the one-line summary.
 install_prompt: |
-  Set up the "Inbox Triage" workflow. Its full source is below. Default schedule: weekdays
-  07:30 local time. Ask me to confirm or change this time before you create the recurring
-  job. Once I confirm, create the job, connect it to my email account, and run a first pass
-  now so I can see the classification and the draft replies before any run is unattended.
-  Tell me the job name and the confirmed schedule when it is set up.
+  Install the "Inbox Triage" workflow. Its full source is below. Create it at
+  ~/workspace/skills/inbox-triage/SKILL.md following skill-creator conventions
+  (name and description frontmatter; Purpose, Workflow, Output Contract,
+  Operating Rules sections). Confirm it is installed and tell me the
+  trigger phrases. Then, as a separate step, propose the default schedule
+  (weekdays at 07:30 local time) and wait for me to confirm or change it before you create
+  any recurring job.
 
   --- SOURCE ---
   name: inbox-triage

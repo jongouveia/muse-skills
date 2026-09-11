@@ -14,8 +14,10 @@ safety_notes: |
   Uses only the trip details you provide. Writes only the list back
   to you. Nothing leaves the chat.
 install_prompt: |
-  Save this as a reusable prompt pack named "Packing List Generator"
-  and confirm what it does.
+  Install the "Packing List Generator" prompt pack. Its full source is below. Save it at
+  ~/workspace/prompts/packing-list-generator.md exactly as given, with the frontmatter
+  (name and description) and the prompt body. Do not run it now. Then
+  confirm it is saved and tell me the trigger phrases: "make a packing list", "what should I pack", "pack for this trip".
 
   --- SOURCE ---
   # Packing List Generator
@@ -24,6 +26,8 @@ install_prompt: |
   special (a wedding, hiking, a work presentation). It returns a
   complete checklist grouped by category, adjusted for weather and
   trip length.
+  Trigger phrases: "make a packing list", "what should I pack", "pack for this trip".
+
   Save it as a reusable prompt pack named "Packing List Generator".
 
   ## The prompt
@@ -51,6 +55,8 @@ source: |
   special (a wedding, hiking, a work presentation). It returns a
   complete checklist grouped by category, adjusted for weather and
   trip length.
+  Trigger phrases: "make a packing list", "what should I pack", "pack for this trip".
+
   Save it as a reusable prompt pack named "Packing List Generator".
 
   ## The prompt
