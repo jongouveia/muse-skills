@@ -5,7 +5,7 @@ category: "dev"
 type: "skill"
 author: "Muse Skills editors"
 source_url: "https://github.com/jongouveia/muse-skills/blob/main/src/content/entries/regex-smith.md"
-source_verified: false
+source_verified: true
 origin: "directory"
 includes: ["instructions", "workflow", "test-cases"]
 version: "1.0.0"

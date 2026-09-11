@@ -5,7 +5,7 @@ category: "shopping"
 type: "workflow"
 author: "Muse Skills editors"
 source_url: "https://github.com/jongouveia/muse-skills/blob/main/src/content/entries/price-drop-watcher.md"
-source_verified: false
+source_verified: true
 origin: "directory"
 includes: ["schedule", "workflow", "url list", "alerts"]
 version: "1.0.0"

@@ -5,7 +5,7 @@ category: "deal-hunting"
 type: "skill"
 author: "Muse Skills editors"
 source_url: "https://github.com/jongouveia/muse-skills/blob/main/src/content/entries/marketplace-scout.md"
-source_verified: false
+source_verified: true
 origin: "directory"
 includes: ["instructions", "workflow", "watchlist"]
 version: "1.0.0"

@@ -5,7 +5,7 @@ category: "money"
 type: "skill"
 author: "Muse Skills editors"
 source_url: "https://github.com/jongouveia/muse-skills/blob/main/src/content/entries/unclaimed-money-scout.md"
-source_verified: false
+source_verified: true
 origin: "directory"
 includes: ["instructions", "workflow", "claim-links"]
 version: "1.0.0"
