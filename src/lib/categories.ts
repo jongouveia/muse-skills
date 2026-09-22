@@ -8,6 +8,7 @@ export const CATEGORIES = {
   creative: 'Creative',
   marketing: 'Marketing',
   dev: 'Dev & automation',
+  home: 'Home',
 } as const;
 
 export const TYPES = ['skill', 'prompt', 'workflow', 'config'] as const;
@@ -25,6 +26,7 @@ export const CATEGORY_DESCRIPTIONS: Record<Category, string> = {
   creative: 'Trip plans, collections, and other projects Muse can research and organize for you.',
   marketing: 'Skills for planning, drafting, and adapting marketing content.',
   dev: 'Code review and automation skills for people who ship software.',
+  home: 'Inventory, maintenance, and move planning that runs your house on a schedule.',
 };
 
 export function categorySlug(category: string): string {
