@@ -23,7 +23,7 @@ install_prompt: |
 
   --- SOURCE ---
   name: reservation-tracker
-  description: Weekly inbox scan for upcoming reservations : restaurants, hotels, flights, rentals , in one chronological list. Trigger phrases: "what reservations do I have", "upcoming bookings", "track my reservations".
+  description: Weekly inbox scan for upcoming reservations: restaurants, hotels, flights, rentals, in one chronological list. Trigger phrases: "what reservations do I have", "upcoming bookings", "track my reservations".
 
   schedule: weekly, Sunday at 09:00 local time (cron: 0 9 * * 0). Confirm the time with the user before the first scheduled run.
 
@@ -48,7 +48,7 @@ install_prompt: |
     - Run only on the confirmed schedule or when asked.
 source: |
   name: reservation-tracker
-  description: Weekly inbox scan for upcoming reservations : restaurants, hotels, flights, rentals , in one chronological list. Trigger phrases: "what reservations do I have", "upcoming bookings", "track my reservations".
+  description: Weekly inbox scan for upcoming reservations: restaurants, hotels, flights, rentals, in one chronological list. Trigger phrases: "what reservations do I have", "upcoming bookings", "track my reservations".
 
   schedule: weekly, Sunday at 09:00 local time (cron: 0 9 * * 0). Confirm the time with the user before the first scheduled run.
 
@@ -74,7 +74,7 @@ source: |
 ---
 
 Reservation Tracker runs every Sunday morning and scans your inbox
-for confirmation emails : restaurants, hotels, flights, rentals :
+for confirmation emails: restaurants, hotels, flights, rentals:
 then gives you one chronological list of everything upcoming, with
 confirmation codes where shown.
 
@@ -92,8 +92,8 @@ Output:
 ```
 Upcoming reservations
 This week:
-- Fri Sep 18, 7:30 PM , Row 34, Boston (4 people, conf #R8231)
+- Fri Sep 18, 7:30 PM, Row 34, Boston (4 people, conf #R8231)
 Later:
-- Oct 2–5 , Hotel, Portland ME (conf #H99120)
-- Oct 9, 6:10 AM , BOS → DEN (conf #AA4K2Q)
+- Oct 2–5, Hotel, Portland ME (conf #H99120)
+- Oct 9, 6:10 AM, BOS → DEN (conf #AA4K2Q)
 ```

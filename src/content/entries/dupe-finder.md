@@ -25,11 +25,11 @@ install_prompt: |
 
   > Find me cheaper alternatives ("dupes") for [product]. For
   > each alternative give: name, price, what it matches the
-  > original on, and where it falls short , be honest about the
+  > original on, and where it falls short, be honest about the
   > trade-offs. Rank by value, not by price alone. Rules:
   > (1) only suggest products with real reviews behind them,
   > no obscure no-name listings with 3 reviews, (2) say what
-  > the original does better : if nothing cheaper comes
+  > the original does better: if nothing cheaper comes
   > close, say so and tell me to buy the original, (3) no
   > counterfeits or knockoffs pretending to be the brand.
 source: |
@@ -38,18 +38,18 @@ source: |
 
   > Find me cheaper alternatives ("dupes") for [product]. For
   > each alternative give: name, price, what it matches the
-  > original on, and where it falls short , be honest about the
+  > original on, and where it falls short, be honest about the
   > trade-offs. Rank by value, not by price alone. Rules:
   > (1) only suggest products with real reviews behind them,
   > no obscure no-name listings with 3 reviews, (2) say what
-  > the original does better : if nothing cheaper comes
+  > the original does better: if nothing cheaper comes
   > close, say so and tell me to buy the original, (3) no
   > counterfeits or knockoffs pretending to be the brand.
 ---
 
 Dupe Finder is a prompt pack for the "do I really need the brand
 name?" question. Name the product; get ranked cheaper alternatives
-with honest trade-offs : and if nothing cheaper comes close, it says
+with honest trade-offs: and if nothing cheaper comes close, it says
 so and tells you to buy the original.
 
 ## What it includes
@@ -65,10 +65,10 @@ Input: "Dupe Finder for the Dyson V15."
 Output (abridged):
 
 ```
-1. Shark Stratos , $299 vs $749
+1. Shark Stratos, $299 vs $749
    Matches: suction, laser head. Falls short: bin size,
    battery by ~15 min.
-2. Tineco S11 , $249 ...
+2. Tineco S11, $249 ...
    Matches: weight, attachments. Falls short: filtration.
 
 Verdict: the Shark gets you 85% there for 40% of the price.

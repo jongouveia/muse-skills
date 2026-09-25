@@ -78,7 +78,7 @@ source: |
 
 Content Calendar plans a month of content in one pass. Give it your
 topic, platforms, and cadence; every month it returns four weeks of
-post ideas : each with the working title, the hook, and the format :
+post ideas: each with the working title, the hook, and the format:
 balanced across teach, show, prove, and ask, with two backup ideas
 banked for the weeks nothing gets written.
 
@@ -97,9 +97,9 @@ Output (abridged):
 
 ```
 Week 1
-- Mon (X): "Your grinder matters more than your brewer" , teach
-- Wed (IG): reel : my morning pour-over routine , show
-- Fri (X): "Ask me your brewing questions" , ask
+- Mon (X): "Your grinder matters more than your brewer", teach
+- Wed (IG): reel: my morning pour-over routine, show
+- Fri (X): "Ask me your brewing questions", ask
 ...
 Format mix: teach 4, show 4, prove 2, ask 2
 Banked: "5 grinder myths", "what I wasted money on in year one"

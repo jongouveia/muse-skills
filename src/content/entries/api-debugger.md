@@ -118,7 +118,7 @@ source: |
 ---
 
 API Debugger takes a failing request and its error and returns an
-ordered diagnosis checklist , most likely cause first, each with the
+ordered diagnosis checklist, most likely cause first, each with the
 one concrete check to run. No more guessing at 400s.
 
 ## What it includes
@@ -138,10 +138,10 @@ Output (abridged):
 Classification: auth
 
 Checklist:
-1. Key in the wrong header : confirm the provider expects
+1. Key in the wrong header: confirm the provider expects
    `Authorization: Bearer` vs `x-api-key`. (Fastest test: retry with
    the alternate header.)
-2. Test vs live key mismatch : test keys start with sk_test_.
+2. Test vs live key mismatch: test keys start with sk_test_.
 3. Key revoked or rotated in the dashboard.
-4. Clock skew , only if the error mentions timestamps.
+4. Clock skew, only if the error mentions timestamps.
 ```

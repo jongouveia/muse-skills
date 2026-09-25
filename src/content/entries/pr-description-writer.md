@@ -43,7 +43,7 @@ install_prompt: |
     files or modules touched.
   - **Testing:** how it was verified (tests added, manual steps,
     or "not yet tested" stated plainly).
-  - **Risk / rollout:** anything reviewers should watch for :
+  - **Risk / rollout:** anything reviewers should watch for:
     migrations, flag flips, breaking changes. Write "None" if
     there is nothing.
 
@@ -74,7 +74,7 @@ source: |
     files or modules touched.
   - **Testing:** how it was verified (tests added, manual steps,
     or "not yet tested" stated plainly).
-  - **Risk / rollout:** anything reviewers should watch for :
+  - **Risk / rollout:** anything reviewers should watch for:
     migrations, flag flips, breaking changes. Write "None" if
     there is nothing.
 
@@ -113,6 +113,6 @@ How: Wrapped the existing fetch call in `withRetry` in
 Testing: Added unit tests for the backoff intervals; manually
 verified against the staging gateway.
 
-Risk / rollout: None : retries are bounded and idempotency keys
+Risk / rollout: None: retries are bounded and idempotency keys
 are already sent.
 ```

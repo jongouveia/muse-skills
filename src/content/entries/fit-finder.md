@@ -1,6 +1,6 @@
 ---
 title: "Fit Finder"
-tagline: "Your measurements plus a brand : estimated size and watch-outs."
+tagline: "Your measurements plus a brand: estimated size and watch-outs."
 category: "shopping"
 type: "prompt"
 author: "Muse Skills editors"
@@ -23,7 +23,7 @@ install_prompt: |
   # Fit Finder
 
   How to use: give your measurements, the brand, and the item
-  (jeans, dress shirt, running shoes , whatever). It looks up the
+  (jeans, dress shirt, running shoes, whatever). It looks up the
   brand's size chart and tells you which size to order and what to
   watch for.
   Trigger phrases: "find my size", "check this brand's fit", "what size should I order".
@@ -38,10 +38,10 @@ install_prompt: |
   1. Look up the brand's current size chart for this item.
   2. Compare my measurements and name the size to order. If I fall
      between sizes, say so and recommend based on the item type
-     (size up for structured jackets, down for stretch denim ,
+     (size up for structured jackets, down for stretch denim,
      state the rule you used).
   3. Add brand-specific watch-outs: "runs small in the shoulders",
-     "vanity sized , most people size down", "length runs long".
+     "vanity sized, most people size down", "length runs long".
      Base these on the size chart and general fit reputation, not
      invented reviews.
   4. If the item has fit variants (slim / regular / relaxed, or
@@ -55,7 +55,7 @@ source: |
   # Fit Finder
 
   How to use: give your measurements, the brand, and the item
-  (jeans, dress shirt, running shoes , whatever). It looks up the
+  (jeans, dress shirt, running shoes, whatever). It looks up the
   brand's size chart and tells you which size to order and what to
   watch for.
   Trigger phrases: "find my size", "check this brand's fit", "what size should I order".
@@ -70,10 +70,10 @@ source: |
   1. Look up the brand's current size chart for this item.
   2. Compare my measurements and name the size to order. If I fall
      between sizes, say so and recommend based on the item type
-     (size up for structured jackets, down for stretch denim ,
+     (size up for structured jackets, down for stretch denim,
      state the rule you used).
   3. Add brand-specific watch-outs: "runs small in the shoulders",
-     "vanity sized , most people size down", "length runs long".
+     "vanity sized, most people size down", "length runs long".
      Base these on the size chart and general fit reputation, not
      invented reviews.
   4. If the item has fit variants (slim / regular / relaxed, or
@@ -88,7 +88,7 @@ source: |
 Fit Finder ends the order-two-sizes-and-return-one ritual. Give your
 measurements, the brand, and the item; it checks the brand's actual
 size chart, names the size to order, and adds the fit quirks worth
-knowing , "runs small in the shoulders," "size down, it's vanity
+knowing, "runs small in the shoulders," "size down, it's vanity
 sized."
 
 ## What it includes
@@ -106,7 +106,7 @@ Output:
 
 ```
 Order: 34x32 in 511 Slim.
-Watch-outs: 511s run snug in the thigh : if you're between fits,
+Watch-outs: 511s run snug in the thigh: if you're between fits,
   try the 514 Slim Straight. Levi's vanity-sizes slightly; the
   34 measures closer to 35.
 ```

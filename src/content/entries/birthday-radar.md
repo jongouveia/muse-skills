@@ -23,7 +23,7 @@ install_prompt: |
 
   --- SOURCE ---
   name: birthday-radar
-  description: Monthly birthday and anniversary scan : who's coming up in the next 30 days, with gift lead time and past gift notes. Trigger phrases: "whose birthday is coming up", "upcoming birthdays", "birthday reminders".
+  description: Monthly birthday and anniversary scan: who's coming up in the next 30 days, with gift lead time and past gift notes. Trigger phrases: "whose birthday is coming up", "upcoming birthdays", "birthday reminders".
 
   schedule: first of each month at 09:00 local time. Confirm the time with the user before the first scheduled run.
 
@@ -49,7 +49,7 @@ install_prompt: |
     - Run only on the confirmed schedule or when asked.
 source: |
   name: birthday-radar
-  description: Monthly birthday and anniversary scan : who's coming up in the next 30 days, with gift lead time and past gift notes. Trigger phrases: "whose birthday is coming up", "upcoming birthdays", "birthday reminders".
+  description: Monthly birthday and anniversary scan: who's coming up in the next 30 days, with gift lead time and past gift notes. Trigger phrases: "whose birthday is coming up", "upcoming birthdays", "birthday reminders".
 
   schedule: first of each month at 09:00 local time. Confirm the time with the user before the first scheduled run.
 
@@ -76,7 +76,7 @@ source: |
 ---
 
 Birthday Radar runs on the first of the month and lists who's coming
-up in the next 30 days , with gift lead time ("order now" vs. "plenty
+up in the next 30 days, with gift lead time ("order now" vs. "plenty
 of time") and notes on past gifts so you never repeat one.
 
 ## What it includes
@@ -91,10 +91,10 @@ of time") and notes on past gifts so you never repeat one.
 Output:
 
 ```
-Birthdays , October
+Birthdays, October
 
-- Oct 4, Mom , 3 days [order now]
+- Oct 4, Mom, 3 days [order now]
   Last year: the cookbook. Note: she mentioned gardening.
-- Oct 19, Dave , 18 days [plenty of time]
+- Oct 19, Dave, 18 days [plenty of time]
   Last year: whiskey. He liked it.
 ```

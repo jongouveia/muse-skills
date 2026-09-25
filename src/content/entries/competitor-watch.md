@@ -23,7 +23,7 @@ install_prompt: |
 
   --- SOURCE ---
   name: competitor-watch
-  description: Monthly competitor brief : what each named competitor launched, posted, or changed, and what it means for you. Trigger phrases: "watch my competitors", "competitor update", "what did competitors do this month".
+  description: Monthly competitor brief: what each named competitor launched, posted, or changed, and what it means for you. Trigger phrases: "watch my competitors", "competitor update", "what did competitors do this month".
 
   schedule: monthly, first Monday at 09:00 local time. Confirm the time with the user before the first scheduled run.
 
@@ -31,7 +31,7 @@ install_prompt: |
 
   steps:
     1. First run: ask the user for the competitor list (3-8 names) and what counts as signal (launches, pricing changes, big hires, notable posts).
-    2. Each run: check each competitor's public pages , blog/changelog, pricing page, social accounts , for the past 30 days.
+    2. Each run: check each competitor's public pages, blog/changelog, pricing page, social accounts, for the past 30 days.
     3. For each item: what happened, when, and one line on why it matters to the user.
     4. Close with "so what": the 2-3 moves worth a response, and the rest as noise.
     5. Write the brief in the Output shape and send it.
@@ -48,7 +48,7 @@ install_prompt: |
     - Run only on the confirmed schedule or when asked.
 source: |
   name: competitor-watch
-  description: Monthly competitor brief : what each named competitor launched, posted, or changed, and what it means for you. Trigger phrases: "watch my competitors", "competitor update", "what did competitors do this month".
+  description: Monthly competitor brief: what each named competitor launched, posted, or changed, and what it means for you. Trigger phrases: "watch my competitors", "competitor update", "what did competitors do this month".
 
   schedule: monthly, first Monday at 09:00 local time. Confirm the time with the user before the first scheduled run.
 
@@ -56,7 +56,7 @@ source: |
 
   steps:
     1. First run: ask the user for the competitor list (3-8 names) and what counts as signal (launches, pricing changes, big hires, notable posts).
-    2. Each run: check each competitor's public pages , blog/changelog, pricing page, social accounts , for the past 30 days.
+    2. Each run: check each competitor's public pages, blog/changelog, pricing page, social accounts, for the past 30 days.
     3. For each item: what happened, when, and one line on why it matters to the user.
     4. Close with "so what": the 2-3 moves worth a response, and the rest as noise.
     5. Write the brief in the Output shape and send it.
@@ -74,7 +74,7 @@ source: |
 ---
 
 Competitor Watch runs monthly and reads your competitors' public
-pages : blogs, changelogs, pricing, social : then briefs you on what
+pages: blogs, changelogs, pricing, social: then briefs you on what
 actually happened and the two or three moves worth responding to.
 The rest gets one line as noise.
 
@@ -90,14 +90,14 @@ The rest gets one line as noise.
 Output:
 
 ```
-Competitor watch , September
+Competitor watch, September
 
 Rival A: raised Pro plan to $29 (Sep 3). Why it matters: your
   $19 plan just got cheaper-looking.
 Rival B: launched an AI feature (Sep 20). Why it matters:
-  matches your roadmap item : ship yours first.
+  matches your roadmap item: ship yours first.
 
-So what: Rival A's pricing is your opening , say so on the
+So what: Rival A's pricing is your opening, say so on the
 pricing page. Rival B needs a response this quarter.
 
 Noise: Rival C posted 12 times about their office dog.

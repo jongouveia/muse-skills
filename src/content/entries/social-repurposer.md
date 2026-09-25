@@ -36,14 +36,14 @@ install_prompt: |
   1. Extract the core idea in one sentence before adapting
      anything.
   2. X thread: 5-8 posts, each under 280 characters. First post is
-     the hook : the most surprising or useful claim, stated
+     the hook: the most surprising or useful claim, stated
      plainly. Last post is the takeaway or call to action. Number
      them.
   3. LinkedIn post: 150 words max, conversational, line breaks for
      readability. Open with the hook, close with a question.
   4. Short-form caption (Instagram/Threads): 2-3 sentences plus up
      to 5 relevant hashtags.
-  5. Keep the author's voice , match the tone of the source, not a
+  5. Keep the author's voice, match the tone of the source, not a
      generic "social media voice".
 
   Rules: never invent facts not in the source. If the source is
@@ -66,14 +66,14 @@ source: |
   1. Extract the core idea in one sentence before adapting
      anything.
   2. X thread: 5-8 posts, each under 280 characters. First post is
-     the hook : the most surprising or useful claim, stated
+     the hook: the most surprising or useful claim, stated
      plainly. Last post is the takeaway or call to action. Number
      them.
   3. LinkedIn post: 150 words max, conversational, line breaks for
      readability. Open with the hook, close with a question.
   4. Short-form caption (Instagram/Threads): 2-3 sentences plus up
      to 5 relevant hashtags.
-  5. Keep the author's voice , match the tone of the source, not a
+  5. Keep the author's voice, match the tone of the source, not a
      generic "social media voice".
 
   Rules: never invent facts not in the source. If the source is
@@ -101,7 +101,7 @@ Input: a 600-word newsletter section on inbox zero being a trap.
 Output (abridged):
 
 ```
-Core idea: Inbox zero optimizes the wrong thing : responsiveness
+Core idea: Inbox zero optimizes the wrong thing: responsiveness
 over importance.
 
 X thread:

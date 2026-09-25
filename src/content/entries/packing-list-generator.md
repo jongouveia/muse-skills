@@ -42,7 +42,7 @@ install_prompt: |
   3. Group the list: Documents & money, Clothing, Toiletries &
      health, Tech, Extras for the trip type.
   4. Add a "day before" section: charge devices, water plants,
-     take out trash, hold mail , the leaving-the-house checklist.
+     take out trash, hold mail, the leaving-the-house checklist.
   5. Flag anything easy to forget that is hard to replace at the
      destination (medications, chargers, ID).
 
@@ -71,7 +71,7 @@ source: |
   3. Group the list: Documents & money, Clothing, Toiletries &
      health, Tech, Extras for the trip type.
   4. Add a "day before" section: charge devices, water plants,
-     take out trash, hold mail , the leaving-the-house checklist.
+     take out trash, hold mail, the leaving-the-house checklist.
   5. Flag anything easy to forget that is hard to replace at the
      destination (medications, chargers, ID).
 
@@ -80,7 +80,7 @@ source: |
 ---
 
 Packing List Generator takes your destination, dates, and trip type
-and returns a complete checklist : weather-adjusted, scaled to trip
+and returns a complete checklist: weather-adjusted, scaled to trip
 length, grouped by category, with a "day before" leaving-the-house
 section.
 

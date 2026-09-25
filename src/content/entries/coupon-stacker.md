@@ -58,7 +58,7 @@ install_prompt: |
   - Public sources only. Never use leaked, stolen, or
     employee-only codes.
   - Never apply codes, check out, or enter payment details. Report
-    only : the user pastes the codes themselves.
+    only: the user pastes the codes themselves.
   - If no working codes exist, say so in one line instead of
     listing dead ones.
   - Never ask for a store login or account credentials.
@@ -100,7 +100,7 @@ source: |
   - Public sources only. Never use leaked, stolen, or
     employee-only codes.
   - Never apply codes, check out, or enter payment details. Report
-    only : the user pastes the codes themselves.
+    only: the user pastes the codes themselves.
   - If no working codes exist, say so in one line instead of
     listing dead ones.
   - Never ask for a store login or account credentials.
@@ -109,7 +109,7 @@ source: |
 Coupon Stacker is the two-minute check before you pay full price. Name
 the store, and it hunts down current discount codes from public
 sources, reads the fine print on what stacks with what, and reports
-the best working combo : with the dead codes marked so you don't
+the best working combo: with the dead codes marked so you don't
 waste time on them.
 
 ## What it includes
@@ -126,7 +126,7 @@ Input: "any codes for Backcountry, cart is $220."
 Output:
 
 ```
-Backcountry , cart $220
+Backcountry, cart $220
 Codes: SAVE15 (15% off, no minimum, exp Sep 30), FREESHIP (free
   shipping over $50)
 Best combo: SAVE15 + FREESHIP → saves ~$33 + shipping

@@ -25,7 +25,7 @@ install_prompt: |
 
   How to use: describe the product and the audience. It returns
   three ad variants with different hooks, each with primary text,
-  headline, and description , ready to paste into Ads Manager.
+  headline, and description, ready to paste into Ads Manager.
   Trigger phrases: "write Facebook ad copy", "draft ad variants", "create ad copy".
 
   Save it as a reusable prompt pack named "Facebook Ad Copy Drafter".
@@ -44,20 +44,20 @@ install_prompt: |
   2. Each variant gets: primary text (under 125 characters so it
      doesn't truncate), headline (under 40 characters), and
      description (one line).
-  3. Match the tone to the audience , plain language for most,
+  3. Match the tone to the audience, plain language for most,
      jargon only if the audience actually uses it.
   4. End with one line per variant: who this hook is for and when
      to use it.
 
   Rules: no false urgency ("only 3 left!") unless it is true. No
-  claims you can't back up. Never create or launch a campaign :
+  claims you can't back up. Never create or launch a campaign:
   drafts only.
 source: |
   # Facebook Ad Copy Drafter
 
   How to use: describe the product and the audience. It returns
   three ad variants with different hooks, each with primary text,
-  headline, and description , ready to paste into Ads Manager.
+  headline, and description, ready to paste into Ads Manager.
   Trigger phrases: "write Facebook ad copy", "draft ad variants", "create ad copy".
 
   Save it as a reusable prompt pack named "Facebook Ad Copy Drafter".
@@ -76,13 +76,13 @@ source: |
   2. Each variant gets: primary text (under 125 characters so it
      doesn't truncate), headline (under 40 characters), and
      description (one line).
-  3. Match the tone to the audience , plain language for most,
+  3. Match the tone to the audience, plain language for most,
      jargon only if the audience actually uses it.
   4. End with one line per variant: who this hook is for and when
      to use it.
 
   Rules: no false urgency ("only 3 left!") unless it is true. No
-  claims you can't back up. Never create or launch a campaign :
+  claims you can't back up. Never create or launch a campaign:
   drafts only.
 ---
 

@@ -34,7 +34,7 @@ install_prompt: |
   # Workflow
 
   1. Read the user's description. Identify: what must match, what
-     must NOT match, and the flavor (JavaScript, Python, PCRE :
+     must NOT match, and the flavor (JavaScript, Python, PCRE:
      ask if it matters and wasn't stated).
   2. Write the regex. Prefer readability: named groups where the
      flavor supports them, and a brief annotation of each part.
@@ -75,7 +75,7 @@ source: |
   # Workflow
 
   1. Read the user's description. Identify: what must match, what
-     must NOT match, and the flavor (JavaScript, Python, PCRE :
+     must NOT match, and the flavor (JavaScript, Python, PCRE:
      ask if it matters and wasn't stated).
   2. Write the regex. Prefer readability: named groups where the
      flavor supports them, and a brief annotation of each part.
@@ -105,7 +105,7 @@ source: |
 ---
 
 Regex Smith turns "match a US phone number, with or without dashes"
-into a working regular expression : annotated part by part, with
+into a working regular expression: annotated part by part, with
 strings it should match, strings it shouldn't, and the edge cases it
 deliberately skips.
 

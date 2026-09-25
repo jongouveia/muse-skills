@@ -1,6 +1,6 @@
 ---
 title: "Seasonal Maintenance Reminders"
-tagline: "Furnace filter, gutters, hose bibs , before they break."
+tagline: "Furnace filter, gutters, hose bibs, before they break."
 category: "home"
 type: "workflow"
 author: "Muse Skills editors"
@@ -24,9 +24,9 @@ install_prompt: |
 
   --- SOURCE ---
   name: seasonal-maintenance-reminders
-  description: Quarterly home-maintenance reminders : the seasonal tasks people forget until something breaks, with the why behind each one. Trigger phrases: "home maintenance checklist", "what should I do around the house this season", "seasonal home tasks".
+  description: Quarterly home-maintenance reminders: the seasonal tasks people forget until something breaks, with the why behind each one. Trigger phrases: "home maintenance checklist", "what should I do around the house this season", "seasonal home tasks".
 
-  schedule: quarterly , March 1, June 1, September 1, December 1 at 09:00 local time. Confirm with the user before the first scheduled run.
+  schedule: quarterly, March 1, June 1, September 1, December 1 at 09:00 local time. Confirm with the user before the first scheduled run.
 
   trigger: the scheduled time, or a manual "home maintenance checklist" request.
 
@@ -38,10 +38,10 @@ install_prompt: |
        - Fall: furnace filter, heating service, hose bibs off and drained, gutters again, chimney if applicable
        - Winter: pipe insulation check, ice-dam watch, furnace filter
     3. One line per task: what to do and the one-sentence why.
-    4. Mark the 2-3 "don't skip" items per season : the ones that cause expensive damage.
+    4. Mark the 2-3 "don't skip" items per season: the ones that cause expensive damage.
 
   output:
-    - Season checklist: one line per task , what, and why
+    - Season checklist: one line per task, what, and why
     - Done tracking: check off what the user reports done; carry the rest to next quarter
 
   rules:
@@ -51,9 +51,9 @@ install_prompt: |
     - Run only on the confirmed schedule or when asked.
 source: |
   name: seasonal-maintenance-reminders
-  description: Quarterly home-maintenance reminders : the seasonal tasks people forget until something breaks, with the why behind each one. Trigger phrases: "home maintenance checklist", "what should I do around the house this season", "seasonal home tasks".
+  description: Quarterly home-maintenance reminders: the seasonal tasks people forget until something breaks, with the why behind each one. Trigger phrases: "home maintenance checklist", "what should I do around the house this season", "seasonal home tasks".
 
-  schedule: quarterly , March 1, June 1, September 1, December 1 at 09:00 local time. Confirm with the user before the first scheduled run.
+  schedule: quarterly, March 1, June 1, September 1, December 1 at 09:00 local time. Confirm with the user before the first scheduled run.
 
   trigger: the scheduled time, or a manual "home maintenance checklist" request.
 
@@ -65,10 +65,10 @@ source: |
        - Fall: furnace filter, heating service, hose bibs off and drained, gutters again, chimney if applicable
        - Winter: pipe insulation check, ice-dam watch, furnace filter
     3. One line per task: what to do and the one-sentence why.
-    4. Mark the 2-3 "don't skip" items per season : the ones that cause expensive damage.
+    4. Mark the 2-3 "don't skip" items per season: the ones that cause expensive damage.
 
   output:
-    - Season checklist: one line per task , what, and why
+    - Season checklist: one line per task, what, and why
     - Done tracking: check off what the user reports done; carry the rest to next quarter
 
   rules:
@@ -79,7 +79,7 @@ source: |
 ---
 
 Seasonal Maintenance Reminders runs quarterly and sends the season's
-home checklist : each task with its one-sentence why, and the 2-3
+home checklist: each task with its one-sentence why, and the 2-3
 "don't skip" items flagged (the ones where forgetting means expensive
 damage). It fits the list to your home type, so renters don't get
 chimney items.
@@ -96,11 +96,11 @@ chimney items.
 Output:
 
 ```
-Fall checklist , house, forced hot air
+Fall checklist, house, forced hot air
 
-- Furnace filter , swap it; a clogged filter kills efficiency. [don't skip]
-- Heating service , annual tune-up before you need heat.
-- Hose bibs off and drained : frozen pipes burst. [don't skip]
-- Gutters : clear before the leaves finish.
-- Chimney sweep : only if you burned wood last winter.
+- Furnace filter, swap it; a clogged filter kills efficiency. [don't skip]
+- Heating service, annual tune-up before you need heat.
+- Hose bibs off and drained: frozen pipes burst. [don't skip]
+- Gutters: clear before the leaves finish.
+- Chimney sweep: only if you burned wood last winter.
 ```
