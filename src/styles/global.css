@@ -152,3 +152,10 @@ html:not(.dark) .theme-icon-moon { display: none; }
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Category nav: the current category carries a 2px underline in the primary color. */
+.category-nav { scrollbar-width: none; }
+.category-nav::-webkit-scrollbar { display: none; }
+.category-nav-link { box-shadow: inset 0 -2px 0 transparent; }
+.category-nav-link[aria-current="page"] { box-shadow: inset 0 -2px 0 var(--primary); }
+html { scroll-padding-top: 7rem; }

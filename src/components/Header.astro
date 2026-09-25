@@ -2,6 +2,7 @@
 import { Moon, Search, Sun } from 'lucide-astro';
 import Button from './ui/Button.astro';
 import Input from './ui/Input.astro';
+import { CATEGORIES } from '../lib/categories';
 
 const path = Astro.url.pathname;
 const isHomepage = path === '/';
@@ -10,9 +11,14 @@ const links = [
   { href: '/', label: 'Skills', current: path === '/' || path.startsWith('/category/') || path.startsWith('/entry/') },
   { href: '/about/', label: 'About', current: path.startsWith('/about') },
 ];
+const categoryLinks = Object.entries(CATEGORIES).map(([slug, name]) => ({
+  href: `/category/${slug}/`,
+  label: name,
+  current: path.startsWith(`/category/${slug}/`),
+}));
 ---
-<header class="sticky top-0 z-50 h-14 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
-  <div class="mx-auto flex h-full w-full max-w-4xl items-center gap-3 px-4">
+<header class="sticky top-0 z-50 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
+  <div class="mx-auto flex h-14 w-full max-w-4xl items-center gap-3 px-4">
     <a class="shrink-0 font-semibold" href="/" aria-label="Muse Skills home">Muse Skills</a>
     <nav class="flex items-center gap-3" aria-label="Primary navigation">
       {links.map((link) => (
@@ -36,6 +42,19 @@ const links = [
       <Button href="/submit/" size="sm" aria-current={path.startsWith('/submit') ? 'page' : undefined}>Submit a skill</Button>
     </div>
   </div>
+  <nav class="category-nav mx-auto w-full max-w-4xl overflow-x-auto px-4" aria-label="Categories">
+    <ul class="flex h-10 items-stretch gap-5 whitespace-nowrap">
+      {categoryLinks.map((link) => (
+        <li class="flex">
+          <a
+            href={link.href}
+            class:list={['category-nav-link flex items-center text-sm transition-colors hover:text-foreground', link.current ? 'font-medium text-foreground' : 'text-muted-foreground']}
+            aria-current={link.current ? 'page' : undefined}
+          >{link.label}</a>
+        </li>
+      ))}
+    </ul>
+  </nav>
 </header>
 
 <script>
