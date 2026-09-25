@@ -4,6 +4,7 @@ import { categoryName, categorySlug, typeName } from '../lib/categories';
 import CopyButton from './CopyButton.astro';
 import Badge from './ui/Badge.astro';
 import Button from './ui/Button.astro';
+import TrustBadge from './TrustBadge.astro';
 
 interface Props {
   entry: CollectionEntry<'entries'>;
@@ -20,6 +21,7 @@ const { data } = entry;
       <p class="mt-1 text-sm text-muted-foreground">{data.tagline}</p>
     </div>
     <div class="flex flex-wrap gap-1.5">
+      <TrustBadge verified={data.source_verified} />
       <Badge variant="secondary">{typeName(data.type)}</Badge>
       {showCategory && <Badge variant="outline" href={`/category/${categorySlug(data.category)}/`} class="hover:bg-accent">{categoryName(data.category)}</Badge>}
       {data.includes.map((item) => <Badge variant="outline" class="text-[11px]">{item}</Badge>)}

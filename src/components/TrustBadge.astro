@@ -1,0 +1,18 @@
+---
+import { BadgeCheck } from 'lucide-astro';
+
+interface Props {
+  verified: boolean;
+}
+
+const { verified } = Astro.props;
+---
+{verified && (
+  <span
+    class="trust-badge inline-flex items-center gap-1 rounded-md border px-2 py-0.5 text-xs font-medium whitespace-nowrap"
+    title="The install prompt ran cleanly in a Muse session."
+  >
+    <BadgeCheck size={14} strokeWidth={1.75} aria-hidden="true" />
+    Tested in Muse
+  </span>
+)}

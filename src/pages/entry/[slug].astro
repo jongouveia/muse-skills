@@ -6,6 +6,7 @@ import CopyButton from '../../components/CopyButton.astro';
 import SkillRow from '../../components/SkillRow.astro';
 import Alert from '../../components/ui/Alert.astro';
 import Badge from '../../components/ui/Badge.astro';
+import TrustBadge from '../../components/TrustBadge.astro';
 import Breadcrumb from '../../components/ui/Breadcrumb.astro';
 import Button from '../../components/ui/Button.astro';
 import Card from '../../components/ui/Card.astro';
@@ -63,7 +64,7 @@ const warnings = [
   'Installing copies the setup into your own environment. It gives the author nothing.',
 ];
 ---
-<Base title={title} description={`${data.tagline} Read the full source, then paste one install prompt into Muse AI.`} ogType="article">
+<Base title={title} description={`${data.tagline} Read the full source, then paste one install prompt into Muse AI.`} ogType="article" category={data.category}>
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbJsonLd)} />
 
@@ -79,6 +80,7 @@ const warnings = [
           <h1 class="text-3xl font-semibold tracking-tight">{data.title}</h1>
           <p class="mt-2 text-lg text-muted-foreground">{data.tagline}</p>
           <div class="mt-4 flex flex-wrap gap-1.5">
+            <TrustBadge verified={data.source_verified} />
             <Badge variant="secondary">{typeName(data.type)}</Badge>
             <Badge variant="outline" href={`/category/${categorySlug(data.category)}/`} class="hover:bg-accent">{categoryName(data.category)}</Badge>
             {data.includes.map((item) => <Badge variant="outline" class="text-[11px]">{item}</Badge>)}

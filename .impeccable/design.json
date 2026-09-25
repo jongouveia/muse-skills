@@ -4,15 +4,20 @@
   "title": "Design System: Muse Skills",
   "extensions": {
     "colorMeta": {
-      "primary": { "role": "primary", "displayName": "Ink", "canonical": "#18181b", "darkValue": "#fafafa", "tonalRamp": ["#09090b", "#18181b", "#27272a", "#3f3f46", "#52525b", "#71717a", "#a1a1aa", "#d4d4d8", "#e4e4e7", "#f4f4f5", "#fafafa"] },
-      "primary-foreground": { "role": "primary", "displayName": "Paper on Ink", "canonical": "#fafafa", "darkValue": "#18181b", "tonalRamp": ["#09090b", "#18181b", "#27272a", "#3f3f46", "#52525b", "#71717a", "#a1a1aa", "#d4d4d8", "#e4e4e7", "#f4f4f5", "#fafafa"] },
+      "primary": { "role": "primary", "displayName": "Action Blue", "canonical": "#0064e0", "darkValue": "#4ba9fe", "tonalRamp": ["#001a40", "#002e6e", "#00429c", "#0056c7", "#0064e0", "#0082fb", "#4ba9fe", "#8cc8ff", "#bfe0ff", "#e7f3ff"] },
+      "primary-foreground": { "role": "primary", "displayName": "Text on Action Blue", "canonical": "#ffffff", "darkValue": "#0a1a33" },
       "background": { "role": "neutral", "displayName": "Paper", "canonical": "#ffffff", "darkValue": "#09090b", "tonalRamp": ["#09090b", "#18181b", "#27272a", "#3f3f46", "#52525b", "#71717a", "#a1a1aa", "#d4d4d8", "#e4e4e7", "#f4f4f5", "#ffffff"] },
       "foreground": { "role": "neutral", "displayName": "Text Ink", "canonical": "#09090b", "darkValue": "#fafafa", "tonalRamp": ["#09090b", "#18181b", "#27272a", "#3f3f46", "#52525b", "#71717a", "#a1a1aa", "#d4d4d8", "#e4e4e7", "#f4f4f5", "#fafafa"] },
       "muted": { "role": "neutral", "displayName": "Field Grey", "canonical": "#f4f4f5", "darkValue": "#27272a", "tonalRamp": ["#09090b", "#18181b", "#27272a", "#3f3f46", "#52525b", "#71717a", "#a1a1aa", "#d4d4d8", "#e4e4e7", "#f4f4f5", "#fafafa"] },
       "muted-foreground": { "role": "neutral", "displayName": "Secondary Text", "canonical": "#71717a", "darkValue": "#a1a1aa", "tonalRamp": ["#09090b", "#18181b", "#27272a", "#3f3f46", "#52525b", "#71717a", "#a1a1aa", "#d4d4d8", "#e4e4e7", "#f4f4f5", "#fafafa"] },
       "border": { "role": "neutral", "displayName": "Hairline", "canonical": "#e4e4e7", "darkValue": "#27272a", "tonalRamp": ["#09090b", "#18181b", "#27272a", "#3f3f46", "#52525b", "#71717a", "#a1a1aa", "#d4d4d8", "#e4e4e7", "#f4f4f5", "#fafafa"] },
       "accent": { "role": "neutral", "displayName": "Chip Grey (hover fill)", "canonical": "#f4f4f5", "darkValue": "#27272a", "tonalRamp": ["#09090b", "#18181b", "#27272a", "#3f3f46", "#52525b", "#71717a", "#a1a1aa", "#d4d4d8", "#e4e4e7", "#f4f4f5", "#fafafa"] },
-      "ring": { "role": "neutral", "displayName": "Focus Ring", "canonical": "#a1a1aa", "darkValue": "#d4d4d8", "tonalRamp": ["#09090b", "#18181b", "#27272a", "#3f3f46", "#52525b", "#71717a", "#a1a1aa", "#d4d4d8", "#e4e4e7", "#f4f4f5", "#fafafa"] },
+      "ring": { "role": "primary", "displayName": "Focus Ring", "canonical": "#0082fb", "darkValue": "#4ba9fe", "tonalRamp": ["#001a40", "#002e6e", "#00429c", "#0056c7", "#0064e0", "#0082fb", "#4ba9fe", "#8cc8ff", "#bfe0ff", "#e7f3ff"] },
+      "link": { "role": "primary", "displayName": "Link Blue", "canonical": "#0064e0", "darkValue": "#4ba9fe" },
+      "mark": { "role": "secondary", "displayName": "Wayfinding Orange", "canonical": "#bf4b00", "darkValue": "#fb9d59" },
+      "tested": { "role": "status", "displayName": "Tested Green", "canonical": "#006133", "darkValue": "#8de9ae" },
+      "tested-bg": { "role": "status", "displayName": "Tested Green Fill", "canonical": "#defbe7", "darkValue": "#0d2818" },
+      "tested-border": { "role": "status", "displayName": "Tested Green Border", "canonical": "#ade3bf", "darkValue": "#19482c" },
       "destructive": { "role": "neutral", "displayName": "Destructive (defined, unused)", "canonical": "#dc2626", "darkValue": "#ef4444", "tonalRamp": ["#450a0a", "#7f1d1d", "#991b1b", "#b91c1c", "#dc2626", "#ef4444", "#f87171", "#fca5a5", "#fecaca", "#fee2e2", "#fef2f2"] }
     },
     "typographyMeta": {
@@ -31,8 +36,8 @@
       "dark": {
         "background": "#09090b", "foreground": "#fafafa", "card": "#09090b", "card-foreground": "#fafafa",
         "muted": "#27272a", "muted-foreground": "#a1a1aa", "border": "#27272a", "input": "#27272a",
-        "primary": "#fafafa", "primary-foreground": "#18181b", "secondary": "#27272a", "secondary-foreground": "#fafafa",
-        "accent": "#27272a", "accent-foreground": "#fafafa", "destructive": "#ef4444", "ring": "#d4d4d8"
+        "primary": "#4ba9fe", "primary-foreground": "#0a1a33", "secondary": "#27272a", "secondary-foreground": "#fafafa",
+        "accent": "#27272a", "accent-foreground": "#fafafa", "destructive": "#ef4444", "ring": "#4ba9fe", "link": "#4ba9fe", "mark": "#fb9d59"
       }
     },
     "shadows": [

@@ -4,6 +4,7 @@ import Button from './ui/Button.astro';
 import Input from './ui/Input.astro';
 import { CATEGORIES } from '../lib/categories';
 
+const { category } = Astro.props as { category?: string };
 const path = Astro.url.pathname;
 const isHomepage = path === '/';
 const query = Astro.url.searchParams.get('q') ?? '';
@@ -14,13 +15,16 @@ const links = [
 const categoryLinks = Object.entries(CATEGORIES).map(([slug, name]) => ({
   href: `/category/${slug}/`,
   label: name,
-  current: path.startsWith(`/category/${slug}/`),
+  current: path.startsWith(`/category/${slug}/`) ? 'page' : category === slug ? 'true' : undefined,
 }));
 ---
 <header class="sticky top-0 z-50 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
   <div class="mx-auto flex h-14 w-full max-w-4xl items-center gap-3 px-4">
-    <a class="shrink-0 font-semibold" href="/" aria-label="Muse Skills home">Muse Skills</a>
-    <nav class="flex items-center gap-3" aria-label="Primary navigation">
+    <a class="flex shrink-0 items-center gap-2 font-semibold" href="/" aria-label="Muse Skills home, an independent directory not affiliated with Meta">
+      Muse Skills
+      <span class="independent-label rounded-md border px-1.5 py-px text-xs font-medium leading-4" title="Community run. Not affiliated with Meta.">Independent</span>
+    </a>
+    <nav class="hidden items-center gap-3 sm:flex" aria-label="Primary navigation">
       {links.map((link) => (
         <a
           href={link.href}
@@ -42,14 +46,14 @@ const categoryLinks = Object.entries(CATEGORIES).map(([slug, name]) => ({
       <Button href="/submit/" size="sm" aria-current={path.startsWith('/submit') ? 'page' : undefined}>Submit a skill</Button>
     </div>
   </div>
-  <nav class="category-nav mx-auto w-full max-w-4xl overflow-x-auto px-4" aria-label="Categories">
+  <nav class="category-nav relative mx-auto w-full max-w-4xl overflow-x-auto px-4" aria-label="Categories">
     <ul class="flex h-10 items-stretch gap-5 whitespace-nowrap">
       {categoryLinks.map((link) => (
         <li class="flex">
           <a
             href={link.href}
             class:list={['category-nav-link flex items-center text-sm transition-colors hover:text-foreground', link.current ? 'font-medium text-foreground' : 'text-muted-foreground']}
-            aria-current={link.current ? 'page' : undefined}
+            aria-current={link.current}
           >{link.label}</a>
         </li>
       ))}
@@ -58,6 +62,12 @@ const categoryLinks = Object.entries(CATEGORIES).map(([slug, name]) => ({
 </header>
 
 <script>
+  const categoryNav = document.querySelector<HTMLElement>('.category-nav');
+  const currentCategory = categoryNav?.querySelector<HTMLElement>('[aria-current]');
+  if (categoryNav && currentCategory) {
+    categoryNav.scrollLeft = currentCategory.offsetLeft - (categoryNav.clientWidth - currentCategory.offsetWidth) / 2;
+  }
+
   const themeButton = document.querySelector('[data-theme-toggle]');
   themeButton?.addEventListener('click', () => {
     const root = document.documentElement;

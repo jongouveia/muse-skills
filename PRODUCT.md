@@ -44,7 +44,7 @@ The site is independent and community run. It is not affiliated with Meta. Every
 
 ## Brand Commitments
 
-- Visual world (Jon, 2026-09-09): the category standard played straight. A simple directory in the shadcn vocabulary (zinc neutrals, one primary, 0.5rem radius, 1px borders, Geist), light by default with a dark toggle, structured like grokbot.dev's marketplace: list rows with filter chips on the index, breadcrumb plus main column and details column on an entry. Bar: grokbot.dev and the shadcn docs. No synth metaphor, no themed controls.
+- Visual world (Jon, 2026-09-09): the category standard played straight. A simple directory in the shadcn vocabulary (zinc neutrals, one primary, 0.5rem radius, 1px borders, Geist), light by default with a dark toggle, structured like grokbot.dev's marketplace: list rows with filter chips on the index, breadcrumb plus main column and details column on an entry. Bar: grokbot.dev and the shadcn docs. No synth metaphor, no themed controls. Color update (Jon, 2026-09-25): Meta blue `#0064e0` for actions, orange for wayfinding and the "Independent" header label, green for the "Tested in Muse" badge. Never use a Meta or Muse logo, typeface, or illustration; blue stays off large filled areas.
 
 - Working name: Muse Skills. No logo yet. "Muse" and "Muse AI" refer to Meta's product; the site name must read as a directory about Muse, never as Muse itself.
 - Prose rules: `/Users/jg-cc/.claude/WRITING.md`. No em dashes. Google developer register for page copy; strict ASD-STE100 for install prompts and sources.
