@@ -1,6 +1,6 @@
 ---
 name: Muse Skills
-description: A plain directory of one-paste skills for Muse AI, in the shadcn zinc vocabulary, light by default with a dark toggle.
+description: A plain directory of one-paste skills for Muse AI, in the shadcn zinc vocabulary with a blue action color and an orange wayfinding mark, light by default with a dark toggle.
 colors:
   background: "#ffffff"
   foreground: "#09090b"
@@ -10,23 +10,33 @@ colors:
   muted-foreground: "#71717a"
   border: "#e4e4e7"
   input: "#e4e4e7"
-  primary: "#18181b"
-  primary-foreground: "#fafafa"
+  primary: "#0064e0"
+  primary-foreground: "#ffffff"
   secondary: "#f4f4f5"
   secondary-foreground: "#18181b"
   accent: "#f4f4f5"
   accent-foreground: "#18181b"
   destructive: "#dc2626"
-  ring: "#a1a1aa"
+  ring: "#0082fb"
+  link: "#0064e0"
+  mark: "#bf4b00"
+  tested: "#006133"
+  tested-bg: "#defbe7"
+  tested-border: "#ade3bf"
   dark-background: "#09090b"
   dark-foreground: "#fafafa"
   dark-muted: "#27272a"
   dark-muted-foreground: "#a1a1aa"
   dark-border: "#27272a"
-  dark-primary: "#fafafa"
-  dark-primary-foreground: "#18181b"
+  dark-primary: "#4ba9fe"
+  dark-primary-foreground: "#0a1a33"
   dark-destructive: "#ef4444"
-  dark-ring: "#d4d4d8"
+  dark-ring: "#4ba9fe"
+  dark-link: "#4ba9fe"
+  dark-mark: "#fb9d59"
+  dark-tested: "#8de9ae"
+  dark-tested-bg: "#0d2818"
+  dark-tested-border: "#19482c"
 typography:
   display:
     fontFamily: "Geist Variable, ui-sans-serif, system-ui, sans-serif"
@@ -172,15 +182,15 @@ components:
 
 **Creative North Star: "The Category Standard, Played Straight"**
 
-Muse Skills is a plain directory. It borrows the shadcn zinc vocabulary without adding to it: one white ground, near-black ink, a single grey for secondary text, hairline borders, and one solid primary button. The page is a list you can filter and a detail page you can read top to bottom. Nothing on the screen exists to be looked at; every element is there to help a visitor find a skill, judge it safe, and copy its install prompt.
+Muse Skills is a plain directory. It borrows the shadcn zinc vocabulary without adding to it: one white ground, near-black ink, a single grey for secondary text, hairline borders, one blue for everything you can act on, and one orange for where you are and who runs the site. The page is a list you can filter and a detail page you can read top to bottom. Nothing on the screen exists to be looked at; every element is there to help a visitor find a skill, judge it safe, and copy its install prompt.
 
 Density is moderate and even. Rows are separated by 1px rules rather than boxes; only two things get a bordered card on the index (the filter panel and nothing else), and on an entry page cards hold the install prompt, the source, and the details column. Type is one family (Geist) at a small set of sizes; mono appears only inside code. Dark mode is the same system with the zinc scale flipped, not a second theme.
 
-Confirmed rejections from the build: no themed or skeuomorphic controls, no accent hue, no motion beyond the copy confirmation and 150ms colour transitions, no shadows heavier than the two shadcn defaults.
+Confirmed rejections from the build: no themed or skeuomorphic controls, no hue without a role, no motion beyond the copy confirmation and 150ms colour transitions, no shadows heavier than the two shadcn defaults.
 
 **Key Characteristics:**
-- Single neutral scale (zinc) in both themes; no chromatic accent.
-- Primary is ink on paper: near-black button in light, near-white in dark.
+- Single neutral scale (zinc) in both themes, plus three hues with fixed roles: blue acts, orange orients, green certifies.
+- Primary is Meta blue (`#0064e0`) in light and a lighter blue (`#4ba9fe`) in dark. It stays on controls and links, never on large filled areas.
 - 1px `border` rules do the structural work; cards are the exception, not the default.
 - Geist Sans for all UI text, Geist Mono only inside source and install-prompt blocks.
 - Radius family from one `--radius: 0.5rem` token (lg 8px, md 6px, sm 4px).
@@ -189,10 +199,17 @@ Confirmed rejections from the build: no themed or skeuomorphic controls, no acce
 
 ## Colors
 
-A monochrome zinc palette: one paper, one ink, one mid grey, and one hairline, with dark mode swapping the ends of the scale.
+A zinc palette (one paper, one ink, one mid grey, one hairline) with dark mode swapping the ends of the scale, plus three role hues. Colors changed 2026-09-25 (Jon): the zinc-only rule was replaced to add color with meaning.
 
 ### Primary
-- **Ink** (`primary`, zinc-900): the solid button fill and the pressed filter chip. In dark mode it becomes **Paper** (`dark-primary`, zinc-50) and the primary button reads as a light block on the dark ground. Text on it is `primary-foreground`. Also the `::selection` highlight.
+- **Action blue** (`primary`, `#0064e0`; dark `#4ba9fe`): the solid button fill, the pressed filter chip, and the `::selection` highlight. Text on it is `primary-foreground` (white in light, `#0a1a33` in dark; 5.4:1 and 7.0:1). It matches the blue on Meta's Muse page, so the header carries an "Independent" label and the footer keeps the non-affiliation line.
+- **Link blue** (`link`): entry-page detail links and prose links.
+
+### Secondary
+- **Wayfinding orange** (`mark`, `#bf4b00`; dark `#fb9d59`; 5.0:1 and 9.6:1): the 2px underline on the current category in the header row, and the "Independent" label. It marks place and identity, never an action.
+
+### Status
+- **Tested green** (`tested` on `tested-bg`, `tested-border`): the "Tested in Muse" badge, shown only when `source_verified` is true. Untested entries show no badge.
 
 ### Neutral
 - **Paper** (`background`, white): page ground, header (at 80% to 95% opacity with backdrop blur), outline button fill, card fill. Dark: **Night** (`dark-background`, zinc-950).
@@ -201,13 +218,13 @@ A monochrome zinc palette: one paper, one ink, one mid grey, and one hairline, w
 - **Secondary text** (`muted-foreground`, zinc-500): taglines, lead paragraphs, author lines, breadcrumb links, inactive nav, chip counts, footer links, placeholder text, status line. Dark: zinc-400. This is the only grey used for text; it passes 4.5:1 on both grounds.
 - **Hairline** (`border` and `input`, zinc-200): every 1px rule, row divider, card and input border, header and footer edge. Dark: zinc-800.
 - **Chip grey** (`secondary` and `accent`, zinc-100): secondary badge fill and the hover fill for outline, ghost, and chip surfaces. Dark: zinc-800.
-- **Focus ring** (`ring`, zinc-400): 2px outline, 2px offset on any focused link, button, or field. Dark: zinc-300.
+- **Focus ring** (`ring`, `#0082fb`): 2px outline, 2px offset on any focused link, button, or field. Dark: `#4ba9fe`.
 - **Destructive** (`destructive`, red-600 / red-500 dark): defined in the token set but not used by any shipped component.
 
 ### Named Rules
 **The One Grey Rule.** Secondary text is always `muted-foreground`. Do not introduce a third text tone or lower opacity on `foreground`.
 
-**The Ink-Only Primary Rule.** There is no accent hue. Emphasis is achieved by inverting the neutral scale (ink fill, paper text), never by colour.
+**The One-Role-Per-Hue Rule.** Blue means you can act on it. Orange means where you are or who runs the site. Green means tested. No hue appears without its role, and no role borrows another hue.
 
 **The Swap, Not Restyle Rule.** Dark mode changes only the custom properties on `.dark`. No component carries a `dark:` class; if a surface needs a dark treatment, the token is wrong.
 

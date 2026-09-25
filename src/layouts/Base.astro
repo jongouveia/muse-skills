@@ -9,9 +9,10 @@ interface Props {
   ogType?: string;
   image?: string;
   noindex?: boolean;
+  category?: string;
 }
 
-const { title, description, ogType = 'website', image = '/og-default.png', noindex = false } = Astro.props;
+const { title, description, ogType = 'website', image = '/og-default.png', noindex = false, category } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url);
 const site = Astro.site ?? Astro.url;
 const imageUrl = new URL(image, site);
@@ -76,7 +77,7 @@ const organizationJsonLd = {
   </head>
   <body class="flex min-h-screen flex-col">
     <a class="fixed left-2 top-2 z-[100] -translate-y-20 rounded-md bg-primary px-3 py-2 text-sm text-primary-foreground focus:translate-y-0" href="#main-content">Skip to content</a>
-    <Header />
+    <Header category={category} />
     <main id="main-content" class="flex-1"><slot /></main>
     <Footer />
   </body>
