@@ -7,4 +7,4 @@
 - Never overwrite an existing file in `src/content/entries/`; always choose a new slug.
 - The install prompt must contain the full source after `--- SOURCE ---`.
 - The markdown body must contain at least 80 words.
-- Set `category` to one of: `deal-hunting`, `productivity`, `money`, `shopping`, `creative`, `marketing`, `dev`.
+- Set `category` to one of: `deal-hunting`, `productivity`, `money`, `shopping`, `creative`, `marketing`, `dev`, `home`.

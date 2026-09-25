@@ -12,7 +12,7 @@ One file per entry at `src/content/entries/<slug>.md`. Frontmatter (YAML) then a
 ---
 title: "Deal Hunter"
 tagline: "Watches new private-seller listings and flags the mispriced ones."   # one line, <= 90 chars
-category: "deal-hunting"   # one of: deal-hunting | chief-of-staff | money | shopping | creative | dev
+category: "deal-hunting"   # one of: deal-hunting | productivity | money | shopping | creative | marketing | dev | home
 type: "skill"              # skill | prompt | workflow | config
 author: "Muse community"   # display name
 source_url: "https://github.com/..."  # where it was shared; use a plausible placeholder host if unknown and mark `source_verified: false`
