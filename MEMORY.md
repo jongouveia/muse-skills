@@ -23,4 +23,4 @@ Directory of ready-to-use skills, prompt packs, workflows, and configs for Muse 
 - v0.1 complete 2026-09-10 (finish reviews, DESIGN.md, E2E install test, GitHub). Remaining verification: the other 40 entries still carry `source_verified: false` until each is tested the same way.
 - v0.2: newsletter (Buttondown or ConvertKit), Plausible, submission moderation flow.
 - v0.3: ratings, collections.
-- 2026-09-22: promoted 14 drafts to live entries (57 to 71) and added the `home` category in PR #3 (`content/promote-14-drafts-home-category`). Withheld `inbox-triage` + `subscription-audit` drafts: same slugs as live entries with different content, needs an editorial call.
+- 2026-09-22: opened PR #3 to promote 30 entries (41 to 71; first commit missed 16, added in b97b7e1) and added the `home` category (`content/promote-14-drafts-home-category`). Withheld `inbox-triage` + `subscription-audit` drafts: same slugs as live entries with different content, needs an editorial call.
