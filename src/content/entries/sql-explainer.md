@@ -28,8 +28,8 @@ install_prompt: |
   > what each part filters, joins, or computes, and what the
   > final result set looks like. Then give: (1) a one-sentence
   > summary of what the query answers, (2) any performance
-  > red flags you see : full table scans, unindexed joins,
-  > SELECT *, N+1 patterns , and (3) one suggested rewrite if
+  > red flags you see: full table scans, unindexed joins,
+  > SELECT *, N+1 patterns, and (3) one suggested rewrite if
   > a red flag is serious. Assume I know basic SQL. Do not
   > run the query; explain it from the text.
 source: |
@@ -41,15 +41,15 @@ source: |
   > what each part filters, joins, or computes, and what the
   > final result set looks like. Then give: (1) a one-sentence
   > summary of what the query answers, (2) any performance
-  > red flags you see : full table scans, unindexed joins,
-  > SELECT *, N+1 patterns , and (3) one suggested rewrite if
+  > red flags you see: full table scans, unindexed joins,
+  > SELECT *, N+1 patterns, and (3) one suggested rewrite if
   > a red flag is serious. Assume I know basic SQL. Do not
   > run the query; explain it from the text.
 ---
 
 SQL Explainer is a prompt pack for inherited queries. Paste the
-query, and it walks through each clause in execution order : what it
-filters, joins, or computes : then flags performance problems like
+query, and it walks through each clause in execution order: what it
+filters, joins, or computes: then flags performance problems like
 unindexed joins and suggests a rewrite when one matters.
 
 ## What it includes
@@ -68,10 +68,10 @@ Output (abridged):
 Summary: monthly revenue per region, excluding refunds.
 
 Execution order:
-1. FROM orders , full table scan (red flag: no date filter before join)
-2. JOIN customers on id : indexed, fine
+1. FROM orders, full table scan (red flag: no date filter before join)
+2. JOIN customers on id: indexed, fine
 ...
 
 Red flags: the refund exclusion happens in a subquery after the
-big join : filter earlier and this runs ~10x faster.
+big join: filter earlier and this runs ~10x faster.
 ```

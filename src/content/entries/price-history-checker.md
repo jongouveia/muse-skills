@@ -25,7 +25,7 @@ install_prompt: |
   --- SOURCE ---
   ---
   name: price-history-checker
-  description: Answer "is this a good price?" from price history, not the strikethrough , historical low, average, and whether to buy now or wait. Trigger phrases: "is this a good price", "should I buy this now", "check the price history".
+  description: Answer "is this a good price?" from price history, not the strikethrough, historical low, average, and whether to buy now or wait. Trigger phrases: "is this a good price", "should I buy this now", "check the price history".
   ---
   # Purpose
 
@@ -44,7 +44,7 @@ install_prompt: |
      Day, Black Friday, model refresh).
   4. Verdict rules:
      - At or near historical low: "buy"
-     - Within 10% of average with no pattern: "fair : buy if
+     - Within 10% of average with no pattern: "fair: buy if
        you need it now"
      - Above average with a known sale window within 60 days:
        "wait"
@@ -52,7 +52,7 @@ install_prompt: |
 
   # Output Contract
 
-  - Verdict: buy, fair, or wait , one word, then one line why
+  - Verdict: buy, fair, or wait, one word, then one line why
   - Price history: current, 90-day average, historical low
     (with date), sale pattern if any
   - Caveats: thin history, refurbished vs. new mismatch, or
@@ -69,7 +69,7 @@ install_prompt: |
 source: |
   ---
   name: price-history-checker
-  description: Answer "is this a good price?" from price history, not the strikethrough , historical low, average, and whether to buy now or wait. Trigger phrases: "is this a good price", "should I buy this now", "check the price history".
+  description: Answer "is this a good price?" from price history, not the strikethrough, historical low, average, and whether to buy now or wait. Trigger phrases: "is this a good price", "should I buy this now", "check the price history".
   ---
   # Purpose
 
@@ -88,7 +88,7 @@ source: |
      Day, Black Friday, model refresh).
   4. Verdict rules:
      - At or near historical low: "buy"
-     - Within 10% of average with no pattern: "fair : buy if
+     - Within 10% of average with no pattern: "fair: buy if
        you need it now"
      - Above average with a known sale window within 60 days:
        "wait"
@@ -96,7 +96,7 @@ source: |
 
   # Output Contract
 
-  - Verdict: buy, fair, or wait , one word, then one line why
+  - Verdict: buy, fair, or wait, one word, then one line why
   - Price history: current, 90-day average, historical low
     (with date), sale pattern if any
   - Caveats: thin history, refurbished vs. new mismatch, or
@@ -113,8 +113,8 @@ source: |
 ---
 
 Price History Checker answers "is this a good price?" from what the
-item actually sold for , current price, 90-day average, historical
-low : and gives a buy, fair, or wait verdict. A "wait" always comes
+item actually sold for, current price, 90-day average, historical
+low: and gives a buy, fair, or wait verdict. A "wait" always comes
 with a reason: a dated sale window, not vibes.
 
 ## What it includes
@@ -131,12 +131,12 @@ Input: a headphone listing at $199, "was $349."
 Output:
 
 ```
-Verdict: WAIT : hits $149 every Black Friday.
+Verdict: WAIT: hits $149 every Black Friday.
 
 Price history:
 - Current: $199 | 90-day average: $219
 - Historical low: $149 (Nov 2025)
 - Pattern: drops to $149–159 each November
 
-Caveat: none , 18 months of history.
+Caveat: none, 18 months of history.
 ```

@@ -80,7 +80,7 @@ source: |
 ---
 
 Auction Ending Alert watches the auctions you care about and pings
-you before each one closes , current price, time left, and your max
+you before each one closes, current price, time left, and your max
 bid side by side, so you decide in one glance whether the deal still
 clears your bar. It never bids; that's your call.
 
@@ -97,10 +97,10 @@ Output:
 
 ```
 Ending soon:
-- Vintage film camera lot , 47 min left
+- Vintage film camera lot, 47 min left
   Current: $120 (9 bids) | Your max: $200
   Deal check: clears your bar by $80.
 
 Over your max:
-- Box of 45s , $65 vs your $40. Dropped from watch.
+- Box of 45s, $65 vs your $40. Dropped from watch.
 ```

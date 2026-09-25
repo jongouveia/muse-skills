@@ -102,5 +102,5 @@ Title A (54): Sourdough Starter Guide: From Flour to First Loaf
 Title B (47): Your Sourdough Starter, Minus the Guesswork
 Meta A (156): A sourdough starter in 7 days with nothing but flour,
   water, and patience. Feeding schedule, troubleshooting, and your
-  first loaf , start tonight.
+  first loaf, start tonight.
 ```

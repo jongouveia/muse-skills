@@ -42,14 +42,14 @@ install_prompt: |
   2. List 8-10 likely questions for this round: mix role-specific,
      behavioral ("tell me about a time"), and company-specific.
   3. For each question, give a 2-line talking point drawn from my
-     background , a direction, not a script.
+     background, a direction, not a script.
   4. Give me 4 questions to ask them: 2 about the role and team, 1
      about the company's direction, 1 that shows I did the reading.
   5. End with one honest weak spot to prepare for: the likeliest
      hard question about my background, and how to answer it
      directly.
 
-  Rules: talking points, not scripts : no one should memorize
+  Rules: talking points, not scripts: no one should memorize
   paragraphs. If my background doesn't obviously fit a question,
   say so instead of inventing experience.
 source: |
@@ -74,14 +74,14 @@ source: |
   2. List 8-10 likely questions for this round: mix role-specific,
      behavioral ("tell me about a time"), and company-specific.
   3. For each question, give a 2-line talking point drawn from my
-     background , a direction, not a script.
+     background, a direction, not a script.
   4. Give me 4 questions to ask them: 2 about the role and team, 1
      about the company's direction, 1 that shows I did the reading.
   5. End with one honest weak spot to prepare for: the likeliest
      hard question about my background, and how to answer it
      directly.
 
-  Rules: talking points, not scripts : no one should memorize
+  Rules: talking points, not scripts: no one should memorize
   paragraphs. If my background doesn't obviously fit a question,
   say so instead of inventing experience.
 ---
@@ -105,7 +105,7 @@ Input: "Product designer, Figma, hiring-manager round. Background: 5 years in B2
 Output (abridged):
 
 ```
-Company: Figma , design platform, ~$20B valuation talk, pushing
+Company: Figma, design platform, ~$20B valuation talk, pushing
   into dev-adjacent workflows. Relevant: design systems are core
   to their story.
 

@@ -24,7 +24,7 @@ install_prompt: |
   --- SOURCE ---
   ---
   name: new-repo-setup-doctor
-  description: Diagnose a fresh repo checkout that won't build or run , environment, dependencies, and config checks in order, with the fix for each failure. Trigger phrases: "this repo won't build", "help me set up this repo", "diagnose my dev environment".
+  description: Diagnose a fresh repo checkout that won't build or run, environment, dependencies, and config checks in order, with the fix for each failure. Trigger phrases: "this repo won't build", "help me set up this repo", "diagnose my dev environment".
   ---
   # Purpose
 
@@ -68,11 +68,11 @@ install_prompt: |
   - Never commit, push, or force-install. The repo's history
     is the user's.
   - If the README's setup steps are wrong, say so and note
-    the correction : that feedback is half the value.
+    the correction: that feedback is half the value.
 source: |
   ---
   name: new-repo-setup-doctor
-  description: Diagnose a fresh repo checkout that won't build or run , environment, dependencies, and config checks in order, with the fix for each failure. Trigger phrases: "this repo won't build", "help me set up this repo", "diagnose my dev environment".
+  description: Diagnose a fresh repo checkout that won't build or run, environment, dependencies, and config checks in order, with the fix for each failure. Trigger phrases: "this repo won't build", "help me set up this repo", "diagnose my dev environment".
   ---
   # Purpose
 
@@ -116,12 +116,12 @@ source: |
   - Never commit, push, or force-install. The repo's history
     is the user's.
   - If the README's setup steps are wrong, say so and note
-    the correction : that feedback is half the value.
+    the correction: that feedback is half the value.
 ---
 
 New-Repo Setup Doctor diagnoses the fresh checkout that won't build.
 It checks runtime version, dependencies, env config, and external
-services in the order that finds the boring failure fastest : and
+services in the order that finds the boring failure fastest: and
 proposes each fix before touching anything.
 
 ## What it includes
@@ -141,7 +141,7 @@ Verdict: fails at "dev server starts"
 Checks:
 - Node version: pass (20.x matches .nvmrc)
 - Dependencies: pass
-- Env config: FAIL , .env missing, .env.example has 4 vars
+- Env config: FAIL, .env missing, .env.example has 4 vars
 
 Fix: copied .env.example to .env; fill in DATABASE_URL.
 Re-ran: dev server starts. Working.

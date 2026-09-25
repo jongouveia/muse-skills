@@ -23,7 +23,7 @@ install_prompt: |
 
   --- SOURCE ---
   name: warranty-tracker
-  description: Track product warranties from purchase receipts : what's covered, when coverage ends, and a ping 30 days before expiry. Trigger phrases: "track my warranties", "is this still under warranty", "warranty expiring soon".
+  description: Track product warranties from purchase receipts: what's covered, when coverage ends, and a ping 30 days before expiry. Trigger phrases: "track my warranties", "is this still under warranty", "warranty expiring soon".
 
   schedule: monthly, first of the month at 09:00 local time. Confirm the time with the user before the first scheduled run.
 
@@ -43,13 +43,13 @@ install_prompt: |
     - Quiet months: "Nothing expiring this month."
 
   rules:
-    - Warranty lengths come from the receipt or published manufacturer terms. If unknown, say "terms unknown" : never guess.
+    - Warranty lengths come from the receipt or published manufacturer terms. If unknown, say "terms unknown": never guess.
     - Read only. Never file a claim or contact a merchant.
     - The $75 threshold is a default. The user can change it.
     - Run only on the confirmed schedule or when asked.
 source: |
   name: warranty-tracker
-  description: Track product warranties from purchase receipts : what's covered, when coverage ends, and a ping 30 days before expiry. Trigger phrases: "track my warranties", "is this still under warranty", "warranty expiring soon".
+  description: Track product warranties from purchase receipts: what's covered, when coverage ends, and a ping 30 days before expiry. Trigger phrases: "track my warranties", "is this still under warranty", "warranty expiring soon".
 
   schedule: monthly, first of the month at 09:00 local time. Confirm the time with the user before the first scheduled run.
 
@@ -69,14 +69,14 @@ source: |
     - Quiet months: "Nothing expiring this month."
 
   rules:
-    - Warranty lengths come from the receipt or published manufacturer terms. If unknown, say "terms unknown" : never guess.
+    - Warranty lengths come from the receipt or published manufacturer terms. If unknown, say "terms unknown": never guess.
     - Read only. Never file a claim or contact a merchant.
     - The $75 threshold is a default. The user can change it.
     - Run only on the confirmed schedule or when asked.
 ---
 
-Warranty Tracker builds a registry from your purchase receipts :
-what's covered, when coverage ends : and pings you 30 days before a
+Warranty Tracker builds a registry from your purchase receipts:
+what's covered, when coverage ends: and pings you 30 days before a
 warranty expires, with the claim link. That dead dishwasher gets a
 free repair instead of a replacement bill.
 
@@ -92,14 +92,14 @@ free repair instead of a replacement bill.
 Output:
 
 ```
-Warranties , September
+Warranties, September
 
 Expiring soon:
-- Dishwasher (Bosch) : expires Oct 12. Claim: bosch-home.com/service
+- Dishwasher (Bosch): expires Oct 12. Claim: bosch-home.com/service
   Note: the rattling rack is a covered defect. File before the 12th.
 
 Coming up:
-- Laptop (Dell) : expires Nov 28.
+- Laptop (Dell): expires Nov 28.
 
 Registry: 14 items tracked.
 ```

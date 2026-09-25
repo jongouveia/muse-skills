@@ -66,7 +66,7 @@ Meaning: the code tried to read email from a user object that
 doesn't exist.
 
 Likely causes:
-1. The user lookup returned null (bad id) : check the id passed in.
+1. The user lookup returned null (bad id): check the id passed in.
 2. The user was deleted between lookup and use.
 3. The field mapping is wrong and email is on a different object.
 

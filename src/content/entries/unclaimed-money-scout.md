@@ -13,7 +13,7 @@ date_added: 2026-09-09
 safety_notes: |
   Asks only for what you choose to share (name spelling, states of
   residence). Never asks for SSN, bank details, or passwords. Never
-  files a claim for you : it links to the official claim site and
+  files a claim for you: it links to the official claim site and
   you file it yourself.
 install_prompt: |
   Install the "Unclaimed Money Scout" skill. Its full source is
@@ -47,7 +47,7 @@ install_prompt: |
        NAUPA search) and each relevant state's official .gov
        unclaimed-property site.
      - Open class-action settlements: topclassactions.com and
-       classaction.org : filter to settlements still accepting
+       classaction.org: filter to settlements still accepting
        claims, and match by the user's purchase or membership
        history (ask what products, services, or employers apply).
      - FTC refunds: ftc.gov enforcement refunds page for
@@ -60,7 +60,7 @@ install_prompt: |
   # Output Contract
 
   - Checked: the sources searched and the name/states used
-  - Potential matches: one line each , what, payout range,
+  - Potential matches: one line each, what, payout range,
     deadline, official claim link
   - Long shots: settlements that might apply but need more info
     from the user
@@ -70,7 +70,7 @@ install_prompt: |
   # Operating Rules
 
   - Public sources only. Link to official claim sites (.gov or
-    the settlement administrator) , never to aggregator sign-up
+    the settlement administrator), never to aggregator sign-up
     funnels.
   - Never file a claim on the user's behalf. The user files their
     own claims.
@@ -104,7 +104,7 @@ source: |
        NAUPA search) and each relevant state's official .gov
        unclaimed-property site.
      - Open class-action settlements: topclassactions.com and
-       classaction.org : filter to settlements still accepting
+       classaction.org: filter to settlements still accepting
        claims, and match by the user's purchase or membership
        history (ask what products, services, or employers apply).
      - FTC refunds: ftc.gov enforcement refunds page for
@@ -117,7 +117,7 @@ source: |
   # Output Contract
 
   - Checked: the sources searched and the name/states used
-  - Potential matches: one line each , what, payout range,
+  - Potential matches: one line each, what, payout range,
     deadline, official claim link
   - Long shots: settlements that might apply but need more info
     from the user
@@ -127,7 +127,7 @@ source: |
   # Operating Rules
 
   - Public sources only. Link to official claim sites (.gov or
-    the settlement administrator) , never to aggregator sign-up
+    the settlement administrator), never to aggregator sign-up
     funnels.
   - Never file a claim on the user's behalf. The user files their
     own claims.
@@ -143,7 +143,7 @@ Unclaimed Money Scout checks whether you're owed money you don't
 know about: state unclaimed-property funds (forgotten deposits,
 uncashed checks), open class-action settlements matched to your
 purchase history, and FTC-administered refunds. You share only your
-name and states of residence , never SSN or bank details : and it
+name and states of residence, never SSN or bank details: and it
 hands you the official claim links with deadlines. You file the
 claims yourself.
 
@@ -156,7 +156,7 @@ claims yourself.
 
 ## Example
 
-Input: "check for me : lived in MA and NH."
+Input: "check for me: lived in MA and NH."
 
 Output (abridged):
 
@@ -165,9 +165,9 @@ Checked: missingmoney.com (MA, NH), MA unclaimed property .gov,
 topclassactions.com open settlements, FTC refunds.
 
 Potential matches:
-- MA unclaimed property: 1 result under your name , $87.42 from an
+- MA unclaimed property: 1 result under your name, $87.42 from an
   old utility deposit. Claim: mass.gov/unclaimed-property
-- Open settlement: XYZ data breach : you had an account 2019-2022.
+- Open settlement: XYZ data breach: you had an account 2019-2022.
   Est. payout $25-50. Deadline: Oct 31. Claim: [administrator link]
 
 Long shots: none. Re-check yearly.

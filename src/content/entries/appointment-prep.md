@@ -1,6 +1,6 @@
 ---
 title: "Appointment Prep"
-tagline: "Who you're seeing and why : the context worth re-reading first."
+tagline: "Who you're seeing and why: the context worth re-reading first."
 category: "productivity"
 type: "prompt"
 author: "Muse Skills editors"
@@ -24,7 +24,7 @@ install_prompt: |
   # Appointment Prep
 
   How to use: name the appointment (person, doctor, contractor,
-  interview : anything). It pulls the relevant history and hands
+  interview: anything). It pulls the relevant history and hands
   you a one-page brief: what this is about, what happened last
   time, and what to ask or bring.
   Trigger phrases: "prepare for an appointment", "brief me for my appointment", "what should I ask at my appointment".
@@ -44,7 +44,7 @@ install_prompt: |
   4. List what to bring or prepare: documents, questions, numbers
      to have on hand.
   5. Suggest 3 questions worth asking, specific to this
-     appointment , not generic small talk.
+     appointment, not generic small talk.
 
   Rules: use only what the sources contain; do not invent history.
   If there is no prior history, say so and build the brief from the
@@ -53,7 +53,7 @@ source: |
   # Appointment Prep
 
   How to use: name the appointment (person, doctor, contractor,
-  interview : anything). It pulls the relevant history and hands
+  interview: anything). It pulls the relevant history and hands
   you a one-page brief: what this is about, what happened last
   time, and what to ask or bring.
   Trigger phrases: "prepare for an appointment", "brief me for my appointment", "what should I ask at my appointment".
@@ -73,7 +73,7 @@ source: |
   4. List what to bring or prepare: documents, questions, numbers
      to have on hand.
   5. Suggest 3 questions worth asking, specific to this
-     appointment , not generic small talk.
+     appointment, not generic small talk.
 
   Rules: use only what the sources contain; do not invent history.
   If there is no prior history, say so and build the brief from the
@@ -81,7 +81,7 @@ source: |
 ---
 
 Appointment Prep is the five-minute brief before you walk in. Name
-the appointment , a doctor, a contractor, an interview, a 1:1 : and
+the appointment, a doctor, a contractor, an interview, a 1:1: and
 it pulls the relevant history into one page: what this is about,
 what happened last time, what to bring, and three questions worth
 asking.
@@ -101,7 +101,7 @@ Output (abridged):
 
 ```
 What: routine cleaning and checkup, first visit in ~2 years.
-History: last visit (2024) : two fillings on upper molars; hygienist
+History: last visit (2024): two fillings on upper molars; hygienist
   flagged flossing. No open treatment plan on file.
 Bring: insurance card, list of current medications.
 Ask: 1) Do the old fillings need attention? 2) Any gum recession

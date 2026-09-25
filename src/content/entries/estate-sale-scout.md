@@ -50,7 +50,7 @@ install_prompt: |
 
   # Output Contract
 
-  - Weekend shortlist: top 5 sales, ranked : address, day/hours,
+  - Weekend shortlist: top 5 sales, ranked: address, day/hours,
     why it scored (which categories matched), drive time
   - Honorable mentions: one line each for the rest
   - Suggested route: the order to hit the top picks on Saturday
@@ -94,7 +94,7 @@ source: |
 
   # Output Contract
 
-  - Weekend shortlist: top 5 sales, ranked : address, day/hours,
+  - Weekend shortlist: top 5 sales, ranked: address, day/hours,
     why it scored (which categories matched), drive time
   - Honorable mentions: one line each for the rest
   - Suggested route: the order to hit the top picks on Saturday
@@ -113,7 +113,7 @@ source: |
 ---
 
 Estate Sale Scout reads the weekend's estate-sale listings Thursday
-night and ranks them against your collecting categories : so Friday
+night and ranks them against your collecting categories: so Friday
 morning you get a shortlist of the sales worth your Saturday, in
 route order, instead of driving to six and finding nothing.
 
@@ -131,9 +131,9 @@ Output:
 ```
 Weekend shortlist (Sat Sep 12)
 
-1. 42 Elm St, Tewksbury , Sat 9-3
+1. 42 Elm St, Tewksbury, Sat 9-3
    Vinyl + cameras in photos. 18 min drive.
-2. 9 Birch Ave, Andover , Sat 8-2
+2. 9 Birch Ave, Andover, Sat 8-2
    Tools and stereo gear listed. 6 min drive.
 
 Suggested route: Birch Ave at 8, Elm St by 9:30.

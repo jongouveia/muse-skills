@@ -43,7 +43,7 @@ install_prompt: |
      minus 5 minutes of buffer.
   4. Mark each item: (info) 2-minute updates, (discuss) the real
      debate, (decide) the call to make. At least one (decide) item
-     is required : if nothing needs deciding, say the meeting
+     is required: if nothing needs deciding, say the meeting
      should be an email.
   5. End with: owner and deadline for anything decided.
 
@@ -74,7 +74,7 @@ source: |
      minus 5 minutes of buffer.
   4. Mark each item: (info) 2-minute updates, (discuss) the real
      debate, (decide) the call to make. At least one (decide) item
-     is required : if nothing needs deciding, say the meeting
+     is required: if nothing needs deciding, say the meeting
      should be an email.
   5. End with: owner and deadline for anything decided.
 
@@ -86,7 +86,7 @@ source: |
 Meeting Agenda Builder works backwards from the decision you need.
 Give it the goal, the attendees, and the time; it returns a
 timeboxed agenda where every item is tagged info, discuss, or
-decide : and it will tell you when the meeting should have been an
+decide: and it will tell you when the meeting should have been an
 email.
 
 ## What it includes
@@ -105,7 +105,7 @@ Output:
 ```
 Goal: Decide the Q4 hiring plan.
 
-1. (info, 5 min) Headcount budget , Sam shares the number.
+1. (info, 5 min) Headcount budget, Sam shares the number.
 2. (discuss, 15 min) Which two roles to fill first.
 3. (decide, 5 min) Approve the two roles and owners.
 

@@ -24,7 +24,7 @@ install_prompt: |
   --- SOURCE ---
   ---
   name: launch-checklist
-  description: Build an ordered launch promotion plan : announcements, posts, and emails sequenced across launch week, sized to a solo founder or small team. Trigger phrases: "plan my launch", "launch promotion checklist", "how do I announce this".
+  description: Build an ordered launch promotion plan: announcements, posts, and emails sequenced across launch week, sized to a solo founder or small team. Trigger phrases: "plan my launch", "launch promotion checklist", "how do I announce this".
   ---
   # Purpose
 
@@ -41,7 +41,7 @@ install_prompt: |
      communities).
   2. Build the plan in four phases:
      - T-7 to T-2 (tease): 2-3 short posts, one email teaser
-     - T-1 (eve): checklist of logistics : links live,
+     - T-1 (eve): checklist of logistics: links live,
        analytics on, support ready
      - Launch day: announcement post, email, community posts
        in order, with times
@@ -55,7 +55,7 @@ install_prompt: |
 
   - Launch week timeline: day by day, task by task, with the
     channel and the one-line point of each piece
-  - Logistics checklist: links, analytics, support : the
+  - Logistics checklist: links, analytics, support: the
     unglamorous half
   - Cut list: what a solo founder should skip, stated plainly
 
@@ -72,7 +72,7 @@ install_prompt: |
 source: |
   ---
   name: launch-checklist
-  description: Build an ordered launch promotion plan : announcements, posts, and emails sequenced across launch week, sized to a solo founder or small team. Trigger phrases: "plan my launch", "launch promotion checklist", "how do I announce this".
+  description: Build an ordered launch promotion plan: announcements, posts, and emails sequenced across launch week, sized to a solo founder or small team. Trigger phrases: "plan my launch", "launch promotion checklist", "how do I announce this".
   ---
   # Purpose
 
@@ -89,7 +89,7 @@ source: |
      communities).
   2. Build the plan in four phases:
      - T-7 to T-2 (tease): 2-3 short posts, one email teaser
-     - T-1 (eve): checklist of logistics : links live,
+     - T-1 (eve): checklist of logistics: links live,
        analytics on, support ready
      - Launch day: announcement post, email, community posts
        in order, with times
@@ -103,7 +103,7 @@ source: |
 
   - Launch week timeline: day by day, task by task, with the
     channel and the one-line point of each piece
-  - Logistics checklist: links, analytics, support : the
+  - Logistics checklist: links, analytics, support: the
     unglamorous half
   - Cut list: what a solo founder should skip, stated plainly
 
@@ -120,7 +120,7 @@ source: |
 ---
 
 Launch Checklist turns "post once and hope" into an ordered launch
-week: tease, eve logistics, launch-day sequence, and follow-through :
+week: tease, eve logistics, launch-day sequence, and follow-through:
 every task sized for a solo founder, with a cut list for what to
 skip.
 
@@ -136,10 +136,10 @@ skip.
 Output (abridged):
 
 ```
-Launch week , skill directory, Sep 17
+Launch week, skill directory, Sep 17
 
 T-7..T-2 (tease):
-- Mon: short post , "41 skills, one paste each" (X)
+- Mon: short post, "41 skills, one paste each" (X)
 - Wed: email teaser to 200 subs
 
 T-1 (eve): links live, analytics on, submit form tested

@@ -23,7 +23,7 @@ install_prompt: |
 
   --- SOURCE ---
   name: tax-doc-gatherer
-  description: February tax-season checklist : builds the list of expected documents from your income sources, watches the inbox, and reports what arrived and what is still missing. Trigger phrases: "gather my tax docs", "what tax documents am I missing", "tax season checklist".
+  description: February tax-season checklist: builds the list of expected documents from your income sources, watches the inbox, and reports what arrived and what is still missing. Trigger phrases: "gather my tax docs", "what tax documents am I missing", "tax season checklist".
 
   schedule: every Monday in February at 09:00 local time. Confirm the time with the user before the first scheduled run.
 
@@ -48,7 +48,7 @@ install_prompt: |
     - Run only on the confirmed schedule or when asked.
 source: |
   name: tax-doc-gatherer
-  description: February tax-season checklist : builds the list of expected documents from your income sources, watches the inbox, and reports what arrived and what is still missing. Trigger phrases: "gather my tax docs", "what tax documents am I missing", "tax season checklist".
+  description: February tax-season checklist: builds the list of expected documents from your income sources, watches the inbox, and reports what arrived and what is still missing. Trigger phrases: "gather my tax docs", "what tax documents am I missing", "tax season checklist".
 
   schedule: every Monday in February at 09:00 local time. Confirm the time with the user before the first scheduled run.
 
@@ -76,7 +76,7 @@ source: |
 Tax Doc Gatherer turns February into a checklist instead of a
 treasure hunt. Tell it your income sources once; every Monday it
 reports which W-2s and 1099s have arrived in your inbox and which
-are still missing , so you know exactly when you're ready to file.
+are still missing, so you know exactly when you're ready to file.
 
 ## What it includes
 
@@ -90,7 +90,7 @@ are still missing , so you know exactly when you're ready to file.
 Output:
 
 ```
-Tax docs , week 2 of February
+Tax docs, week 2 of February
 
 Arrived:
 - W-2 from employer (email, Feb 1)
@@ -100,5 +100,5 @@ Still missing:
 - 1099-NEC from freelance client (usually sends mid-Feb)
 - 1099-B from brokerage (typically available Feb 15)
 
-Ready to file: no , 2 documents outstanding.
+Ready to file: no, 2 documents outstanding.
 ```

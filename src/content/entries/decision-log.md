@@ -23,7 +23,7 @@ install_prompt: |
   --- SOURCE ---
   ---
   name: decision-log
-  description: Keep a running log of decisions : what was decided, why, by whom, and when to revisit. Query it instead of re-litigating. Trigger phrases: "log this decision", "record a decision", "what did we decide about".
+  description: Keep a running log of decisions: what was decided, why, by whom, and when to revisit. Query it instead of re-litigating. Trigger phrases: "log this decision", "record a decision", "what did we decide about".
   ---
   # Purpose
 
@@ -41,7 +41,7 @@ install_prompt: |
   3. Append the entry to decisions.md in the workspace, newest at
      the bottom, with a simple header per entry.
   4. On query ("what did we decide about X"), search the log and
-     quote the entry , decision, reasoning, date, decider , then
+     quote the entry, decision, reasoning, date, decider, then
      stop. Do not re-argue the decision.
   5. On request ("what needs revisiting"), list entries whose
      revisit date has passed.
@@ -58,7 +58,7 @@ install_prompt: |
   - Record what was decided, not what should have been decided.
     No editorializing.
   - Never invent reasoning the user didn't give. Ask for the "why"
-    if it's missing , one question, then log it.
+    if it's missing, one question, then log it.
   - The log is append-only. Corrections go in as new entries
     referencing the old one; never rewrite history.
   - The file stays in the user's workspace. Nothing is sent
@@ -66,7 +66,7 @@ install_prompt: |
 source: |
   ---
   name: decision-log
-  description: Keep a running log of decisions : what was decided, why, by whom, and when to revisit. Query it instead of re-litigating. Trigger phrases: "log this decision", "record a decision", "what did we decide about".
+  description: Keep a running log of decisions: what was decided, why, by whom, and when to revisit. Query it instead of re-litigating. Trigger phrases: "log this decision", "record a decision", "what did we decide about".
   ---
   # Purpose
 
@@ -84,7 +84,7 @@ source: |
   3. Append the entry to decisions.md in the workspace, newest at
      the bottom, with a simple header per entry.
   4. On query ("what did we decide about X"), search the log and
-     quote the entry , decision, reasoning, date, decider , then
+     quote the entry, decision, reasoning, date, decider, then
      stop. Do not re-argue the decision.
   5. On request ("what needs revisiting"), list entries whose
      revisit date has passed.
@@ -101,7 +101,7 @@ source: |
   - Record what was decided, not what should have been decided.
     No editorializing.
   - Never invent reasoning the user didn't give. Ask for the "why"
-    if it's missing , one question, then log it.
+    if it's missing, one question, then log it.
   - The log is append-only. Corrections go in as new entries
     referencing the old one; never rewrite history.
   - The file stays in the user's workspace. Nothing is sent
@@ -109,7 +109,7 @@ source: |
 ---
 
 Decision Log ends the "wait, why did we do it this way?" loop. Every
-decision gets one entry , the call, the reasoning, who made it, when
+decision gets one entry, the call, the reasoning, who made it, when
 to revisit it. Months later, the answer is in the file instead of in
 someone's memory.
 
@@ -118,7 +118,7 @@ someone's memory.
 - Decision entries (call, reasoning, decider, alternatives, revisit date)
 - Query mode: quote the entry, don't re-argue it
 - Revisit-date tracking for decisions with an expiry
-- Append-only history : corrections are new entries
+- Append-only history: corrections are new entries
 
 ## Example
 
@@ -127,8 +127,8 @@ Input: "log this decision: we're dropping the free tier, margins too thin, decid
 Output:
 
 ```
-Logged: 2026-09-09 , Drop the free tier (margins too thin). Decided by
-you and Priya. Alternatives: usage-capped free tier (rejected , support
+Logged: 2026-09-09, Drop the free tier (margins too thin). Decided by
+you and Priya. Alternatives: usage-capped free tier (rejected, support
 cost). Revisit: 2026-03-09.
 ```
 
