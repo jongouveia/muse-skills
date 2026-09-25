@@ -136,12 +136,14 @@ function sourcePayloadIsIncluded(source, installPrompt) {
 function fixEmDashes(file) {
   let text = fs.readFileSync(file, 'utf8');
   if (!text.includes('\u2014')) return;
-  text = text.replace(/\u2014/g, (match, offset, whole) => {
-    const after = whole.slice(offset + 1);
+  // Consume the spaces around the dash so "a \u2014 b" becomes "a, b", not "a , b".
+  text = text.replace(/[ \t]*\u2014[ \t]*/g, (match, offset, whole) => {
+    const after = whole.slice(offset + match.length);
     const words = after.match(/^[\s]*([a-z][a-z'-]*(?:\s+[a-z][a-z'-]*){0,3})/i)?.[1]?.split(/\s+/) ?? [];
     const startsLower = /^[\s]*[a-z]/.test(after);
     const hasVerb = words.some((word) => verbWords.has(word.toLowerCase().replace(/[^a-z'-]/g, '')) || /(?:s|ed|ing)$/.test(word.toLowerCase()));
-    return startsLower && hasVerb ? ':' : ',';
+    const mark = startsLower && hasVerb ? ':' : ',';
+    return /^\r?\n|^$/.test(after) ? mark : `${mark} `;
   });
   fs.writeFileSync(file, text);
 }
