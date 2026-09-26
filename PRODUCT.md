@@ -51,9 +51,9 @@ The site is independent and community run. It is not affiliated with Meta. Every
 
 ## Evidence on Hand
 
-- 25 entries with full sources and install prompts in `src/content/entries/`, all authored "Muse Skills editors" with `origin: directory` (rendered "Written for this directory") and `source_verified: false` until each is tested in a Muse chat. Ungated drafts wait in `drafts/entries/`.
+- 72 entries with full sources and install prompts in `src/content/entries/`, all authored "Muse Skills editors" with `origin: directory` (rendered "Written for this directory"). 33 have `source_verified: true` after Murph ran their install prompts in a Muse session, and they show a "Tested in Muse" badge; the rest stay `false` until tested. Ungated drafts wait in `drafts/entries/`.
 - No testimonials, install counts, user numbers, or press. Do not fabricate any.
-- No verified end-to-end install test yet (needs a Muse session; the brief lists it as the v0.1 definition of done).
+- End-to-end install test done 2026-09-10 (Deal Hunter in a fresh Muse chat); the per-entry runs since then set `source_verified`.
 
 ## Product Principles
 

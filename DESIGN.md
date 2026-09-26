@@ -80,6 +80,11 @@ typography:
     fontSize: "0.75rem"
     fontWeight: 500
     lineHeight: "1rem"
+  label-sm:
+    fontFamily: "Geist Variable, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "0.6875rem"
+    fontWeight: 500
+    lineHeight: "1rem"
   code:
     fontFamily: "Geist Mono Variable, ui-monospace, monospace"
     fontSize: "0.75rem"

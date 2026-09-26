@@ -5,3 +5,4 @@ dist
 .impeccable/config.local.json
 .env*
 drafts/
+.DS_Store
