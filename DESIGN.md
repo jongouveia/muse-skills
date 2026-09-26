@@ -208,7 +208,7 @@ A zinc palette (one paper, one ink, one mid grey, one hairline) with dark mode s
 ### Secondary
 - **Wayfinding orange** (`mark`, `#bf4b00`; dark `#fb9d59`; 5.0:1 and 9.6:1): the 2px underline on the current category in the header row, and the "Independent" label. It marks place and identity, never an action.
 
-### Status
+### Tertiary
 - **Tested green** (`tested` on `tested-bg`, `tested-border`): the "Tested in Muse" badge, shown only when `source_verified` is true. Untested entries show no badge.
 
 ### Neutral
@@ -258,13 +258,13 @@ One container width. Header, footer, 404, index, category, and entry pages all c
 
 Vertical rhythm on a page is 40px between major sections (`space-y-10` on index and category, `mt-10` between entry sections, 32px `space-y-8` between the breadcrumb and the entry grid). Inside a section, a heading is followed by 12px (`mt-3`) before its lead or paragraph, 16px (`mt-4`) before a card, 20px (`mt-5`) before a list.
 
-The header is a sticky 56px bar (`h-14`, `top-0`, `z-50`) with a 1px bottom border and a translucent background (`bg-background/95`, `bg-background/80` with `backdrop-blur` when supported). Wordmark, nav links (12px gap), then a right cluster (8px gap): the search form (176px wide, hidden below 768px, only on non-home pages), the ghost icon theme toggle, and the sm primary "Submit a skill" button.
+The header is sticky (`top-0`, `z-50`) with a 1px bottom border and a translucent background (`bg-background/95`, `bg-background/80` with `backdrop-blur` when supported). It has two rows, 96px in total. The first row (56px, `h-14`) holds the wordmark with its "Independent" label, the nav links (12px gap, hidden below 640px), then a right cluster (8px gap): the search form (176px wide, hidden below 768px, only on non-home pages), the ghost icon theme toggle, and the sm primary "Submit a skill" button. The second row (40px, `h-10`) is the category nav: every category in `CATEGORIES` order, 20px gap, scrolling sideways without a visible scrollbar when it overflows. `html` has `scroll-padding-top: 7rem` so anchors clear both rows.
 
 Skill rows are a `divide-y` list. Each row is 20px padded top and bottom (`py-5`), a column on mobile (16px gap) that becomes a row at 640px with the text block left and the two action buttons right-aligned. Badges within a row wrap with 6px gaps.
 
 The filter panel is a card with 16px padding and 16px between its sub-rows. The search input flexes to fill; the "Clear filters" outline sm button and the live count sit beside it from 640px, and below it as a justified pair on mobile. Each chip row starts with a fixed 64px label column (`w-16`).
 
-The entry page splits at 1024px into a main column and a 280px details column with 40px gap (`lg:grid-cols-[minmax(0,1fr)_280px] lg:gap-10`). The details card is sticky at 80px from the top (`lg:sticky lg:top-20`) so it clears the 56px header. Below 1024px the aside follows the main column with a 40px gap. The "How it works" list is one column that becomes three at 768px with 24px gaps. The footer is one column that becomes three at 768px with 40px gaps and 40px vertical padding.
+The entry page splits at 1024px into a main column and a 280px details column with 40px gap (`lg:grid-cols-[minmax(0,1fr)_280px] lg:gap-10`). The details card is sticky at 112px from the top (`lg:sticky lg:top-28`) so it clears the 96px header. Below 1024px the aside follows the main column with a 40px gap. The "How it works" list is one column that becomes three at 768px with 24px gaps. The footer is one column that becomes three at 768px with 40px gaps and 40px vertical padding.
 
 Breakpoints in use: 640px (`sm`), 768px (`md`), 1024px (`lg`). The document has a 320px minimum width and never scrolls horizontally; code surfaces scroll inside their card (`overflow-x-auto` on `pre`, `overflow-auto` on the textarea).
 
@@ -319,7 +319,8 @@ Quiet and compact; the primary is a solid ink block, everything else is paper.
 - **Labels:** 14px medium (`text-sm font-medium`) above the field with 8px gap; an optional marker is `font-normal text-muted-foreground` inline.
 
 ### Navigation
-- **Header:** wordmark "Muse Skills" in `font-semibold` 16px; nav links `text-sm transition-colors hover:text-foreground`, current page in `text-foreground` with `aria-current="page"`, others in `text-muted-foreground`. No underline, no active bar. The sticky bar keeps the same layout on mobile; only the header search hides below 768px.
+- **Header:** wordmark "Muse Skills" in `font-semibold` 16px, followed by the "Independent" label (`text-xs font-medium text-mark`, 1px `border-mark/45`, 6px corners). The home link's `aria-label` states that the directory is independent and not affiliated with Meta. Nav links `text-sm transition-colors hover:text-foreground`, current page in `text-foreground` with `aria-current="page"`, others in `text-muted-foreground`; no underline, no active bar. Below 640px the Skills and About links hide so the row fits at 390px: the wordmark links home and the footer links About. The header search hides below 768px.
+- **Category nav:** the header's second row. Links are `text-sm`, `text-muted-foreground` with `hover:text-foreground`. The current category is `font-medium text-foreground` with a 2px `mark` underline drawn as an inset box shadow. It gets `aria-current="page"` on its category page and `aria-current="true"` on an entry page in that category. This is the only active bar in the header, because the row marks place, which is the orange mark's role. On load, a script scrolls the current category into view when the row overflows.
 - **Breadcrumb:** `flex flex-wrap items-center gap-1.5 text-sm text-muted-foreground`; links `hover:text-foreground`; the current item is `text-foreground`, truncated at 256px (`max-w-64 truncate`); separators are Lucide `ChevronRight` 16px.
 - **Footer:** 1px top border, three columns of 14px `muted-foreground` links with `hover:text-foreground`, column headings in 12px medium uppercase `tracking-wide` `foreground`. The third column carries the affiliation line and an underlined `foreground` link.
 - **Skip link:** `fixed left-2 top-2 z-[100]` primary block, translated off-screen until focused.
