@@ -15,9 +15,9 @@
       "ring": { "role": "primary", "displayName": "Focus Ring", "canonical": "#0082fb", "darkValue": "#4ba9fe", "tonalRamp": ["#001a40", "#002e6e", "#00429c", "#0056c7", "#0064e0", "#0082fb", "#4ba9fe", "#8cc8ff", "#bfe0ff", "#e7f3ff"] },
       "link": { "role": "primary", "displayName": "Link Blue", "canonical": "#0064e0", "darkValue": "#4ba9fe" },
       "mark": { "role": "secondary", "displayName": "Wayfinding Orange", "canonical": "#bf4b00", "darkValue": "#fb9d59" },
-      "tested": { "role": "status", "displayName": "Tested Green", "canonical": "#006133", "darkValue": "#8de9ae" },
-      "tested-bg": { "role": "status", "displayName": "Tested Green Fill", "canonical": "#defbe7", "darkValue": "#0d2818" },
-      "tested-border": { "role": "status", "displayName": "Tested Green Border", "canonical": "#ade3bf", "darkValue": "#19482c" },
+      "tested": { "role": "tertiary", "displayName": "Tested Green", "canonical": "#006133", "darkValue": "#8de9ae" },
+      "tested-bg": { "role": "tertiary", "displayName": "Tested Green Fill", "canonical": "#defbe7", "darkValue": "#0d2818" },
+      "tested-border": { "role": "tertiary", "displayName": "Tested Green Border", "canonical": "#ade3bf", "darkValue": "#19482c" },
       "destructive": { "role": "neutral", "displayName": "Destructive (defined, unused)", "canonical": "#dc2626", "darkValue": "#ef4444", "tonalRamp": ["#450a0a", "#7f1d1d", "#991b1b", "#b91c1c", "#dc2626", "#ef4444", "#f87171", "#fca5a5", "#fecaca", "#fee2e2", "#fef2f2"] }
     },
     "typographyMeta": {
