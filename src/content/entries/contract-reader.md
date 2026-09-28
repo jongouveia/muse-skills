@@ -7,7 +7,7 @@ author: "Muse Skills editors"
 source_url: "https://github.com/jongouveia/muse-skills/blob/main/src/content/entries/contract-reader.md"
 source_verified: false
 origin: "directory"
-includes: ["instructions", "workflow", "template"]
+includes: ["instructions", "workflow", "report-format"]
 version: "1.0.0"
 date_added: 2026-09-27
 safety_notes: |
@@ -157,12 +157,21 @@ Summary: You agree to deliver design work for $5,000 by Oct 15, with
 two rounds of revisions. Payment is net 30 after delivery. The term
 auto-renews yearly unless you cancel 60 days ahead.
 
+Key terms:
+| Term          | Value                                 |
+|---------------|---------------------------------------|
+| Fee           | $5,000, net 30 after delivery         |
+| Deadline      | Oct 15                                |
+| Renewal       | Yearly, automatic                     |
+| Cancellation  | 60 days notice before renewal         |
+| Penalty       | 2% of the fee per week of late work   |
+
 Red flags:
 1. "Client may terminate for convenience with 7 days notice;
    Contractor may terminate only for cause." One-sided exit terms.
-2. "Late payments accrue 2% monthly interest." Worth knowing before a
-   project slips.
+2. "Contractor shall pay 2% of the fee for each week delivery is
+   late." No cap, so a long delay could cost most of the fee.
 
 Questions to ask: Can termination be mutual with the same notice
-period? Is there a cap on the late-payment interest?
+period? Can the late-delivery penalty have a cap?
 ```

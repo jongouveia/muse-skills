@@ -7,7 +7,7 @@ author: "Muse Skills editors"
 source_url: "https://github.com/jongouveia/muse-skills/blob/main/src/content/entries/paint-color-record.md"
 source_verified: false
 origin: "directory"
-includes: ["instructions", "workflow", "paint log format"]
+includes: ["instructions", "workflow", "log-format"]
 version: "1.0.0"
 date_added: 2026-09-26
 safety_notes: |
@@ -161,5 +161,5 @@ Output:
 
 ```
 Living Room / Walls: Benjamin Moore, Simply White (OC-117), Eggshell.
-Recorded 2026-09-26.
+Recorded 2026-09-26. Bought at the Andover paint store.
 ```
