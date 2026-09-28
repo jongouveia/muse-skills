@@ -1,7 +1,7 @@
 ---
 title: "Contract Reader"
 tagline: "Turns dense contracts into plain-language summaries with key dates, fees, and red flags."
-category: "productivity"
+category: "money"
 type: "skill"
 author: "Muse Skills editors"
 source_url: "https://github.com/jongouveia/muse-skills/blob/main/src/content/entries/contract-reader.md"
