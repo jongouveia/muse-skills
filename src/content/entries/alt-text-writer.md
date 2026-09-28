@@ -1,7 +1,7 @@
 ---
 title: "Alt-Text Writer"
 tagline: "Writes accurate, concise alt text for any image, for accessibility and SEO."
-category: "creative"
+category: "marketing"
 type: "skill"
 author: "Muse Skills editors"
 source_url: "https://github.com/jongouveia/muse-skills/blob/main/src/content/entries/alt-text-writer.md"
