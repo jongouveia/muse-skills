@@ -5,7 +5,7 @@ category: "home"
 type: "skill"
 author: "Muse Skills editors"
 source_url: "https://github.com/jongouveia/muse-skills/blob/main/src/content/entries/moving-checklist.md"
-source_verified: false
+source_verified: true
 origin: "directory"
 includes: ["instructions", "workflow", "checklist"]
 version: "1.0.0"

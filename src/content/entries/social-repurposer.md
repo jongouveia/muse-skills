@@ -5,7 +5,7 @@ category: "marketing"
 type: "prompt"
 author: "Muse Skills editors"
 source_url: "https://github.com/jongouveia/muse-skills/blob/main/src/content/entries/social-repurposer.md"
-source_verified: false
+source_verified: true
 origin: "directory"
 includes: ["instructions", "platform-templates"]
 version: "1.0.0"

@@ -5,7 +5,7 @@ category: "productivity"
 type: "config"
 author: "Muse Skills editors"
 source_url: "https://github.com/jongouveia/muse-skills/blob/main/src/content/entries/weekly-feed-brief.md"
-source_verified: false
+source_verified: true
 origin: "directory"
 includes: ["config", "feed-prompt"]
 version: "1.0.0"

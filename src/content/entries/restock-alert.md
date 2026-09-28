@@ -5,7 +5,7 @@ category: "shopping"
 type: "workflow"
 author: "Muse Skills editors"
 source_url: "https://github.com/jongouveia/muse-skills/blob/main/src/content/entries/restock-alert.md"
-source_verified: false
+source_verified: true
 origin: "directory"
 includes: ["instructions", "workflow", "schedule"]
 version: "1.0.0"
