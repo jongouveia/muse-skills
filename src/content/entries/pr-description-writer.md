@@ -5,7 +5,7 @@ category: "dev"
 type: "prompt"
 author: "Muse Skills editors"
 source_url: "https://github.com/jongouveia/muse-skills/blob/main/src/content/entries/pr-description-writer.md"
-source_verified: false
+source_verified: true
 origin: "directory"
 includes: ["instructions", "pr-template"]
 version: "1.0.0"
