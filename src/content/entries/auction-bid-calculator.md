@@ -151,7 +151,14 @@ loss.
 A vintage receiver lot sits at $150 with an 18 percent buyer
 premium, 6.25 percent sales tax, and $35 shipping. Conservative
 sold comps put the receiver at $400, and you want to keep at
-least $100. The skill works backwards: $300 minus $35 shipping,
-minus tax and premium on the hammer price, lands a ceiling of
-$225. Bidding at $225 leaves you $100 ahead after fees; one more
-bid wipes the margin, so you stop there.
+least $100. The skill works backwards from $400 minus your $100 margin, so the
+all-in cost cannot pass $300. The ceiling is $211.
+
+```
+Max hammer bid: $211. All-in cost at that bid: $299.54.
+Hammer $211.00, buyer premium $37.98, sales tax $15.56,
+shipping $35.00, total $299.54.
+Resale $400, margin protected $100.46.
+```
+
+One more bid wipes the margin, so you stop there.
