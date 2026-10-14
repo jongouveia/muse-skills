@@ -172,13 +172,31 @@ List: 8 stores with public profiles.
 Output:
 
 ```
-Rank 1. Groove Yard Records, Maya R. (owner) - 91
-  Evidence: 4 staff, active webstore, posts about reissue drops.
-Rank 2. Static Bloom Records, D. Chen (buyer) - 78
-  Evidence: 6 staff, webstore, quiet socials.
-...
+Rubric (100 points, fixed for this list):
+  Independent record store: 20
+  Staff: 1-3 = 15, 4-6 = 10, 7-10 = 5
+  Role: owner = 20, buyer = 15, no role named = -10
+  Sells online: active webstore = 30, marketplace listing only = 15, none = 0
+  Public socials: active = 15, quiet = 5, none = 0
+  Deal breaker (major-chain franchise): score set to 0
+Tiers: reach out now = 75-100. Nurture later = 40-74. Skip = below 40 or deal breaker.
+
+Rank 1. Groove Yard Records, Maya R. (owner) - 95
+  Evidence: independent 20 + 4 staff 10 + owner 20 + active webstore 30 + posts about reissue drops 15.
+Rank 2. Static Bloom Records, D. Chen (buyer) - 80
+  Evidence: independent 20 + 6 staff 10 + buyer 15 + webstore 30 + quiet socials 5.
+Rank 3. Corner Crate Records, T. Alvarez (buyer) - 75
+  Evidence: independent 20 + 7 staff 5 + buyer 15 + webstore 30 + quiet socials 5.
+Rank 4. Second Spin Records, K. Bell (owner) - 70
+  Evidence: independent 20 + 2 staff 15 + owner 20 + marketplace listing only 15 + no socials 0.
+Rank 5. Lowlight Records, P. Nguyen (buyer) - 65
+  Evidence: independent 20 + 5 staff 10 + buyer 15 + marketplace listing only 15 + quiet socials 5.
+Rank 6. Pressed & Found, S. Okafor (owner) - 60
+  Evidence: independent 20 + 9 staff 5 + owner 20 + no online sales 0 + active socials 15.
+Rank 7. Dust Jacket Records, no role named - 25
+  Evidence: independent 20 + 3 staff 15 + no role named -10 + no online sales 0 + no socials 0. Skipped.
 Rank 8. Vinyl Warehouse chain location - 0
   Evidence: deal breaker, franchise location. Skipped.
 
-Reach out now: 1-3. Nurture later: 4-6. Skip: 7-8.
+Reach out now: 1-3 (95, 80, 75). Nurture later: 4-6 (70, 65, 60). Skip: 7-8 (25, 0).
 ```
