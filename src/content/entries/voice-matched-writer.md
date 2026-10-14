@@ -172,6 +172,8 @@ pounds, casual, for TikTok."
 Output:
 
 ```
+Brief: a casual 30 second TikTok script about the garage shelf
+project, key point: it holds 800 pounds.
 Hook: "I built this shelf to hold 800 pounds. My tools finally
 have a home." [in your short-sentence style]
 Body: 40 words in your cadence, closing with your usual one-line
