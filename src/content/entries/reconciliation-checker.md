@@ -179,10 +179,16 @@ Summary: 38 matched, 2 only in invoices, 0 only in payments,
 1 amount difference ($85.00 underpaid). Total differences: $385.00.
 
 Mismatch table:
-- INV-2026-0311, only in invoices: billed $200.00, no payment recorded
-- INV-2026-0304, only in invoices: billed $100.00, no payment recorded
-- INV-2026-0298, amount differs: invoiced $450.00, recorded $365.00,
-  difference $85.00 underpaid
+
+| Match key       | Issue type     | Invoices (A) | Payments (B)     | Difference |
+|-----------------|----------------|--------------|------------------|------------|
+| INV-2026-0298   | Amount differs | $450.00      | $365.00          | $85.00     |
+| INV-2026-0311   | Only in A      | $200.00      | no payment found | $200.00    |
+| INV-2026-0304   | Only in A      | $100.00      | no payment found | $100.00    |
+
+Cleanup note: dates were standardized to one format, amounts were
+converted to plain numbers, and stray whitespace was trimmed on both
+sides. The payments spreadsheet needed the most cleanup.
 
 Next step: INV-2026-0311 and INV-2026-0304 have no payment at all;
 check whether they were ever sent or simply never paid.
