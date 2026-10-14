@@ -150,19 +150,32 @@ Output:
 
 ```
 CLUSTER TABLE
-1. RSS feed rejected by Apple Podcasts: 34 tickets (17%)
-   Quotes: "keeps saying my feed is invalid", "apple rejected again"
-   Root cause: docs. Fix: rewrite feed validation article with
-   real error screenshots.
-2. Upload stalls at 90%: 21 tickets (11%)
-   Quotes: "gets stuck right at the end", "90 percent and nothing"
-   Root cause: product. Fix: add resume for interrupted uploads.
+| Problem                          | Tickets | Share | Sample quotes                                              | Root cause |
+|----------------------------------|---------|-------|------------------------------------------------------------|------------|
+| RSS feed rejected by Apple       | 34      | 17%   | "keeps saying my feed is invalid", "apple rejected again"  | docs       |
+| Upload stalls at 90%             | 21      | 10.5% | "gets stuck right at the end", "90 percent and nothing"    | product    |
+| Import from old host fails       | 18      | 9%    | "old episodes didn't come over", "import just spins"       | product    |
+| Download counts differ by app    | 15      | 7.5%  | "numbers don't match spotify", "apple shows fewer"         | messaging  |
+| Cover art rejected               | 12      | 6%    | "artwork keeps getting rejected", "says wrong size"        | docs       |
+
+Fixes: rewrite feed validation article with real error screenshots;
+add resume for interrupted uploads; add a guided import with a
+redirect checklist; explain how each app counts downloads on the
+stats page; state exact cover art specs with a failing example.
 
 HELP-DOC PLAN
-- Rewrite: RSS validation guide (borrow "rejected by apple" phrasing)
-- New: "Upload stalls at 90 percent" troubleshooting page
+Rewrite:
+- RSS validation guide. Borrow: "rejected by apple", "keeps saying my feed is invalid"
+- Cover art requirements. Borrow: "artwork keeps getting rejected", "says wrong size"
+New:
+- "Upload stalls at 90 percent" troubleshooting page. Borrow: "gets stuck right at the end", "90 percent and nothing"
+- "Moving your show from another host". Borrow: "old episodes didn't come over", "import just spins"
+- "Why your download numbers differ by app". Borrow: "numbers don't match spotify", "apple shows fewer"
 
-MARKETING ANGLES (drafts)
-- "Feeds that pass Apple validation the first time."
-- "Uploads that finish, even on hotel wifi."
+MARKETING ANGLES (drafts for human review)
+- [Draft, cluster 1] "Feeds that pass Apple validation the first time."
+- [Draft, cluster 2] "No more '90 percent and nothing.'"
+- [Draft, cluster 3] "Move your show and bring every old episode with it."
+- [Draft, cluster 4] "Download numbers that explain why Spotify and Apple differ."
+- [Draft, cluster 5] "Cover art checked for size before Apple sees it."
 ```
