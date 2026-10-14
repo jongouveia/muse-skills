@@ -175,7 +175,7 @@ payments, matched on invoice number.
 Output:
 
 ```
-Summary: 38 matched, 2 only in invoices, 0 only in payments,
+Summary: 37 matched, 2 only in invoices, 0 only in payments,
 1 amount difference ($85.00 underpaid). Total differences: $385.00.
 
 Mismatch table:
@@ -192,4 +192,3 @@ sides. The payments spreadsheet needed the most cleanup.
 
 Next step: INV-2026-0311 and INV-2026-0304 have no payment at all;
 check whether they were ever sent or simply never paid.
-```
