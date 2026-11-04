@@ -1,0 +1,10 @@
+title: Buy smarter
+description: Check price history, stack coupons, compare the real total, and track return and warranty dates.
+entries:
+  - price-history-checker
+  - price-drop-watcher
+  - coupon-stacker
+  - out-the-door-cost-comparator
+  - return-window-tracker
+  - warranty-tracker
+date_added: 2026-11-04
