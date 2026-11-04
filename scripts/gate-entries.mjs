@@ -78,6 +78,11 @@ function parseFrontmatter(text, file) {
       const nonBlank = block.filter((entry) => entry.trim());
       const indent = nonBlank.length ? Math.min(...nonBlank.map((entry) => entry.match(/^\s*/)[0].length)) : 0;
       data[key] = `${block.map((entry) => entry === '' ? '' : entry.slice(indent)).join('\n')}\n`;
+    } else if (rawValue.trim() === '' && i + 1 < end && /^\s+-\s/.test(lines[i + 1])) {
+      // YAML block list: "key:" followed by indented "- item" lines.
+      const items = [];
+      while (i + 1 < end && /^\s+-\s/.test(lines[i + 1])) items.push(parseScalar(lines[++i].replace(/^\s+-\s/, '')));
+      data[key] = items;
     } else data[key] = parseScalar(rawValue);
   }
   return { data, body: lines.slice(end + 1).join('\n') };

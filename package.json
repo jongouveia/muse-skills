@@ -9,6 +9,7 @@
     "dev": "astro dev",
     "build": "node scripts/gate-entries.mjs --quarantine && astro build && cp dist/sitemap-index.xml dist/sitemap.xml",
     "gate": "node scripts/gate-entries.mjs",
+    "test": "node --test scripts/*.test.mjs",
     "gate:fix": "node scripts/gate-entries.mjs --fix-dashes",
     "preview": "astro preview",
     "astro": "astro"
