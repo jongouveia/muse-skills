@@ -87,5 +87,4 @@
 ## Footer
 
 - Columns: Browse (Skills, then each category) · Project (Starter packs, Guides, About, Submit a skill, GitHub)
-- Newsletter label: Get new skills by email each week · button: Subscribe (renders only when `PUBLIC_BUTTONDOWN_USERNAME` is set)
 - Note: Independent community directory. Not affiliated with Meta.

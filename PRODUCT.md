@@ -40,7 +40,7 @@ The site is independent and community run. It is not affiliated with Meta. Every
 - Routes: `/`, `/entry/[slug]`, `/category/[slug]`, `/packs`, `/packs/[slug]`, `/guides`, `/guides/[slug]`, `/submit`, `/about`.
 - Client-side search only. No accounts, ratings, or install counts in v0.1 (v0.3 candidates).
 - Muse skill conventions the install prompts target: skills live at `~/workspace/skills/<slug>/SKILL.md` with name and description frontmatter and Purpose, Workflow, Output Contract, Operating Rules sections. Taken from the build brief; not yet verified against Muse's own docs.
-- Newsletter: Buttondown embed form in the footer, hidden until `PUBLIC_BUTTONDOWN_USERNAME` is set; `npm run digest` writes the weekly issue body.
+- Newsletter: dropped 2026-11-04 (Jon). `npm run digest` still lists the week's new entries, for social posts.
 - Undecided: custom domain (Vercel URL for now), analytics (v0.2, Plausible planned).
 
 ## Brand Commitments
