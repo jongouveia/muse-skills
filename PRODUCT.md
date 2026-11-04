@@ -37,10 +37,11 @@ The site is independent and community run. It is not affiliated with Meta. Every
 
 - Entry types: `skill`, `prompt`, `workflow`, `config`. Categories: Deal hunting, Chief of staff & productivity, Money & finance, Shopping, Creative, Dev & automation.
 - Entry fields: title, tagline, category, type, author, source_url, includes, install_prompt, source, safety_notes, version, date_added.
-- Routes: `/`, `/entry/[slug]`, `/category/[slug]`, `/submit`, `/about`.
+- Routes: `/`, `/entry/[slug]`, `/category/[slug]`, `/packs`, `/packs/[slug]`, `/guides`, `/guides/[slug]`, `/submit`, `/about`.
 - Client-side search only. No accounts, ratings, or install counts in v0.1 (v0.3 candidates).
 - Muse skill conventions the install prompts target: skills live at `~/workspace/skills/<slug>/SKILL.md` with name and description frontmatter and Purpose, Workflow, Output Contract, Operating Rules sections. Taken from the build brief; not yet verified against Muse's own docs.
-- Undecided: custom domain (Vercel URL for now), newsletter provider (v0.2), analytics (v0.2, Plausible planned).
+- Newsletter: Buttondown embed form in the footer, hidden until `PUBLIC_BUTTONDOWN_USERNAME` is set; `npm run digest` writes the weekly issue body.
+- Undecided: custom domain (Vercel URL for now), analytics (v0.2, Plausible planned).
 
 ## Brand Commitments
 

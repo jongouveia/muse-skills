@@ -46,8 +46,8 @@ You might already have a skill with the same name. In that case, Muse can offer 
 
 We saw this in our own test. A `deal-hunter` skill already existed, so Muse saved the new copy as `deal-hunter-scan`.
 
-- To keep both skills, accept the new name. Your existing skill stays as it was.
-- To swap in the new version, choose to replace the old one. Do this only when you mean it, because the old skill's file is overwritten.
+- To keep both skills, accept the new name.
+- Muse can also offer to replace the existing skill. Choose that only when you no longer want the old version.
 
 After a rename, use the new name when you talk to Muse about that skill.
 

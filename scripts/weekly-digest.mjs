@@ -35,6 +35,6 @@ if (picks.length === 0) {
   console.error(`No entries added between ${start.toISOString().slice(0, 10)} and ${today}.`);
   process.exit(1);
 }
-console.log(`# ${picks.length} new Muse skills this week\n`);
+console.log(`# ${picks.length} new Muse ${picks.length === 1 ? 'skill' : 'skills'} this week\n`);
 for (const e of picks) console.log(`**[${e.title}](https://museskills.dev/entry/${e.slug}/)**  \n${e.tagline}\n`);
 console.log('Browse every skill at [museskills.dev](https://museskills.dev/).');

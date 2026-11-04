@@ -3,7 +3,7 @@
 ## Directory chrome
 
 - Site name: Muse Skills
-- Nav: Skills · About · Submit a skill
+- Nav: Skills · Starter packs · Guides · About · Submit a skill
 - Search placeholder: Search skills
 - Filter panel: Clear filters · "{n} of {m} skills" · group labels "category" and "type"
 - Empty state: No skills match your filters.
@@ -74,7 +74,18 @@
 - Curation: We sweep X, Threads, Reddit, and GitHub each week for shared Muse skills, and we take submissions. New skills land in a weekly batch. Entries marked "Written for this directory" came from its editors or from Muse itself; each one says so on its page.
 - Independence: Muse Skills is an independent community directory. It isn't affiliated with Meta. Muse and Muse AI are Meta's names.
 
+## Starter packs
+
+- Index h1: Starter packs
+- Pack page: Copy all {n} install prompts · Skills in this pack · Before you install (same three lines as the entry page)
+
+## Guides
+
+- Index h1: Guides
+- Guide copy lives in `src/content/guides/*.md` and passes desk.py and slopscan `--genre docs`.
+
 ## Footer
 
-- Columns: Browse (Skills, then each category) · Project (About, Submit a skill, GitHub)
+- Columns: Browse (Skills, then each category) · Project (Starter packs, Guides, About, Submit a skill, GitHub)
+- Newsletter label: Get new skills by email each week · button: Subscribe (renders only when `PUBLIC_BUTTONDOWN_USERNAME` is set)
 - Note: Independent community directory. Not affiliated with Meta.
