@@ -1,7 +1,7 @@
 ---
 title: "Fix a Muse skill that doesn't trigger"
 description: "What to check when Muse ignores a skill you installed: confirm it saved, check its name, use an exact trigger phrase, name it, or reinstall it."
-kind: "howto"
+kind: "article"
 date_added: 2026-11-04
 updated: 2026-11-04
 ---

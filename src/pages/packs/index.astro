@@ -1,14 +1,12 @@
 ---
 import Base from '../../layouts/Base.astro';
-import CopyButton from '../../components/CopyButton.astro';
 import Badge from '../../components/ui/Badge.astro';
 import Breadcrumb from '../../components/ui/Breadcrumb.astro';
 import Button from '../../components/ui/Button.astro';
 import { getPacks } from '../../lib/packs';
 
 const packs = await getPacks();
-const lead = 'Each pack installs four to six related skills with one paste.';
-const description = `Starter packs for Muse AI: ${packs.map(({ pack }) => pack.data.title).join(', ')}. ${lead}`;
+const description = `Starter packs for Muse AI: ${packs.map(({ pack }) => pack.data.title).join(', ')}. Install a set of related Muse skills with one paste.`;
 const site = Astro.site ?? Astro.url;
 const collectionJsonLd = {
   '@context': 'https://schema.org',
@@ -33,13 +31,12 @@ const collectionJsonLd = {
       <Breadcrumb items={[{ label: 'Skills', href: '/' }, { label: 'Starter packs' }]} />
       <header>
         <h1 class="text-3xl font-semibold tracking-tight">Starter packs</h1>
-        <p class="mt-3 max-w-[65ch] text-lg text-muted-foreground">{lead}</p>
       </header>
     </div>
 
     <section aria-label="Starter packs">
       <ul class="divide-y">
-        {packs.map(({ pack, entries, installPrompt }) => (
+        {packs.map(({ pack, entries }) => (
           <li>
             <article class="flex min-w-0 flex-col gap-4 py-5 sm:flex-row sm:items-center sm:justify-between">
               <div class="min-w-0 space-y-2">
@@ -55,7 +52,6 @@ const collectionJsonLd = {
               </div>
               <div class="flex shrink-0 flex-wrap gap-2 sm:justify-end">
                 <Button href={`/packs/${pack.id}/`} variant="outline" size="sm">View</Button>
-                <CopyButton text={installPrompt} label="Copy install prompt" size="sm" />
               </div>
             </article>
           </li>
