@@ -1,0 +1,49 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Breadcrumb from '../../components/ui/Breadcrumb.astro';
+
+// Install first, then the model, then troubleshooting: the order a new Muse user needs them.
+const ORDER = ['install-a-muse-skill', 'how-muse-skills-work', 'fix-a-muse-skill-that-does-not-trigger'];
+const rank = (id: string) => (ORDER.includes(id) ? ORDER.indexOf(id) : ORDER.length);
+const guides = (await getCollection('guides')).sort((a, b) =>
+  rank(a.id) - rank(b.id) || b.data.date_added.getTime() - a.data.date_added.getTime(),
+);
+
+const site = Astro.site ?? Astro.url;
+const canonical = new URL(Astro.url.pathname, site);
+const listJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'Muse skill guides',
+  url: canonical.href,
+  isPartOf: { '@type': 'WebSite', url: new URL('/', site).href },
+  mainEntity: {
+    '@type': 'ItemList',
+    itemListElement: guides.map((guide, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: guide.data.title,
+      url: new URL(`/guides/${guide.id}/`, site).href,
+    })),
+  },
+};
+---
+<Base title="Muse skill guides: install, use, and fix skills | Muse Skills" description="How to install a Muse skill, how skills and trigger phrases work, and what to check when a skill doesn't trigger.">
+  <script type="application/ld+json" set:html={JSON.stringify(listJsonLd)} />
+
+  <div class="mx-auto w-full max-w-4xl space-y-8 px-4 py-8 md:py-10">
+    <Breadcrumb items={[{ label: 'Skills', href: '/' }, { label: 'Guides' }]} />
+
+    <div class="max-w-2xl">
+      <h1 class="text-3xl font-semibold tracking-tight">Guides</h1>
+      <ul class="mt-6 divide-y border-y">
+        {guides.map((guide) => (
+          <li>
+            <a class="block py-4 font-medium transition-colors hover:text-link hover:underline" href={`/guides/${guide.id}/`}>{guide.data.title}</a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</Base>
