@@ -1,7 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
 import { CATEGORIES } from '../lib/categories';
-import NewsletterForm from './NewsletterForm.astro';
 
 const entries = await getCollection('entries');
 const categories = Object.entries(CATEGORIES).filter(([slug]) => entries.some((entry) => entry.data.category === slug));
@@ -22,7 +21,6 @@ const categories = Object.entries(CATEGORIES).filter(([slug]) => entries.some((e
       <a class="hover:text-foreground" href="https://github.com/jongouveia/muse-skills" rel="noopener">GitHub</a>
     </div>
     <div class="space-y-4">
-      <NewsletterForm />
       <p>Independent community directory. Not affiliated with Meta.</p>
       <p>Questions or corrections: <a class="text-foreground underline" href="https://github.com/jongouveia/muse-skills/issues" rel="noopener">open an issue on GitHub</a>.</p>
     </div>
