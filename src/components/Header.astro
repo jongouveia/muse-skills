@@ -11,6 +11,8 @@ const isHomepage = path === '/';
 const query = Astro.url.searchParams.get('q') ?? '';
 const links = [
   { href: '/', label: 'Skills', current: path === '/' || path.startsWith('/category/') || path.startsWith('/entry/') },
+  { href: '/packs/', label: 'Packs', current: path.startsWith('/packs') },
+  { href: '/guides/', label: 'Guides', current: path.startsWith('/guides') },
   { href: '/about/', label: 'About', current: path.startsWith('/about') },
 ];
 const entries = await getCollection('entries');
