@@ -22,4 +22,16 @@ const entries = defineCollection({
   }),
 });
 
-export const collections = { entries };
+const guides = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/guides' }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string().max(160),
+    // howto: the first ordered list in the body is a real procedure and becomes HowTo JSON-LD.
+    kind: z.enum(['howto', 'article']).default('article'),
+    date_added: z.coerce.date(),
+    updated: z.coerce.date(),
+  }),
+});
+
+export const collections = { entries, guides };

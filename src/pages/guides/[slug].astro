@@ -1,0 +1,129 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Breadcrumb from '../../components/ui/Breadcrumb.astro';
+
+export async function getStaticPaths() {
+  const guides = await getCollection('guides');
+  return guides.map((guide) => ({ params: { slug: guide.id }, props: { guide } }));
+}
+
+const { guide } = Astro.props;
+const { data } = guide;
+const { Content } = await render(guide);
+
+const site = Astro.site ?? Astro.url;
+const canonical = new URL(Astro.url.pathname, site);
+const isoDate = (date: Date) => date.toISOString().slice(0, 10);
+
+// Plain text from one line of markdown: links keep their label, emphasis and code marks go.
+const plain = (text: string) => text
+  .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+  .replace(/[*`]/g, '')
+  .trim();
+
+// HowTo steps come from the first ordered list in the body, so the JSON-LD and the page never drift apart.
+function howToSteps(body: string) {
+  const lines = body.split('\n');
+  const start = lines.findIndex((line) => /^1\.\s/.test(line));
+  if (start === -1) return [];
+  const steps = [];
+  for (const line of lines.slice(start)) {
+    const match = line.match(/^\d+\.\s+(.*)$/);
+    if (!match) break;
+    const bold = match[1].match(/^\*\*(.+?)\*\*\s*(.*)$/);
+    const name = bold ? plain(bold[1]).replace(/\.$/, '') : plain(match[1]).split(/(?<=\.)\s/)[0].replace(/\.$/, '');
+    steps.push({ '@type': 'HowToStep', position: steps.length + 1, name, text: plain(bold ? bold[2] : match[1]) });
+  }
+  return steps;
+}
+
+const steps = data.kind === 'howto' ? howToSteps(guide.body ?? '') : [];
+const common = {
+  '@context': 'https://schema.org',
+  name: data.title,
+  description: data.description,
+  url: canonical.href,
+  inLanguage: 'en',
+  datePublished: isoDate(data.date_added),
+  dateModified: isoDate(data.updated),
+  publisher: { '@type': 'Organization', name: 'Muse Skills', url: new URL('/', site).href },
+  isPartOf: { '@type': 'WebSite', url: new URL('/', site).href },
+};
+const jsonLd = steps.length > 0
+  ? { ...common, '@type': 'HowTo', step: steps }
+  : { ...common, '@type': 'Article', headline: data.title, author: { '@type': 'Organization', name: 'Muse Skills editors' }, mainEntityOfPage: canonical.href };
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Skills', item: new URL('/', site).href },
+    { '@type': 'ListItem', position: 2, name: 'Guides', item: new URL('/guides/', site).href },
+    { '@type': 'ListItem', position: 3, name: data.title, item: canonical.href },
+  ],
+};
+---
+<Base title={`${data.title} | Muse Skills`} description={data.description} ogType="article">
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbJsonLd)} />
+
+  <div class="mx-auto w-full max-w-4xl space-y-8 px-4 py-8 md:py-10">
+    <Breadcrumb items={[
+      { label: 'Skills', href: '/' },
+      { label: 'Guides', href: '/guides/' },
+      { label: data.title },
+    ]} />
+
+    <article class="max-w-2xl">
+      <h1 class="text-3xl font-semibold tracking-tight">{data.title}</h1>
+      <div class="guide-prose"><Content /></div>
+    </article>
+  </div>
+</Base>
+
+<style>
+  /* Long-form reading styles for guide markdown. Tokens only, so both themes follow the .dark swap. */
+  .guide-prose { color: var(--muted-foreground); }
+  .guide-prose :global(> :first-child) { margin-top: 1.5rem; }
+  .guide-prose :global(> p:first-child) { font-size: 1.125rem; line-height: 1.75rem; }
+  .guide-prose :global(:where(p, ul, ol, pre)) { margin-top: 1rem; }
+  .guide-prose :global(h2) {
+    margin-top: 2.5rem;
+    color: var(--foreground);
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.75rem;
+  }
+  .guide-prose :global(h2 + :where(p, ul, ol, pre)) { margin-top: 0.75rem; }
+  .guide-prose :global(:where(ul, ol)) { padding-left: 1.25rem; }
+  .guide-prose :global(ul) { list-style: disc; }
+  .guide-prose :global(ol) { list-style: decimal; }
+  .guide-prose :global(li) { padding-left: 0.25rem; }
+  .guide-prose :global(li + li) { margin-top: 0.5rem; }
+  .guide-prose :global(li::marker) { color: var(--muted-foreground); }
+  .guide-prose :global(strong) { color: var(--foreground); font-weight: 500; }
+  .guide-prose :global(a) { color: var(--link); text-decoration: underline; }
+  /* Inline code stays in Geist Sans (mono lives only inside bordered blocks); a muted chip marks the literal. */
+  .guide-prose :global(:not(pre) > code) {
+    border-radius: calc(var(--radius) - 4px);
+    background: var(--muted);
+    padding: 0.0625rem 0.3rem;
+    color: var(--foreground);
+    font-family: inherit;
+    font-size: 0.9375em;
+    overflow-wrap: anywhere;
+  }
+  .guide-prose :global(pre) {
+    max-width: 100%;
+    overflow-x: auto;
+    border: 1px solid var(--border);
+    border-radius: calc(var(--radius) - 2px);
+    background: var(--muted);
+    padding: 1rem;
+    color: var(--foreground);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    line-height: 1.625;
+  }
+  .guide-prose :global(pre code) { white-space: pre; }
+</style>
