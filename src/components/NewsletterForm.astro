@@ -1,0 +1,22 @@
+---
+import Button from './ui/Button.astro';
+import Input from './ui/Input.astro';
+
+// Set PUBLIC_BUTTONDOWN_USERNAME in the Vercel project env. Unset: the form does not render.
+const username = import.meta.env.PUBLIC_BUTTONDOWN_USERNAME as string | undefined;
+---
+{username && (
+  <form
+    class="grid gap-2"
+    action={`https://buttondown.com/api/emails/embed-subscribe/${encodeURIComponent(username)}`}
+    method="post"
+  >
+    <h2 class="mb-1 text-xs font-medium uppercase tracking-wide text-foreground">New skills each week</h2>
+    <label class="sr-only" for="newsletter-email">Email</label>
+    <div class="flex gap-2">
+      <Input id="newsletter-email" name="email" type="email" required autocomplete="email" placeholder="you@example.com" />
+      <input type="hidden" name="embed" value="1" />
+      <Button type="submit" size="default">Subscribe</Button>
+    </div>
+  </form>
+)}
