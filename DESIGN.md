@@ -328,6 +328,7 @@ Quiet and compact; the primary is a solid ink block, everything else is paper.
 - **Category nav:** the header's second row. Links are `text-sm`, `text-muted-foreground` with `hover:text-foreground`. The current category is `font-medium text-foreground` with a 2px `mark` underline drawn as an inset box shadow. It gets `aria-current="page"` on its category page and `aria-current="true"` on an entry page in that category. This is the only active bar in the header, because the row marks place, which is the orange mark's role. On load, a script scrolls the current category into view when the row overflows.
 - **Breadcrumb:** `flex flex-wrap items-center gap-1.5 text-sm text-muted-foreground`; links `hover:text-foreground`; the current item is `text-foreground`, truncated at 256px (`max-w-64 truncate`); separators are Lucide `ChevronRight` 16px.
 - **Footer:** 1px top border, three columns of 14px `muted-foreground` links with `hover:text-foreground`, column headings in 12px medium uppercase `tracking-wide` `foreground`. The third column carries the affiliation line and an underlined `foreground` link.
+- **Favicon:** a white stroked "M" on a `#bf4b00` (light-theme `mark`) square with 7/32 corners. `public/favicon.svg` is the source; `favicon.ico` (16, 32, 48) and the full-bleed 180px `apple-touch-icon.png` are rendered from it with `rsvg-convert`.
 - **Skip link:** `fixed left-2 top-2 z-[100]` primary block, translated off-screen until focused.
 
 ### Theme toggle
