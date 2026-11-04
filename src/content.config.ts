@@ -1,4 +1,4 @@
-import { defineCollection, z } from 'astro:content';
+import { defineCollection, reference, z } from 'astro:content';
 import { glob } from 'astro/loaders';
 import { CATEGORIES, TYPES } from './lib/categories';
 
@@ -22,4 +22,14 @@ const entries = defineCollection({
   }),
 });
 
-export const collections = { entries };
+const packs = defineCollection({
+  loader: glob({ pattern: '**/*.yaml', base: './src/content/packs' }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string().max(120),
+    entries: z.array(reference('entries')).min(4).max(6),
+    date_added: z.coerce.date(),
+  }),
+});
+
+export const collections = { entries, packs };
