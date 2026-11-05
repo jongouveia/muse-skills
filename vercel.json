@@ -7,7 +7,12 @@
   ],
   "redirects": [
     {
-      "source": "/entry/grocery-price-book/:rest*",
+      "source": "/entry/grocery-price-book",
+      "destination": "/entry/price-history-checker/",
+      "permanent": true
+    },
+    {
+      "source": "/entry/grocery-price-book/",
       "destination": "/entry/price-history-checker/",
       "permanent": true
     },
