@@ -1,6 +1,6 @@
 ---
 title: "Ad Spend Auditor"
-tagline: "Audits an ad spend export, flags where money is burning, and suggests creative refresh angles."
+tagline: "Audits an ad spend export, flags wasted spend, and suggests creative refresh angles."
 category: "marketing"
 type: "skill"
 author: "Muse Skills editors"

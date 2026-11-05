@@ -1,6 +1,6 @@
 ---
 title: "Report Watchdog"
-tagline: "Watches incoming reports against rules you set and flags anomalies while the day is still live."
+tagline: "Checks incoming reports against rules you set and flags anomalies while the day is live."
 category: "productivity"
 type: "skill"
 author: "Muse Skills editors"

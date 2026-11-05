@@ -1,6 +1,6 @@
 ---
 title: "Social Bio Polisher"
-tagline: "Turns your raw bio facts into polished, platform-ready bios for LinkedIn, X, Instagram, and your about page."
+tagline: "Turns your bio facts into platform-ready bios for LinkedIn, X, Instagram, and your site."
 category: "creative"
 type: "skill"
 author: "Muse Skills editors"

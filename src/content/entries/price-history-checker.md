@@ -1,19 +1,20 @@
 ---
 title: "Price History Checker"
-tagline: "'Is this a good price?' answered from history, not the strikethrough."
+tagline: "'Is this a good price?' answered from price history and your receipts, not the tag."
 category: "shopping"
 type: "skill"
 author: "Muse Skills editors"
 source_url: "https://github.com/jongouveia/muse-skills/blob/main/src/content/entries/price-history-checker.md"
-source_verified: true
+source_verified: false
 origin: "directory"
-includes: ["instructions", "workflow", "verdict-format"]
-version: "1.0.0"
+includes: ["instructions", "workflow", "verdict-format", "price-log"]
+version: "1.1.0"
 date_added: 2026-09-10
 safety_notes: |
-  Reads public product and price-history pages only. Writes the
-  verdict to you and nothing else. Never buys anything or signs
-  you up for trackers.
+  Reads public product and price-history pages only.
+  Saves receipt prices to one local file, ~/workspace/price-log.md.
+  Never shares the log or your receipts with anyone.
+  Never buys anything or signs you up for trackers.
 install_prompt: |
   Install the "Price History Checker" skill. Its full source is
   below. Create it at
@@ -25,17 +26,20 @@ install_prompt: |
   --- SOURCE ---
   ---
   name: price-history-checker
-  description: Answer "is this a good price?" from price history, not the strikethrough, historical low, average, and whether to buy now or wait. Trigger phrases: "is this a good price", "should I buy this now", "check the price history".
+  description: Answer "is this a good price?" from price history and the user's own receipts, not the strikethrough: historical low, average, and whether to buy now or wait. Trigger phrases: "is this a good price", "should I buy this now", "check the price history", "log this receipt", "what do I usually pay for this".
   ---
   # Purpose
 
   Strikethrough prices lie. This skill checks what an item has
   actually sold for over time and gives a buy-now-or-wait
-  verdict grounded in that history.
+  verdict grounded in that history. It also keeps a price log
+  from the user's receipts. The log shows what the user
+  actually paid for staples, such as groceries.
 
   # Workflow
 
   1. Ask the user for the product link or exact model name.
+     If the user shares a receipt, go to step 6.
   2. Find price history: camelcamelcamel-style trackers for
      Amazon items, manufacturer price pages, and recent sold
      listings for marketplace items.
@@ -49,12 +53,26 @@ install_prompt: |
      - Above average with a known sale window within 60 days:
        "wait"
   5. Report in the Output Contract shape.
+  6. Log the receipt in ~/workspace/price-log.md. For each
+     item, write the item name, store, date, size, and price
+     paid. Create the file if it does not exist.
+  7. Calculate one unit price for each item. Use per pound for
+     weight, per fluid ounce for liquid, or per count. Use the
+     same unit for all entries of one item.
+  8. For a multi-buy deal ("2 for $5") or a discount on a
+     separate receipt line, record the price paid for one unit.
+  9. When the user asks about a logged item, use the log as
+     the price history. Compare the current unit price to the
+     lowest price paid and the usual range. Then apply the
+     rules in step 4.
 
   # Output Contract
 
   - Verdict: buy, fair, or wait, one word, then one line why
   - Price history: current, 90-day average, historical low
     (with date), sale pattern if any
+  - Log update: the items added, the unit price of each item,
+    and each new lowest price
   - Caveats: thin history, refurbished vs. new mismatch, or
     regional pricing differences
 
@@ -64,22 +82,33 @@ install_prompt: |
     the merchant's "was" price. Say the source.
   - "Wait" needs a reason: a dated sale window or a pattern,
     not vibes.
-  - Thin history gets a caveat, not a confident verdict.
-  - Read only. Never buy, never sign up for price trackers.
+  - Thin history gets a caveat, not a confident verdict. A
+    logged item with fewer than 3 entries has thin history.
+  - Receipt prices come only from receipts the user shares.
+    Never invent a price or a past purchase.
+  - If the size is missing, ask for it. Do not compare unit
+    prices without a size.
+  - Keep the log in ~/workspace/price-log.md only. Never send
+    the log or a receipt to anyone.
+  - Read only on the web. Never buy, never sign up for price
+    trackers.
 source: |
   ---
   name: price-history-checker
-  description: Answer "is this a good price?" from price history, not the strikethrough, historical low, average, and whether to buy now or wait. Trigger phrases: "is this a good price", "should I buy this now", "check the price history".
+  description: Answer "is this a good price?" from price history and the user's own receipts, not the strikethrough: historical low, average, and whether to buy now or wait. Trigger phrases: "is this a good price", "should I buy this now", "check the price history", "log this receipt", "what do I usually pay for this".
   ---
   # Purpose
 
   Strikethrough prices lie. This skill checks what an item has
   actually sold for over time and gives a buy-now-or-wait
-  verdict grounded in that history.
+  verdict grounded in that history. It also keeps a price log
+  from the user's receipts. The log shows what the user
+  actually paid for staples, such as groceries.
 
   # Workflow
 
   1. Ask the user for the product link or exact model name.
+     If the user shares a receipt, go to step 6.
   2. Find price history: camelcamelcamel-style trackers for
      Amazon items, manufacturer price pages, and recent sold
      listings for marketplace items.
@@ -93,12 +122,26 @@ source: |
      - Above average with a known sale window within 60 days:
        "wait"
   5. Report in the Output Contract shape.
+  6. Log the receipt in ~/workspace/price-log.md. For each
+     item, write the item name, store, date, size, and price
+     paid. Create the file if it does not exist.
+  7. Calculate one unit price for each item. Use per pound for
+     weight, per fluid ounce for liquid, or per count. Use the
+     same unit for all entries of one item.
+  8. For a multi-buy deal ("2 for $5") or a discount on a
+     separate receipt line, record the price paid for one unit.
+  9. When the user asks about a logged item, use the log as
+     the price history. Compare the current unit price to the
+     lowest price paid and the usual range. Then apply the
+     rules in step 4.
 
   # Output Contract
 
   - Verdict: buy, fair, or wait, one word, then one line why
   - Price history: current, 90-day average, historical low
     (with date), sale pattern if any
+  - Log update: the items added, the unit price of each item,
+    and each new lowest price
   - Caveats: thin history, refurbished vs. new mismatch, or
     regional pricing differences
 
@@ -108,8 +151,16 @@ source: |
     the merchant's "was" price. Say the source.
   - "Wait" needs a reason: a dated sale window or a pattern,
     not vibes.
-  - Thin history gets a caveat, not a confident verdict.
-  - Read only. Never buy, never sign up for price trackers.
+  - Thin history gets a caveat, not a confident verdict. A
+    logged item with fewer than 3 entries has thin history.
+  - Receipt prices come only from receipts the user shares.
+    Never invent a price or a past purchase.
+  - If the size is missing, ask for it. Do not compare unit
+    prices without a size.
+  - Keep the log in ~/workspace/price-log.md only. Never send
+    the log or a receipt to anyone.
+  - Read only on the web. Never buy, never sign up for price
+    trackers.
 ---
 
 Price History Checker answers "is this a good price?" from what the
@@ -117,11 +168,16 @@ item actually sold for, current price, 90-day average, historical
 low: and gives a buy, fair, or wait verdict. A "wait" always comes
 with a reason: a dated sale window, not vibes.
 
+It also keeps a price log from your own receipts. Share a receipt and
+it records the unit price of each item. Ask about a staple later and it
+compares the shelf price to what you actually paid.
+
 ## What it includes
 
 - Price-history lookup from trackers and sold listings
 - Current vs. average vs. historical low
 - Buy / fair / wait verdict with the reason
+- Price log from your receipts, in unit prices
 - Caveats for thin history
 
 ## Example

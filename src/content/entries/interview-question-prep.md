@@ -1,6 +1,6 @@
 ---
 title: "Interview Question Prep"
-tagline: "Turns a job posting and your notes into likely interview questions, draft answers, and smart questions to ask back."
+tagline: "Turns a job posting and your notes into likely interview questions and draft answers."
 category: "productivity"
 type: "skill"
 author: "Muse Skills editors"

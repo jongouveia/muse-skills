@@ -1,6 +1,6 @@
 ---
 title: "Packing List Builder"
-tagline: "Turns trip details, weather, and activities into a checked packing list grouped by bag, so nothing important stays home."
+tagline: "Turns trip details, weather, and activities into a packing list grouped by bag."
 category: "productivity"
 type: "skill"
 author: "Muse Skills editors"

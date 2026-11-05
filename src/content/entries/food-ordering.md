@@ -1,6 +1,6 @@
 ---
 title: "Food Ordering"
-tagline: "Order coffee or food from chat: full review with fees and total, and your approval before anything is submitted."
+tagline: "Orders coffee or food from chat, with fees and total for your approval before it submits."
 category: "shopping"
 type: "prompt"
 author: "Muse Skills editors"

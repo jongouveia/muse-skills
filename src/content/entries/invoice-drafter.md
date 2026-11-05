@@ -1,6 +1,6 @@
 ---
 title: "Invoice Drafter"
-tagline: "Turns completed work and timesheet lines into a draft invoice plus a client-ready summary; a human always sends it."
+tagline: "Turns completed work and timesheet lines into a draft invoice; a human always sends it."
 category: "money"
 type: "skill"
 author: "Muse Skills editors"

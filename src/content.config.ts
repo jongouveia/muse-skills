@@ -6,7 +6,7 @@ const entries = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/entries' }),
   schema: z.object({
     title: z.string(),
-    tagline: z.string().max(120),
+    tagline: z.string().max(90),
     category: z.enum(Object.keys(CATEGORIES) as [keyof typeof CATEGORIES, ...(keyof typeof CATEGORIES)[]]),
     type: z.enum(TYPES),
     author: z.string(),

@@ -1,6 +1,6 @@
 ---
 title: "Out-the-Door Cost Comparator"
-tagline: "Compares the true all-in cost of the same item across stores: price plus tax, shipping, and fees."
+tagline: "Compares the all-in cost of one item across stores: price plus tax, shipping, and fees."
 category: "shopping"
 type: "skill"
 author: "Muse Skills editors"

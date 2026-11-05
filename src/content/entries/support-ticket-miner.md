@@ -1,6 +1,6 @@
 ---
 title: "Support Ticket Miner"
-tagline: "Scans support tickets, clusters repeat issues, and suggests help-doc updates and marketing angles."
+tagline: "Groups repeat issues in support tickets and suggests help-doc updates and content angles."
 category: "productivity"
 type: "skill"
 author: "Muse Skills editors"

@@ -7,6 +7,11 @@
   ],
   "redirects": [
     {
+      "source": "/entry/grocery-price-book/:rest*",
+      "destination": "/entry/price-history-checker/",
+      "permanent": true
+    },
+    {
       "source": "/(.*)",
       "destination": "https://museskills.dev/$1",
       "permanent": true,

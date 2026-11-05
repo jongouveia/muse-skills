@@ -1,6 +1,6 @@
 ---
 title: "Review Responder"
-tagline: "Turns customer reviews, good and bad, into on-brand public replies that defuse complaints and make promoters feel seen."
+tagline: "Turns customer reviews, good and bad, into on-brand public replies that answer each point."
 category: "marketing"
 type: "skill"
 author: "Muse Skills editors"

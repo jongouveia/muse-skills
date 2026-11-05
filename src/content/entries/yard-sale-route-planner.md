@@ -1,6 +1,6 @@
 ---
 title: "Yard Sale Route Planner"
-tagline: "Turns yard sale and garage sale listings into one morning route, ordered by opening time and location."
+tagline: "Turns yard sale listings into one morning route, ordered by opening time and location."
 category: "deal-hunting"
 type: "skill"
 author: "Muse Skills editors"
