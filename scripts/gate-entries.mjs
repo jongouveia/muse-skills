@@ -88,6 +88,15 @@ function parseFrontmatter(text, file) {
   return { data, body: lines.slice(end + 1).join('\n') };
 }
 
+function taglineMax() {
+  const source = fs.readFileSync(path.join(root, 'src/content.config.ts'), 'utf8');
+  const match = source.match(/tagline:\s*z\.string\(\)\.max\((\d+)\)/);
+  if (!match) throw new Error('Could not locate the tagline max in src/content.config.ts');
+  return Number(match[1]);
+}
+
+const TAGLINE_MAX = taglineMax();
+
 function categoryKeys() {
   const source = fs.readFileSync(path.join(root, 'src/lib/categories.ts'), 'utf8');
   const object = source.match(/export const CATEGORIES\s*=\s*\{([\s\S]*?)\}\s*as const/);
@@ -109,7 +118,7 @@ function checkFile(file, categories) {
   const nonEmptyString = (key) => typeof data[key] === 'string' && data[key].trim().length > 0;
   if (!nonEmptyString('title')) failures.push('title must be a non-empty string');
   if (!nonEmptyString('tagline')) failures.push('tagline must be a non-empty string');
-  else if (data.tagline.length > 90) failures.push('tagline must be at most 90 characters');
+  else if (data.tagline.length > TAGLINE_MAX) failures.push(`tagline must be at most ${TAGLINE_MAX} characters`);
   if (!categories.has(data.category)) failures.push('category must be a defined category key');
   if (!['skill', 'prompt', 'workflow', 'config'].includes(data.type)) failures.push('type must be skill, prompt, workflow, or config');
   if (!nonEmptyString('author')) failures.push('author must be a non-empty string');

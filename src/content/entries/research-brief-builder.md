@@ -1,6 +1,6 @@
 ---
 title: "Research Brief Builder"
-tagline: "Turns multi-source research into a brief with sources, key findings, and open questions."
+tagline: "Gathers multi-source research into a brief with sources, key findings, and open questions."
 category: "productivity"
 type: "skill"
 author: "Muse Skills editors"
