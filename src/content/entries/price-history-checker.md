@@ -5,7 +5,7 @@ category: "shopping"
 type: "skill"
 author: "Muse Skills editors"
 source_url: "https://github.com/jongouveia/muse-skills/blob/main/src/content/entries/price-history-checker.md"
-source_verified: false
+source_verified: true
 origin: "directory"
 includes: ["instructions", "workflow", "verdict-format", "price-log"]
 version: "1.1.0"
