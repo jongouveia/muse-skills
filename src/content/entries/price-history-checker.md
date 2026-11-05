@@ -1,6 +1,6 @@
 ---
 title: "Price History Checker"
-tagline: "'Is this a good price?' answered from price history and your receipts, not the tag."
+tagline: '"Is this a good price?" answered from price history and your receipts, not the tag.'
 category: "shopping"
 type: "skill"
 author: "Muse Skills editors"
@@ -26,15 +26,15 @@ install_prompt: |
   --- SOURCE ---
   ---
   name: price-history-checker
-  description: Answer "is this a good price?" from price history and the user's own receipts, not the strikethrough: historical low, average, and whether to buy now or wait. Trigger phrases: "is this a good price", "should I buy this now", "check the price history", "log this receipt", "what do I usually pay for this".
+  description: Answer "is this a good price?" from price history and the user's receipts. Give the historical low, the average, and a buy-or-wait verdict. Trigger phrases: "is this a good price", "should I buy this now", "check the price history", "log this receipt", "what do I usually pay for this".
   ---
   # Purpose
 
   Strikethrough prices lie. This skill checks what an item has
   actually sold for over time and gives a buy-now-or-wait
   verdict grounded in that history. It also keeps a price log
-  from the user's receipts. The log shows what the user
-  actually paid for staples, such as groceries.
+  from the user's receipts. The log shows what the user paid
+  for staples, such as groceries.
 
   # Workflow
 
@@ -53,26 +53,43 @@ install_prompt: |
      - Above average with a known sale window within 60 days:
        "wait"
   5. Report in the Output Contract shape.
-  6. Log the receipt in ~/workspace/price-log.md. For each
+  6. Record the receipt in ~/workspace/price-log.md. For each
      item, write the item name, store, date, size, and price
      paid. Create the file if it does not exist.
-  7. Calculate one unit price for each item. Use per pound for
+  7. Use one name for each item and one name for each store.
+     If an item already has a different name in the log, use
+     the name in the log.
+  8. Calculate one unit price for each item: per pound for
      weight, per fluid ounce for liquid, or per count. Use the
      same unit for all entries of one item.
-  8. For a multi-buy deal ("2 for $5") or a discount on a
-     separate receipt line, record the price paid for one unit.
-  9. When the user asks about a logged item, use the log as
-     the price history. Compare the current unit price to the
-     lowest price paid and the usual range. Then apply the
-     rules in step 4.
+  9. For a multi-buy deal, such as "2 for $5" or buy one get
+     one, record the price of one unit.
+  10. For a discount on a separate receipt line, subtract the
+      discount from the price of that item.
+  11. If a unit price is far outside the logged range for the
+      item, ask the user to confirm it before you record it.
+  12. When the user asks about an item, read the log first. If
+      the log has no entry for the item, say so. Then go to
+      step 2.
+  13. If the log has entries for the item, compare the current
+      unit price to the logged unit prices. The usual range is
+      the lowest and highest unit price in the last 5 entries.
+      Give the store with the lowest price.
+  14. Give a verdict from the log:
+      - At or below the lowest logged price: "buy"
+      - Inside the usual range: "fair"
+      - Above the usual range: "wait"
 
   # Output Contract
 
-  - Verdict: buy, fair, or wait, one word, then one line why
+  - Verdict (for a price check only): buy, fair, or wait, one
+    word, then one line why
   - Price history: current, 90-day average, historical low
-    (with date), sale pattern if any
-  - Log update: the items added, the unit price of each item,
-    and each new lowest price
+    (with date), sale pattern if any. For a logged item: the
+    lowest logged price, the usual range, and the store with
+    the lowest price.
+  - Log update (for a receipt only): the items added, the unit
+    price of each item, and each new lowest price
   - Caveats: thin history, refurbished vs. new mismatch, or
     regional pricing differences
 
@@ -95,15 +112,15 @@ install_prompt: |
 source: |
   ---
   name: price-history-checker
-  description: Answer "is this a good price?" from price history and the user's own receipts, not the strikethrough: historical low, average, and whether to buy now or wait. Trigger phrases: "is this a good price", "should I buy this now", "check the price history", "log this receipt", "what do I usually pay for this".
+  description: Answer "is this a good price?" from price history and the user's receipts. Give the historical low, the average, and a buy-or-wait verdict. Trigger phrases: "is this a good price", "should I buy this now", "check the price history", "log this receipt", "what do I usually pay for this".
   ---
   # Purpose
 
   Strikethrough prices lie. This skill checks what an item has
   actually sold for over time and gives a buy-now-or-wait
   verdict grounded in that history. It also keeps a price log
-  from the user's receipts. The log shows what the user
-  actually paid for staples, such as groceries.
+  from the user's receipts. The log shows what the user paid
+  for staples, such as groceries.
 
   # Workflow
 
@@ -122,26 +139,43 @@ source: |
      - Above average with a known sale window within 60 days:
        "wait"
   5. Report in the Output Contract shape.
-  6. Log the receipt in ~/workspace/price-log.md. For each
+  6. Record the receipt in ~/workspace/price-log.md. For each
      item, write the item name, store, date, size, and price
      paid. Create the file if it does not exist.
-  7. Calculate one unit price for each item. Use per pound for
+  7. Use one name for each item and one name for each store.
+     If an item already has a different name in the log, use
+     the name in the log.
+  8. Calculate one unit price for each item: per pound for
      weight, per fluid ounce for liquid, or per count. Use the
      same unit for all entries of one item.
-  8. For a multi-buy deal ("2 for $5") or a discount on a
-     separate receipt line, record the price paid for one unit.
-  9. When the user asks about a logged item, use the log as
-     the price history. Compare the current unit price to the
-     lowest price paid and the usual range. Then apply the
-     rules in step 4.
+  9. For a multi-buy deal, such as "2 for $5" or buy one get
+     one, record the price of one unit.
+  10. For a discount on a separate receipt line, subtract the
+      discount from the price of that item.
+  11. If a unit price is far outside the logged range for the
+      item, ask the user to confirm it before you record it.
+  12. When the user asks about an item, read the log first. If
+      the log has no entry for the item, say so. Then go to
+      step 2.
+  13. If the log has entries for the item, compare the current
+      unit price to the logged unit prices. The usual range is
+      the lowest and highest unit price in the last 5 entries.
+      Give the store with the lowest price.
+  14. Give a verdict from the log:
+      - At or below the lowest logged price: "buy"
+      - Inside the usual range: "fair"
+      - Above the usual range: "wait"
 
   # Output Contract
 
-  - Verdict: buy, fair, or wait, one word, then one line why
+  - Verdict (for a price check only): buy, fair, or wait, one
+    word, then one line why
   - Price history: current, 90-day average, historical low
-    (with date), sale pattern if any
-  - Log update: the items added, the unit price of each item,
-    and each new lowest price
+    (with date), sale pattern if any. For a logged item: the
+    lowest logged price, the usual range, and the store with
+    the lowest price.
+  - Log update (for a receipt only): the items added, the unit
+    price of each item, and each new lowest price
   - Caveats: thin history, refurbished vs. new mismatch, or
     regional pricing differences
 
@@ -170,7 +204,7 @@ with a reason: a dated sale window, not vibes.
 
 It also keeps a price log from your own receipts. Share a receipt and
 it records the unit price of each item. Ask about a staple later and it
-compares the shelf price to what you actually paid.
+compares the shelf price to what you paid.
 
 ## What it includes
 

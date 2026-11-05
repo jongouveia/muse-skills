@@ -1,6 +1,6 @@
 ---
 title: "Marketplace Listing Builder"
-tagline: "Turns item photos into a ready-to-post marketplace listing priced from recent sold prices."
+tagline: "Turns item photos into a ready-to-post marketplace listing priced from recent sales."
 category: "shopping"
 type: "skill"
 author: "Muse Skills editors"
