@@ -1,6 +1,6 @@
 ---
 title: "Chore Rotation Planner"
-tagline: "Turns household chores and who does them into a fair rotation, with swaps handled without a weekly argument."
+tagline: "Turns household chores and who does them into a fair rotation, with swaps built in."
 category: "home"
 type: "skill"
 author: "Muse Skills editors"

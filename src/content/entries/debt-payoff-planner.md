@@ -1,6 +1,6 @@
 ---
 title: "Debt Payoff Planner"
-tagline: "Turns your debts, balances, APRs, and minimums into a payoff order and a monthly plan you can actually follow."
+tagline: "Turns your debts, APRs, and minimums into a payoff order and a monthly plan."
 category: "money"
 type: "skill"
 author: "Muse Skills editors"

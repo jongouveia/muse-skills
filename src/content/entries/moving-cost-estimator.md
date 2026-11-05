@@ -1,6 +1,6 @@
 ---
 title: "Moving Cost Estimator"
-tagline: "Turns your inventory list, distance, and service level into a realistic moving cost estimate before you call anyone."
+tagline: "Turns your inventory, distance, and service level into a moving cost estimate."
 category: "money"
 type: "skill"
 author: "Muse Skills editors"

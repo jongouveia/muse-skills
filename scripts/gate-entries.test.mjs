@@ -46,3 +46,19 @@ test('empty includes still fails', () => {
   const out = runGate(withIncludes('includes:'));
   assert.match(out, /includes must be a non-empty array/, out);
 });
+
+function withTagline(text) {
+  const replaced = base.replace(/^tagline: .*$/m, `tagline: ${JSON.stringify(text)}`);
+  assert.notEqual(replaced, base, 'fixture must contain a tagline line');
+  return replaced;
+}
+
+test('tagline of 90 characters passes', () => {
+  const out = runGate(withTagline('a'.repeat(90)));
+  assert.match(out, /^PASS /m, out);
+});
+
+test('tagline over 90 characters fails', () => {
+  const out = runGate(withTagline('a'.repeat(91)));
+  assert.match(out, /tagline must be at most 90 characters/, out);
+});

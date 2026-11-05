@@ -1,6 +1,6 @@
 ---
 title: "Home Maintenance Calendar"
-tagline: "Builds a year-round home maintenance schedule for your home type and climate: what to do, when, and what to skip."
+tagline: "Builds a year-round maintenance schedule for your home and climate: what to do and when."
 category: "home"
 type: "skill"
 author: "Muse Skills editors"

@@ -1,6 +1,6 @@
 ---
 title: "Freelance Rate Calculator"
-tagline: "Turns target income, expenses, and billable hours into an hourly floor, a day rate, and a project quote."
+tagline: "Turns target income, expenses, and billable hours into an hourly floor and a day rate."
 category: "money"
 type: "skill"
 author: "Muse Skills editors"

@@ -1,6 +1,6 @@
 ---
 title: "Bill Negotiation Script"
-tagline: "A call script for lowering cable, internet, and insurance bills, with answers to their pushback."
+tagline: "A call script to lower cable, internet, and insurance bills, with replies to pushback."
 category: "money"
 type: "prompt"
 author: "Muse Skills editors"

@@ -1,6 +1,6 @@
 ---
 title: "Spec Sheet Translator"
-tagline: "Turns dense product specs into plain buying advice: what matters for you, what is nice to know, and what is fluff."
+tagline: "Turns dense product specs into plain buying advice: what matters and what is fluff."
 category: "shopping"
 type: "skill"
 author: "Muse Skills editors"

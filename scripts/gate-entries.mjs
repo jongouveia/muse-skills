@@ -109,7 +109,7 @@ function checkFile(file, categories) {
   const nonEmptyString = (key) => typeof data[key] === 'string' && data[key].trim().length > 0;
   if (!nonEmptyString('title')) failures.push('title must be a non-empty string');
   if (!nonEmptyString('tagline')) failures.push('tagline must be a non-empty string');
-  else if (data.tagline.length > 120) failures.push('tagline must be at most 120 characters');
+  else if (data.tagline.length > 90) failures.push('tagline must be at most 90 characters');
   if (!categories.has(data.category)) failures.push('category must be a defined category key');
   if (!['skill', 'prompt', 'workflow', 'config'].includes(data.type)) failures.push('type must be skill, prompt, workflow, or config');
   if (!nonEmptyString('author')) failures.push('author must be a non-empty string');

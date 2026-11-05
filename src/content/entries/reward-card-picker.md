@@ -1,6 +1,6 @@
 ---
 title: "Reward Card Picker"
-tagline: "Picks the best card in your wallet for a purchase, based on rewards rates and active offers."
+tagline: "Picks the best card in your wallet for a purchase, from rewards rates and active offers."
 category: "money"
 type: "skill"
 author: "Muse Skills editors"

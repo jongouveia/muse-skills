@@ -1,6 +1,6 @@
 ---
 title: "Open Box Hunter"
-tagline: "Hunts open-box, refurbished, and clearance deals on the exact product you name, and ranks them by real savings over new."
+tagline: "Finds open-box, refurbished, and clearance deals on one product, ranked by savings."
 category: "deal-hunting"
 type: "skill"
 author: "Muse Skills editors"

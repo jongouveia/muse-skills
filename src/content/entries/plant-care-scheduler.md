@@ -1,6 +1,6 @@
 ---
 title: "Plant Care Scheduler"
-tagline: "Builds a watering and feeding schedule for your houseplants and keeps it honest through the seasons."
+tagline: "Builds a watering and feeding schedule for your houseplants and adjusts it by season."
 category: "home"
 type: "skill"
 author: "Muse Skills editors"

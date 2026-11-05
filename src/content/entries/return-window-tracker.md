@@ -1,6 +1,6 @@
 ---
 title: "Return Window Tracker"
-tagline: "Logs your purchases, computes each store's return deadline, and warns you before the window closes."
+tagline: "Logs your purchases, computes each return deadline, and warns you before it passes."
 category: "shopping"
 type: "skill"
 author: "Muse Skills editors"

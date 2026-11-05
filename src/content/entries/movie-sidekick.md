@@ -1,6 +1,6 @@
 ---
 title: "Movie Sidekick"
-tagline: "A watch-along companion that answers questions about the film you are watching without spoiling what is ahead."
+tagline: "Answers questions about the film you are watching without spoiling what comes next."
 category: "creative"
 type: "skill"
 author: "Muse Skills editors"

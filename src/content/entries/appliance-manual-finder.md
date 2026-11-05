@@ -1,6 +1,6 @@
 ---
 title: "Appliance Manual Finder"
-tagline: "Turns a brand and model number into the manual facts that matter: settings, cleaning tasks, and error codes."
+tagline: "Turns a brand and model number into key manual facts: settings, care, and error codes."
 category: "home"
 type: "skill"
 author: "Muse Skills editors"

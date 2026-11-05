@@ -1,6 +1,6 @@
 ---
 title: "Wedding Vow Drafter"
-tagline: "Turns a couple's real story, promises, and tone into short vow drafts each partner can say out loud."
+tagline: "Turns a couple's story, promises, and tone into short vows each partner can say aloud."
 category: "creative"
 type: "skill"
 author: "Muse Skills editors"

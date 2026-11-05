@@ -1,6 +1,6 @@
 ---
 title: "Deep Work Scheduler"
-tagline: "Turns your weekly priorities into protected calendar focus blocks that survive meeting creep."
+tagline: "Turns weekly priorities into protected calendar focus blocks that survive meeting creep."
 category: "productivity"
 type: "skill"
 author: "Muse Skills editors"
