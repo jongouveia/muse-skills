@@ -39,20 +39,34 @@ export function buildPayload(key, urls) {
   return { host: HOST, key, keyLocation: `https://${HOST}/${key}.txt`, urlList: list };
 }
 
+const USAGE = 'Usage: node scripts/indexnow.mjs [--dry-run] (--all | <url> ...)';
+const FLAGS = new Set(['--all', '--dry-run']);
+
+async function fetchText(url) {
+  const res = await fetch(url, { signal: AbortSignal.timeout(30_000) });
+  if (!res.ok) throw new Error(`GET ${url} returned ${res.status}`);
+  return res.text();
+}
+
 async function sitemapUrls() {
-  const index = await (await fetch(`https://${HOST}/sitemap.xml`)).text();
   const urls = [];
-  for (const child of parseLocs(index)) {
-    if (child.endsWith('.xml')) urls.push(...parseLocs(await (await fetch(child)).text()));
+  for (const child of parseLocs(await fetchText(`https://${HOST}/sitemap.xml`))) {
+    if (child.endsWith('.xml')) urls.push(...parseLocs(await fetchText(child)));
     else urls.push(child);
   }
   return urls;
 }
 
 async function main(argv) {
-  const dry = argv.includes('--dry-run');
-  const args = argv.filter((a) => !a.startsWith('--'));
-  const urls = argv.includes('--all') ? await sitemapUrls() : args;
+  const flags = argv.filter((a) => a.startsWith('-'));
+  const args = argv.filter((a) => !a.startsWith('-'));
+  const all = flags.includes('--all');
+  if (flags.some((f) => !FLAGS.has(f)) || all === args.length > 0) {
+    console.error(USAGE);
+    process.exit(2);
+  }
+  const dry = flags.includes('--dry-run');
+  const urls = all ? await sitemapUrls() : args;
   const payload = buildPayload(findKey(), urls);
   if (dry) {
     console.log(JSON.stringify(payload, null, 2));
@@ -62,6 +76,7 @@ async function main(argv) {
     method: 'POST',
     headers: { 'Content-Type': 'application/json; charset=utf-8' },
     body: JSON.stringify(payload),
+    signal: AbortSignal.timeout(30_000),
   });
   // 200 = accepted, 202 = accepted and key validation pending.
   if (res.status !== 200 && res.status !== 202) {
