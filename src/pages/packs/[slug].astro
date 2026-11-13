@@ -1,4 +1,5 @@
 ---
+import { jsonLdHtml } from '../../lib/json-ld';
 import { ShieldAlert } from 'lucide-astro';
 import Base from '../../layouts/Base.astro';
 import CopyButton from '../../components/CopyButton.astro';
@@ -50,8 +51,8 @@ const warnings = [
 ];
 ---
 <Base title={title} description={`${data.description} Install all ${entries.length} skills in Muse AI with one paste.`}>
-  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
-  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbJsonLd)} />
+  <script type="application/ld+json" set:html={jsonLdHtml(jsonLd)} />
+  <script type="application/ld+json" set:html={jsonLdHtml(breadcrumbJsonLd)} />
 
   <div class="mx-auto w-full max-w-4xl space-y-8 px-4 py-8 md:py-10">
     <Breadcrumb items={[
