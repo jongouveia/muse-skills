@@ -74,6 +74,8 @@ the background. The `source` for a space entry is the spec, in Strict register:
 - The body states what the user sees in the Space, what keeps it current, and one paired
   skill from the directory when one fits.
 - `source_verified: true` only after the build prompt produced the Space in Muse.
+- The spec replaces the 60 to 200 line source rule: 20 to 80 lines is right for a Space. The body
+  keeps `## What it includes` and `## Example`; the example shows the Space after a first use.
 
 ## Source (SKILL.md) conventions
 

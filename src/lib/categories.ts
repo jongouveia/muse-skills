@@ -51,6 +51,48 @@ export const TYPE_NAMES: Record<EntryType, string> = {
   space: 'Space',
 };
 
+export function isSpace(entry: Entry): boolean {
+  return entry.data.type === 'space';
+}
+
+// Wording for the prompt a visitor copies: skills install, Spaces build.
+export const PROMPT_COPY = {
+  install: {
+    verb: 'install',
+    button: 'Copy install prompt',
+    heading: 'Install',
+    promptLabel: 'Install prompt',
+    sourceLabel: 'SKILL.md',
+    how: 'Copy this block and paste it into your Muse chat. Muse does the install and confirms when it\'s done.',
+    trust: 'This is the exact text Muse installs. Read it. That\'s the whole trust model.',
+    tested: 'The install prompt ran cleanly in a Muse session.',
+    warnings: [
+      'A shared skill carries somebody else\'s instructions. Read the source before you install it.',
+      'Never paste an API key, password, or token into anything a skill asks for. Legitimate skills use Muse\'s own secure flows.',
+      'Installing copies the setup into your own environment. It gives the author nothing.',
+    ],
+  },
+  build: {
+    verb: 'build',
+    button: 'Copy build prompt',
+    heading: 'Build',
+    promptLabel: 'Build prompt',
+    sourceLabel: 'Space spec',
+    how: 'Copy this block and paste it into your Muse chat. Muse builds the Space and adds it to your sidebar.',
+    trust: 'This is the exact spec Muse builds from. Read it. That\'s the whole trust model.',
+    tested: 'The build prompt built this Space in a Muse session.',
+    warnings: [
+      'A Space spec carries somebody else\'s instructions. Read the spec before you build it.',
+      'Connect only the apps the spec names. Never paste an API key, password, or token into chat.',
+      'Building copies the setup into your own Muse. It gives the author nothing.',
+    ],
+  },
+} as const;
+
+export function promptCopy(entry: Entry) {
+  return isSpace(entry) ? PROMPT_COPY.build : PROMPT_COPY.install;
+}
+
 export function typeName(type: EntryType | string): string {
   return TYPE_NAMES[type as EntryType] ?? type;
 }

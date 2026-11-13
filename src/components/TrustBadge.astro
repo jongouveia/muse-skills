@@ -3,14 +3,15 @@ import { BadgeCheck } from 'lucide-astro';
 
 interface Props {
   verified: boolean;
+  title?: string;
 }
 
-const { verified } = Astro.props;
+const { verified, title = 'The install prompt ran cleanly in a Muse session.' } = Astro.props;
 ---
 {verified && (
   <span
     class="inline-flex items-center gap-1 rounded-md border border-tested-border bg-tested-bg px-2 py-0.5 text-xs font-medium whitespace-nowrap text-tested"
-    title="The install prompt ran cleanly in a Muse session."
+    title={title}
   >
     <BadgeCheck size={14} strokeWidth={1.75} aria-hidden="true" />
     Tested in Muse

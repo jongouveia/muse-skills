@@ -40,6 +40,22 @@
 - Scope section ("What this one touches"): the entry's own safety_notes, kept apart from the three global lines
 - Related heading: More in {Category name}
 
+## Spaces
+
+Strings live in `PROMPT_COPY.build` in `src/lib/categories.ts`; a Space entry swaps them in for the install strings.
+
+- Page title: Spaces
+- Lead: A Space is a tracker, planner, or board that Muse builds in your sidebar. Pick one, copy the build prompt, and paste it into your Muse chat. Connect the apps it names and the Space keeps itself up to date.
+- Row and entry actions: Copy build prompt
+- Entry labels: Before you build · Build · Build prompt · Space spec
+- Build help: Copy this block and paste it into your Muse chat. Muse builds the Space and adds it to your sidebar.
+- Trust line: This is the exact spec Muse builds from. Read it. That's the whole trust model.
+- Tested badge title: The build prompt built this Space in a Muse session.
+- Before you build lines:
+  1. A Space spec carries somebody else's instructions. Read the spec before you build it.
+  2. Connect only the apps the spec names. Never paste an API key, password, or token into chat.
+  3. Building copies the setup into your own Muse. It gives the author nothing.
+
 ## Category page
 
 - Heading pattern: "{Category name}" with the count: "{n} skills" ("1 skill")
