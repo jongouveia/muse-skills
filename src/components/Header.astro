@@ -16,6 +16,7 @@ const links = [
   { href: '/about/', label: 'About', current: path.startsWith('/about') },
 ];
 const entries = await getCollection('entries');
+if (entries.some((entry) => entry.data.type === 'space')) links.splice(1, 0, { href: '/spaces/', label: 'Spaces', current: path.startsWith('/spaces') });
 const categoryLinks = Object.entries(CATEGORIES).filter(([slug]) => entries.some((entry) => entry.data.category === slug)).map(([slug, name]) => ({
   href: `/category/${slug}/`,
   label: name,

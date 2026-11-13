@@ -27,7 +27,7 @@ const typeRows = TYPES.map((type) => ({
   type,
   name: typeName(type),
   count: entries.filter((entry) => entry.data.type === type).length,
-}));
+})).filter((row) => row.count > 0);
 const description = `${skillCount(total)} for Muse AI in ${name}: ${entries.map((entry) => entry.data.title).join(', ')}. Each shows its full source and installs with one paste.`;
 const site = Astro.site ?? Astro.url;
 const collectionJsonLd = {

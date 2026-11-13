@@ -11,7 +11,7 @@ export const CATEGORIES = {
   home: 'Home',
 } as const;
 
-export const TYPES = ['skill', 'prompt', 'workflow', 'config'] as const;
+export const TYPES = ['skill', 'prompt', 'workflow', 'config', 'space'] as const;
 
 export type Category = keyof typeof CATEGORIES;
 export type EntryType = (typeof TYPES)[number];
@@ -48,6 +48,7 @@ export const TYPE_NAMES: Record<EntryType, string> = {
   prompt: 'prompt pack',
   workflow: 'workflow',
   config: 'config',
+  space: 'Space',
 };
 
 export function typeName(type: EntryType | string): string {

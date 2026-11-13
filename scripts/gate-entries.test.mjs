@@ -62,3 +62,19 @@ test('tagline over 90 characters fails', () => {
   const out = runGate(withTagline('a'.repeat(91)));
   assert.match(out, /tagline must be at most 90 characters/, out);
 });
+
+function withType(type) {
+  const replaced = base.replace(/^type: .*$/m, `type: ${JSON.stringify(type)}`);
+  assert.notEqual(replaced, base.replace(/^type: .*$/m, 'type: "__"'), 'fixture must contain a type line');
+  return replaced;
+}
+
+test('type space passes', () => {
+  const out = runGate(withType('space'));
+  assert.match(out, /^PASS /m, out);
+});
+
+test('unknown type fails', () => {
+  const out = runGate(withType('dashboard'));
+  assert.match(out, /type must be skill, prompt, workflow, config, or space/, out);
+});
