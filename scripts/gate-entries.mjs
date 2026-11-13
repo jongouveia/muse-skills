@@ -120,7 +120,7 @@ function checkFile(file, categories) {
   if (!nonEmptyString('tagline')) failures.push('tagline must be a non-empty string');
   else if (data.tagline.length > TAGLINE_MAX) failures.push(`tagline must be at most ${TAGLINE_MAX} characters`);
   if (!categories.has(data.category)) failures.push('category must be a defined category key');
-  if (!['skill', 'prompt', 'workflow', 'config'].includes(data.type)) failures.push('type must be skill, prompt, workflow, or config');
+  if (!['skill', 'prompt', 'workflow', 'config', 'space'].includes(data.type)) failures.push('type must be skill, prompt, workflow, config, or space');
   if (!nonEmptyString('author')) failures.push('author must be a non-empty string');
   if (typeof data.source_url !== 'string' || !data.source_url.startsWith('https://')) failures.push('source_url must start with https://');
   if (!Array.isArray(data.includes) || data.includes.length === 0) failures.push('includes must be a non-empty array');

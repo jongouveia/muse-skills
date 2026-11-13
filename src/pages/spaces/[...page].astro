@@ -1,0 +1,53 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Breadcrumb from '../../components/ui/Breadcrumb.astro';
+import SkillRow from '../../components/SkillRow.astro';
+import { compareEntries } from '../../lib/categories';
+
+// The page exists only once at least one Space entry ships. With none, no route, no sitemap URL.
+export async function getStaticPaths() {
+  const spaces = (await getCollection('entries')).filter((entry) => entry.data.type === 'space');
+  return spaces.length > 0 ? [{ params: { page: undefined } }] : [];
+}
+
+const spaces = (await getCollection('entries')).filter((entry) => entry.data.type === 'space').sort(compareEntries);
+const site = Astro.site ?? Astro.url;
+const lead = 'A Space is a tracker, planner, or board that Muse builds in your sidebar. Pick one, copy the build prompt, and paste it into your Muse chat. Connect the apps it names and the Space keeps itself up to date.';
+const description = 'Space ideas for Muse AI: trackers, planners, and boards Muse builds in your sidebar. Copy one build prompt and paste it into Muse.';
+const collectionJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'Spaces for Muse AI | Muse Skills',
+  description,
+  mainEntity: {
+    '@type': 'ItemList',
+    itemListElement: spaces.map((entry, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      url: new URL(`/entry/${entry.id}/`, site).href,
+      name: entry.data.title,
+    })),
+  },
+};
+---
+<Base title="Spaces for Muse AI | Muse Skills" description={description}>
+  <script type="application/ld+json" set:html={JSON.stringify(collectionJsonLd)} />
+  <div class="mx-auto w-full max-w-4xl space-y-10 px-4 py-8 md:py-10">
+    <div class="space-y-6">
+      <Breadcrumb items={[{ label: 'Skills', href: '/' }, { label: 'Spaces' }]} />
+      <header>
+        <h1 class="text-3xl font-semibold tracking-tight">Spaces</h1>
+        <p class="mt-3 max-w-[65ch] text-lg text-muted-foreground">{lead}</p>
+      </header>
+    </div>
+
+    <section aria-label="Spaces">
+      <ul class="divide-y">
+        {spaces.map((entry) => (
+          <li><SkillRow entry={entry} /></li>
+        ))}
+      </ul>
+    </section>
+  </div>
+</Base>
