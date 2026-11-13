@@ -1,4 +1,5 @@
 ---
+import { jsonLdHtml } from '../../lib/json-ld';
 import Base from '../../layouts/Base.astro';
 import Badge from '../../components/ui/Badge.astro';
 import Breadcrumb from '../../components/ui/Breadcrumb.astro';
@@ -25,7 +26,7 @@ const collectionJsonLd = {
 };
 ---
 <Base title="Starter packs for Muse AI | Muse Skills" description={description}>
-  <script type="application/ld+json" set:html={JSON.stringify(collectionJsonLd)} />
+  <script type="application/ld+json" set:html={jsonLdHtml(collectionJsonLd)} />
   <div class="mx-auto w-full max-w-4xl space-y-10 px-4 py-8 md:py-10">
     <div class="space-y-6">
       <Breadcrumb items={[{ label: 'Skills', href: '/' }, { label: 'Starter packs' }]} />
