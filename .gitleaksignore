@@ -1,0 +1,2 @@
+# IndexNow key: public by design, served at https://museskills.dev/<key>.txt
+scripts/indexnow.test.mjs:generic-api-key:8
