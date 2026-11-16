@@ -23,7 +23,7 @@ install_prompt: |
   Hold one wedding's guest list, budget, and vendors in one board, so the headcount, the spending, and the booked vendors stay in step from the first plan to the day itself.
   ## Layout
   - Guests list: each guest holds a name, side, RSVP status, invited, yes, or no, and plus-one, with a count of guests attending.
-  - Budget list: each item holds a category, estimated cost, actual cost, and paid status, with totals for estimated, actual, and still owed.
+  - Budget list: each item holds a category, estimated cost, actual cost, and amount paid, with totals for estimated, actual, and still owed (actual minus paid).
   - Vendors list: each vendor holds a name, role, contact, status, contacted, booked, or done, and cost.
   ## Updates
   Add and edit guests, budget items, and vendors by hand. RSVP and vendor statuses move with one tap.
@@ -39,7 +39,7 @@ source: |
   Hold one wedding's guest list, budget, and vendors in one board, so the headcount, the spending, and the booked vendors stay in step from the first plan to the day itself.
   ## Layout
   - Guests list: each guest holds a name, side, RSVP status, invited, yes, or no, and plus-one, with a count of guests attending.
-  - Budget list: each item holds a category, estimated cost, actual cost, and paid status, with totals for estimated, actual, and still owed.
+  - Budget list: each item holds a category, estimated cost, actual cost, and amount paid, with totals for estimated, actual, and still owed (actual minus paid).
   - Vendors list: each vendor holds a name, role, contact, status, contacted, booked, or done, and cost.
   ## Updates
   Add and edit guests, budget items, and vendors by hand. RSVP and vendor statuses move with one tap.
@@ -53,14 +53,14 @@ source: |
 
 A wedding is a year of small decisions spread across a guest list, a budget, and a vendor list that usually live in three different places. This Space puts all three in one board in your sidebar, so the headcount, the spending, and the booked vendors stay in step from the first plan to the day itself, and a question from a vendor or a relative gets an answer from the board instead of a search through old messages.
 
-The guests list holds each person with their side, RSVP status, and plus-one, and counts who is actually attending, so the caterer gets a real number. The budget list holds each item with its estimated and actual cost and paid status, and totals what was planned, what was spent, and what is still owed, so overspending shows up early instead of after the fact. The vendors list holds each vendor with their role, contact, and status, contacted, booked, or done, so nothing is chased twice and nothing is left unbooked.
+The guests list holds each person with their side, RSVP status, and plus-one, and counts who is actually attending, so the caterer gets a real number. The budget list holds each item with its estimated cost, actual cost, and amount paid, so a deposit counts, and totals what was planned, what was spent, and what is still owed, so overspending shows up early instead of after the fact. The vendors list holds each vendor with their role, contact, and status, contacted, booked, or done, so nothing is chased twice and nothing is left unbooked.
 
 It pairs well with a monthly check in the year before the wedding, then weekly in the last month, when RSVPs land and final payments come due.
 
 ## What it includes
 
 - Guests list with name, side, RSVP status, and plus-one, plus a count of guests attending
-- Budget list with category, estimated cost, actual cost, and paid status, plus totals for estimated, actual, and still owed
+- Budget list with category, estimated cost, actual cost, and amount paid, plus totals for estimated, actual, and still owed
 - Vendors list with name, role, contact, status, and cost
 
 ## Example

@@ -32,7 +32,7 @@ install_prompt: |
   ## Rules
   - Never buys a gift or places an order.
   - Never shares the list or any person's details outside the Space.
-  - Shows budget totals from the prices entered, and flags a person whose gifts pass their budget.
+  - Shows budget totals from the prices entered, and flags a person when the actual prices of their gifts total more than their gift budgets.
 source: |
   # Holiday Gift Tracker
   ## Purpose
@@ -48,7 +48,7 @@ source: |
   ## Rules
   - Never buys a gift or places an order.
   - Never shares the list or any person's details outside the Space.
-  - Shows budget totals from the prices entered, and flags a person whose gifts pass their budget.
+  - Shows budget totals from the prices entered, and flags a person when the actual prices of their gifts total more than their gift budgets.
 ---
 
 Holiday shopping spreads across notes, receipts, and memory, and by mid December nobody is sure who is covered, what was spent, or which boxes still need wrapping. This Space keeps the whole season in one view in your sidebar: a gift list grouped by person, a budget bar that totals what you have spent against what you planned, and counts of what is left to buy and wrap.

@@ -53,7 +53,7 @@ source: |
 
 A solo practice runs on three lists that usually live in three places: who might hire you, what you are working on, and who still owes you money. This Space puts all three in one board in your sidebar, so a Monday morning check shows the pipeline, the deadlines, and the unpaid invoices at once, and nothing slips because it lived in a different app.
 
-The clients list tracks each prospect and client with a pipeline stage, lead, active, or past, plus a contact so the next follow up is one tap away. The projects list holds each job with its client, status, due date, and fee, and totals the fees on active projects, so the month's booked work is a number, not a guess. The invoices list holds each invoice with its amount, due date, and paid status, and totals what is still owed, so chasing payment starts from a clear list instead of a memory.
+The clients list tracks each prospect and client with a pipeline stage, lead, active, or past, plus a contact so the next follow up is one tap away. The projects list holds each job with its client, status, due date, and fee, and totals the fees on active projects, so active booked work is a number, not a guess. The invoices list holds each invoice with its amount, due date, and paid status, and totals what is still owed, so chasing payment starts from a clear list instead of a memory.
 
 It pairs well with a Friday wrap up: move stages, close finished projects, and mark paid invoices, and the board is ready for Monday.
 
