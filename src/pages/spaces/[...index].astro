@@ -14,12 +14,12 @@ export async function getStaticPaths() {
 
 const { spaces } = Astro.props;
 const site = Astro.site ?? Astro.url;
-const lead = 'A Space is a tracker, planner, or board that Muse builds in your sidebar. Pick one, copy the build prompt, and paste it into your Muse chat. Connect the apps it names and the Space keeps itself up to date.';
-const description = 'Space ideas for Muse AI: trackers, planners, and boards Muse builds in your sidebar. Copy one build prompt and paste it into Muse.';
+const lead = 'A Space is a tracker, planner, or board that Muse builds in your sidebar from a prompt you paste. Pick one, copy its build prompt, and paste it into your Muse chat. Each Space works from what you type in. If a spec offers an optional app connection, it says so, and Muse asks before it connects.';
+const description = 'Copy a build prompt, paste it into Muse AI, and get a wedding planner, trip board, recipe collection, or money dashboard in your sidebar.';
 const collectionJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'CollectionPage',
-  name: 'Spaces for Muse AI | Muse Skills',
+  name: 'Muse AI Spaces to copy',
   description,
   mainEntity: {
     '@type': 'ItemList',
@@ -32,13 +32,13 @@ const collectionJsonLd = {
   },
 };
 ---
-<Base title="Spaces for Muse AI | Muse Skills" description={description}>
+<Base title="Muse AI Spaces: Copy-Paste Build Prompts | Muse Skills" description={description}>
   <script type="application/ld+json" set:html={jsonLdHtml(collectionJsonLd)} />
   <div class="mx-auto w-full max-w-4xl space-y-10 px-4 py-8 md:py-10">
     <div class="space-y-6">
       <Breadcrumb items={[{ label: 'Skills', href: '/' }, { label: 'Spaces' }]} />
       <header>
-        <h1 class="text-3xl font-semibold tracking-tight">Spaces</h1>
+        <h1 class="text-3xl font-semibold tracking-tight">Muse AI Spaces to copy</h1>
         <p class="mt-3 max-w-[65ch] text-lg text-muted-foreground">{lead}</p>
       </header>
     </div>

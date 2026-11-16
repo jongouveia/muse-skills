@@ -44,8 +44,10 @@
 
 Strings live in `PROMPT_COPY.build` in `src/lib/categories.ts`; a Space entry swaps them in for the install strings.
 
-- Page title: Spaces
-- Lead: A Space is a tracker, planner, or board that Muse builds in your sidebar. Pick one, copy the build prompt, and paste it into your Muse chat. Connect the apps it names and the Space keeps itself up to date.
+- Page title: Muse AI Spaces: Copy-Paste Build Prompts | Muse Skills
+- H1: Muse AI Spaces to copy
+- Meta description: Copy a build prompt, paste it into Muse AI, and get a wedding planner, trip board, recipe collection, or money dashboard in your sidebar.
+- Lead: A Space is a tracker, planner, or board that Muse builds in your sidebar from a prompt you paste. Pick one, copy its build prompt, and paste it into your Muse chat. Each Space works from what you type in. If a spec offers an optional app connection, it says so, and Muse asks before it connects.
 - Row and entry actions: Copy build prompt
 - Entry labels: Before you build · Build · Build prompt · Space spec
 - Build help: Copy this block and paste it into your Muse chat. Muse builds the Space and adds it to your sidebar.
