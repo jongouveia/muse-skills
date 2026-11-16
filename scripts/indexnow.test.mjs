@@ -5,7 +5,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { buildPayload, findKey, parseLocs } from './indexnow.mjs';
 
-const KEY = 'e999fd1535d54b22e41c5d7c3d3d2238';
+const KEY = '6a03572bd4746e3cd34f971e1e44d8a9';
 
 test('parseLocs reads every loc from a sitemap', () => {
   const xml = '<urlset><url><loc>https://museskills.dev/</loc></url><url><loc> https://museskills.dev/packs/ </loc></url></urlset>';
