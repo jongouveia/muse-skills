@@ -25,10 +25,10 @@ install_prompt: |
   Keep one trip in a single view: its bookings, its day plan, its packing list, and its running cost, checked daily while traveling so nothing is missed.
   ## Layout
   - Trip header: destination, dates, travelers, and confirmation numbers.
-  - Booking cards for flights, stays, and transport: date, time, cost, confirmation number, and a link to the confirmation.
+  - Booking cards for flights, stays, and transport: date, time, cost, paid or unpaid, confirmation number, and a link to the confirmation.
   - Packing list grouped by person, with a check-off per item.
   - Day-by-day plan: one line per date with the activities planned and any notes.
-  - Cost tally: total spent against the trip budget, from the costs entered.
+  - Cost tally: total paid against the trip budget, plus the total still unpaid, from the costs entered.
   ## Updates
   None. Manual edits only.
   ## Connections
@@ -43,10 +43,10 @@ source: |
   Keep one trip in a single view: its bookings, its day plan, its packing list, and its running cost, checked daily while traveling so nothing is missed.
   ## Layout
   - Trip header: destination, dates, travelers, and confirmation numbers.
-  - Booking cards for flights, stays, and transport: date, time, cost, confirmation number, and a link to the confirmation.
+  - Booking cards for flights, stays, and transport: date, time, cost, paid or unpaid, confirmation number, and a link to the confirmation.
   - Packing list grouped by person, with a check-off per item.
   - Day-by-day plan: one line per date with the activities planned and any notes.
-  - Cost tally: total spent against the trip budget, from the costs entered.
+  - Cost tally: total paid against the trip budget, plus the total still unpaid, from the costs entered.
   ## Updates
   None. Manual edits only.
   ## Connections
@@ -59,17 +59,17 @@ source: |
 
 A trip scatters across confirmation emails, a notes app, and a packing list on the kitchen counter, and by departure morning nobody is sure which booking is paid, what time the flight leaves, or whether the chargers are packed. This Space puts one trip in a single view in your sidebar: the bookings, the day plan, the packing list, and the running cost, all in the same place.
 
-You start with the trip header: destination, dates, travelers, and the confirmation numbers that matter at check-in. Each booking gets its own card with date, time, cost, and a link back to the confirmation. The packing list groups items by person with a check-off, and the day plan holds one line per date with what is planned and any notes. The cost tally totals what you entered against the trip budget, so the spend stays visible while you are still traveling.
+You start with the trip header: destination, dates, travelers, and the confirmation numbers that matter at check-in. Each booking gets its own card with date, time, cost, paid or unpaid, and a link back to the confirmation. The packing list groups items by person with a check-off, and the day plan holds one line per date with what is planned and any notes. The cost tally totals what is paid against the trip budget and shows what is still unpaid, so the spend stays visible while you are still traveling.
 
 It pairs well with the trip-expense-reimbursement skill: keep the trip here while you travel, then hand the receipts to that skill when you get home.
 
 ## What it includes
 
 - Trip header with destination, dates, travelers, and confirmation numbers
-- Booking cards for flights, stays, and transport with date, time, cost, and link
+- Booking cards for flights, stays, and transport with date, time, cost, paid status, and link
 - Packing list grouped by person with check-off
 - Day-by-day plan with activities and notes per date
-- Cost tally showing total spent against the trip budget
+- Cost tally showing total paid against the trip budget and total still unpaid
 
 ## Example
 
