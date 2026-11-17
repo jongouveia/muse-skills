@@ -16,7 +16,7 @@
     "astro": "astro",
     "indexnow": "node scripts/indexnow.mjs",
     "lint:design": "eslint -c eslint.design.config.mjs --no-inline-config src",
-    "lint:design:prune": "eslint -c eslint.design.config.mjs --no-inline-config src --prune-suppressions"
+    "lint:design:prune": "npm run lint:design -- --prune-suppressions"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.4",
