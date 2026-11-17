@@ -385,3 +385,4 @@ Fixed strings from `docs/COPY.md`; new surfaces reuse them verbatim.
 - **Don't** add uppercase labels, kickers, or eyebrows above headings; the only uppercase text is the two footer column headings.
 - **Don't** let a page scroll horizontally; code blocks scroll inside their own container.
 - **Don't** put more than one h1 on a page, and never render the site name as if it were Muse itself.
+- **Don't** use a raw palette class, a hex colour, or an off-token arbitrary value (`bg-[#…]`, `text-[13px]`). Add a token to `@theme` in `src/styles/global.css` instead. `npm run lint:design` checks this. The `text-[11px]` on `includes` badges predates the lint and is recorded in `eslint-suppressions.json` as the one allowed exception.
