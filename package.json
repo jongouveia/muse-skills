@@ -15,7 +15,7 @@
     "preview": "astro preview",
     "astro": "astro",
     "indexnow": "node scripts/indexnow.mjs",
-    "lint:design": "eslint -c eslint.design.config.mjs --no-inline-config src",
+    "lint:design": "eslint -c eslint.design.config.mjs --no-inline-config --suppressions-location eslint-design-suppressions.json src",
     "lint:design:prune": "npm run lint:design -- --prune-suppressions"
   },
   "dependencies": {
