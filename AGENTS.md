@@ -20,3 +20,7 @@ Consult these guides before working on related tasks:
 - [Adding or managing content](https://docs.astro.build/en/guides/content-collections/)
 - [Adding styles or using Tailwind](https://docs.astro.build/en/guides/styling/)
 - [Supporting multiple languages](https://docs.astro.build/en/guides/internationalization/)
+
+## Design lint
+
+After any UI change, run `npm run lint:design` and fix every finding you added. `npm run build` runs it first and fails on any finding. Colours and sizes come from `@theme` tokens in `src/styles/global.css`: add a token, never a raw palette class, hex value or off-token arbitrary value. After you fix a baseline finding, run `npm run lint:design:prune`. Never re-record the baseline with `--suppress-all`. The lint does not see inline `style=""` colours or class strings in `.ts` files that never reach a class attribute; check those by hand.
