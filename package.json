@@ -14,7 +14,9 @@
     "gate:fix": "node scripts/gate-entries.mjs --fix-dashes",
     "preview": "astro preview",
     "astro": "astro",
-    "indexnow": "node scripts/indexnow.mjs"
+    "indexnow": "node scripts/indexnow.mjs",
+    "lint:design": "eslint -c eslint.design.config.mjs --no-inline-config src",
+    "lint:design:prune": "eslint -c eslint.design.config.mjs --no-inline-config src --prune-suppressions"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.4",
@@ -27,5 +29,11 @@
   },
   "allowScripts": {
     "esbuild": true
+  },
+  "devDependencies": {
+    "@shadcn/lint": "0.2.5",
+    "@typescript-eslint/parser": "^8.72.2",
+    "astro-eslint-parser": "^3.2.0",
+    "eslint": "^9.39.5"
   }
 }

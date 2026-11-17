@@ -1,0 +1,12 @@
+{
+  "src/components/SkillRow.astro": {
+    "shadcn/no-arbitrary-values": {
+      "count": 1
+    }
+  },
+  "src/pages/entry/[slug].astro": {
+    "shadcn/no-arbitrary-values": {
+      "count": 2
+    }
+  }
+}
