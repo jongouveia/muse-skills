@@ -1,47 +1,25 @@
-# Astro Starter Kit: Minimal
+# Muse Skills
 
-```sh
-npm create astro@latest -- --template minimal
-```
+Source for [museskills.dev](https://museskills.dev), a directory of skills, Spaces, prompt packs, and workflows for Muse AI. Each one installs with one paste. The directory is independent and not affiliated with Meta.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Find a skill
 
-## 🚀 Project Structure
+- Browse and search on [museskills.dev](https://museskills.dev).
+- Each entry is one Markdown file in [`src/content/entries/`](src/content/entries/). The file name matches the page address: `deal-hunter.md` is [museskills.dev/entry/deal-hunter/](https://museskills.dev/entry/deal-hunter/).
+- Prompt packs are in [`src/content/packs/`](src/content/packs/). Guides are in [`src/content/guides/`](src/content/guides/).
 
-Inside of your Astro project, you'll see the following folders and files:
+To install a skill, copy the `install_prompt` text from its file, or choose **Copy install prompt** on its page, and paste it into a Muse chat. Read the `source` and `safety_notes` first. Full steps: [How to install a Muse skill](https://museskills.dev/guides/install-a-muse-skill/).
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+## Submit a skill
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+Use the [submit form](https://museskills.dev/submit/). It opens a prefilled issue in this repo. We review every submission before it goes live.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## Build the site
 
-Any static assets, like images, can be placed in the `public/` directory.
+The site is built with [Astro](https://docs.astro.build).
 
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
-
-## Environment
-
-Set `PUBLIC_GSC_VERIFICATION` to render the Google Search Console verification meta tag.
+| Command | What it does |
+|---|---|
+| `npm install` | Install dependencies |
+| `npm run build` | Run the design lint and entry gate, then build to `dist/` |
+| `npm test` | Run the gate tests |
